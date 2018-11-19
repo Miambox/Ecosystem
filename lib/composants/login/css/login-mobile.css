@@ -1,0 +1,84 @@
+@media only screen and (max-width: 768px) {
+
+  .card-login {
+    width: 80%;
+    border: solid 1px;
+    border-color: rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    margin-top: 35%;
+  }
+
+    .card-login > form {
+      display: flex;
+      width: 80%;
+      padding:10%;
+      flex-direction: column;
+      text-align: center;
+      text-align: -moz-center;
+      grid-area: main;
+    }
+
+      .card-login > form > input {
+        width: 80%;
+        height: 25px;
+        margin-right: 10%;
+        margin-left: 10%;
+        margin-bottom: 4%;
+        padding: 2%;
+        border: solid 1Px;
+        border-color: rgba(0,0,0,0.3);
+        border-radius: 5px;
+        font-size: 12px;
+      }
+
+      .card-login > form > input:hover {
+        background-color: #FAFAFA;
+      }
+
+      .card-login > form > span {
+        font-size: x-small;
+        color: rgba(98, 98, 255, 0.7);
+      }
+
+      .card-login > form > div {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 10%;
+      }
+
+        .card-login > form > div > button {
+          width: 70%;
+          border: solid 1px rgba(0,0,0,0.2);
+          border-radius: 5px;
+          padding: 2%;
+          margin-top: 10%;
+          size: 16px;
+          font-weight: 600;
+          margin-left: 15%;
+        }
+
+        .card-login > form > div > .connexion {
+          background: #FAFAFA;
+          color: #333333;
+          font-size: 12px;
+        }
+
+        .card-login > form > div > .connexion:hover {
+          background: rgba(0,0,0,0.5);
+          color: #FFFFFF;
+        }
+
+        .card-login > form > div > .inscrire {
+          background-color: rgba(98, 98, 255);
+          color: white;
+          font-size: 12px;
+        }
+
+        .card-login > form > div > .inscrire:hover {
+          color: rgba(98, 98, 255);
+          background-color: white;
+        }
+}

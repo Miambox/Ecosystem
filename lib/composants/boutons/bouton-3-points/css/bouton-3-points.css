@@ -1,0 +1,52 @@
+.btn-3-points {
+  position: relative;
+  top: 45%;
+  text-align: right;
+  text-align: -moz-right;
+  padding-right: 5%;
+  z-index: 1;
+}
+
+  .btn-3-points > a > div {
+    width: 5px;
+    height: 5px;
+    margin-bottom: 2%;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.6);
+  }
+
+.fenetre-parametres {
+  visibility: hidden;
+  position: relative;
+  width: 75%;
+  top: 6%;
+  left: 80%;
+  background-color: white;
+  z-index: 3;
+  border: solid 1px;
+  border-color: #FAFAFA;
+  box-shadow: 2px 1px 1px 1px rgba(0,0,0,0.3);
+  border-radius: 4px;
+  text-align: left;
+  text-align: -moz-left;
+}
+
+  .fenetre-parametres > a {
+    padding: 4%;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+  }
+
+    .fenetre-parametres > a > div {
+      color: red;
+      text-align: center;
+      text-align: -moz-center;
+      padding: 4%;
+      flex-basis: 75%;
+    }
+
+    .fenetre-parametres > a > img {
+      flex-basis: 15%;
+      padding-left: 5%;
+    }

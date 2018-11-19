@@ -1,0 +1,33 @@
+.container-btn-capteur {
+  width: 150px;
+  height: 150px;
+}
+
+.btn-capteur {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background-color: white;
+  border-color: #FAFAFA;
+  text-align: left;
+  text-align: -moz-left;
+  padding: 0;
+  z-index: 0;
+}
+
+  .banniere {
+    position: relative;
+    top: 20%;
+    background-color: rgba(0,0,0,0.1);
+    height: 25%;
+    width: 100%;
+    text-align: center;
+    text-align: -moz-center;
+    vertical-align: middle;
+  }
+
+  .banniere > div {
+    padding: 5%;
+    font-weight: 600;
+    color: rgba(0,0,0,0.5);
+  }

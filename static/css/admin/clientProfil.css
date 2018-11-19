@@ -1,0 +1,165 @@
+/*DESIGN DES CARDS*/
+.card-container-profil {
+  width: 35%;
+  height: auto;
+  margin: 2%;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 10px;
+  text-align: -moz-center;
+  vertical-align: middle;
+}
+  .card-container-profil > .photo {
+    width: 100px;
+    height: 100px;
+    margin-top: 6%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 6%;
+    border: solid 1px grey;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, .2); /*Style d'ombre 3D*/
+  }
+
+  .card-container-profil > .description {
+    width: 70%;
+    height: 100px;
+    margin-top: 6%;
+    margin-bottom: 6%;
+    overflow-y: auto;
+    box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, .2); /*Style d'ombre 3D*/
+    border: solid 1px grey;
+    background-color: white;
+    border-radius: 5px;
+  }
+    .card-container-profil > .description > .title {
+      margin-top: 2%;
+      font-size: 24px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .card-container-profil > .description > .sub-title {
+        color: #333;
+        font-size: 10px;
+        line-height: 10px;
+        margin-bottom: 5%;
+    }
+
+    .card-container-profil > .description > .text {
+      font-size: 18px;
+      line-height: 20px;
+      color: #333;
+    }
+
+.card-container-object {
+  width: 55%;
+  height: 450px;
+  margin: 2%;
+  /* background-color: rgba(255,171,38, .6) ; Orange */
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 10px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+  .card-container-object > .card-n {
+    width: 200px;
+    height: 200px;
+    border: solid 1px rgba(0,0,0,0.6);
+    border-radius: 5px;
+    box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, .2); /*Style d'ombre 3D*/
+    background-color: white;
+    margin: 1.5%;
+  }
+
+    .card-container-object > .card-n > .banniere {
+      width: 100%;
+      height: 50px;
+      border-top: solid 1px rgba(0,0,0,0.15);
+      border-bottom: solid 1px rgba(0,0,0,0.15);
+      margin-top: 60%;
+      background-color: rgba(0,0,0,0.1);
+    }
+
+  .card-container-object > input {
+    width: 50px;
+    height: 50px;
+    border: solid 1px;
+    border-radius: 50%;
+    background-color: grey;
+    color: white;
+    font-size: 30px;
+  }
+
+/*CONFIGURATION DE LA CARD CLIENT*/
+.client {
+  width: 99%;
+  /* height: 100%; */
+  grid-area: main;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 2%;
+  box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, .2); /*Style d'ombre 3D*/
+  border-radius: 10px;
+  border: solid 1px;
+  border-color: rgba(0,0,0, .1);
+  background-color: white;
+  visibility: visible;
+}
+
+/*CONFIGURATION DE LA CARD LOGEMENT*/
+.logement {
+  width: 99%;
+  height: 100%;
+  grid-area: main;
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  margin-top: 2%;
+  box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, .2); /*Style d'ombre 3D*/
+  border-radius: 10px;
+  border: solid 1px;
+  border-color: rgba(0,0,0, .1);
+  background-color: white;
+  visibility: hidden;
+}
+
+/*CONFIGURATION DE LA CARD PIECE*/
+.piece {
+  width: 99%;
+  height: 100%;
+  grid-area: main;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 2%;
+  box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, .2); /*Style d'ombre 3D*/
+  border-radius: 10px;
+  border: solid 1px;
+  border-color: rgba(0,0,0, .1);
+  background-color: white;
+  visibility: hidden;
+}
+
+/*CONFIGURATION DE LA CARD CAPTEUR*/
+.capteur {
+  width: 99%;
+  height: 100%;
+  grid-area: main;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 2%;
+  box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, .2); /*Style d'ombre 3D*/
+  border-radius: 10px;
+  border: solid 1px;
+  border-color: rgba(0,0,0, .1);
+  background-color: white;
+  visibility: hidden;
+}
