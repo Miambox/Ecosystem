@@ -1,0 +1,470 @@
+/* Résolution d'écran d'ordinateur*/
+@media only screen and (min-width: 1100px) {
+
+    /* Menu pour le responsive design sur mobile*/
+    header > div#logo {
+        display: none;
+    }
+
+    /* Container de la navbar */
+    header {
+      width: 100%;
+      padding: 0;
+      flex-direction: row;
+      text-align: left;
+      line-height: 70px; /*Interligne de 90px*/
+      position: sticky;  /*Container se déplaçant lors du slide*/
+      text-align: center;
+      text-align: -moz-center;
+    }
+
+    /* Navbar */
+    header > nav {
+      width: 99%;
+      display: block;
+      z-index: -1;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 2px 5px 2px 1px rgba(0, 0, 0, .2); /*Style d'ombre 3D*/
+    }
+        /*Liste*/
+        header > nav > ul {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          align-items: center;
+          list-style-type: none;
+          /*Utilisation de Flex*/
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+        }
+          /*Paramètres communs aux contenances des listes*/
+          header nav > ul > li {
+            text-align: center;
+            position: relative;
+          }
+            /*Paramètres personnalisés pour chaque contenance*/
+            header nav > ul > li:first-of-type { flex-basis: 10%; text-align: left; padding-left: 2%;}
+            header nav > ul > li:nth-of-type(2) { flex-basis: 10%; }
+            header nav > ul > li:nth-of-type(3) { flex-basis: 15%; }
+            header nav > ul > li:nth-of-type(4) { flex-basis: 15%; }
+            header nav > ul > li:nth-of-type(5) { flex-basis: 40%; text-align: right;}
+            header nav > ul > li:last-of-type { flex-basis: 5%; text-align: right;}
+
+                /*Logo*/
+                header > nav > ul > li:first-of-type > a > img {
+                  width: 90%;
+                  vertical-align: middle; /*Alignement vertical au milieu*/
+                }
+
+                /*Barre de recherche*/
+                header > nav > ul > li:nth-of-type(5) > div {
+                  display: flex;
+                  flex-direction: row;
+                  flex-wrap: wrap;
+                  justify-content:flex-end;
+                  align-content: center;
+                  grid-area: sub-header;
+                  width: 100%;
+                  text-align: center;
+                  border-radius: 2px;
+                }
+
+                  .searchbar {
+                    display: flex;
+                    flex-direction: row;
+                    align-content: center;
+                    background-color: #FFFFFF;
+                    width: 400px;
+                    height: 40px;
+                    vertical-align: middle;
+                    border: solid 1px;
+                    border-color: rgba(0,0,0,0.2);
+                    border-radius: 4px;
+                  }
+
+                  .searchbar > input {
+                    width: 90%;
+                    border: none;
+                    border-radius: 4px;
+                  }
+
+                    .searchbar > a {
+                      width: 10%;
+                      text-align: right;
+                    }
+
+                    .searchbar > a > img {
+                      vertical-align: top;
+                      padding-top: 5px;
+                      padding-right: 5px;
+                      width: 80%;
+                      border-radius: 4px;
+                    }
+
+                header > nav > ul > li:last-of-type > a > img {
+                  width: 40%;
+                  vertical-align: middle; /*Alignement vertical au milieu*/
+                }
+
+                /*Texte de redirection*/
+                header nav > ul > li > a {
+                  font-size: 14px;
+                  display: block;
+                  text-decoration: none;
+                  color: rgba(0,0,0,.65);
+                  font-weight: 700; /*Pour définir le "gras" du texte*/
+                  transition: 250ms all ease; /*Transition lors du changement de résolution*/
+                }
+
+                /*Texte de redirection lors du passage de la souris*/
+                header > nav > ul > li:hover > a {
+                  color: #FFB870;
+                }
+
+                    /* Icone flèche du dropdown*/
+                    header nav > ul > li > a span.caret {
+                      width: 0;
+                      height: 0;
+                      margin: 0 0 0 .25rem;
+                      display: inline-block;
+                      vertical-align: middle;
+                      transition: 250ms all ease;
+                      content: "";
+                      border-radius: 1px;
+                      border-bottom: 4px solid transparent;
+                      border-top: 4px solid rgba(0,0,0,.65);
+                      border-right: 4px solid transparent;
+                      border-left: 4px solid transparent;
+                    }
+                    /*Icone flèche du dropdown lors du passage de la souris*/
+                    header nav > ul > li:hover > a span.caret {
+                        border-top-color: rgb(140, 193, 193);
+                        transform: rotate(270deg);
+                    }
+
+                    /*Icone du dropdown lors du responsive*/
+                    header nav > ul > li > a span.toggle {
+                        display: none;
+                    }
+
+                    /*Dropdown-contact*/
+                    header > nav > ul > li:nth-of-type(4) > nav {
+                      width: 90%;
+                      position: absolute;
+                      top: 80%;
+                      display: none; /*Nous l'affichons grâce au fichier javascript cf:Navbar.js*/
+                      overflow: hidden;
+                      z-index: 100;
+                      background-color: #FAFAFA;
+                      border: solid 2px;
+                      border-color: rgba(0,0,0,.4);
+                      border-radius: 5px;
+                      box-shadow: 0 2px 8px rgba(0,0,0,.6);
+                    }
+
+                    /*Dropdown-connexion*/
+                    header > nav > ul > li:last-of-type > nav {
+                      width: 160%;
+                      position: absolute;
+                      top: 90%;
+                      display: none; /*Nous l'affichons grâce au fichier javascript cf:Navbar.js*/
+                      overflow: hidden;
+                      z-index: 100;
+                      background-color: #FAFAFA;
+                      border: solid 2px;
+                      border-color: rgba(0,0,0,.4);
+                      border-radius: 5px;
+                      box-shadow: 0 2px 8px rgba(0,0,0,.6);
+                    }
+
+                    /*Liste du dropdown*/
+                    header > nav > ul > li > nav > ul {
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    /*Texte du dropdown*/
+                    header > nav > ul > li > nav > ul > li > a {
+                        font-size: 14px;
+                        text-align: center;
+                        color: rgba(0,0,0,.65);
+                        transition: 300ms all ease;
+                    }
+                        /*Texte lors du passage de la souris*/
+                        header > nav > ul > li > nav > ul > li:hover > a {
+                            color: #FFB890;
+                        }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1100px) {
+  /* Container de la navbar */
+  header {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    height: 60px; /*Interligne de 90px*/
+    position: sticky;  /*Container se déplaçant lors du slide*/
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 2px 5px 2px 1px rgba(0, 0, 0, .2); /*Style d'ombre 3D*/
+    grid-area: header;
+    /* border-radius: 4px; */
+  }
+      /*Container du "logo et de la barre de recherche" sur mobile*/
+      header > div#logo {
+        display: block;
+        width: 100%;
+        position: sticky;
+      }
+          /*Liste du logo, la barre de recherche, icon paramètres*/
+          header > div#logo > ul {
+            padding: 0;
+            margin: 0;
+            height: 100%;  /*On fixe une taille*/
+            list-style-type: none;
+            display: flex;  /*Utilisation de flex*/
+            flex-direction: row;
+          }
+
+            /********************CONFIGURATION MENU (cf: Configuration Menu ci-dessous)****************************************/
+            header > div#logo > ul > li:first-of-type {
+              flex-basis: 20%;
+              text-align: left;
+            }
+              /*Menu*/
+              header > nav {
+                width: 25%;
+                position: absolute;
+                top: 100%;
+                visibility: hidden;
+                display: none;
+                text-align: center;
+                background-color: white;
+                transform: 300ms all ease;
+                border: solid 1px;
+                border-color: rgba(0,0,0,.4);
+                border-top: transparent;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+              }
+                  /*Liste du menu*/
+                  header nav > ul {
+                    margin: 0;
+                    padding: 0;
+                    list-style-type: none;
+                    /*Utilisation de Flex*/
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                  }
+                      /*Contenance de cette liste*/
+                      header nav > ul > li {
+                          border-bottom: 1px dotted rgba(0,0,0,.1);
+                          position: relative;
+                      }
+                          /*Texte des listes*/
+                          header nav > ul > li > a {
+                            display: block;
+                            color: rgba(0,0,0,.65);
+                            font-weight: 700;
+                            text-decoration: none;
+                            transition: 250ms all ease;
+                            font-size: 10px;
+                            padding: 5%;
+                          }
+
+                          /* On affiche pas la barre de recherche, et les paramètres de la résolution desktop*/
+                          header nav > ul > li:nth-of-type(5) { display: none; }
+                          header > nav > ul > li:last-of-type { display: none; }
+
+                            header > nav > ul > li:hover > a {
+                              color: #FFB790;
+                            }
+                                /*Logo Eco'system*/
+                                header nav > ul > li:first-of-type > a > img {
+                                  width: 70%;
+                                }
+                                /*Logo pour l'ouverture du dropdown*/
+                                header nav > ul > li > a span.toggle {
+                                  background-color: rgba(0,0,0,.05);
+                                  border-radius: 3rem;
+                                  color: rgba(0,0,0,.25);
+                                  font-size: 0.75em;
+                                  font-weight: 500;
+                                  padding: 2px 8px;
+                                  text-transform: lowercase;
+                                }
+                                /*Flèche du dropdown pour la résolution d'écran d'ordinateur*/
+                                header nav > ul > li > a span.caret { display: none; }
+
+                          /*Unique Dropdown du menu "CONTACT"*/
+                          header > nav > ul > li > nav {
+                            width: 75%;
+                            display: none; /*On affiche pas (cf: Javascript)*/
+                            overflow: hidden;
+                            position: absolute;
+                            left: 13%;
+                            background-color: #FAFAFA;
+                            border: 1px solid;
+                            border-color: rgba(0,0,0,.4);
+                            border-radius: 5px;
+                            box-shadow: 0 2px 8px rgba(0,0,0,.6);
+                            z-index: 100;
+                          }
+                              /*Dropdown contact liste*/
+                              header > nav > ul > li > nav > ul {
+                                width: 100%;
+                                display: flex;
+                                flex-direction: column;
+                              }
+                                /*Contenance des listes du dropdown contact*/
+                                header > nav > ul > li > nav > ul > li {
+                                  text-align: center;
+                                  vertical-align: middle;
+                                }
+
+                                  /*Texte du dropdown*/
+                                  header > nav > ul > li > nav > ul > li > a {
+                                      color: rgba(0,0,0,.65);
+                                      transition: 300ms all ease;
+                                  }
+
+                                    /*Texte lors du passage de la souris*/
+                                    header > nav > ul > li > nav > ul > li:hover > a {
+                                        color: #FFB890;
+                                    }
+
+            /*********************CONFIGURATION BARRE DE RECHERCHE*****************/
+            header > div#logo > ul > li:nth-of-type(2) {
+              padding-top: 1.5%;
+              flex-basis: 70%;
+              text-align: -moz-right;
+              padding-right: 4px;
+            }
+
+              .searchbar {
+                display: flex;
+                flex-direction: row;
+                text-align: right;
+                background-color: #FFFFFF;
+                width: 60%;
+                height: 30px;
+                vertical-align: middle;
+                border: solid 1px;
+                border-color: rgba(0,0,0,0.2);
+                border-radius: 4px;
+              }
+
+              .searchbar > input {
+                width: 85%;
+                border: none;
+                border-radius: 4px;
+              }
+
+                .searchbar > a {
+                  width: 15%;
+                  padding-top: 2px;
+                  text-align: right;
+                }
+
+                .searchbar > a > img {
+                  padding-top: 3%;
+                  width: 35%;
+                  height: auto;
+                  max-width: auto;
+                }
+
+          /*************************CONFIGURATION PARAMETRES****************/
+          header > div#logo > ul > li:last-of-type {
+            padding-top: 6px;
+            flex-basis: 10%;
+            text-align: -moz-center;
+            text-align: center;
+            padding-right: 4px;
+          }
+
+            header > div#logo > ul > li:last-of-type > a > img {
+              padding-top: 8%;
+              width: 35%;
+            }
+
+            header > div#logo > ul > li:last-of-type > nav {
+              width: 10%;
+              display: none; /*On affiche pas (cf: Javascript)*/
+              overflow: hidden;
+              position: absolute;
+              top: 100%;
+              right: 0%;
+              background-color: #FFFFFF;
+              border: 1px solid;
+              border-top: transparent;
+              border-color: rgba(0,0,0,.4);
+              border-bottom-left-radius: 5px;
+              border-bottom-right-radius: 5px;
+              z-index: 100;
+            }
+
+                /*Dropdown contact liste*/
+                header > div#logo > ul > li:last-of-type > nav > ul {
+                  width: 100%;
+                  display: flex;
+                  flex-direction: column;
+                }
+                  /*Contenance des listes du dropdown contact*/
+                  header > div#logo > ul > li:last-of-type > nav > ul > li {
+                    text-align: center;
+                    vertical-align: middle;
+                    padding: 5%;
+                  }
+
+                    /*Texte du dropdown*/
+                    header > div#logo > ul > li:last-of-type > nav > ul > li > a {
+                        color: rgba(0,0,0,.65);
+                        transition: 300ms all ease;
+                    }
+
+                      /*Texte lors du passage de la souris*/
+                      header > div#logo > ul > li:last-of-type > nav > ul > li:hover > a {
+                          color: #FFB890;
+                      }
+
+          /*Bouton Menu*/
+          header > div#logo > ul > li:first-of-type {
+            width: auto;
+            height: auto;
+            text-align: left;
+            text-align: -moz-left;
+            padding: 1.5%;
+          }
+
+          header > div#logo > ul > li:first-of-type > a  {
+            width: auto;
+            height: auto;
+            transition: 300ms all ease;
+          }
+              /*Menu lorsque l'on passe la souris dessus*/
+              header > div#logo > ul > li:first-of-type > a:hover > .Menu { background-color: rgba(0,0,0,.1); }
+
+              header > div#logo > ul > li:first-of-type > a > .Menu {
+                width: 30px;
+                height: auto;
+              }
+
+                  /*Barre du menu*/
+                  header > div#logo > ul > li:first-of-type > a > .Menu > div {
+                    border-radius: 1px;
+                    width: 100%;
+                    margin-bottom: 9px;
+                    height: 2px;
+                    background-color: #333;
+                    border: solid 1px;
+                    border-color: #333;
+                  }
+
+          /*Classe permettant de différencier le menu ouvert/fermé*/
+          header > .menuDown { box-shadow: 0 3px 5px rgba(0,0,0,.15); }
+          header > .menuUp { box-shadow: none; }
+}

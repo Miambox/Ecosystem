@@ -1,0 +1,106 @@
+/* Résolution d'écran d'ordinateur*/
+@media only screen and (min-width: 768px) {
+
+    /* Menu pour le responsive design sur mobile*/
+    header > div#logo {
+        display: none;
+    }
+    /* Container de la navbar */
+    header {
+      width: 100%;
+      padding: 0;
+      flex-direction: row;
+      line-height: 70px; /*Interligne de 90px*/
+      position: sticky;  /*Container se déplaçant lors du slide*/
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+      /* Navbar */
+      header > nav {
+        width: 100%;
+        display: block;
+        z-index: -1;
+        background-color: white;
+        border-radius: 5px;
+      }
+        /*Liste*/
+        header > nav > ul {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          align-items: center;
+          list-style-type: none;
+          /*Utilisation de Flex*/
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+        }
+            /*Paramètres communs aux contenances des listes*/
+            header nav > ul > li {
+              text-align: center;
+              position: relative;
+            }
+            /*Paramètres personnalisés pour chaque contenance*/
+            header nav > ul > li:first-of-type { flex-basis: 10%; text-align: center; padding-left:2%; margin-right: 2%;}
+            header nav > ul > li:nth-of-type(2) { flex-basis: 10%; }
+            header nav > ul > li:nth-of-type(3) { flex-basis: 20%; margin-right: 41%; }
+            header nav > ul > li:last-of-type { flex-basis: 15%; text-align: center;}
+
+                /*Texte de redirection*/
+                header nav > ul > li > a {
+                  font-size: 14px;
+                  display: block;
+                  text-decoration: none;
+                  color: rgba(0,0,0,.65);
+                  font-weight: 700; /*Pour définir le "gras" du texte*/
+                  transition: 250ms all ease; /*Transition lors du changement de résolution*/
+                }
+
+                /*Texte de redirection lors du passage de la souris*/
+                header > nav > ul > li:hover > a {
+                  color: #FFB870;
+                  box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.2);
+                }
+
+                    /* Logo Eco'System */
+                    header > nav > ul > li:first-of-type > a > img {
+                      width: 90%;
+                      vertical-align: middle; /*Alignement vertical au milieu*/
+                    }
+
+                    /*Dropdown-connexion*/
+                    header > nav > ul > li:last-of-type > nav {
+                      width: 100%;
+                      position: absolute;
+                      top: 100%;
+                      display: none; /*Nous l'affichons grâce au fichier javascript cf:Navbar.js*/
+                      overflow: hidden;
+                      z-index: 100;
+                      background-color: #FFFFFF;
+                      border-top: transparent;
+                      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .2); /*Style d'ombre 3D*/
+                      border-radius: 0px 0px 5px 5px;
+                    }
+
+                      /*Liste du dropdown*/
+                      header > nav > ul > li:last-of-type > nav > ul {
+                          margin: 0;
+                          padding: 0;
+                      }
+
+                        /*Texte du dropdown*/
+                        header > nav > ul > li:last-of-type > nav > ul > li > a {
+                            font-size: 14px;
+                            text-align: center;
+                            color: rgba(0,0,0,.65);
+                            transition: 300ms all ease;
+                        }
+
+                        /*Texte lors du passage de la souris*/
+                        header > nav > ul > li:last-of-type > nav > ul > li:hover > a {
+                            color: #FFB890;
+                        }
+}
+
+/*********************************************************************************************************************************/
