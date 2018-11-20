@@ -1,8 +1,13 @@
 <?php
 namespace ECOSYSTEM\app\config;
-require 'app/controleur/partage/Controleur.php';
-require 'app/controleur/admin/ControleurAdmin.php';
-require 'app/controleur/client/ControleurClient.php';
+// CLIENT
+require 'app/controleur/client/login.php';
+require 'app/controleur/client/logement.php';
+require 'app/controleur/client/piece.php';
+require 'app/controleur/client/capteur.php';
+require 'app/controleur/client/general.php';
+// ADMINISTRATEUR
+require 'app/controleur/admin/general.php';
 
 class Router {
     /**

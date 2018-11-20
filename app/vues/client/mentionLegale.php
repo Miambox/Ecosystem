@@ -1,20 +1,8 @@
-<!DOCTYPE html>
-<?php
-  require 'app/config/modules/ModuleClient.php';
-  require 'app/config/modules/Module.php';
-?>
-<html lang="fr" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Mention Légale @EcoSystem</title>
-    <?php
-      Module::bouton();
-      ModuleClient::mentionLegale();
-    ?>
-  </head>
-  <body style="background-image: linear-gradient(to right, orange, rgba(255,152,85));">
-    <?php
-      require 'lib/composants/mention-legale/mention-legale.php'
-    ?>
-  </body>
-</html>
+<div class="mention-legale">
+  <div class="head">
+    <a href="<?=ROOT_URL?>?Route=client&Ctrl=general&Vue=home" class="button button-retour">Retour</a>
+    <h3>Mention Légale</h3>
+  </div>
+  <div class="text"></div>
+  <div class="footer">Mise à jour le: 17/11/2018</div>
+</div>

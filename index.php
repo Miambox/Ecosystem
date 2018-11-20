@@ -30,7 +30,7 @@ lib\Autoloader::init(); // Load necessary classes
 if(!empty($_GET['Route'])) {
 	$route = $_GET['Route'];
 } else {
-	$route = 'partage';
+	$route = 'client';
 }
 
 // Remplissage d'un tableau ayant pour clé 'Ctrl' pour Choix de Contrôleur.
@@ -38,14 +38,14 @@ if(!empty($_GET['Route'])) {
 if(!empty($_GET['Ctrl'])) {
 	$controller = $_GET['Ctrl'];
 } else {
-	$controller = 'Controleur'; // On initialise le contrôleur de base.
+	$controller = 'login'; // On initialise le contrôleur de base.
 }
 
 // Remplissage d'un tableau ayant pour clé 'Vue' pour le Choix de la vue
 if(!empty($_GET['Vue'])){
     $action = $_GET['Vue'];
 } else {
-	$action = 'authentification'; // On initialise la vue de base.
+	$action = 'vuePrincipale'; // On initialise la vue de base.
 }
 
 // On stocke les valeurs choisies du contrôleurs et de l'action.

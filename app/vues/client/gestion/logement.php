@@ -1,26 +1,145 @@
-<!DOCTYPE html>
-<?php
-  require 'app/config/modules/Module.php';
-  require 'app/config/modules/ModuleClient.php';
-?>
-<html lang="fr" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Gestion des capteurs</title>
-    <?php
-      Module::base();
-      Module::bouton();
-      ModuleClient::navbarClient();
-      ModuleClient::cardLogementClient();
-      Module::footer();
-    ?>
-  </head>
-  <body>
-    <?php
-      require 'lib/composants/barre-de-navigation/client/navbar-client.php';
-      require 'lib/composants/logements/client/card-logement.php';
-      require 'lib/composants/footer/footer.php';
-    ?>
+<div class="container-logements">
+  <div class="card-logement">
+    <div class="card-head">
+      <ul>
+        <li><h5>16 rue Desnouettes, Paris 75015</h5></li>
+        <li>
+          <button type="button" name="button" class="button-config-logement" id="button-config" onclick="ouvreParemetresLogement()">
+            <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
+          </button>
+          <nav id="parametres-logement">
+            <ul>
+              <li><a href="#">Supprimer</a></li>
+              <li><a href="#">Modifier</a></li>
+              <li><a href="#">Partager</a></li>
+            </ul>
+          </nav>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+    </div>
+    <div class="card-banniere">
+    </div>
+    <div class="card-footer">
+      <button type="button" name="button" class="button-go-to-piece" onclick="goTo()">Détails</button>
+    </div>
+  </div>
+  <div class="card-logement">
+    <div class="card-head">
+      <ul>
+        <li><h5>16 rue Desnouettes, Paris 75015</h5></li>
+        <li>
+          <button type="button" name="button" class="button-config-logement" id="button-config" onclick="ouvreParemetresLogement()">
+            <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
+          </button>
+          <nav id="parametres-logement">
+            <ul>
+              <li><a href="#">Supprimer</a></li>
+              <li><a href="#">Modifier</a></li>
+              <li><a href="#">Partager</a></li>
+            </ul>
+          </nav>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+    </div>
+    <div class="card-banniere">
+    </div>
+    <div class="card-footer">
+      <button type="button" name="button" class="button-go-to-piece" onclick="goTo()">Détails</button>
+    </div>
+  </div>
+  <div class="card-logement">
+    <div class="card-head">
+      <ul>
+        <li><h5>16 rue Desnouettes, Paris 75015</h5></li>
+        <li>
+          <button type="button" name="button" class="button-config-logement" id="button-config" onclick="ouvreParemetresLogement()">
+            <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
+          </button>
+          <nav id="parametres-logement">
+            <ul>
+              <li><a href="#">Supprimer</a></li>
+              <li><a href="#">Modifier</a></li>
+              <li><a href="#">Partager</a></li>
+            </ul>
+          </nav>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+    </div>
+    <div class="card-banniere">
+    </div>
+    <div class="card-footer">
+      <button type="button" name="button" class="button-go-to-piece" onclick="goTo()">Détails</button>
+    </div>
+  </div>
+  <div class="card-logement">
+    <div class="card-head">
+      <ul>
+        <li><h5>16 rue Desnouettes, Paris 75015</h5></li>
+        <li>
+          <button type="button" name="button" class="button-config-logement" id="button-config" onclick="ouvreParemetresLogement()">
+            <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
+          </button>
+          <nav id="parametres-logement">
+            <ul>
+              <li><a href="#">Supprimer</a></li>
+              <li><a href="#">Modifier</a></li>
+              <li><a href="#">Partager</a></li>
+            </ul>
+          </nav>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+    </div>
+    <div class="card-banniere">
+    </div>
+    <div class="card-footer">
+      <button type="button" name="button" class="button-go-to-piece" onclick="goTo()">Détails</button>
+    </div>
+  </div>
+  <div class="card-logement">
+    <div class="card-head">
+      <ul>
+        <li><h5>16 rue Desnouettes, Paris 75015</h5></li>
+        <li>
+          <button type="button" name="button" class="button-config-logement" id="button-config" onclick="ouvreParemetresLogement()">
+            <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
+          </button>
+          <nav id="parametres-logement">
+            <ul>
+              <li><a href="#">Supprimer</a></li>
+              <li><a href="#">Modifier</a></li>
+              <li><a href="#">Partager</a></li>
+            </ul>
+          </nav>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+    </div>
+    <div class="card-banniere">
+    </div>
+    <div class="card-footer">
+      <button type="button" name="button" class="button-go-to-piece" onclick="goTo()">Détails</button>
+    </div>
+  </div>
 
-  </body>
-</html>
+</div>
+
+
+<script type="text/javascript">
+
+  function ouvreParemetresLogement() {
+    $("#parametres-logement").slideToggle("fast");
+  }
+
+  function goTo() {
+    document.location.href="<?=ROOT_URL?>?Route=client&Ctrl=piece&Vue=vuePrincipale";
+  }
+</script>

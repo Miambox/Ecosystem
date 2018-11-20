@@ -1,7 +1,7 @@
 <?php
 namespace ECOSYSTEM\App\Controleur\admin;
 
-class ControleurAdmin {
+class general {
  /*
   * Class Controleur
   */
@@ -17,7 +17,9 @@ class ControleurAdmin {
   }
 
 	public function home() {
+    $this->$_manager->getView('header');
 		$this->_manager->getView('home');
+    $this->_manager->getView('footer');
   }
 
 	public function notFound() {

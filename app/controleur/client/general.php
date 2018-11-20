@@ -1,7 +1,7 @@
 <?php
 namespace ECOSYSTEM\App\Controleur\client;
 
-class ControleurClient {
+class general {
  /*
   * Class Controleur
   */
@@ -17,23 +17,15 @@ class ControleurClient {
   }
 
 	public function home() {
+		$this->_manager->getView('header');
 		$this->_manager->getView('home');
+		$this->_manager->getView('footer');
   }
 
 	public function mentionLegale() {
+		$this->_manager->getView('header');
 		$this->_manager->getView('mentionLegale');
-	}
-
-	public function gestionLogements() {
-		$this->_manager->getView('gestion/logement');
-	}
-
-	public function gestionPieces() {
-		$this->_manager->getView('gestion/piece');
-	}
-
-	public function gestionCapteurs() {
-		$this->_manager->getView('gestion/capteur');
+		$this->_manager->getView('footer');
 	}
 
 	public function notFound() {
