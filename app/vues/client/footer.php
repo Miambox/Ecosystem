@@ -1,5 +1,5 @@
     <!-- Footer -->
-    <div class="footer">
+    <footer>
       <ul>
         <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=general&Vue=mentionLegale">Mentions légale</a></li>
         <li><a href="#">CGU</a></li>
@@ -26,7 +26,8 @@
           </ul>
         </li>
       </ul>
-    </div>
+
+    </footer>
 
     <!--  ajout des scripts JS -->
     <script type="text/javascript" src="<?=ROOT_URL?>static/js/vendor/jquery-3-3-1.js"></script>
