@@ -6,12 +6,42 @@
       </div>
       <div class="description-logement">
         <h4>16 rue Desnouettes, Paris 75015</h4>
-        <p></p>
+        <p>Surface: 110m²</p>
+        <p>Habitants: 3</p>
+        <p>Diagnostique énergétique: E</p>
+        <p>Année de construction: 1996</p>
+        <p>Nombre totale de pièces: 8</p>
       </div>
     </div>
 
   </div>
   <div class="container-pieces">
+
+    <div class="card-piece">
+      <div class="card-head">
+        <ul>
+          <li><h5>Salon</h5></li>
+          <li>
+            <button type="button" name="button" class="button-config-piece" id="button-config-piece" onclick="ouvreParemetresLogement()">
+              <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
+            </button>
+            <nav id="parametres-piece">
+              <ul>
+                <li><a href="#">Supprimer</a></li>
+                <li><a href="#">Modifier</a></li>
+              </ul>
+            </nav>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+      </div>
+      <div class="card-banniere">
+      </div>
+      <div class="card-footer">
+        <button type="button" name="button" class="button-go-to-capteur" onclick="goTo()">Détails</button>
+      </div>
+    </div>
 
     <div class="card-piece">
       <div class="card-head">
@@ -38,8 +68,138 @@
         <button type="button" name="button" class="button-go-to-capteur" onclick="goTo()">Détails</button>
       </div>
     </div>
-  </div>
 
+    <div class="card-piece">
+      <div class="card-head">
+        <ul>
+          <li><h5>Véranda</h5></li>
+          <li>
+            <button type="button" name="button" class="button-config-piece" id="button-config-piece" onclick="ouvreParemetresLogement()">
+              <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
+            </button>
+            <nav id="parametres-piece">
+              <ul>
+                <li><a href="#">Supprimer</a></li>
+                <li><a href="#">Modifier</a></li>
+              </ul>
+            </nav>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+      </div>
+      <div class="card-banniere">
+      </div>
+      <div class="card-footer">
+        <button type="button" name="button" class="button-go-to-capteur" onclick="goTo()">Détails</button>
+      </div>
+    </div>
+
+    <div class="card-piece">
+      <div class="card-head">
+        <ul>
+          <li><h5>Salle à manger</h5></li>
+          <li>
+            <button type="button" name="button" class="button-config-piece" id="button-config-piece" onclick="ouvreParemetresLogement()">
+              <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
+            </button>
+            <nav id="parametres-piece">
+              <ul>
+                <li><a href="#">Supprimer</a></li>
+                <li><a href="#">Modifier</a></li>
+              </ul>
+            </nav>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+      </div>
+      <div class="card-banniere">
+      </div>
+      <div class="card-footer">
+        <button type="button" name="button" class="button-go-to-capteur" onclick="goTo()">Détails</button>
+      </div>
+    </div>
+
+    <div class="card-piece">
+      <div class="card-head">
+        <ul>
+          <li><h5>Salle à manger</h5></li>
+          <li>
+            <button type="button" name="button" class="button-config-piece" id="button-config-piece" onclick="ouvreParemetresLogement()">
+              <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
+            </button>
+            <nav id="parametres-piece">
+              <ul>
+                <li><a href="#">Supprimer</a></li>
+                <li><a href="#">Modifier</a></li>
+              </ul>
+            </nav>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+      </div>
+      <div class="card-banniere">
+      </div>
+      <div class="card-footer">
+        <button type="button" name="button" class="button-go-to-capteur" onclick="goTo()">Détails</button>
+      </div>
+    </div>
+
+    <div class="card-piece">
+      <div class="card-head">
+        <ul>
+          <li><h5>Salle à manger</h5></li>
+          <li>
+            <button type="button" name="button" class="button-config-piece" id="button-config-piece" onclick="ouvreParemetresLogement()">
+              <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
+            </button>
+            <nav id="parametres-piece">
+              <ul>
+                <li><a href="#">Supprimer</a></li>
+                <li><a href="#">Modifier</a></li>
+              </ul>
+            </nav>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+      </div>
+      <div class="card-banniere">
+      </div>
+      <div class="card-footer">
+        <button type="button" name="button" class="button-go-to-capteur" onclick="goTo()">Détails</button>
+      </div>
+    </div>
+
+    <div class="card-piece">
+      <div class="card-head">
+        <ul>
+          <li><h5>Salle à manger</h5></li>
+          <li>
+            <button type="button" name="button" class="button-config-piece" id="button-config-piece" onclick="ouvreParemetresLogement()">
+              <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
+            </button>
+            <nav id="parametres-piece">
+              <ul>
+                <li><a href="#">Supprimer</a></li>
+                <li><a href="#">Modifier</a></li>
+              </ul>
+            </nav>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+      </div>
+      <div class="card-banniere">
+      </div>
+      <div class="card-footer">
+        <button type="button" name="button" class="button-go-to-capteur" onclick="goTo()">Détails</button>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <script type="text/javascript">
