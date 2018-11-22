@@ -17,8 +17,12 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/logements/card-logement-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/logements/card-logement-mobile.css">
     <!-- page piece -->
-    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/pieces/card-piece-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/pieces/card-piece-mobile.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/pieces/card-piece-desktop.css">
+    <!-- page capteur -->
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/capteurs/card-capteur-desktop.css">
+    <!-- page détails du capteur -->
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/details-capteur/detailsCapteur.css">
     <!-- page mention légale -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/mention-legale/mention-legale-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/mention-legale/mention-legale-mobile.css">

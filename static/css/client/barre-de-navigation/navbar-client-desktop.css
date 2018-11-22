@@ -12,7 +12,9 @@
       flex-direction: row;
       line-height: 70px; /*Interligne de 90px*/
       position: sticky;  /*Container se déplaçant lors du slide*/
+      top: 0;
       border-bottom: 1px solid rgba(0,0,0,0.1);
+      box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.3);
     }
 
       /* Navbar */
