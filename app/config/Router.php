@@ -6,6 +6,7 @@ require 'app/controleur/client/logement.php';
 require 'app/controleur/client/piece.php';
 require 'app/controleur/client/capteur.php';
 require 'app/controleur/client/general.php';
+require 'app/controleur/client/detailsCapteur.php';
 // ADMINISTRATEUR
 require 'app/controleur/admin/general.php';
 
