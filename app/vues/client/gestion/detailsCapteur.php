@@ -2,10 +2,18 @@
 
   <div class="container-diagramme">
     <div class="diagramme-circulaire">
+      <div class="" id="diagrammeCirculaire">
 
+      </div>
+      <div class="plus_moins">
+        <button type="button" name="button" class="ajouterLuminosite">+</button>
+        <button type="button" name="button" class="diminuerLuminosite">-</button>
+      </div>
     </div>
     <div class="diagramme-baton">
+      <div class="" id="chart_div">
 
+      </div>
     </div>
   </div>
 

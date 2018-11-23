@@ -39,6 +39,11 @@
     <script type="module" src="<?=ROOT_URL?>static/js/utils/modal/modal.js"></script>
     <!-- détails capteurs-->
     <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/detailsCapteur.js"></script>
-
+    <!-- Librairie google -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- Diagramme circulaire -->
+    <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/diagrammeCirculaire.js"></script>
+    <!-- Diagramme en baton -->
+    <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/diagrammeBaton.js"></script>
   </body>
 </html>
