@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  display: none;
 }
 
   .container-diagramme {
@@ -257,7 +256,8 @@
         color: rgba(255, 208, 6, 0.8);
       }
 
-.body {
+.container-modal {
+  display: none;
   background: rgba(0,0,0,0.5);
   color: #333;
   height: auto !important;
@@ -272,33 +272,52 @@
   border: solid 1px;
   top: 0;
 }
+  .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      background: none;
+      border: none;
+  }
 
-  .body > .pop-up {
-    height: 200px;
-    width: 30%;
-    border-radius: 10px;
+  .close:hover,
+  .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+  }
+
+  .container-modal > .modal {
+    height: 270px;
+    width: 40%;
     display: flex;
     flex-direction: column;
     background-color: white;
     box-shadow: 1px 1px 2px 2px rgba(F,F,F,0.1);
     position: sticky;
-    left: 35%;
+    left: 30%;
     top: 20%;
+    border-radius: 4px;
   }
 
-    .body > .pop-up > .pop-head {
+    .container-modal > .modal > .modal-head {
       flex-basis: 20%;
       background-color: #FAFAFA;
       border-bottom: solid 1Px rgba(0,0,0,0.2);
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
 
     }
 
-    .body > .pop-up > .pop-text {
+    .container-modal > .modal > .modal-text {
       flex-basis: 70%;
     }
 
-    .body > .pop-up > .pop-footer {
+    .container-modal > .modal > .modal-footer {
       flex-basis: 10%;
       background-color: #FAFAFA;
       border-top: solid 1Px rgba(0,0,0,0.2);
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
     }

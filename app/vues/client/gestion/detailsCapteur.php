@@ -23,7 +23,7 @@
 
   <div class="container-programme">
     <div class="ambiance">
-      <h2>Gérer vos ambiances <button type="button" name="button">+</button> </h2>
+      <h2>Gérer vos ambiances <button type="button" name="button"id="ajouterAmbiance">+</button> </h2>
       <div class="">
         <ul>
           <li>
@@ -60,23 +60,25 @@
     </div>
     <div class="programme">
       <h2>Programmer un horaire</h2>
-      <button class="button-ajouter" type="button" name="button">Ajouter</button>
-      <button class="button-visualiser" type="button" name="button">Visualiser</button>
+      <button class="button-ajouter" type="button" name="button" id="ajouterProgramme">Ajouter</button>
+      <button class="button-visualiser" type="button" name="button" id="visualiserProgramme">Visualiser</button>
 
     </div>
   </div>
 </div>
 
 
-<div class="body">
-  <div class="pop-up">
-    <div class="pop-head">
+<div class="container-modal" id="container-modal">
+  <div class="modal">
+    <div class="modal-head">
+      <button class="close" id="close">&times;</button>
+
       head
     </div>
-    <div class="pop-text">
+    <div class="modal-text">
       text
     </div>
-    <div class="pop-footer">
+    <div class="modal-footer">
       footer
     </div>
 

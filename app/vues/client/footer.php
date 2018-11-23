@@ -35,7 +35,10 @@
     <script type="text/javascript" src="<?=ROOT_URL?>static/js/client/barre-de-navigation/navbar-client.js"></script>
     <!-- footer -->
     <script type="text/javascript" src="<?=ROOT_URL?>static/js/client/footer/footer.js"></script>
-
+    <!-- modal -->
+    <script type="module" src="<?=ROOT_URL?>static/js/utils/modal/modal.js"></script>
+    <!-- détails capteurs-->
+    <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/detailsCapteur.js"></script>
 
   </body>
 </html>
