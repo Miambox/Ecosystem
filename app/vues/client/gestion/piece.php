@@ -1,4 +1,5 @@
 <div class="container-logement-pieces">
+  <a href="javascript:history.back()">Retour aux logements</a>
   <div class="container-resume-logement">
     <div class="resume-logement">
       <div class="photo-logement">
@@ -98,7 +99,7 @@
     <div class="card-piece">
       <div class="card-head">
         <ul>
-          <li><h5>Salle à manger</h5></li>
+          <li><h5>Chambre 1</h5></li>
           <li>
             <button type="button" name="button" class="button-config-piece" id="button-config-piece" onclick="ouvreParemetresLogement()">
               <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
@@ -124,7 +125,7 @@
     <div class="card-piece">
       <div class="card-head">
         <ul>
-          <li><h5>Salle à manger</h5></li>
+          <li><h5>Chambre 2</h5></li>
           <li>
             <button type="button" name="button" class="button-config-piece" id="button-config-piece" onclick="ouvreParemetresLogement()">
               <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
@@ -150,7 +151,7 @@
     <div class="card-piece">
       <div class="card-head">
         <ul>
-          <li><h5>Salle à manger</h5></li>
+          <li><h5>Salle de bain</h5></li>
           <li>
             <button type="button" name="button" class="button-config-piece" id="button-config-piece" onclick="ouvreParemetresLogement()">
               <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
@@ -176,7 +177,7 @@
     <div class="card-piece">
       <div class="card-head">
         <ul>
-          <li><h5>Salle à manger</h5></li>
+          <li><h5>Escalier</h5></li>
           <li>
             <button type="button" name="button" class="button-config-piece" id="button-config-piece" onclick="ouvreParemetresLogement()">
               <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
@@ -199,6 +200,7 @@
       </div>
     </div>
 
+    <button type="button" name="button" id="ajouterPiece">+</button>
   </div>
 </div>
 

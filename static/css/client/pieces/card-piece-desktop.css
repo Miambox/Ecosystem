@@ -4,6 +4,23 @@
   flex-direction: row;
 }
 
+  .container-logement-pieces > a {
+    position: absolute;
+    top: 11.5%;
+    text-decoration: none;
+    border: solid 1px #FFB870;
+    padding: 1%;
+    color: #FFB870;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .container-logement-pieces > a:hover {
+    background-color: #FFB870;
+    color: white;
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
+  }
+
 .container-resume-logement {
   flex-basis: 50%;
 }
@@ -16,7 +33,7 @@
     border-radius: 5px;
     box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
     position: sticky;
-    top: 15%;
+    top: 25%;
   }
     .container-resume-logement > .resume-logement > .photo-logement {
       margin-top: 5%;
@@ -149,3 +166,15 @@
        .card-piece > .card-footer > .button-go-to-capteur:hover {
          box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
        }
+
+  .container-pieces > button {
+    margin-top: 12%;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-weight: 800;
+    font-size: 20px;
+    color: white;
+    margin-left: 2%;
+    background-color: #FFB870;
+  }
