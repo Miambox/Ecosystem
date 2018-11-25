@@ -118,3 +118,15 @@
        .card-logement > .card-footer > .button-go-to-piece:hover {
          box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
        }
+
+
+  .container-logements > button {
+    margin-top: 15%;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-weight: 800;
+    font-size: 24px;
+    color: white;
+    background-color: #FFB870;
+  }

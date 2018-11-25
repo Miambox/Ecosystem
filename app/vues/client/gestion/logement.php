@@ -103,6 +103,7 @@
       <button type="button" name="button" class="button-go-to-piece" onclick="goTo()">Détails</button>
     </div>
   </div>
+  <button type="button" name="button" id='ajouterLogement'>+</button>
 
 </div>
 
