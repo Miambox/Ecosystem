@@ -12,8 +12,8 @@ function drawChart() {
   ]);
 
   var options = {
-    'width':400,
-    'height':300,
+    'width':'100%',
+    'height':220,
     'legend':'none',
     'colors': ['#FFD006', '#FAFAFA'],
     'pieHole': 0.5

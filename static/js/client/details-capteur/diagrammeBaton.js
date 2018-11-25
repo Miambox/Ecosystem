@@ -12,18 +12,18 @@ function drawBarColors() {
   ]);
 
   var options = {
+    width: "100%",
+    height: 205,
     chartArea: {width: '70%'},
     colors: ['#FFD006'],
-    hAxis: {
-      title: "Date",
-    },
     vAxis: {
       title: "Heure d'utilisation",
       minValue: 0,
       maxValue: 24,
     },
-    legend: 'none'
-  };
+    legend: 'none',
+ }
+
   var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
   chart.draw(data, options);
 }
