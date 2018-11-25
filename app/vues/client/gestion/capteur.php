@@ -1,4 +1,5 @@
 <div class="container-piece-capteurs">
+  <a href="javascript:history.back()">Retour aux pieces</a>
 
   <div class="container-resume-piece">
     <div class="resume-piece">
@@ -71,7 +72,7 @@
       </div>
     </div>
 
-
+    <button type="button" name="button" id="ajouterCapteur">+</button>
   </div>
 </div>
 
