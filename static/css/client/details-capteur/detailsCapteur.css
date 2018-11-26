@@ -1,13 +1,18 @@
+/*Page CSS du design des détails du capteur*/
+
+/*Container de toute la page*/
 .container-details-capteur {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
 
+  /*CARD DE GAUCHE*/
   .container-diagramme {
     flex-basis: 30%;
     padding-right: 2%;
   }
+    /* Card des boutons ajouter/visualiser les programmes*/
     .programme {
       border-color: gray;
       box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2);
@@ -58,7 +63,7 @@
         background-color: white;
         color: rgba(255, 208, 6, 0.8);
       }
-
+    /* Diagramme en barre */
     .diagramme-baton {
       background-color: white;
       border-radius: 5px;
@@ -81,12 +86,13 @@
           border-radius: 5px;
         }
 
+  /*CARD Logo + bouton allumer/eteindre*/
   .container-logo {
     flex-basis: 40%;
     display: flex;
     flex-direction: column;
   }
-
+    /*Bouton de retour*/
     .container-logo > a {
       text-decoration: none;
       border: solid 1px;
@@ -101,18 +107,18 @@
       color: white;
       box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
     }
-
     .container-logo > .btn-retour-piece {
       position: sticky;
       top: 14%;
       color: #FFD006;
     }
-
+    /*Logo de pièce*/
     .container-logo > img {
       width: 30%;
       margin-left: 35%;
       margin-top: 20%;
     }
+    /*Bouton ON OFF*/
     .container-logo > .on_off {
       display: flex;
       flex-direction: row;
@@ -185,47 +191,49 @@
         color: #FFD006;
       }
 
+  /*PARTIE DE DROITE */
   .container-programme {
     flex-basis: 30%;
     margin-right: 5%;
   }
-  .container-diagramme-circulaire {
-    display: flex;
-    flex-direction: column;
-    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
-    width: 100%;
-    border-radius: 5px;
-    margin-right: 5%;
-    margin-top: 5%;
-    background-color: white;
-  }
-    .container-diagramme-circulaire > h2 {
-      color: rgba(0,0,0,0.6);
-      text-align: center;
-      text-align: -moz-center;
-      padding: 1%;
-    }
-    .diagramme-circulaire {
-      display: flex;
-      flex-direction: row;
-    }
-    .diagramme-circulaire > #diagrammeCirculaire {
-      flex-basis: 75%;
-    }
-    .plus_moins {
+    /*CARD CONTENANT LE GRAPHE CIRCULAIRE*/
+    .container-diagramme-circulaire {
       display: flex;
       flex-direction: column;
-      flex-basis: 15%;
+      box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
+      width: 100%;
+      border-radius: 5px;
+      margin-right: 5%;
+      margin-top: 5%;
       background-color: white;
     }
-      .plus_moins > button {
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        font-weight: 800;
-        margin-top: 75%;
+      .container-diagramme-circulaire > h2 {
+        color: rgba(0,0,0,0.6);
+        text-align: center;
+        text-align: -moz-center;
+        padding: 1%;
       }
-
+      .diagramme-circulaire {
+        display: flex;
+        flex-direction: row;
+      }
+      .diagramme-circulaire > #diagrammeCirculaire {
+        flex-basis: 75%;
+      }
+      .plus_moins {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 15%;
+        background-color: white;
+      }
+        .plus_moins > button {
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          font-weight: 800;
+          margin-top: 75%;
+        }
+    /*CARD DES AMBIANCES*/
     .ambiance {
       border-color: gray;
       box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
@@ -329,6 +337,7 @@
               margin-top: 1%;
             }
 
+/*MODAL PERMETTANT D AJOUTER UNE AMBIANCE*/
 .modal-ambiance > .modal-head > p {
   font-size: 20px;
   text-align: center;
@@ -368,6 +377,7 @@
   font-weight: 800;
 }
 
+/* GRAND MODAL PERMETTANT DAJOUTER UN PROGRAMME */
 .modal-ajouter-programme > .modal-big-head > p {
   font-size: 20px;
   text-align: center;
@@ -411,7 +421,7 @@
   font-weight: 800;
   padding: 1%;
   width: 20%;
-  margin-top: 0.5%;
+  margin-top: 2%;
 }
 .modal-ajouter-programme > .modal-big-footer > button:hover {
   background-color: white;
@@ -475,6 +485,160 @@
     .container-big-modal > .modal-big > .modal-big-text {
       flex-basis: 75%;
     }
+    .modal-ajouter-programme > .modal-big-text > .modal-big-text-one > h3 {
+      border-bottom: solid 1px;
+      border-color: rgba(0,0,0,0.3);
+      width: 50%;
+      color: rgba(0,0,0,0.6);
+    }
+      .form-group {
+        text-align: center;
+        text-align: -moz-center;
+        margin-bottom: 2%;
+      }
+        .form-group > #heure, #minute {
+          padding: 1%;
+          border-radius: 4px;
+        }
+        .form-group > #jour {
+          padding: 1%;
+          border-radius: 4px;
+        }
+      .toujours {
+        text-align: center;
+        text-align: -moz-center;
+      }
+        .toujours > .toggle-button {
+          position: relative;
+          display: inline-block;
+          width: 40px;
+          height: 22px;
+          margin-left: 5%;
+        }
+          .toujours > .toggle-button > input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+          }
+          .toujours > .toggle-button > .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+          }
+          .toujours > .toggle-button > .slider:before {
+            position: absolute;
+            content: "";
+            height: 15px;
+            width: 15px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+          }
+          .toujours > .toggle-button > input:checked + .slider {
+            background-color: #FFD006;
+          }
+          .toujours > .toggle-button > input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+          }
+          .toujours > .toggle-button > input:checked + .slider:before {
+            -webkit-transform: translateX(17px);
+            -ms-transform: translateX(17px);
+            transform: translateX(17px);
+          }
+          .toujours > .toggle-button > .slider.round {
+            border-radius: 34px;
+          }
+          .toujours > .toggle-button > .slider.round:before {
+            border-radius: 50%;
+          }
+    .container-big-modal > .modal-big > .modal-big-text > .modal-big-text-two > h3 {
+      border-bottom: solid 1px;
+      border-color: rgba(0,0,0,0.3);
+      width: 50%;
+      color: rgba(0,0,0,0.6);
+    }
+      .select-ambiance > ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-bottom: 5%;
+        margin: 0;
+      }
+        .select-ambiance > ul > li {
+          padding: 1%;
+          list-style-type: none;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          margin-top: 4%;
+        }
+        .select-ambiance > ul > li > .toggle-button {
+          position: relative;
+          display: inline-block;
+          width: 40px;
+          height: 22px;
+          margin-left: 36%;
+        }
+          .select-ambiance > ul > li > .toggle-button > input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+          }
+          .select-ambiance > ul > li > .toggle-button > .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+          }
+          .select-ambiance > ul > li > .toggle-button > .slider:before {
+            position: absolute;
+            content: "";
+            height: 15px;
+            width: 15px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+          }
+          .select-ambiance > ul > li > .toggle-button > input:checked + .slider {
+            background-color: #FFD006;
+          }
+          .select-ambiance > ul > li > .toggle-button > input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+          }
+          .select-ambiance > ul > li > .toggle-button > input:checked + .slider:before {
+            -webkit-transform: translateX(17px);
+            -ms-transform: translateX(17px);
+            transform: translateX(17px);
+          }
+          .select-ambiance > ul > li > .toggle-button > .slider.round {
+            border-radius: 34px;
+          }
+          .select-ambiance > ul > li > .toggle-button > .slider.round:before {
+            border-radius: 50%;
+          }
+          .select-ambiance > ul > li > span {
+            flex-basis: 40%;
+            margin-left: 3%;
+            margin-top: 1%;
+          }
+
     .container-big-modal > .modal-big > .modal-big-footer {
       flex-basis: 5%;
       background-color: #FAFAFA;
@@ -484,3 +648,95 @@
       text-align: center;
       text-align: -moz-center;
     }
+
+
+/*GRAND MODAL DE VISUALISATION DES PROGRAMMES*/
+.modal-visualiser-programme > .modal-big-head {
+  font-size: 20px;
+  text-align: center;
+  text-align: -moz-center;
+  color: #FFD006;
+  font-weight: 600;
+}
+.modal-visualiser-programme > .modal-big-text {
+  overflow-y: scroll;
+}
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td {
+  text-align: center;
+}
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:first-of-type {
+  width: 15%;
+  font-weight: bold;
+}
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(2) {
+  width: 25%;
+}
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(2) > p {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(2) > span {
+  font-size: 10px;
+}
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) {
+  width: 25%
+}
+
+  .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    margin-left: 5%;
+  }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > .slider:before {
+      position: absolute;
+      content: "";
+      height: 15px;
+      width: 15px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > input:checked + .slider {
+      background-color: #FFD006;
+    }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > input:checked + .slider:before {
+      -webkit-transform: translateX(17px);
+      -ms-transform: translateX(17px);
+      transform: translateX(17px);
+    }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > .slider.round {
+      border-radius: 34px;
+    }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > .slider.round:before {
+      border-radius: 50%;
+    }
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(4) {
+  width: 15%;
+}
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(5) {
+  width: 15%;
+}

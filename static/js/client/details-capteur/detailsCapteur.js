@@ -32,5 +32,8 @@ $(document).ready(function() {
   $("#visualiserProgramme").click(function(e) {
     e.preventDefault();
     console.log("visualiserProgramme");
+    var containerModal = $("#container-modal-visualiser-programme");
+    var close = $("#close-visualiser-programme");
+    modal(containerModal, close);
   });
 });

@@ -143,7 +143,7 @@
             </form>
           </p>
       </div>
-      <div class="modal-big-text-two">
+      <div class="modal-big-text-two select-ambiance">
         <h3>Selectionner une ambiance</h3>
         <ul>
           <li>
@@ -174,4 +174,55 @@
       <button type="button" name="button" clas="ajouterProgramme">Valider</button>
     </div>
   </div>
+</div>
+
+
+<div class="container-big-modal" id="container-modal-visualiser-programme">
+  <div class="modal-big modal-visualiser-programme">
+    <div class="modal-big-head">
+      <button class="close" id="close-visualiser-programme">&times;</button>
+      <p>Vos différents programmes</p>
+    </div>
+    <div class="modal-big-text">
+      <table>
+        <?php
+        for ($i=0; $i < 20; $i++) {
+          ?>
+          <tr>
+            <td>Lundi</td>
+            <td>
+              <p class="heure">22:30</p>
+              <span>Tamisé</span>
+            </td>
+            <td>
+              <span>Tamisé</span>
+              <label class="toggle-button">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+            </td>
+            <td>
+              <a href="#">
+                <img src="<?=ROOT_URL?>/static/image/icon/modifier-icon-lp.png" width="20%" alt="">
+              </a>
+            </td>
+            <td>
+              <a href="#">
+                <img src="<?=ROOT_URL?>/static/image/icon/delete-icon-lp.png" width="20%" alt="">
+              </a>
+            </td>
+          </tr>
+          <?php
+        }
+        ?>
+
+      </table>
+
+    </div>
+    <div class="modal-big-footer">
+
+    </div>
+
+  </div>
+
 </div>
