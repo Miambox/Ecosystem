@@ -565,6 +565,9 @@
       width: 50%;
       color: rgba(0,0,0,0.6);
     }
+    .select-ambiance {
+      margin-top: 5%;
+    }
       .select-ambiance > ul {
         display: flex;
         flex-direction: column;
@@ -658,8 +661,10 @@
   color: #FFD006;
   font-weight: 600;
 }
+
 .modal-visualiser-programme > .modal-big-text {
   overflow-y: scroll;
+
 }
 .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td {
   text-align: center;
