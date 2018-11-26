@@ -22,7 +22,7 @@
     <div class="card-banniere">
     </div>
     <div class="card-footer">
-      <button type="button" name="button" class="button-go-to-piece" onclick="goTo()">Détails</button>
+      <button type="button" name="button" class="button-go-to-piece" onclick="goTo()">Plus de détails</button>
     </div>
   </div>
   <div class="card-logement">
@@ -48,7 +48,7 @@
     <div class="card-banniere">
     </div>
     <div class="card-footer">
-      <button type="button" name="button" class="button-go-to-piece" onclick="goTo()">Détails</button>
+      <button type="button" name="button" class="button-go-to-piece" onclick="goTo()">Plus de détails</button>
     </div>
   </div>
   <div class="card-logement">
@@ -74,7 +74,7 @@
     <div class="card-banniere">
     </div>
     <div class="card-footer">
-      <button type="button" name="button" class="button-go-to-piece" onclick="goTo()">Détails</button>
+      <button type="button" name="button" class="button-go-to-piece" onclick="goTo()">Plus de détails</button>
     </div>
   </div>
   <div class="card-logement">
