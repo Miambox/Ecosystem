@@ -73,19 +73,105 @@
 
 
 <div class="container-modal" id="container-modal">
-  <div class="modal">
+  <div class="modal modal-ambiance">
     <div class="modal-head">
       <button class="close" id="close">&times;</button>
-
-      head
+      <p>Ajouter une ambiance</p>
     </div>
     <div class="modal-text">
-      text
+      <form class="name-ambiance" action="#" method="post">
+        <label for="name_ambiance">Nom</label>
+        <input type="text" name="name_ambiance" value="">
+      </form>
     </div>
     <div class="modal-footer">
-      footer
+      <button type="button" name="button" clas="ajouterAmbiance">Ajouter</button>
     </div>
-
   </div>
+</div>
 
+<div class="container-big-modal" id="container-modal-ajouter-programme">
+  <div class="modal-big modal-ajouter-programme">
+    <div class="modal-big-head">
+      <button class="close" id="close-ajouter-programme">&times;</button>
+      <p>Ajouter un programme</p>
+    </div>
+    <div class="modal-big-text">
+      <div class="modal-big-text-one">
+          <h3>Selectionner date et heure</h3>
+          <p>
+            <form class="" action="index.html" method="post">
+              <div class="form-group">
+                <select class="" id="heure">
+                  <?php
+                  for ($i=0; $i <= 23 ; $i++) {
+                    ?>
+                    <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                    <?php
+                  }
+                  ?>
+                </select>
+                <span>:</span>
+                <select class="" id="minute">
+                  <?php for ($i=0; $i <= 60 ; $i++) {
+                    ?>
+                    <option value="<?php echo $i ?>"><?php echo $i ?></option>
+                    <?php
+                  } ?>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="" id="jour">
+                  <option value="lundi">lundi</option>
+                  <option value="mardi">mardi</option>
+                  <option value="mercredi">mercredi</option>
+                  <option value="jeudi">jeudi</option>
+                  <option value="vendredi">vendredi</option>
+                  <option value="samedi">samedi</option>
+                  <option value="dimanche">dimanche</option>
+
+
+                </select>
+              </div>
+              <div class="toujours">
+                <label for="">Tous les jours</label>
+                <label class="toggle-button">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </form>
+          </p>
+      </div>
+      <div class="modal-big-text-two">
+        <h3>Selectionner une ambiance</h3>
+        <ul>
+          <li>
+            <span>Tamisé</span>
+            <label class="toggle-button">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </li>
+          <li>
+            <span>Travail</span>
+            <label class="toggle-button">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </li>
+          <li>
+            <span>Illumination Max</span>
+            <label class="toggle-button">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="modal-big-footer">
+      <button type="button" name="button" clas="ajouterProgramme">Valider</button>
+    </div>
+  </div>
 </div>

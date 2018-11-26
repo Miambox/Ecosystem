@@ -37,6 +37,7 @@
     <script type="text/javascript" src="<?=ROOT_URL?>static/js/client/footer/footer.js"></script>
     <!-- modal -->
     <script type="module" src="<?=ROOT_URL?>static/js/utils/modal/modal.js"></script>
+    <script type="module" src="<?=ROOT_URL?>static/js/utils/modal/modal-big.js"></script>
     <!-- détails capteurs-->
     <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/detailsCapteur.js"></script>
     <!-- Librairie google -->

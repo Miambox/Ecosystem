@@ -24,6 +24,9 @@ $(document).ready(function() {
   $("#ajouterProgramme").click(function(e) {
     e.preventDefault();
     console.log("ajouterProgramme");
+    var containerModal = $("#container-modal-ajouter-programme");
+    var close = $("#close-ajouter-programme");
+    modal(containerModal, close);
   });
 
   $("#visualiserProgramme").click(function(e) {
