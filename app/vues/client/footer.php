@@ -42,6 +42,8 @@
     <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/detailsCapteur.js"></script>
     <!-- logement -->
     <script type="module" src="<?=ROOT_URL?>static/js/client/logement/logement.js"></script>
+    <!-- piece -->
+    <script type="module" src="<?=ROOT_URL?>static/js/client/piece/piece.js"></script>
     <!-- Librairie google -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <!-- Diagramme circulaire -->
