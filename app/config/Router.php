@@ -7,6 +7,8 @@ require 'app/controleur/client/piece.php';
 require 'app/controleur/client/capteur.php';
 require 'app/controleur/client/general.php';
 require 'app/controleur/client/detailsCapteur.php';
+require 'app/controleur/client/profil.php';
+
 // ADMINISTRATEUR
 require 'app/controleur/admin/general.php';
 

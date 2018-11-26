@@ -28,6 +28,7 @@
     <!-- page mention légale -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/mention-legale/mention-legale-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/mention-legale/mention-legale-mobile.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/profil/profil.css">
   </head>
   <body>
     <!--Barre de navigation-->
@@ -49,7 +50,7 @@
       <nav id="menu">
           <ul>
               <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=general&Vue=home"><img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" alt=""></a></li>
-              <li><a href="#">Profil</a></li>
+              <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=profil&Vue=vuePrincipale"> Profil </a></li>
               <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=logement&Vue=vuePrincipale">Gestion des capteurs</a></li>
               <li><a href="#">Connexion</a></li>
           </ul>
