@@ -3,12 +3,10 @@
 
   <div class="container-resume-piece">
     <div class="resume-piece">
-      <div class="photo-piece">
-
-      </div>
+      <img class="photo-piece" src="<?=ROOT_URL?>/static/image/icon/salon-image.bmp" alt="">
       <div class="description-piece">
-        <h4>Véranda (16 rue Desnouettes)</h4>
-        <p>Type: Véranda</p>
+        <h4>Salon (16 rue Desnouettes)</h4>
+        <p>Type: Salon</p>
         <p>Surface: 30m²</p>
         <p>Etage: 0</p>
       </div>
