@@ -9,6 +9,8 @@ require 'app/controleur/client/general.php';
 require 'app/controleur/client/detailsCapteur.php';
 // ADMINISTRATEUR
 require 'app/controleur/admin/general.php';
+// ADMINISTRATEUR supreme
+require 'app/controleur/adminsupreme/general.php';
 
 class Router {
     /**
