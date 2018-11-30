@@ -1,10 +1,9 @@
 <html>
   <head>
   <title>Admin Supreme - EcoSystem</title>
-  <link rel="stylesheet" href="<? ROOT_URL?>/static/css/adminsupreme/home.css" />
-  <link rel="stylesheet" href="<? ROOT_URL?>/static/css/utils/modal.css">
+  <link rel="stylesheet" href="<?=ROOT_URL?>/static/css/adminsupreme/home.css" />
+  <link rel="stylesheet" href="<?=ROOT_URL?>/static/css/utils/modal.css">
   <body id="all">
-
 
   <div class = "container-suprême-admin">
     <div class="titre-page-admin">
@@ -25,19 +24,19 @@
           <div class="container-employe">
 
             <input type="image" name="button" class="employe" id="button-employe"
-            src="<?ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
+            src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
 
             <input type="image" name="button" class="employe" id="button-employe"
-            src="<?ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
+            src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
 
             <input type="image" name="button" class="employe" id="button-employe"
-            src="<?ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
+            src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
 
             <input type="image" name="button" class="employe" id="button-employe"
-            src="<?ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
+            src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
 
             <input type="image" name="button" class="ajouter-employe" id="button-ajout-employe"
-            src="<?ROOT_URL?>/static/image/icon/ajouter.png" width="50%" alt="">
+            src="<?=ROOT_URL?>/static/image/icon/ajouter.png" width="50%" alt="">
 
 
           </div>
@@ -56,22 +55,22 @@
           </li>
           <div class="container-employe"
             <input type="image" name="button" class="employe" id="button-employe"
-            src="<?ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
+            src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
 
             <input type="image" name="button" class="employe" id="button-employe"
-            src="<?ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
+            src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
 
             <input type="image" name="button" class="employe" id="button-employe"
-            src="<?ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
+            src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
 
             <input type="image" name="button" class="employe" id="button-employe"
-            src="<?ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
+            src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
 
             <input type="image" name="button" class="employe" id="button-employe"
-            src="<?ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
+            src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
 
             <input type="image" name="button" class="ajouter-employe" id="button-ajout-employe"
-            src="<?ROOT_URL?>/static/image/icon/ajouter.png" width="50%" alt="">
+            src="<?=ROOT_URL?>/static/image/icon/ajouter.png" width="50%" alt="">
 
           </div>
         </ul>
