@@ -10,19 +10,22 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/login/login-mobile.css">
     <!-- footer -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/footer/footer-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/footer/footer-mobile.css">
     <!-- barre de navigation client -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/barre-de-navigation/navbar-client-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/barre-de-navigation/navbar-client-mobile.css">
     <!-- page logement -->
-    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/logements/card-logement-desktop.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/logements/card-logement-mobile.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/logements/logement-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/logements/logement-mobile.css">
     <!-- page piece -->
-    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/pieces/card-piece-mobile.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/pieces/card-piece-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/pieces/card-piece-mobile.css">
     <!-- page capteur -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/capteurs/card-capteur-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/capteurs/card-capteur-mobile.css">
     <!-- page détails du capteur -->
-    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/details-capteur/detailsCapteur.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/details-capteur/details-capteur-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/details-capteur/details-capteur-mobile.css">
     <!-- modal -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/modal/modal-desktop.css">
     <!-- big modal -->
