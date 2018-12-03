@@ -1,0 +1,31 @@
+/*PORTABLE GENERAL MODE PORTRAIT*/
+@media only screen and (max-width: 768px) and (orientation: PORTRAIT) {
+  footer > ul > li:nth-of-type(1) { flex-basis: 25%; }
+  footer > ul > li:nth-of-type(2) { flex-basis: 15%; margin-right: 0}
+  footer > ul > li:nth-of-type(3) { flex-basis: 12.5%; }
+  footer > ul > li:nth-of-type(4) { flex-basis: 12.5%; }
+  footer > ul > li:nth-of-type(5) { flex-basis: 12.5%; margin-right: 0;}
+  footer > ul > li:nth-of-type(6) { flex-basis: 20%;}
+  footer > ul > li > a {
+    font-size: 2.5vw;
+  }
+  footer > ul > li > a > img {
+    width: 30%;
+  }
+}
+
+/*PORTABLE GENERAL MODE PAYSAGE*/
+@media only screen and (max-width : 768px) and (orientation: landscape) {
+  footer > ul > li:nth-of-type(1) { flex-basis: 25%; }
+  footer > ul > li:nth-of-type(2) { flex-basis: 15%; margin-right: 0}
+  footer > ul > li:nth-of-type(3) { flex-basis: 12.5%; }
+  footer > ul > li:nth-of-type(4) { flex-basis: 12.5%; }
+  footer > ul > li:nth-of-type(5) { flex-basis: 12.5%; margin-right: 0;}
+  footer > ul > li:nth-of-type(6) { flex-basis: 20%;}
+  footer > ul > li > a {
+    font-size: 2vw;
+  }
+  footer > ul > li > a > img {
+    width: 20%;
+  }
+}

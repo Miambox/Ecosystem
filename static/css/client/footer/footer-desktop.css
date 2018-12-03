@@ -1,3 +1,4 @@
+/*CONTAINER PRINCIPAL DU FOOTER*/
 footer {
   margin:0;
   width: 100%;
@@ -9,6 +10,7 @@ footer {
   bottom: 0;
   top: 100%;
 }
+  /*Le footer contient une liste*/
   footer > ul {
     display: flex;
     height: 30px;
@@ -24,26 +26,17 @@ footer {
       text-align: -moz-center;
       width: 20%;
     }
-
     footer > ul > li:hover {
       height: 100%;
       box-shadow: 0px 0px 4px 2px black;
     }
-
-    footer > ul > li:nth-of-type(1) { text-align: center;; flex-basis: 10%; }
+    footer > ul > li:nth-of-type(1) { text-align: center; flex-basis: 10%; }
     footer > ul > li:nth-of-type(2) { text-align: center; flex-basis: 10%; margin-right: 15%;}
     footer > ul > li:nth-of-type(3) { text-align: center; flex-basis: 10%; }
     footer > ul > li:nth-of-type(4) { text-align: center; flex-basis: 10%; }
     footer > ul > li:nth-of-type(5) { text-align: center; flex-basis: 10%; margin-right: 15%;}
     footer > ul > li:nth-of-type(6) { text-align: center; flex-basis: 20%;}
-
-      footer > ul > li > a {
-        text-decoration: none;
-        color: white;
-        font-size: 10px;
-        font-weight: 600;
-      }
-
+      /*Menu déroulant pour les contacts*/
       footer > ul > li:nth-of-type(6) > ul{
         width: 20%;
         display: none;
@@ -64,3 +57,10 @@ footer {
           padding: 2%;
 
         }
+      /*Configuration des liens de redirection*/
+      footer > ul > li > a {
+        text-decoration: none;
+        color: white;
+        font-size: 10px;
+        font-weight: 600;
+      }
