@@ -1,10 +1,26 @@
-            <section class="first">
-       			<a href="#" class="scroll-down"> </a>
-                <img src="<?=ROOT_URL?>static/image/icon/lights.jpg" alt="">
+  <section class="first">
+    <a href="#" class="scroll-down"> </a>
+  <div class="container">
+  		<div class="inside">
+		    <label for="uname"><b> Identifiant </b></label>
+		    <input type="text" placeholder="Téléphone ou mail" name="uname" required> <br>
+		    <label for="psw"><b> Mot de passe </b></label>
+		    <input type="password" placeholder="Mot de passe" name="psw" required>
+		    <button type="submit"> Connexion </button>
+
+		</div>
+
+  </div>
 				
-			</section>
+  </section>
+	
+	<section class="ok">
+				 	
+		<div class="bott">
+			<h2> Qui sommes nous ? </h2>
+			<p> Domisep est une société proposant des capteurs aux particuliers. Ces derniers ont la particularité d'être écologiques et économiques. </p> <br>
+			<p> Economisons de l'énergie et de l'argent ! </p>
+
+		</div>
 			
-			<section class="ok">
-				 <img src="<?=ROOT_URL?>static/image/icon/lights.jpg" alt="">
-			</section>
-  
+	</section>
