@@ -17,7 +17,7 @@ class general {
   }
 
 	public function home() {
-    $this->$_manager->getView('header');
+    $this->_manager->getView('header');
 		$this->_manager->getView('home');
     $this->_manager->getView('footer');
   }
