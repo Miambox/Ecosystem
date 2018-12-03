@@ -20,6 +20,7 @@
     <div class="diagramme-baton">
       <h2>Période d'utilisation</h2>
       <div class="chart_div" id="chart_div">
+        <img src="<?=ROOT_URL?>/static/image/icon/loading-gif-lp.gif" width="40%" alt="">
       </div>
     </div>
   </div>
@@ -30,7 +31,7 @@
       <h2>Taux de luminosité</h2>
       <div class="diagramme-circulaire">
         <div class="" id='diagrammeCirculaire'>
-
+          <img src="<?=ROOT_URL?>/static/image/icon/loading-gif-lp.gif" width="65%" alt="">
         </div>
         <div class="plus_moins">
           <button type="button" name="button" class="ajouterLuminosite">+</button>
@@ -83,6 +84,15 @@
         <label for="name_ambiance">Nom</label>
         <input type="text" name="name_ambiance" value="">
       </form>
+      <div class="modal-diagramme-circulaire">
+        <div class="" id='diagrammeCirculaireModal'>
+
+        </div>
+        <div class="plus_moins_modal">
+          <button type="button" name="button" class="ajouterLuminositeModal">+</button>
+          <button type="button" name="button" class="diminuerLuminositeModal">-</button>
+        </div>
+      </div>
     </div>
     <div class="modal-footer">
       <button type="button" name="button" clas="ajouterAmbiance">Ajouter</button>
@@ -186,7 +196,7 @@
     <div class="modal-big-text">
       <table>
         <?php
-        for ($i=0; $i < 20; $i++) {
+        for ($i=0; $i < 5; $i++) {
           ?>
           <tr>
             <td>Lundi</td>
@@ -195,7 +205,6 @@
               <span>Tamisé</span>
             </td>
             <td>
-              <span>Tamisé</span>
               <label class="toggle-button">
                 <input type="checkbox">
                 <span class="slider round"></span>
