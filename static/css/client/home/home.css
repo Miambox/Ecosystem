@@ -1,0 +1,178 @@
+img {
+	max-height: 100%;
+	max-width: 100%;
+
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.first{
+
+  background-image: url('https://wallpapercave.com/wp/wp1910047.jpg');
+  background-size: 1920px 1080px;
+  height: 750px;
+  width: 1920px;
+  display: table;
+
+
+}
+
+.ok{
+	background-image: url('https://wallpapercave.com/wp/wp1910047.jpg');
+	display: table;
+	background-size: 1920px 1080px;
+	height: 700px;
+  	width: 1980px;
+}
+
+.connexion {
+
+}
+
+.scroll-down {
+  opacity: 1;
+  -webkit-transition: all .5s ease-in 3s;
+  transition: all .5s ease-in 3s;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 52%;
+  left: 50%;
+  margin-left: -16px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #FFF;
+  background-size: 14px auto;
+  border-radius: 50%;
+  z-index: 2;
+  -webkit-animation: bounce 2s infinite 2s;
+  animation: bounce 2s infinite 2s;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+.scroll-down:before {
+    position: absolute;
+    top: calc(50% - 8px);
+    left: calc(50% - 6px);
+    transform: rotate(-45deg);
+    display: block;
+    width: 12px;
+    height: 12px;
+    content: "";
+    border: 2px solid white;
+    border-width: 0px 0 2px 2px;
+}
+
+@keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  60% {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+
+form {
+    border: 3px solid #f1f1f1;
+    background-color: white;
+    width: 350px;
+    height: 350px;
+
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+
+    background-color: grey;   
+    color: white;
+    padding: 14px 20px;
+    margin-left: 60px; 
+    cursor: pointer;
+    width: 50%;
+    
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+/* Add padding to containers */
+.container {
+	
+	width: 400px;
+	height: 280px;
+	background-color: #FAFAFA;
+	border: 3px grey;
+	box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
+	border-radius: 20px;
+	margin-top: 180px;
+	margin-left: 100px;
+}
+
+.container b {
+	font-size: 15px;
+	text-align: center;
+	padding-right: 10px;
+}
+
+.inside {
+	padding-top: 50px;
+	padding-left: 40px;
+}
+
+.bott {
+
+	
+	padding-bottom: : 2500px;
+	width: 400px;
+	height: 250px;
+	background-color: #FAFAFA;
+	margin-top: 150px;
+	margin-left: 150px;
+	transition-duration: 5s;
+	transition-timing-function: 10s;
+	padding: 10px;
+	border: 3px grey;
+	box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
+	border-radius: 20px;
+
+}
+
+.bott:hover{
+	width: 600px;
+	height: 350px;
+
+}
