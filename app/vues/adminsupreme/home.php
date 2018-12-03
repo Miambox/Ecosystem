@@ -1,8 +1,8 @@
 <html>
   <head>
   <title>Admin Supreme - EcoSystem</title>
-  <link rel="stylesheet" href="<? ROOT_URL?>/static/css/adminsupreme/home.css" />
-  <link rel="stylesheet" href="<? ROOT_URL?>/static/css/utils/modal.css">
+  <link rel="stylesheet" href="<?=ROOT_URL?>/static/css/adminsupreme/home.css" />
+  <link rel="stylesheet" href="<?=ROOT_URL?>/static/css/utils/modal.css">
   <body id="all">
 
 
