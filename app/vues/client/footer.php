@@ -50,5 +50,6 @@
     <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/diagrammeCirculaire.js"></script>
     <!-- Diagramme en baton -->
     <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/diagrammeBaton.js"></script>
+    <script type="module" src="<?=ROOT_URL?>static/js/client/home/home.js"></script>
   </body>
 </html>
