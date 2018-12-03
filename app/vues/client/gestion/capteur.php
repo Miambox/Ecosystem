@@ -1,7 +1,7 @@
 <div class="container-piece-capteurs">
-  <a href="javascript:history.back()">Retour aux pieces</a>
-
   <div class="container-resume-piece">
+    <a href="javascript:history.back()">Retour aux pieces</a>
+
     <div class="resume-piece">
       <img class="photo-piece" src="<?=ROOT_URL?>/static/image/icon/salon-image.bmp" alt="">
       <div class="description-piece">
