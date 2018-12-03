@@ -11,6 +11,7 @@
   </form>
 </div>
 <div class="" style="margin-left: 40%;">
-  <!-- <a href="<?=ROOT_URL?>?Route=admin&amp;Ctrl=ControleurAdmin&amp;Vue=home">DEV: Go to admin</a> -->
+  <!-- <a href="<?=ROOT_URL?>?Route=admin&amp;Ctrl=general&amp;Vue=home">DEV: Go to admin</a> -->
   <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=general&amp;Vue=home">DEV: Go to client</a>
+  <a href="<?=ROOT_URL?>?Route=adminsupreme&amp;Ctrl=general&amp;Vue=home">DEV: Go to admin supreme</a>
 </div>

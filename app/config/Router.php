@@ -11,6 +11,8 @@ require 'app/controleur/client/profil.php';
 
 // ADMINISTRATEUR
 require 'app/controleur/admin/general.php';
+// ADMINISTRATEUR supreme
+require 'app/controleur/adminsupreme/general.php';
 
 class Router {
     /**

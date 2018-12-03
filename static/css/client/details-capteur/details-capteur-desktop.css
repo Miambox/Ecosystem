@@ -1,0 +1,701 @@
+/*Page CSS du design des détails du capteur*/
+
+/*Container de toute la page*/
+.container-details-capteur {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+  /*CARD DE GAUCHE*/
+  .container-diagramme {
+    flex-basis: 30%;
+    padding-right: 2%;
+  }
+    /* Card des boutons ajouter/visualiser les programmes*/
+    .programme {
+      border-color: gray;
+      box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      margin-top: 5%;
+      background-color: white;
+      width: 100%;
+      height: 220px;
+
+    }
+      .programme > h2 {
+        color: rgba(0,0,0,0.6);
+        text-align: center;
+        text-align: -moz-center;
+        position: sticky;
+        padding: 4%;
+        padding-top: 15%;
+      }
+      .programme > .button-ajouter {
+        color: white;
+        border-color: grey;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        font-weight: 800;
+        font-size: 14px;
+        padding: 2%;
+        padding-right: 4%;
+        padding-left: 4%;
+        margin-left: 25%;
+        margin-bottom: 5%;
+      }
+      .programme > .button-ajouter:hover {
+        background-color: rgba(0,0,0,0.6);
+        color: white;
+      }
+      .programme > .button-visualiser {
+        color: white;
+        border-color: orange;
+        background-color: rgba(255, 208, 6, 0.8);
+        border-radius: 5px;
+        font-weight: 800;
+        font-size: 14px;
+        padding: 2%;
+        padding-right: 4%;
+        padding-left: 4%;
+      }
+      .programme > .button-visualiser:hover {
+        background-color: white;
+        color: rgba(255, 208, 6, 0.8);
+      }
+    /* Diagramme en barre */
+    .diagramme-baton {
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
+      width: 100%;
+      margin-top: 5%;
+      display: flex;
+      flex-direction: column;
+    }
+      .diagramme-baton > h2 {
+        text-align: center;
+        text-align: -moz-center;
+        color: rgba(0,0,0,0.6);
+        background-color: white;
+        padding: 0;
+      }
+      .diagramme-baton > .chart_div {
+        text-align: center;
+        text-align: -moz-center;
+      }
+      svg {
+          border-radius: 5px;
+        }
+
+  /*CARD Logo + bouton allumer/eteindre*/
+  .container-logo {
+    flex-basis: 35%;
+    display: flex;
+    flex-direction: column;
+  }
+    /*Bouton de retour*/
+    .container-logo > a {
+      text-decoration: none;
+      border: solid 1px;
+      width: 30%;
+      padding: 2%;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+    .container-logo > a:hover {
+      background-color: #FFD006;
+      color: white;
+      box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
+    }
+    .container-logo > .btn-retour-piece {
+      position: sticky;
+      top: 14%;
+      color: #FFD006;
+    }
+    /*Logo de pièce*/
+    .container-logo > img {
+      width: 30%;
+      margin-left: 35%;
+      margin-top: 20%;
+    }
+    /*Bouton ON OFF*/
+    .container-logo > .on_off {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      flex-wrap: wrap;
+      margin-top: 5%;
+      width: 70%;
+      font-weight: 800;
+      border-radius: 5px;
+      padding: 2%;
+      box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
+      margin-left: 10%;
+      background-color: white;
+    }
+    .container-logo > .on_off > .toggle-button {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      margin-left: 5%;
+    }
+      .container-logo > .on_off > .toggle-button > input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .container-logo > .on_off > .toggle-button > .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+      .container-logo > .on_off > .toggle-button > .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+      .container-logo > .on_off > .toggle-button > input:checked + .slider {
+        background-color: #FFD006;
+      }
+      .container-logo > .on_off > .toggle-button > input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+      .container-logo > .on_off > .toggle-button > input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+      .container-logo > .on_off > .toggle-button > .slider.round {
+        border-radius: 34px;
+      }
+      .container-logo > .on_off > .toggle-button > .slider.round:before {
+        border-radius: 50%;
+      }
+      .container-logo > .on_off > span {
+        flex-basis: 70%;
+        margin-left: 3%;
+        margin-top: 2%;
+        color: #FFD006;
+      }
+
+  /*PARTIE DE DROITE */
+  .container-programme {
+    flex-basis: 30%;
+    margin-right: 2%;
+  }
+    /*CARD CONTENANT LE GRAPHE CIRCULAIRE*/
+    .container-diagramme-circulaire {
+      display: flex;
+      flex-direction: column;
+      box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
+      width: 100%;
+      border-radius: 5px;
+      margin-right: 5%;
+      margin-top: 5%;
+      background-color: white;
+    }
+      .container-diagramme-circulaire > h2 {
+        color: rgba(0,0,0,0.6);
+        text-align: center;
+        text-align: -moz-center;
+        padding: 1%;
+      }
+      .diagramme-circulaire {
+        display: flex;
+        flex-direction: row;
+      }
+      .diagramme-circulaire > #diagrammeCirculaire {
+        flex-basis: 75%;
+        text-align: center;
+        text-align: -moz-center;
+      }
+      .plus_moins {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 15%;
+        background-color: white;
+      }
+        .plus_moins > button {
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          font-weight: 800;
+          margin-top: 75%;
+        }
+    /*CARD DES AMBIANCES*/
+    .ambiance {
+      border-color: gray;
+      box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
+      border-radius: 5px;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      margin-right: 5%;
+      width: 100%;
+      background-color: white;
+    }
+      .ambiance > h2 {
+        color: rgba(0,0,0,0.6);
+        text-align: center;
+        text-align: -moz-center;
+        position: sticky;
+        top: 20%;
+        padding: 2%;
+        margin: 0;
+        margin-bottom: 2%;
+      }
+        .ambiance > h2 > button {
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          font-weight: 800;
+          color: white;
+          text-align: center;
+          text-align: -moz-center;
+          background-color:  #FFD006;
+          border-color:  #FFD006;
+        }
+      .ambiance > div {
+        margin-bottom: 2%;
+        overflow-y: scroll;
+      }
+        .ambiance > div > ul {
+          display: flex;
+          flex-direction: column;
+          padding: 0;
+          padding-left: 15%;
+          padding-right: 15%;
+          padding-bottom: 5%;
+          margin: 0;
+        }
+          .ambiance > div > ul > li {
+            padding: 1%;
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 4%;
+          }
+          .ambiance > div > ul > li > .toggle-button {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+            margin-left: 36%;
+          }
+            .ambiance > div > ul > li > .toggle-button > input {
+              opacity: 0;
+              width: 0;
+              height: 0;
+            }
+            .ambiance > div > ul > li > .toggle-button > .slider {
+              position: absolute;
+              cursor: pointer;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-color: #ccc;
+              -webkit-transition: .4s;
+              transition: .4s;
+            }
+            .ambiance > div > ul > li > .toggle-button > .slider:before {
+              position: absolute;
+              content: "";
+              height: 15px;
+              width: 15px;
+              left: 4px;
+              bottom: 4px;
+              background-color: white;
+              -webkit-transition: .4s;
+              transition: .4s;
+            }
+            .ambiance > div > ul > li > .toggle-button > input:checked + .slider {
+              background-color: #FFD006;
+            }
+            .ambiance > div > ul > li > .toggle-button > input:focus + .slider {
+              box-shadow: 0 0 1px #2196F3;
+            }
+            .ambiance > div > ul > li > .toggle-button > input:checked + .slider:before {
+              -webkit-transform: translateX(17px);
+              -ms-transform: translateX(17px);
+              transform: translateX(17px);
+            }
+            .ambiance > div > ul > li > .toggle-button > .slider.round {
+              border-radius: 34px;
+            }
+            .ambiance > div > ul > li > .toggle-button > .slider.round:before {
+              border-radius: 50%;
+            }
+            .ambiance > div > ul > li > span {
+              flex-basis: 40%;
+              margin-left: 3%;
+              margin-top: 1%;
+            }
+
+/*MODAL PERMETTANT D AJOUTER UNE AMBIANCE*/
+.modal-ambiance > .modal-head > p {
+  font-size: 20px;
+  text-align: center;
+  text-align: -moz-center;
+  color: #FFD006;
+  font-weight: 600;
+}
+.modal-ambiance > .modal-text > form {
+  text-align: center;
+  text-align: -moz-center;
+  margin-top: 2%;
+
+}
+  .modal-ambiance > .modal-text > form > label {
+    font-weight: 600;
+    color: rgba(0,0,0,0.6);
+    margin-right: 2%;
+  }
+  .modal-ambiance > .modal-text > form > input {
+    border: solid 2px rgba(0,0,0,0.2);
+    padding: 1%;
+    border-radius: 5px;
+  }
+  .modal-ambiance > .modal-text > .modal-diagramme-circulaire {
+
+  }
+  .modal-ambiance > .modal-text > .modal-diagramme-circulaire > .plus_moins_modal {
+
+  }
+  .modal-ambiance > .modal-text > .modal-diagramme-circulaire > .plus_moins_modal > button {
+
+  }
+.modal-ambiance > .modal-footer > button {
+  border-radius: 5px;
+  border-color: #FFD006;
+  background-color: #FFD006;
+  color: white;
+  font-weight: 800;
+  padding: 1%;
+  width: 20%;
+  margin-top: 0.5%;
+}
+.modal-ambiance > .modal-footer > button:hover {
+  background-color: white;
+  color: #FFD006;
+  font-weight: 800;
+}
+
+/* GRAND MODAL PERMETTANT DAJOUTER UN PROGRAMME */
+.modal-ajouter-programme > .modal-big-head > p {
+  font-size: 20px;
+  text-align: center;
+  text-align: -moz-center;
+  color: #FFD006;
+  font-weight: 600;
+}
+.modal-ajouter-programme > .modal-big-text > form {
+  text-align: center;
+  text-align: -moz-center;
+  margin-top: 2%;
+
+}
+  .modal-ajouter-programme > .modal-big-text > form > .form-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+    .modal-ajouter-programme > .modal-big-text > form > .form-group > label {
+      font-weight: 600;
+      color: rgba(0,0,0,0.6);
+      margin-right: 2%;
+    }
+    .modal-ajouter-programme > .modal-big-text > form > .form-group > span {
+      padding-right: 2%;
+      padding-left: 2%;
+      font-weight: 800;
+      font-size: 20px;
+    }
+    .modal-ajouter-programme > .modal-big-text > form > .form-group > input {
+      border: solid 2px rgba(0,0,0,0.2);
+      padding: 1%;
+      border-radius: 5px;
+      width: 8%;
+    }
+.modal-ajouter-programme > .modal-big-footer > button {
+  border-radius: 5px;
+  border-color: #FFD006;
+  background-color: #FFD006;
+  color: white;
+  font-weight: 800;
+  padding: 1%;
+  width: 20%;
+  margin-top: 2%;
+}
+.modal-ajouter-programme > .modal-big-footer > button:hover {
+  background-color: white;
+  color: #FFD006;
+  font-weight: 800;
+}
+
+/* GRAND MODAL AJOUTER UN PROGRAMME*/
+.modal-big-text-one > h3 {
+  border-bottom: solid 1px;
+  border-color: rgba(0,0,0,0.3);
+  width: 50%;
+  color: rgba(0,0,0,0.6);
+}
+  .form-group {
+    text-align: center;
+    text-align: -moz-center;
+    margin-bottom: 2%;
+  }
+    .form-group > #heure, #minute {
+      padding: 1%;
+      border-radius: 4px;
+    }
+    .form-group > #jour {
+      padding: 1%;
+      border-radius: 4px;
+    }
+  .toujours {
+    text-align: center;
+    text-align: -moz-center;
+  }
+    .toujours > .toggle-button {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 22px;
+      margin-left: 5%;
+    }
+      .toujours > .toggle-button > input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .toujours > .toggle-button > .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+      .toujours > .toggle-button > .slider:before {
+        position: absolute;
+        content: "";
+        height: 15px;
+        width: 15px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+      .toujours > .toggle-button > input:checked + .slider {
+        background-color: #FFD006;
+      }
+      .toujours > .toggle-button > input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+      .toujours > .toggle-button > input:checked + .slider:before {
+        -webkit-transform: translateX(17px);
+        -ms-transform: translateX(17px);
+        transform: translateX(17px);
+      }
+      .toujours > .toggle-button > .slider.round {
+        border-radius: 34px;
+      }
+      .toujours > .toggle-button > .slider.round:before {
+        border-radius: 50%;
+      }
+
+.modal-big-text-two > h3 {
+  border-bottom: solid 1px;
+  border-color: rgba(0,0,0,0.3);
+  width: 50%;
+  color: rgba(0,0,0,0.6);
+}
+  .select-ambiance {
+    margin-top: 5%;
+  }
+    .select-ambiance > ul {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      padding-left: 15%;
+      padding-right: 15%;
+      padding-bottom: 5%;
+      margin: 0;
+    }
+      .select-ambiance > ul > li {
+        padding: 1%;
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 4%;
+      }
+      .select-ambiance > ul > li > .toggle-button {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 22px;
+        margin-left: 36%;
+      }
+        .select-ambiance > ul > li > .toggle-button > input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        .select-ambiance > ul > li > .toggle-button > .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        .select-ambiance > ul > li > .toggle-button > .slider:before {
+          position: absolute;
+          content: "";
+          height: 15px;
+          width: 15px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          -webkit-transition: .4s;
+          transition: .4s;
+        }
+        .select-ambiance > ul > li > .toggle-button > input:checked + .slider {
+          background-color: #FFD006;
+        }
+        .select-ambiance > ul > li > .toggle-button > input:focus + .slider {
+          box-shadow: 0 0 1px #2196F3;
+        }
+        .select-ambiance > ul > li > .toggle-button > input:checked + .slider:before {
+          -webkit-transform: translateX(17px);
+          -ms-transform: translateX(17px);
+          transform: translateX(17px);
+        }
+        .select-ambiance > ul > li > .toggle-button > .slider.round {
+          border-radius: 34px;
+        }
+        .select-ambiance > ul > li > .toggle-button > .slider.round:before {
+          border-radius: 50%;
+        }
+        .select-ambiance > ul > li > span {
+          flex-basis: 40%;
+          margin-left: 3%;
+          margin-top: 1%;
+        }
+
+
+/*GRAND MODAL DE VISUALISATION DES PROGRAMMES*/
+.modal-visualiser-programme > .modal-big-head {
+  font-size: 20px;
+  text-align: center;
+  text-align: -moz-center;
+  color: #FFD006;
+  font-weight: 600;
+}
+.modal-visualiser-programme > .modal-big-text {
+  overflow-y: scroll;
+
+}
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td {
+  text-align: center;
+}
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:first-of-type {
+  width: 15%;
+  font-weight: bold;
+}
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(2) {
+  width: 25%;
+}
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(2) > p {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(2) > span {
+  font-size: 10px;
+}
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) {
+  width: 25%
+}
+
+  .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    margin-left: 5%;
+  }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > .slider:before {
+      position: absolute;
+      content: "";
+      height: 15px;
+      width: 15px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > input:checked + .slider {
+      background-color: #FFD006;
+    }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > input:checked + .slider:before {
+      -webkit-transform: translateX(17px);
+      -ms-transform: translateX(17px);
+      transform: translateX(17px);
+    }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > .slider.round {
+      border-radius: 34px;
+    }
+    .modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(3) > .toggle-button > .slider.round:before {
+      border-radius: 50%;
+    }
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(4) {
+  width: 15%;
+}
+.modal-visualiser-programme > .modal-big-text > table > tbody > tr > td:nth-of-type(5) {
+  width: 15%;
+}
