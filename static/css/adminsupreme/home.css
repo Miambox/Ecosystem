@@ -33,7 +33,6 @@
   font-family: "Helvetica Neue";
   font-size: 30px;
   color : orange;
-  position: center;
   margin: auto;
 }
 
@@ -81,32 +80,62 @@
 .employe {
   padding: 10px 5px;
 }
-.conteneur_popup_ajout_employe{
-  /*display: none;*/
-}
+
+
 
 .conteneur_popup_ajout_employe{
-  max-width: 352px;
-  margin: center;
+/*
   display: grid;
   grid-template-columns: 200px 150px ;
   background-color: white;
   border-radius: 10px;
 
   border: solid 2px rgba(0,0,0,0.2);
+  */
+
+
+  vertical-align: middle;
+  padding: 100px
+  height: 250px;
+  min-height:200px;
+  width: 34%;
+  display: grid;
+  /*grid-template-columns: 200px 150px ;*/
+  grid-template-columns: auto auto ;
+  background-color: white;
+  box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.3);
+  position: sticky;
+  left: 30%;
+  top: 20%;
+  border-radius: 8px;
+  border: solid 12px rgba(0,0,0,0.2);
+}
+/*
+.confirmer-ajout-employe{
+  color: #D37C07;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+  background: none;
+  border: none;
+
+
 }
 
-.confirmer-ajout-employe{
-  background-color: #D37C07;
-  color: white;
-  padding: 10px 2px;
-  border-radius: 10px;
+*/
+/*
+.send {
+  color: #D37C07;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+  background: none;
   border: none;
 }
-.fermer-ajout-employe{
-  background-color: #FF2222;
-  color: white;
-  padding: 10px 2px;
-  border-radius: 10px;
-  border: none;
+.send:hover,
+.send:focus {
+    color: #A63;
+    text-decoration: none;
+    cursor: pointer;
 }
+*/
