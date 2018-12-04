@@ -2,7 +2,7 @@
   <head>
   <title>Admin Supreme - EcoSystem</title>
   <link rel="stylesheet" href="<?=ROOT_URL?>/static/css/adminsupreme/home.css" />
-  <link rel="stylesheet" href="<?=ROOT_URL?>/static/css/utils/modal.css">
+  <link rel="stylesheet" href="<?=ROOT_URL?>/static/css/utils/modal/modal-desktop.css">
   <body id="all">
 
   <div class = "container-suprême-admin">
@@ -35,9 +35,17 @@
             <input type="image" name="button" class="employe" id="button-employe"
             src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
 
-            <input type="image" name="button" class="ajouter-employe" id="button-ajout-employe"
-            src="<?=ROOT_URL?>/static/image/icon/ajouter.png" width="50%" alt="">
+            <input type="image" name="button" class="employe" id="button-employe"
+            src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
 
+            <input type="image" name="button" class="employe" id="button-employe"
+            src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
+
+            <input type="image" name="button" class="employe" id="button-employe"
+            src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
+
+            <input type="image" name="button" class="ajouter-employe" id="button-ajout-employe-serviceclient"
+            src="<?=ROOT_URL?>/static/image/icon/ajouter.png" width="50%" alt="">
 
           </div>
         </ul>
@@ -53,9 +61,7 @@
           <li>
             <button type="button" name="button" class="button-modifier" id="button_modifier">Modifier</button>
           </li>
-          <div class="container-employe"
-            <input type="image" name="button" class="employe" id="button-employe"
-            src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
+          <div class="container-employe">
 
             <input type="image" name="button" class="employe" id="button-employe"
             src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
@@ -69,51 +75,58 @@
             <input type="image" name="button" class="employe" id="button-employe"
             src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
 
-            <input type="image" name="button" class="ajouter-employe" id="button-ajout-employe"
+            <input type="image" name="button" class="employe" id="button-employe"
+            src="<?=ROOT_URL?>/static/image/icon/user.png" width="50%" alt="">
+
+            <input type="image" name="button" class="ajouter-employe" id="button-ajout-employe-depanage"
             src="<?=ROOT_URL?>/static/image/icon/ajouter.png" width="50%" alt="">
 
           </div>
         </ul>
       </div>
 
-
-      <input type="image" name="button" class="ajouter-employe" id="button-ajout-employe"
+      <input type="image" name="button" class="ajouter-type-employe" id="button-ajout-type-employe"
       src="<?ROOT_URL?>/static/image/icon/ajouter.png" width="90%" alt="">
+
     </div>
 
+    <div class= "container-modal" id="conteneur_modal_ajout_employe">
+      <form action="" class="conteneur_popup_ajout_employe">
 
-    <form action="" class="conteneur_popup_ajout_employe">
+        <label for="Nom"><b>Nom</b></label>
+        <input type="text" placeholder="Nom" name="nom" required>
 
-      <label for="Nom"><b>Nom</b></label>
-      <input type="text" placeholder="Nom" name="nom" required>
+        <label for="Prenom"><b>Password</b></label>
+        <input type="text" placeholder="Prenom" name="prenom" required>
 
-      <label for="Prenom"><b>Password</b></label>
-      <input type="text" placeholder="Prenom" name="prenom" required>
+        <label for="fct"><b>fonction</b></label>
+        <input type="text" placeholder="Fonction" name="fonction" >
 
-      <label for="fct"><b>fonction</b></label>
-      <input type="text" placeholder="Fonction" name="fonction" >
+        <label for="genre"><b>Genre</b></label>
+        <input type="text" placeholder="Genre" name="genre" >
 
-      <label for="genre"><b>Genre</b></label>
-      <input type="text" placeholder="Genre" name="genre" >
+        <label for="telephone"><b>Télephone portable</b></label>
+        <input type="number" placeholder="XX XX XX XX XX" name="fonction" >
 
-      <label for="telephone"><b>Télephone portable</b></label>
-      <input type="number" placeholder="XX XX XX XX XX" name="fonction" >
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Entrer Email" name="email" required>
 
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Entrer Email" name="email" required>
+        <label for="confirm_email"><b>Confirmation de l'e-mail</b></label>
+        <input type="text" placeholder="Confirmer Email" name="confirm_email" required>
 
-      <label for="confirm_email"><b>Confirmation de l'e-mail</b></label>
-      <input type="text" placeholder="Confirmer Email" name="confirm_email" required>
+        <label for="psw"><b>Mot de passe</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+        <label for="confirm_psw"><b>Confirmation du mot de passe</b></label>
+        <input type="password" placeholder="Mot de passe" name="confirm_psw" required>
 
-      <label for="psw"><b>Mot de passe</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-      <label for="confirm_psw"><b>Confirmation du mot de passe</b></label>
-      <input type="password" placeholder="Mot de passe" name="confirm_psw" required>
-
-      <button type="submit" class="confirmer-ajout-employe">envoyer</button>
-      <button type="button" class="fermer-ajout-employe">Close</button>
-    </form>
+        <button type="submit" class="confirmer-ajout-employe send">Envoyer</button>
+        <button type="button" class="fermer-ajout-employe close" id="fermer_modal_ajout_employe">Fermer</button>
+      </form>
+    </div>
   </div>
+  <!--  ajout des scripts JS -->
+  <script type="text/javascript" src="<?=ROOT_URL?>static/js/vendor/jquery-3-3-1.js"></script>
+  <script type="text/javascript" src="<?=ROOT_URL?>static/js/adminsupreme/home.js"></script>
 
 
   </body>
