@@ -1,0 +1,8 @@
+.btn-supprimer {
+  color: white;
+  border-color: red;
+  background-color: rgba(255, 85, 85, 0.9);
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 14px;
+}

@@ -1,0 +1,8 @@
+.btn-ajouter-piece {
+  color: white;
+  border-color: green;
+  background-color: rgba(95, 174, 135, 0.9);
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 14px;
+}
