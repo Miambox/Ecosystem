@@ -32,6 +32,12 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/mention-legale/mention-legale-mobile.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/profil/profil.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/home/home.css">
+
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/signin/signin-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/password/password-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addLogement/addLogement-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addPiece/addPiece-desktop.css">
+
   </head>
   <body>
     <!--Barre de navigation-->

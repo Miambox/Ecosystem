@@ -7,7 +7,11 @@
 			    <label for="psw"><b> Mot de passe </b></label>
 			    <input type="password" placeholder="Mot de passe" name="psw" required>
 			    <button type="submit"> Connexion </button>
+<<<<<<< HEAD
 			    <button type="submit"> Inscription </button>
+=======
+			    <a href="<?=ROOT_URL?>?Route=client&Ctrl=signin&Vue=vuePrincipale">Inscription</a>
+>>>>>>> inscription
 			</div>				
 	  </section>
 		

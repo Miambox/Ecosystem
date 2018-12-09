@@ -8,6 +8,10 @@ require 'app/controleur/client/capteur.php';
 require 'app/controleur/client/general.php';
 require 'app/controleur/client/detailsCapteur.php';
 require 'app/controleur/client/profil.php';
+require 'app/controleur/client/signin.php';
+require 'app/controleur/client/password.php';
+require 'app/controleur/client/addLogement.php';
+require 'app/controleur/client/addPiece.php';
 
 // ADMINISTRATEUR
 require 'app/controleur/admin/general.php';
