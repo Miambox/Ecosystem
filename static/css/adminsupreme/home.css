@@ -1,22 +1,27 @@
 .container-suprême-admin{
   width: 100%;
-  display: grid;
-  grid-template-columns: 800px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .titre-page-admin{
   display: block;
   margin: auto ;
-  color : #FA8;
+  color : #ffb83c;
+  border-bottom: solid 4px #d0942b70;
+  font-size: 25px;
 }
 
 .container-card-sup-admin {
-  display: grid;
-  grid-template-columns: auto auto 50px;
+  display: flex;
+  flex-direction: row;
+
 }
 
 .card-sup-admin{
 
+  flex-basis: 300px;
   display: grid;
   grid-template-columns: auto;
   border: solid 1px rgba(20,40,40,0.5);
@@ -31,9 +36,9 @@
 
   text-align: center;
   font-family: "Helvetica Neue";
-  font-size: 30px;
+  font-size: 40px;
   color : orange;
-  margin: auto;
+  flex-basis: 10%;
 }
 
 .card-sup-admin > ul{
@@ -43,8 +48,9 @@
 
 .container-employe{
 
-  display: grid;
-  grid-template-columns: auto auto auto;
+  display: flex;
+  flex-wrap: wrap;
+  /*grid-template-columns: auto auto auto;*/
 
 
   border-radius: 5px;
@@ -54,34 +60,50 @@
 }
 
 
-.list-employe{
-  display: grid;
-  grid-template-columns: auto auto auto;
-  margin: auto;
-}
 
 .button-modifier{
   display: grid;
   margin: auto;
   text-align: center;
-  background-color: #EC7;
+  background-color: #fdc54b;
   color: white;
   padding: 16px 60px;
   border-radius: 7px;
   border: 2px solid;
+  font-weight: 30px;
+
+  flex-basis: 20%;
+  margin-bottom: 10%;
 
 }
 
-.ajout_employe{
-  display: block;
-  margin: auto ;
+.ajouter-employe{
+  padding: 10px 5px;
+  margin: 10px 10px 10px 10px;
+  width: 60px;
+  height: 60px;
+
 }
 
 .employe {
   padding: 10px 5px;
+  margin: 10px 10px 10px 10px;
+  width: 60px;
+  height: 60px;
 }
 
+.ajouter-type-employe{
+  width: 70px;
+  height: 70px;
+  vertical-align: middle;
 
+  background-color: #0002;
+  padding: 5px 5px;
+  border-radius: 7px;
+  border: 1px solid #0003;
+
+  align-self: center;
+}
 
 .conteneur_popup_ajout_employe{
 /*
@@ -93,7 +115,7 @@
   border: solid 2px rgba(0,0,0,0.2);
   */
 
-
+  min-width: 300px;
   vertical-align: middle;
   padding: 100px
   height: 250px;
@@ -109,6 +131,16 @@
   top: 20%;
   border-radius: 8px;
   border: solid 12px rgba(0,0,0,0.2);
+}
+
+
+.champ_popup{
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+.entree_popup{
+  margin-bottom: 10px
+
 }
 /*
 .confirmer-ajout-employe{
