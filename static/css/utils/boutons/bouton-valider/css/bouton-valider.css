@@ -1,0 +1,8 @@
+.btn-valider {
+  color: white;
+  background-color: rgba(95, 174, 135, 0.9);
+  border-color: green;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 14px;
+}
