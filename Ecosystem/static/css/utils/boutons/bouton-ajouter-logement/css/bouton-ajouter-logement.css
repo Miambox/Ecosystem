@@ -1,0 +1,8 @@
+.btn-ajouter-logement {
+  color: white;
+  border-color: orange;
+  background-color: rgba(255, 188, 85, 0.9);
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 14px;
+}

@@ -1,0 +1,40 @@
+/*******************(MOBILE PORTRAIT: résolution adaptatif)****************************/
+@media only screen and (max-width: 768px) and (orientation: PORTRAIT){
+  .container-logo {
+    flex-basis: 100%;
+  }
+    .container-logo > .btn-retour-piece {
+      position: relative;
+    }
+    .container-logo > .on_off {
+      margin: 0;
+      margin-left: 15%;
+      margin-top: 2%;
+      text-align: center;
+      text-align: -moz-center;
+    }
+    .container-logo > .on_off > span {
+      flex-basis: 100%;
+    }
+    .container-logo > .on_off > .toggle-button {
+      margin-left: 40%;
+      margin-top: 5%;
+    }
+    .container-logo > img {
+      margin-left: 63%;
+      margin-top: -17%;
+    }
+
+  .container-diagramme {
+    flex-basis: 100%;
+    margin-left: 4%;
+    margin-right: 4%;
+    padding: 0;
+  }
+
+  .container-programme {
+    flex-basis: 100%;
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+}
