@@ -30,4 +30,8 @@ $(document).ready(function() {
     modal(containerModal, close);
   });
 
+  $("#ajouterPiece").click(function (e) {
+    document.location.href="?Route=client&Ctrl=addPiece&Vue=vuePrincipale";
+  })
+
 });
