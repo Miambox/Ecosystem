@@ -1,22 +1,20 @@
 @media all and (min-width: 1024px)
 {
 .first{
-
-  background-image: url('/Ecosystem/static/image/icon/lights.jpg');
+  background-image: url('../../../../static/image/icon/lights.jpg');
   background-size: 1920px 1080px;
   height: 750px;
   width: 1920px;
   display: table;
-
 }
 
-*,
+/* *,
 :after,
 :before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
+} */
 
 .scroll-down {
 
@@ -60,7 +58,7 @@
 .inside {
   padding-top: 50px;
   padding-left: 40px;
-  width: 35%;
+  width: 30%;
   height:760px;
   background-color: #FAFAFA;
 
@@ -93,14 +91,14 @@ input[type=text]{
 
 .inside button {
 
-    background-color: grey;   
+    background-color: grey;
     color: white;
     padding: 14px 20px;
-    margin-left: 60px; 
+    margin-left: 60px;
     margin-top: 25px;
     cursor: pointer;
     width: 50%;
-    
+
 }
 
 .inside button:hover {
@@ -109,7 +107,7 @@ input[type=text]{
 
 .ok
 {
-  background-image: url('/Ecosystem/static/image/icon/lights.jpg');
+  background-image: url('../../../../static/image/icon/lights.jpg');
   background-color: #EB5101;
   display: table;
   background-size: 1920px 1080px;
@@ -130,7 +128,7 @@ input[type=text]{
 	border: 3px grey;
 	box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
 	border-radius: 20px;
- 
+
 }
 
 .bott:hover
@@ -223,13 +221,13 @@ input[type=text], input[type=password] {
 
 .inside button {
 
-    background-color: grey;   
+    background-color: grey;
     color: white;
     padding: 14px 20px;
-    margin-left: 60px; 
+    margin-left: 60px;
     cursor: pointer;
     width: 50%;
-    
+
 }
 
 .inside button:hover {
@@ -246,7 +244,7 @@ input[type=text], input[type=password] {
 
 .bott {
 
-  
+
   padding-bottom: : 2500px;
   margin-top: 25px;
   width: 280px;
@@ -256,7 +254,7 @@ input[type=text], input[type=password] {
   border: 3px grey;
   box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
   border-radius: 20px;
- 
+
 }
 
 }
@@ -300,13 +298,13 @@ input[type=text], input[type=password] {
 
 .inside button {
 
-    background-color: grey;   
+    background-color: grey;
     color: white;
     padding: 14px 20px;
-    margin-left: 60px; 
+    margin-left: 60px;
     cursor: pointer;
     width: 50%;
-    
+
 }
 
 .inside button:hover {
@@ -323,7 +321,7 @@ input[type=text], input[type=password] {
 
 .bott {
 
-  
+
   padding-bottom: : 2500px;
   margin-top: 25px;
   width: 50%;
@@ -333,7 +331,7 @@ input[type=text], input[type=password] {
   border: 3px grey;
   box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
   border-radius: 20px;
- 
+
 }
 
 }
