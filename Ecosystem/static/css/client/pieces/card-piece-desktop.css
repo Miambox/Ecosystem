@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: #FAFAFA;
     border: solid 1px rgba(0,0,0,0.2);
     border-radius: 5px;
     box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
@@ -41,6 +42,7 @@
       border: solid 1px #FFB870;
       padding: 2%;
       color: #FFB870;
+      background-color: #FAFAFA;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
     }

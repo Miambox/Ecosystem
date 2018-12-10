@@ -16,6 +16,7 @@
     border: solid 1px #FFD006;
     padding: 1%;
     color: #FFD006;
+    background-color: #FAFAFA;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
@@ -26,6 +27,7 @@
   }
   .container-resume-piece > .resume-piece {
     width: 80%;
+    background-color: #FAFAFA;
     height: 250px;
     display: flex;
     flex-direction: row;

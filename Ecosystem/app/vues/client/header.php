@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/login/login-mobile.css">
     <!-- footer -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/footer/footer-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/footer/footer-mobile.css">
     <!-- barre de navigation client -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/barre-de-navigation/navbar-client-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/barre-de-navigation/navbar-client-mobile.css">
