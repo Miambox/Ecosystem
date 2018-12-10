@@ -1,0 +1,49 @@
+/*PORTABLE GENERAL MODE PORTRAIT*/
+@media only screen and (max-width: 768px) and (orientation: PORTRAIT) {
+  /*On met la taille à 100% des box sur portable*/
+  .card-logement {
+    flex-basis: 100%;
+    margin-left: 2%;
+  }
+      /*On cadre le menu déroulant*/
+      .card-logement > .card-head > ul > li:last-of-type > nav {
+        margin-top: 12%;
+      }
+      .card-logement > .card-head > ul > li:last-of-type > .button-config-logement > img {
+        width: 80%;
+      }
+  /*On centre avec des margins le bouton d'ajout de logement*/
+  .container-logements > button {
+    margin-left: 42%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+
+}
+
+/*PORTABLE GENERAL MODE PAYSAGE*/
+@media only screen and (max-width : 768px) and (orientation: landscape) {
+  .card-logement {
+    flex-basis: 35%;
+    height: 100%;
+    margin-top: 6%;
+  }
+  .card-logement > .card-footer > .button-go-to-piece {
+    padding: 0;
+    margin-bottom: 5%;
+    font-size: 1.5vw;
+  }
+  .card-logement > .card-head > ul > li:first-of-type > h5 {
+    font-size: 1.5vw;
+  }
+  .card-logement > .card-head > ul > li:last-of-type > nav {
+    margin-top: 30%;
+  }
+  .card-logement > .card-head > ul > li:last-of-type > .button-config-logement {
+    width: 15px;
+    height: 15px;
+  }
+  .container-logements > button {
+    margin-top: 20%;
+  }
+}
