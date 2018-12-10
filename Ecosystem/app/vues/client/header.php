@@ -24,7 +24,8 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/capteurs/card-capteur-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/capteurs/card-capteur-mobile.css">
     <!-- page détails du capteur -->
-    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/details-capteur/detailsCapteur.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/details-capteur/details-capteur-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/details-capteur/details-capteur-mobile.css">
     <!-- modal -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/modal/modal-desktop.css">
     <!-- big modal -->
