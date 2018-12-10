@@ -1,6 +1,6 @@
 <div class="container-logement-pieces">
-  <a href="javascript:history.back()">Retour aux logements</a>
   <div class="container-resume-logement">
+    <a href="javascript:history.back()">Retour aux logements</a>
     <div class="resume-logement">
       <img class="photo-logement" src="<?=ROOT_URL?>/static/image/icon/maison-image.bmp" width="100%" alt="">
       <div class="description-logement">
