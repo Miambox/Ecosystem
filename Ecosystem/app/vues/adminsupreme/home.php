@@ -84,6 +84,8 @@
           </div>
         </ul>
       </div>
+      <input type="image" name="button" class="ajouter-employe" id="button-ajout-employe-depanage"
+      src="<?=ROOT_URL?>/static/image/icon/ajouter.png"  alt="">
 
       <button type="button" name="button" class="button-ajouter-client">+</button>
 
