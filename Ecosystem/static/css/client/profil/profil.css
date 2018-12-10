@@ -27,13 +27,23 @@
 
 }
 
- h2 {
-
+.partage > h2 {
 	font-size: 25px;
 	text-align: center;
 	color: #8C8C8C;
 }
 
+.logements > h2 {
+	font-size: 25px;
+	text-align: center;
+	color: #8C8C8C;
+}
+
+.capteurs > h2 {
+	font-size: 25px;
+	text-align: center;
+	color: #8C8C8C;
+}
 
 .informations h3 {
 
