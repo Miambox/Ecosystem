@@ -1,3 +1,4 @@
+
 $(function() {
     $('.scroll-down').click (function() {
       $('html, body').animate({scrollTop: $('section.ok').offset().top -65  }, 'slow');
@@ -8,7 +9,7 @@ $(function() {
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 
-// ===== Scroll to Top ==== 
+// ===== Scroll to Top ====
 $(window).scroll(function() {
     if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
         $('#return-to-top').fadeIn(200);    // Fade in the arrow
@@ -21,3 +22,8 @@ $('#return-to-top').click(function() {      // When arrow is clicked
         scrollTop : 0                       // Scroll to top of body
     }, 500);
 });
+
+$("#gotoInscription").click(function(e) {
+  console.log("test");
+  document.location.href="?Route=client&Ctrl=signin&Vue=vuePrincipale";
+})
