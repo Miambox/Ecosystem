@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/password/password-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addLogement/addLogement-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addPiece/addPiece-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addCapteur/addCapteur-desktop.css">
 
   </head>
   <body>

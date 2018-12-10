@@ -7,6 +7,9 @@
     <input type="password" placeholder="Mot de passe" name="psw" required>
     <button type="submit" id="gotoProfil"> Connexion </button>
     <button type="submit" id="gotoInscription"> Inscription </button>
+    <br><a href="<?=ROOT_URL?>?Route=admin&amp;Ctrl=general&amp;Vue=home">DEV: Go to admin</a>
+    <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=general&amp;Vue=home">DEV: Go to client</a>
+    <a href="<?=ROOT_URL?>?Route=adminsupreme&amp;Ctrl=general&amp;Vue=home">DEV: Go to admin supreme</a>
 </div>
 
   </section>
