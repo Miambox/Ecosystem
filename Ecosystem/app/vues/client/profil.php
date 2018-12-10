@@ -24,7 +24,7 @@
 
             <div class = "partage">
                 <h2> Mes partages </h2>
-                <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=general&amp;Vue=home" title="mes partages"> <img src="<?=ROOT_URL?>static/image/icon/add.png" alt="">
+                <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=logement&amp;Vue=vuePrincipale" title="mes partages"> <img src="<?=ROOT_URL?>static/image/icon/add.png" alt="">
                 </a>
 
             </div>
@@ -35,7 +35,7 @@
                 <div class="logements">
                     <h2> Mes logements </h2>
                     <figure class="maison">
-                        <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=general&amp;Vue=home" title="Voir mes logements"> <img src="<?=ROOT_URL?>static/image/icon/maison.png" alt="">
+                        <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=logement&amp;Vue=vuePrincipale" title="Voir mes logements"> <img src="<?=ROOT_URL?>static/image/icon/maison.png" alt="">
                         </a>
                     </figure>
 
@@ -44,7 +44,7 @@
                 <div class="capteurs">
                     <h2> Mes capteurs </h2>
                     <figure class="ecolight">
-                        <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=general&amp;Vue=home" title="Voir mes capteurs"> <img src="<?=ROOT_URL?>static/image/icon/light.png" alt="">
+                        <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=capteur&amp;Vue=vuePrincipale" title="Voir mes capteurs"> <img src="<?=ROOT_URL?>static/image/icon/light.png" alt="">
                         </a>
                     </figure>
 
