@@ -7,7 +7,8 @@
     <input type="etage" name="etage" placeholder="Etage">
     <input type="surface" name="surface" placeholder="Surface">
     <div>
-      <a class"bouton-ajouter" href="<?=ROOT_URL?>?Route=client&Ctrl=addCapteur&Vue=vuePrincipale">Ajout d'un capteur</a>
+      <a href="<?=ROOT_URL?>?Route=client&Ctrl=addCapteur&Vue=vuePrincipale">Ajout d'un capteur</a>
     </div>
   </form>
 </div>
+

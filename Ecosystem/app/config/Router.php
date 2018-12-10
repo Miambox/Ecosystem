@@ -12,8 +12,6 @@ require 'app/controleur/client/signin.php';
 require 'app/controleur/client/password.php';
 require 'app/controleur/client/addLogement.php';
 require 'app/controleur/client/addPiece.php';
-require 'app/controleur/client/addCapteur.php';
-
 
 // ADMINISTRATEUR
 require 'app/controleur/admin/general.php';
