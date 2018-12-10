@@ -2,7 +2,7 @@
   <div class="card-logement">
     <div class="card-head">
       <ul>
-        <li><h5>16 rue Desnouettes, Paris 75015</h5></li>
+        <li><h5>10 Rue Vanves, 92130 Issy-Les-Moulineaux</h5></li>
         <li>
           <button type="button" name="button" class="button-config-logement" id="button-config">
             <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
@@ -10,7 +10,6 @@
           <nav id="parametres-logement">
             <ul>
               <li><a href="#" id="supprimerLogement">Supprimer</a></li>
-              <li><a href="#" id="modifierLogement">Modifier</a></li>
               <li><a href="#" id="ajouterPartage">Partager</a></li>
             </ul>
           </nav>
@@ -18,34 +17,7 @@
       </ul>
     </div>
     <div class="card-body">
-      <img src="<?=ROOT_URL?>/static/image/icon/maison-image.bmp" width="100%" alt="">
-    </div>
-    <div class="card-banniere">
-    </div>
-    <div class="card-footer">
-      <button type="button" name="button" class="button-go-to-piece" id="goTo">Plus de détails</button>
-    </div>
-  </div>
-  <div class="card-logement">
-    <div class="card-head">
-      <ul>
-        <li><h5>15 rue trinité, 75013 Paris</h5></li>
-        <li>
-          <button type="button" name="button" class="button-config-logement" id="button-config" onclick="ouvreParemetresLogement()">
-            <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
-          </button>
-          <nav id="parametres-logement">
-            <ul>
-              <li><a href="#">Supprimer</a></li>
-              <li><a href="#">Modifier</a></li>
-              <li><a href="#">Partager</a></li>
-            </ul>
-          </nav>
-        </li>
-      </ul>
-    </div>
-    <div class="card-body">
-      <img src="<?=ROOT_URL?>/static/image/icon/maison-image2.bmp" width="100%" alt="">
+      <img src="<?=ROOT_URL?>/static/image/icon/isep.jpg" width="100%" alt="">
     </div>
     <div class="card-banniere">
     </div>

@@ -39,5 +39,10 @@ $(document).ready(function() {
     modal(containerModal, close);
   })
 
+  $("#ajouterLogement").click(function(e) {
+    console.log("ajouterLogement");
+    document.location.href="?Route=client&Ctrl=addLogement&Vue=vuePrincipale";
+  })
+
 
 });
