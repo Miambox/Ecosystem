@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/barre-de-navigation/navbar-client-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/barre-de-navigation/navbar-client-mobile.css">
     <!-- page logement -->
-    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/logements/logement-desktop.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/logements/logement-mobile.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/logements/card-logement-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/logements/card-logement-mobile.css">
     <!-- page piece -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/pieces/card-piece-mobile.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/pieces/card-piece-desktop.css">
