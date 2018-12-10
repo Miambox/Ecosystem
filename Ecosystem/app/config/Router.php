@@ -17,6 +17,11 @@ require 'app/controleur/client/addCapteur.php';
 
 // ADMINISTRATEUR
 require 'app/controleur/admin/general.php';
+require 'app/controleur/admin/capteur.php';
+require 'app/controleur/admin/client.php';
+require 'app/controleur/admin/logement.php';
+require 'app/controleur/admin/detailsCapteur.php';
+
 // ADMINISTRATEUR supreme
 require 'app/controleur/adminsupreme/general.php';
 

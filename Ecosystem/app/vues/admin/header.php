@@ -7,6 +7,8 @@
     <!-- Barre de navigation -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/barre-de-navigation/navbar-admin-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/barre-de-navigation/navbar-admin-mobile.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/clientProfil.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/detailsCapteur.css">
 
     <title>Eco'system - admin</title>
   </head>
