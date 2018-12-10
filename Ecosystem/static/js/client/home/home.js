@@ -27,3 +27,8 @@ $("#gotoInscription").click(function(e) {
   console.log("test");
   document.location.href="?Route=client&Ctrl=signin&Vue=vuePrincipale";
 })
+
+$("#gotoProfil").click(function(e) {
+  console.log("test");
+  document.location.href="?Route=client&Ctrl=profil&Vue=vuePrincipale";
+})

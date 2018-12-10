@@ -5,7 +5,7 @@
     <input type="text" placeholder="Téléphone ou mail" name="uname" required> <br>
     <label for="psw"><b> Mot de passe </b></label>
     <input type="password" placeholder="Mot de passe" name="psw" required>
-    <button type="submit"> Connexion </button>
+    <button type="submit" id="gotoProfil"> Connexion </button>
     <button type="submit" id="gotoInscription"> Inscription </button>
 </div>
 
