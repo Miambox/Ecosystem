@@ -1,0 +1,214 @@
+/*********************************** CONTAINER PRINCIPAL des logements*******************************/
+.container-logements {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+  /* CONFIGURATION du container DE LA BOX LOGEMENT*/
+  .card-logement {
+    flex-basis: 25%;
+    height: 100%;
+    min-height: 300px
+    max-height: 350px;
+    border-radius: 5px;
+    border: solid 1px rgba(0,0,0,0.2);
+    background-color: white;
+    margin-top: 4%;
+    margin-bottom: 1%;
+    margin-right: 3.5%;
+    margin-left: 4.5%;
+  }
+     /*CONFIGURATION de l'en-tête de la box*/
+     .card-logement > .card-head {
+       height: 50px;
+       border-bottom: solid 1px rgba(0,0,0,0.1);
+     }
+       .card-logement > .card-head > ul {
+         display: flex;
+         flex-direction: row;
+         height: 100%;
+         margin: 0;
+         padding: 0;
+       }
+         .card-logement > .card-head > ul > li {
+           list-style-type: none;
+         }
+         .card-logement > .card-head > ul > li:first-of-type {
+           flex-basis: 90%;
+           margin-left: 2%;
+         }
+           .card-logement > .card-head > ul > li:first-of-type > h5 {
+             margin-top: 6%;
+             color: #FFB870;
+           }
+           .card-logement > .card-head > ul > li:last-of-type {
+             flex-basis: 20%;
+             text-align: center;
+             text-align: -moz-center;
+             margin-left: 8%;
+           }
+             /* Bouton dans le l'en-tête permettant d'ouvrir un menu déroulant */
+             .button-config-logement {
+               margin-top: 15%;
+               padding: 2%;
+               margin-left: 5%;
+               height: 25px;
+               width: 25px;
+               background: transparent;
+               box-shadow: none;
+               border: none;
+             }
+             .button-config-logement:hover {
+               border-radius: 50%;
+               box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
+             }
+               .button-config-logement > img {
+                 width: 100%;
+                 margin-top: 2%;
+               }
+              /*CONFIGURATION du menu déroulant: partager, supprimer, modifier*/
+              .card-logement > .card-head > ul > li:last-of-type > nav {
+                display: none;
+                border: solid 1px rgba(0,0,0,0.1);
+                margin-top: 4%;
+                z-index: 100;
+                position: sticky;
+                background-color: white;
+              }
+                .card-logement > .card-head > ul > li:last-of-type > nav > ul {
+                  list-style-type: none;
+                  padding: 0;
+                }
+                  .card-logement > .card-head > ul > li:last-of-type > nav > ul > li {
+                    padding: 5%;
+                    font-size: 10px;
+                  }
+                    .card-logement > .card-head > ul > li:last-of-type > nav > ul > li  > a {
+                      text-decoration: none;
+                      color: #333333;
+                    }
+                    .card-logement > .card-head > ul > li:last-of-type > nav > ul > li > a:hover {
+                      color: #FFB870;
+                    }
+      /*CONFIGURATION du corp de la box*/
+     .card-logement > .card-body {
+       height: 72%;
+     }
+       .card-logement > .card-body > img {
+         margin-top: 0.5%;
+         height: auto;
+         max-width: 100%;
+       }
+      /*CONFIGURATION du pied de la box*/
+     .card-logement > .card-footer {
+       height: 14%;
+       border-top: solid 1px rgba(0,0,0,0.1);
+       text-align: center;
+       text-align: -moz-center;
+     }
+       .card-logement > .card-footer > .button-go-to-piece {
+         text-decoration: none;
+         border: solid 1px rgba(0,0,0,0.3);
+         color: white;
+         font-weight: 500;
+         background-color: #FFB870;
+         padding: 2%;
+         border-radius: 5px;
+         margin-top: 0;
+         width: 40%;
+       }
+       .card-logement > .card-footer > .button-go-to-piece:hover {
+         box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
+       }
+
+
+/**********************************CONFIGURATION du bouton d'ajout de logement************************/
+.container-logements > button {
+  margin-top: 15%;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-weight: 800;
+  font-size: 24px;
+  color: white;
+  background-color: #FFB870;
+}
+
+
+/***********************************CONFIGURATION DES MODALS de la page logement***********************************/
+
+/*MODAL DE PARTAGE*/
+/*En-tête du modal partage*/
+.modal-partage > .modal-head{
+  text-align: center;
+  text-align: -moz-center;
+}
+  .modal-partage > .modal-head > p {
+  margin-left: 10%;
+  color: #FFB870;
+  font-weight: 600;
+}
+/*Corps du modal partage*/
+.modal-partage > .modal-text > form {
+text-align: center;
+text-align: -moz-center;
+}
+  .modal-partage > .modal-text > form > .form-group {
+margin-top: 4%;
+}
+    .modal-partage > .modal-text > form > .form-group > input {
+border: solid 2px rgba(0,0,0,0.2);
+padding: 1%;
+border-radius: 5px;
+margin-left: 2%;
+}
+    .modal-partage > .modal-text > form > .form-group:first-of-type > input {
+width: 50%;
+}
+  .modal-partage > .modal-text > form > button {
+padding: 2%;
+padding-left: 3%;
+padding-right: 3%;
+border-radius: 5px;
+background-color: #FFB870;
+color: white;
+font-weight: 600;
+}
+
+/*MODAL POUR SUPPRIMER UN LOGEMENT*/
+/*En-tête du modal supprimer*/
+.modal-supprimer > .modal-head {
+  text-align: center;
+  text-align: -moz-center;
+}
+  .modal-supprimer > .modal-head > p {
+    margin-left: 10%;
+    color: #F44236;
+    font-weight: 600;
+  }
+/*Corps du modal supprimer*/
+.modal-supprimer > .modal-text > form {
+  text-align: center;
+  text-align: -moz-center;
+}
+  .modal-supprimer > .modal-text > form > .form-group {
+  margin-top: 8%;
+}
+    .modal-supprimer > .modal-text > form > .form-group > input {
+  border: solid 2px rgba(0,0,0,0.2);
+  padding: 1%;
+  border-radius: 5px;
+  margin-left: 2%;
+  margin-top: 4%;
+}
+  .modal-supprimer > .modal-text > form > button {
+  padding: 1%;
+  padding-left: 3%;
+  padding-right: 3%;
+  border-radius: 5px;
+  background-color: #F44236;
+  color: white;
+  margin-top: 2%;
+  font-weight: 600;
+}

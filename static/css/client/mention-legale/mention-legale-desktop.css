@@ -1,0 +1,46 @@
+.mention-legale {
+  width:60%;
+  height: 500px;
+  margin-left: 20%;
+  margin-top: 5%;
+  border: solid 1px rgba(0,0,0,0.1);
+  background-color: white;
+  border-radius: 4px;
+}
+
+  .mention-legale > .head {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    text-align: -moz-center;
+    border-bottom: solid 1px rgba(0,0,0,0.1);
+    height: 10%;
+  }
+    .mention-legale > .head > a {
+      flex-basis: 10%;
+      height: 30%;
+      margin-top: 1%;
+      margin-left: 1%;
+    }
+    .mention-legale > .head > h3 {
+      flex-basis: 20%;
+      margin-left: 30%;
+      margin-top: 2%;
+    }
+
+  .mention-legale > .text {
+    width: 100%;
+    height: 85%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .mention-legale > .footer {
+    width: 100%;
+    height: 5%;
+    text-align: center;
+    text-align: -moz-center;
+    border-top: solid 1px rgba(0,0,0,0.1);
+    font-size: 10px;
+    padding-top: 0.5%;
+  }
