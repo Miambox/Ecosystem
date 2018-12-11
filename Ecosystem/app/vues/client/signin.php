@@ -6,8 +6,6 @@
     <input type="name" name="name" placeholder="Prénom">
     <label for="date">Veuillez saisir votre date de naissance :</label>
     <input type="date" id="date" name="date">
-    <input type="genre" name="genre" placeholder="Genre">
-    <input type="nationality" name="nationality" placeholder="Nationalité">
     <input type="telephone" name="telephone" placeholder="Téléphone">
     <input type="mail" name="mail" placeholder="E-mail">
     <input type="mail_confirmation" name="mail_confirmation" placeholder="Confirmation de l'e-mail">
@@ -17,4 +15,3 @@
     </div>
   </form>
 </div>
-
