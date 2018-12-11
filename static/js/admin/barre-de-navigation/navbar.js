@@ -1,4 +1,20 @@
 $(document).ready(function() {
+
+  function modal(modal, close) {
+    modal.css("display", "block");
+
+    close.click(function(e) {
+      $("#body").css("overflow-y", "scroll");
+      modal.css("display", "none");
+    });
+    window.onclick = function(event) {
+      if (event.target == modal) {
+          $("#body").css("overflow-y", "scroll");
+          modal.css("display", "none");
+      }
+    };
+  }
+
   /*Affiche du menu déroulant*/
   $("#boutonMenu").click(function(e){
       e.preventDefault();
@@ -32,7 +48,16 @@ $(document).ready(function() {
   $("#search-desktop").click(function() {
     $('#searchbar-desktop').css('box-shadow', '0px 0px 5px 0px rgba(255,140,0,0.7)');
   });
+
   $("#search-mobile").click(function() {
     $('#searchbar-mobile').css('box-shadow', '0px 0px 5px 0px rgba(255,140,0,0.7)');
   });
+
+  $("#ticket-alerte").click(function(e) {
+    console.log("alerte");
+    var containerModal = $("#container-modal-ticket");
+    var close = $("#close-ticket");
+    $("#body").css("overflow", "hidden");
+    modal(containerModal, close);
+  })
 });
