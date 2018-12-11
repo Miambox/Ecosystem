@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addCapteur/addCapteur-desktop.css">
 
   </head>
-  <body>
+  <body id="body">
     <!--Barre de navigation-->
     <header>
       <div id="logo" class="menuUp">
@@ -66,6 +66,31 @@
               <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=profil&Vue=vuePrincipale"> Profil </a></li>
               <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=logement&Vue=vuePrincipale">Gestion des capteurs</a></li>
               <li><a href="#">Connexion</a></li>
+              <li>
+                <a href="#" id="ticket-alerte">
+                  <img src="<?=ROOT_URL?>/static/image/icon/bell-logo-lp.png" alt="Alerte">
+                </a>
+              </li>
           </ul>
       </nav>
     </header>
+
+    <!--Ticket -->
+    <div class="container-modal" id="container-modal-ticket">
+      <div class="modal modal-ticket">
+        <div class="modal-head">
+          <button class="close" id="close-ticket">&times;</button>
+          <p>Informations importantes</p>
+        </div>
+        <div class="modal-text">
+          <div class="card-ticket">
+              <ul>
+                <li>N°122453</li>
+                <li>Eco'Light 1</li>
+                <li>Il ne va pas bien votre capteur</li>
+                <li>11/12/2018</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -46,8 +46,39 @@
             /*Paramètres personnalisés pour chaque contenance*/
             header nav > ul > li:first-of-type { flex-basis: 10%; text-align: center; padding-left:2%; margin-right: 2%;}
             header nav > ul > li:nth-of-type(2) { flex-basis: 10%; }
-            header nav > ul > li:nth-of-type(3) { flex-basis: 20%; margin-right: 41%; }
-            header nav > ul > li:last-of-type { flex-basis: 15%; text-align: center;}
+            header nav > ul > li:nth-of-type(3) { flex-basis: 20%; margin-right: 36%; }
+            header nav > ul > li:nth-of-type(4) { flex-basis: 15%; text-align: center;}
+            header nav > ul > li:last-of-type { flex-basis: 5%; text-align: center;}
+              header nav > ul > li:last-of-type > a > img {
+                width: 40%;
+              }
+              .modal-ticket > .modal-head {
+                color: red;
+                padding-left: 2%;
+                font-weight: 800;
+              }
+              .modal-ticket > .modal-text {
+                overflow-y: scroll;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+              }
+                .modal-ticket > .modal-text > .card-ticket {
+                  border: solid 1px rgba(0,0,0,0.2);
+                  margin-left: 2%;
+                  margin-top: 2%;
+                  margin-right: 2%;
+                  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+                }
+                .modal-ticket > .modal-text > .card-ticket > ul {
+                  display: flex;
+                  flex-direction: row;
+                  flex-wrap: wrap;
+                  list-style-type: none;
+                }
+                  .modal-ticket > .modal-text > .card-ticket > ul > li {
+                    flex-basis: 25%;
+                  }
 
                 /*Texte de redirection*/
                 header nav > ul > li > a {
