@@ -2,6 +2,8 @@
 namespace ECOSYSTEM;
 use ECOSYSTEM\app;
 
+ini_set('display_errors', 1);
+
 //More information on the global variable $_SERVER here ->
 	//http://php.net/manual/en/reserved.variables.server.php , or here ->
 	//http://www.w3resource.com/php/super-variables/$_SERVER.php

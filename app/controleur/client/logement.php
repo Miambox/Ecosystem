@@ -1,11 +1,19 @@
 <?php
 
+include('app/model/client/requete.logement.php');
+
 switch ($action) {
 
     case 'vuePrincipale':
 
         $vue = "logement";
         $title = "Les logements";
+
+        $liste = selectAll($bdd, $table);
+        //
+        // if(empty($liste)) {
+        //     $alerte = "Aucun capteur enregistré pour le moment";
+        // }
 
         break;
 
