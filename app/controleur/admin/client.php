@@ -1,26 +1,41 @@
 <?php
-namespace ECOSYSTEM\App\Controleur\admin;
 
-class client {
+switch ($action) {
 
-  protected $_manager;
-  protected $_content;
+    case 'logement':
 
-  public function __construct() {
-	require 'app/config/managers/AdminManager.php';
-    // Constructeur du contrôleur
-	// $this->manager->getModel('Content');
-	// $this->_content = new Content;
-    $this->_manager = new \ECOSYSTEM\app\config\managers\AdminManager;
-  }
+        $vue = "logement";
+        $title = "Détails client";
 
-  public function vuePrincipale() {
-    $this->_manager->getView('header');
-    $this->_manager->getView('gestion/client');
-    $this->_manager->getView('footer');
-  }
+        break;
 
-  public function notFound() {
-    $this->_manager->getView('erreur404');
-  }
+    case 'piece':
+
+        $vue = "piece";
+        $title = "Logement client";
+
+        break;
+
+    case 'capteur':
+
+        $vue = "capteur";
+        $title = "Détails client";
+
+        break;
+
+    case 'detailsCapteur':
+
+        $vue = "detailsCapteur";
+        $title = "Détails client";
+
+        break;
+    default:
+        // si aucune fonction ne correspond au paramètre function passé en GET
+        $title = "error404";
+        $message = "Erreur 404 : la page recherchée n'existe pas.";
 }
+
+include ('app/vues/admin/header.php');
+include ('app/vues/admin/'.$vue. '.php');
+include ('app/vues/admin/footer.php');
+?>

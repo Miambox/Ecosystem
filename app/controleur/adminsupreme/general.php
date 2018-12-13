@@ -1,26 +1,18 @@
 <?php
-namespace ECOSYSTEM\App\Controleur\adminsupreme;
 
-class general {
- /*
-  * Class Controleur
-  */
-	protected $_manager;
-	protected $_content;
+switch ($action) {
 
-  public function __construct() {
-		require 'app/config/managers/AdminSupremeManager.php';
-    // Constructeur du contrôleur
-		// $this->manager->getModel('Content');
-		// $this->_content = new Content;
-    $this->_manager = new \ECOSYSTEM\app\config\managers\AdminSupremeManager;
-  }
+    case 'home':
 
-	public function home() {
-		$this->_manager->getView('home');
-  }
+        $vue = "home";
+        $title = "Administration";
 
-	public function notFound() {
-    $this->_manager->getView('erreur404');
-  }
+        break;
+    default:
+        // si aucune fonction ne correspond au paramètre function passé en GET
+        $title = "error404";
+        $message = "Erreur 404 : la page recherchée n'existe pas.";
 }
+
+include ('app/vues/adminsupreme/'.$vue. '.php');
+?>

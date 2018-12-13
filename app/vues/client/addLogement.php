@@ -11,7 +11,7 @@
     <input type="surface" name="surface" placeholder="Surface du logement">
     <input type="diagnotisqueenergetique" name="diagnotisqueenergetique" placeholder="Diagnostique energetique">
     <div>
-      <a class"bouton-ajouter" href="<?=ROOT_URL?>?Route=client&Ctrl=addPiece&Vue=vuePrincipale">Ajout d'une pièce</a>
+      <a class"bouton-ajouter" href="<?=ROOT_URL?>?Route=client&Ctrl=piece&Vue=addPiece">Ajout d'une pièce</a>
     </div>
   </form>
 </div>

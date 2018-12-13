@@ -72,10 +72,10 @@
 <script type="text/javascript">
 
 function goBack() {
-  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=vuePrincipale";
+  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=logement";
 }
 
 function goToCuisine() {
-  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=capteur&Vue=vuePrincipale";
+  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=capteur";
 }
 </script>

@@ -41,7 +41,7 @@ $(document).ready(function() {
 
   $("#ajouterLogement").click(function(e) {
     console.log("ajouterLogement");
-    document.location.href="?Route=client&Ctrl=addLogement&Vue=vuePrincipale";
+    document.location.href="?Route=client&Ctrl=logement&Vue=addLogement";
   })
 
 

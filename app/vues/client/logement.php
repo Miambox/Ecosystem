@@ -2,7 +2,7 @@
   <div class="card-logement">
     <div class="card-head">
       <ul>
-        <li><h5>10 Rue Vanves, 92130 Issy-Les-Moulineaux</h5></li>
+        <li><h5><?php var_dump($alerte)?>10 Rue Vanves, 92130 Issy-Les-Moulineaux</h5></li>
         <li>
           <button type="button" name="button" class="button-config-logement" id="button-config">
             <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">

@@ -1,6 +1,5 @@
 <?php
 namespace ECOSYSTEM;
-use ECOSYSTEM\lib;
 use ECOSYSTEM\app;
 
 //More information on the global variable $_SERVER here ->
@@ -52,5 +51,5 @@ $params = [
 	'vue' => $action
 ];
 
-require 'app/config/Router.php';
-app\config\Router::run($params);
+include('app/controleur/' . $route . '/' . $controller . '.php');
+?>

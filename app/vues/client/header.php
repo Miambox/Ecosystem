@@ -2,6 +2,7 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <title><?php echo $title; ?></title>
     <!-- Ajout des fichiers CSS -->
     <!-- base -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/body.css">

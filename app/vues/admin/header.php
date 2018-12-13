@@ -49,8 +49,7 @@
       </div>
       <nav>
           <ul>
-              <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=general&Vue=home"><img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" alt=""></a></li>
-              <li><a href="<?=ROOT_URL?>?Route=admin&Ctrl=logement&Vue=vuePrincipale">Interface administrateur</a></li>
+              <li><a href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=logement"><img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" alt=""></a></li>
               <li>
                   <a href="#" id="dropdown-contact">
                     Chat

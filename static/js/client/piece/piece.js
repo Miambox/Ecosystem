@@ -31,7 +31,7 @@ $(document).ready(function() {
   });
 
   $("#ajouterPiece").click(function (e) {
-    document.location.href="?Route=client&Ctrl=addPiece&Vue=vuePrincipale";
+    document.location.href="?Route=client&Ctrl=piece&Vue=addPiece";
   })
 
 });

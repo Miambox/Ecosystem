@@ -109,11 +109,11 @@
   }
 
   function goTo() {
-    document.location.href="<?=ROOT_URL?>?Route=client&Ctrl=detailsCapteur&Vue=vuePrincipale";
+    document.location.href="<?=ROOT_URL?>?Route=client&Ctrl=capteur&Vue=details";
   }
 
   function ajouterCapteur() {
-    document.location.href="<?=ROOT_URL?>?Route=client&Ctrl=addCapteur&Vue=vuePrincipale";
+    document.location.href="<?=ROOT_URL?>?Route=client&Ctrl=capteur&Vue=addCapteur";
   }
 
   function supprimer() {

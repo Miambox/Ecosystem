@@ -1,27 +1,28 @@
 <?php
-namespace ECOSYSTEM\App\Controleur\client;
 
-class signin {
+switch ($action) {
 
-  protected $_manager;
-	protected $_content;
+    case 'information':
 
-  public function __construct() {
-		require 'app/config/managers/ClientManager.php';
-    // Constructeur du contrôleur
-		// $this->manager->getModel('Content');
-		// $this->_content = new Content;
-    $this->_manager = new \ECOSYSTEM\app\config\managers\ClientManager;
-  }
+        $vue = "signin";
+        $title = "Inscription";
 
-  public function vuePrincipale() {
-    $this->_manager->getView('header');
-    $this->_manager->getView('signin');
-    $this->_manager->getView('footer');
-  }
+        break;
 
-  public function notFound() {
-    $this->_manager->getView('erreur404');
-  }
+    case 'securite':
+
+        $vue = "password";
+        $title = "Inscription";
+
+        break;
+
+    default:
+        // si aucune fonction ne correspond au paramètre function passé en GET
+        $title = "error404";
+        $message = "Erreur 404 : la page recherchée n'existe pas.";
 }
+
+include ('app/vues/client/header.php');
+include ('app/vues/client/'.$vue. '.php');
+include ('app/vues/client/footer.php');
 ?>

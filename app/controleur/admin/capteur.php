@@ -1,26 +1,29 @@
 <?php
-namespace ECOSYSTEM\App\Controleur\admin;
 
-class capteur {
+switch ($action) {
 
-  protected $_manager;
-  protected $_content;
+    case 'vuePrincipale':
 
-  public function __construct() {
-	require 'app/config/managers/AdminManager.php';
-    // Constructeur du contrôleur
-	// $this->manager->getModel('Content');
-	// $this->_content = new Content;
-    $this->_manager = new \ECOSYSTEM\app\config\managers\AdminManager;
-  }
+        $vue = "capteur";
+        $title = "Les capteurs";
 
-  public function vuePrincipale() {
-    $this->_manager->getView('header');
-    $this->_manager->getView('gestion/capteur');
-    $this->_manager->getView('footer');
-  }
+        break;
 
-  public function notFound() {
-    $this->_manager->getView('erreur404');
-  }
+    case 'details':
+        //Ajouter un nouveau capteur
+
+        $title = "Détails capteur";
+        $vue = "detailsCapteur";
+
+        break;
+
+    default:
+        // si aucune fonction ne correspond au paramètre function passé en GET
+        $title = "error404";
+        $message = "Erreur 404 : la page recherchée n'existe pas.";
 }
+
+include ('app/vues/admin/header.php');
+include ('app/vues/admin/'.$vue. '.php');
+include ('app/vues/admin/footer.php');
+?>

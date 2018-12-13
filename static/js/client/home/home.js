@@ -25,7 +25,7 @@ $('#return-to-top').click(function() {      // When arrow is clicked
 
 $("#gotoInscription").click(function(e) {
   console.log("test");
-  document.location.href="?Route=client&Ctrl=signin&Vue=vuePrincipale";
+  document.location.href="?Route=client&Ctrl=signin&Vue=information";
 })
 
 $("#gotoProfil").click(function(e) {

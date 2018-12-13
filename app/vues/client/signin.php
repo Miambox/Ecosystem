@@ -10,7 +10,7 @@
     <input type="mail" name="mail" placeholder="E-mail">
     <input type="mail_confirmation" name="mail_confirmation" placeholder="Confirmation de l'e-mail">
     <div>
-      <a href="<?=ROOT_URL?>?Route=client&Ctrl=password&Vue=vuePrincipale">Continuer</a>
+      <a href="<?=ROOT_URL?>?Route=client&Ctrl=signin&Vue=securite">Continuer</a>
 
     </div>
   </form>

@@ -46,9 +46,8 @@
           }
             /*Paramètres personnalisés pour chaque contenance*/
             header nav > ul > li:first-of-type { flex-basis: 10%; text-align: left; padding-left: 2%;}
-            header nav > ul > li:nth-of-type(2) { flex-basis: 20%; }
-            header nav > ul > li:nth-of-type(3) { flex-basis: 15%; }
-            header nav > ul > li:nth-of-type(4) { flex-basis: 40%; margin-right: 8%; text-align: center;}
+            header nav > ul > li:nth-of-type(2) { flex-basis: 15%; }
+            header nav > ul > li:nth-of-type(3) { flex-basis: 40%; margin-right: 28%; text-align: center;}
             header nav > ul > li:last-of-type { flex-basis: 5%; text-align: center;}
             .modal-ticket > .modal-head {
               color: red;

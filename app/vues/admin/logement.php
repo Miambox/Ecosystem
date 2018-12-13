@@ -45,6 +45,6 @@
 <script type="text/javascript">
 
 function goToHome1() {
-  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=logement&Vue=vuePrincipale";
+  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=piece";
 }
 </script>

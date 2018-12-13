@@ -30,10 +30,10 @@
 <script type="text/javascript">
 
 function goBack() {
-  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=logement&Vue=vuePrincipale";
+  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=piece";
 }
 
 function goTo() {
-  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=detailsCapteur&Vue=vuePrincipale";
+  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=detailsCapteur";
 }
 </script>

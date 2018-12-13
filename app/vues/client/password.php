@@ -10,9 +10,9 @@
     <input type="checkbox" name="checkCGU">
     <div>
       <input class="inscrire" type="submit" name="register" value="Envoyer" onclick="window.location=''">
-      
-     <a href="<?=ROOT_URL?>?Route=client&Ctrl=addLogement&Vue=vuePrincipale">Ajouter un logement</a>
-   
+
+     <a href="<?=ROOT_URL?>?Route=client&Ctrl=logement&Vue=addLogement">Ajouter un logement</a>
+
     </div>
   </form>
 </div>
