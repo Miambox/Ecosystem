@@ -9,7 +9,7 @@ switch ($action) {
         $vue = "logement";
         $title = "Les logements";
 
-        $liste = selectAll($bdd, $table);
+        $liste_logement = selectAll($bdd, $table);
         //
         // if(empty($liste)) {
         //     $alerte = "Aucun capteur enregistré pour le moment";
