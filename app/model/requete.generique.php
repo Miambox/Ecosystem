@@ -8,7 +8,7 @@ dans des fonctions.
 - SELECTall
 */
 
-include("app/model/connexion.php"); // On connecte la base de donnée
+include("app/model/dbconnect.php"); // On connecte la base de donnée
 
 /** Récupère tous les éléments d'une table
  * @param PDO $bdd

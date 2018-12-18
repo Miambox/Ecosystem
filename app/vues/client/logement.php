@@ -1,5 +1,4 @@
 <div class="container-logements">
-  <?php var_dump($liste); ?>
   <div class="card-logement">
     <div class="card-head">
       <ul>
