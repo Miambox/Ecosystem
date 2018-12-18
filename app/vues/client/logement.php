@@ -1,4 +1,5 @@
 <div class="container-logements">
+<<<<<<< HEAD
   <?php  foreach($liste_logement as $key => $value) {
   ?>
     <div class="card-logement">
@@ -32,6 +33,24 @@
       <div class="card-footer">
         <button type="button" name="button" class="button-go-to-piece" id="goTo">Plus de détails</button>
       </div>
+=======
+  <div class="card-logement">
+    <div class="card-head">
+      <ul>
+        <li><h5>10 Rue Vanves, 92130 Issy-Les-Moulineaux</h5></li>
+        <li>
+          <button type="button" name="button" class="button-config-logement" id="button-config">
+            <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
+          </button>
+          <nav id="parametres-logement">
+            <ul>
+              <li><a href="#" id="supprimerLogement">Supprimer</a></li>
+              <li><a href="#" id="ajouterPartage">Partager</a></li>
+            </ul>
+          </nav>
+        </li>
+      </ul>
+>>>>>>> dev
     </div>
   <?php
   }
