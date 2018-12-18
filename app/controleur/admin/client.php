@@ -16,6 +16,13 @@ switch ($action) {
 
         break;
 
+    case 'chat':
+
+        $vue = "chat";
+        $title = "Chat";
+
+        break;
+
     case 'capteur':
 
         $vue = "capteur";
