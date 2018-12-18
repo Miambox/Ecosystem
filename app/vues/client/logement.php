@@ -7,7 +7,7 @@
           <li>
             <h5>
               <?php
-                echo ($value['numero'] . " " . $value['rue'] . " " . $value['codePostal'] . " " . $value['ville']); 
+                echo ($value['numero'] . " " . $value['rue'] . " " . $value['codePostal'] . " " . $value['ville']);
               ?>
             </h5>
           </li>
@@ -76,7 +76,8 @@
       <form class="" action="#" method="post">
         <div class="form-group">
           <label for="code_postal">Rentrer le code postal du logement<br></label>
-          <input type="number" name="code_postal" value="">
+          <input type="number" name="codePostal" placeholder="codePostal">
+          <input type="hidden" name="logementId" value="<?php $value['id'] ?>">
         </div>
         <button type="submit" name="button" clas="supprimerLogement">Valider</button>
       </form>
