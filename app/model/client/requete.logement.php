@@ -13,16 +13,13 @@ function selectionerLogement($bdd) {
       numero,
       rue,
       ville,
-      pays,
-      codePostal,
-      complementAdresse,
-      nbrHabitant,
+      code_postal,
+      complement_adresse,
+      nbr_habitant,
       surface,
-      anneeConstruction,
-      diagnostiqueE FROM logement
-    INNER JOIN partagelogement ON (logement.id = partagelogement.id_logement)
-    INNER JOIN utilisateur ON (partagelogement.id_utilisateur = utilisateur.id)
-    WHERE utilisateur.id = :utilisateurId';
+      annee_construction
+    FROM logement
+    WHERE id_utilisateur = :utilisateurId';
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":utilisateurId", $utilisateurId);
   $donnees->execute();
@@ -36,22 +33,19 @@ function insererNouveauLogement($bdd, $logement) {
     numero,
     rue,
     ville,
-    pays,
-    codePostal,
-    nbrHabitant,
+    code_postal,
+    nbr_habitant,
     surface,
-    anneeConstruction,
-    diagnostiqueE
+    annee_construction,
+
   ) VALUES (
     :numero,
     :rue,
     :ville,
-    :pays,
     :codePostal,
     :nbrHabitant,
     :surface,
     :anneeConstruction,
-    :diagnostiqueE
   )';
 
   $donnees = $bdd->prepare($query);
@@ -64,7 +58,6 @@ function insererNouveauLogement($bdd, $logement) {
   $donnees->bindParam(":nbrHabitant", $logement['nbrHabitant']);
   $donnees->bindParam(":surface", $logement['surface']);
   $donnees->bindParam(":anneeConstruction", $logement['anneeConstruction']);
-  $donnees->bindParam(":diagnostiqueE", $logement['diagnostiqueE']);
 
   $request = $donnees->execute();
 
