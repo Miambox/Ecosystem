@@ -14,15 +14,11 @@
         </div>
     </div>
     <div class="info">
-        <div class="tete">
         <div class="navbar">
-            <ul>
-              <li><button type="button" onclick="generale()">Générale</button></li>
-              <li><button type="button" onclick="programme()">Programme</button></li>
-              <li><button type="button" onclick="reglages()">Réglages</button></li>
-              <li><button type="button" onclick="ambiances()">Ambiances</button></li>
-            </ul>
-        </div>
+            <button type="button" onclick="generale()">Générale</button></li>
+            <button type="button" onclick="programme()">Programme</button></li>
+            <button type="button" onclick="reglages()">Réglages</button></li>
+            <button type="button" onclick="ambiances()">Ambiances</button></li>
         </div>
         <div id="tableau_de_bord">
             <div class="tabcontent" id="generale">
@@ -118,7 +114,7 @@
 <script type="text/javascript">
 
 function goBack() {
-  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=capteur";
+  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=capteur&Vue=vuePrincipale";
 }
 
 function generale() {
