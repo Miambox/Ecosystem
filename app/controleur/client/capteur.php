@@ -24,6 +24,10 @@ switch ($action) {
         $vue = "detailsCapteur";
 
         break;
+    case 'data':
+      echo json_encode( array( "name"=>"John","time"=>"2pm" ) );
+      break;
+
 
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
