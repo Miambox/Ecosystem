@@ -7,8 +7,8 @@ switch ($action) {
 
     case 'capteur':
 
-      $valeur = selectValueOfCapteur($bdd);
-      var_dump($valeur);
+      $valeurUtilisee = selectValueOfCapteur($bdd);
+      $valeurNonUtilisee = 100 - $valeurUtilisee;
       echo json_encode(
         array(
           "dataPourcent"=>[

@@ -17,28 +17,28 @@
       <button class="button-ajouter" type="button" name="button" id="ajouterProgramme">Ajouter</button>
       <button class="button-visualiser" type="button" name="button" id="visualiserProgramme">Visualiser</button>
     </div>
-    <div class="diagramme-baton">
+    <!-- <div class="diagramme-baton">
       <h2>Période d'utilisation</h2>
       <div class="chart_div" id="chart_div">
         <img src="<?=ROOT_URL?>/static/image/icon/loading-gif-lp.gif" width="40%" alt="">
       </div>
-    </div>
+    </div> -->
   </div>
 
 
   <div class="container-programme">
-    <div class="container-diagramme-circulaire">
+    <!-- <div class="container-diagramme-circulaire">
       <h2>Taux de luminosité</h2>
       <div class="diagramme-circulaire">
         <div class="" id='diagrammeCirculaire'>
           <img src="<?=ROOT_URL?>/static/image/icon/loading-gif-lp.gif" width="65%" alt="">
         </div>
         <div class="plus_moins">
-          <button type="button" name="button" class="ajouterLuminosite">+</button>
-          <button type="button" name="button" class="diminuerLuminosite">-</button>
+          <button type="button" name="button" class="ajouterLuminosite" id="ajouterLum">+</button>
+          <button type="button" name="button" class="diminuerLuminosite" id="diminuerLum">-</button>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="ambiance">
       <h2>Gérer vos ambiances <button type="button" name="button"id="ajouterAmbiance">+</button> </h2>
       <div class="">
@@ -112,7 +112,7 @@
           <p>
             <form class="" action="index.html" method="post">
               <div class="form-group">
-                <select class="" id="heure">
+                <select class="" name="heure" id="heure">
                   <?php
                   for ($i=0; $i <= 23 ; $i++) {
                     ?>
@@ -122,7 +122,7 @@
                   ?>
                 </select>
                 <span>:</span>
-                <select class="" id="minute">
+                <select class="" name="minute" id="minute">
                   <?php for ($i=0; $i <= 60 ; $i++) {
                     ?>
                     <option value="<?php echo $i ?>"><?php echo $i ?></option>
@@ -131,22 +131,20 @@
                 </select>
               </div>
               <div class="form-group">
-                <select class="" id="jour">
-                  <option value="lundi">lundi</option>
-                  <option value="mardi">mardi</option>
-                  <option value="mercredi">mercredi</option>
-                  <option value="jeudi">jeudi</option>
-                  <option value="vendredi">vendredi</option>
-                  <option value="samedi">samedi</option>
-                  <option value="dimanche">dimanche</option>
-
-
+                <select class="" name="jour" id="jour">
+                  <option>lundi</option>
+                  <option>mardi</option>
+                  <option>mercredi</option>
+                  <option>jeudi</option>
+                  <option>vendredi</option>
+                  <option>samedi</option>
+                  <option>dimanche</option>
                 </select>
               </div>
               <div class="toujours">
                 <label for="">Tous les jours</label>
                 <label class="toggle-button">
-                  <input type="checkbox">
+                  <input type="checkbox" name="frequence">
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -159,7 +157,7 @@
           <li>
             <span>Tamisé</span>
             <label class="toggle-button">
-              <input type="checkbox">
+              <input type="radio" name="" value="">
               <span class="slider round"></span>
             </label>
           </li>
