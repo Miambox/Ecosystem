@@ -34,13 +34,19 @@
     <!-- page mention légale -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/mention-legale/mention-legale-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/mention-legale/mention-legale-mobile.css">
+    <!-- page profil -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/profil/profil.css">
+    <!-- page home -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/home/home.css">
-
+    <!-- page signin -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/signin/signin-desktop.css">
+    <!-- page password -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/password/password-desktop.css">
+    <!-- page ajout de Logement -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addLogement/addLogement-desktop.css">
+    <!-- page ajout de Piece -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addPiece/addPiece-desktop.css">
+    <!-- page ajout de capteur -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addCapteur/addCapteur-desktop.css">
 
   </head>
