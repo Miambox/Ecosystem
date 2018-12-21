@@ -36,22 +36,20 @@ switch ($action) {
             isset($_POST['rue']) and
             isset($_POST['ville']) and
             isset($_POST['pays']) and
-            isset($_POST['codePostal']) and
-            isset($_POST['nbrHabitant']) and
+            isset($_POST['code_postal']) and
+            isset($_POST['nbr_habitant']) and
             isset($_POST['surface']) and
-            isset($_POST['anneeConstruction']) and
-            isset($_POST['diagnotisqueE'])
-        ) {
+            isset($_POST['annee_construction'])) {
+
           $values = [
             'numero'              => $_POST['numero'],
             'rue'                 => $_POST['rue'],
             'ville'               => $_POST['ville'],
             'pays'                => $_POST['pays'],
-            'codePostal'          => $_POST['codePostal'],
-            'nbrHabitant'         => $_POST['nbrHabitant'],
+            'code_postal'          => $_POST['codePostal'],
+            'nbr_habitant'         => $_POST['nbrHabitant'],
             'surface'             => $_POST['surface'],
-            'anneeConstruction'   => $_POST['anneeConstruction'],
-            'diagnostiqueE'       => $_POST['diagnotisqueE'],
+            'annee_construction'   => $_POST['anneeConstruction'],
           ];
           $request = insererNouveauLogement($bdd, $values);
 

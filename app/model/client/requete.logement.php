@@ -42,10 +42,10 @@ function insererNouveauLogement($bdd, $logement) {
     :numero,
     :rue,
     :ville,
-    :codePostal,
-    :nbrHabitant,
+    :code_postal,
+    :nbr_habitant,
     :surface,
-    :anneeConstruction,
+    :annee_construction,
   )';
 
   $donnees = $bdd->prepare($query);
@@ -54,10 +54,10 @@ function insererNouveauLogement($bdd, $logement) {
   $donnees->bindParam(":rue", $logement['rue']);
   $donnees->bindParam(":ville", $logement['ville']);
   $donnees->bindParam(":pays", $logement['pays']);
-  $donnees->bindParam(":codePostal", $logement['codePostal']);
-  $donnees->bindParam(":nbrHabitant", $logement['nbrHabitant']);
+  $donnees->bindParam(":code_postal", $logement['code_postal']);
+  $donnees->bindParam(":nbr_habitant", $logement['nbr_habitant']);
   $donnees->bindParam(":surface", $logement['surface']);
-  $donnees->bindParam(":anneeConstruction", $logement['anneeConstruction']);
+  $donnees->bindParam(":annee_construction", $logement['annee_construction']);
 
   $request = $donnees->execute();
 
