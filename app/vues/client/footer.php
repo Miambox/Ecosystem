@@ -45,11 +45,11 @@
     <!-- piece -->
     <script type="module" src="<?=ROOT_URL?>static/js/client/piece/piece.js"></script>
     <!-- Librairie google -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
     <!-- Diagramme circulaire -->
-    <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/diagrammeCirculaire.js"></script>
+    <!-- <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/diagrammeCirculaire.js"></script> -->
     <!-- Diagramme en baton -->
-    <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/diagrammeBaton.js"></script>
-    <script type="module" src="<?=ROOT_URL?>static/js/client/home/home.js"></script>
+    <!-- <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/diagrammeBaton.js"></script> -->
+    <!-- <script type="module" src="<?=ROOT_URL?>static/js/client/home/home.js"></script> -->
   </body>
 </html>

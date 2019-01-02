@@ -99,72 +99,44 @@
     </div>
   </div>
 </div>
-
+<!-- Ancien container pour ajouter un programme -->
 <div class="container-big-modal" id="container-modal-ajouter-programme">
   <div class="modal-big modal-ajouter-programme">
-    <div class="modal-big-head">
-      <button class="close" id="close-ajouter-programme">&times;</button>
+    <form class="" action="index.html" method="post">
+      <div class="modal-big-head">
+        <button class="close" id="close-ajouter-programme">&times;</button>
       <p>Ajouter un programme</p>
     </div>
-    <div class="modal-big-text">
-      <div class="modal-big-text-one">
+      <div class="modal-big-text">
+        <div class="modal-big-text-one">
           <h3>Selectionner date et heure</h3>
           <p>
-            <form class="" action="index.html" method="post">
-              <div class="form-group">
-                <select class="" name="heure" id="heure">
-                  <?php
-                  for ($i=0; $i <= 23 ; $i++) {
-                    ?>
-                    <option value="<?php echo $i ?>"><?php echo $i ?></option>
-                    <?php
-                  }
-                  ?>
-                </select>
-                <span>:</span>
-                <select class="" name="minute" id="minute">
-                  <?php for ($i=0; $i <= 60 ; $i++) {
-                    ?>
-                    <option value="<?php echo $i ?>"><?php echo $i ?></option>
-                    <?php
-                  } ?>
-                </select>
-              </div>
-              <div class="form-group">
-                <select class="" name="jour" id="jour">
-                  <option>lundi</option>
-                  <option>mardi</option>
-                  <option>mercredi</option>
-                  <option>jeudi</option>
-                  <option>vendredi</option>
-                  <option>samedi</option>
-                  <option>dimanche</option>
-                </select>
-              </div>
-              <div class="toujours">
-                <label for="">Tous les jours</label>
-                <label class="toggle-button">
-                  <input type="checkbox" name="frequence">
-                  <span class="slider round"></span>
-                </label>
-              </div>
-            </form>
+            <label for="">Activez l'alarme :</label>
+            <input type="time" name="" value="">
+            <label for="">à</label>
+            <input type="time" name="" value="">
+            <label for="">le</label>
+            <input type="date" name="" value="">
+          </p>
+          <p>
+
           </p>
       </div>
       <div class="modal-big-text-two select-ambiance">
         <h3>Selectionner une ambiance</h3>
+        <span>( Vous devez sélectionner qu'un seule ambiance ..)</span>
         <ul>
           <li>
             <span>Tamisé</span>
             <label class="toggle-button">
-              <input type="radio" name="" value="">
+              <input type="checkbox" name="" value="">
               <span class="slider round"></span>
             </label>
           </li>
           <li>
             <span>Travail</span>
             <label class="toggle-button">
-              <input type="checkbox">
+              <input type="checkbox" checked>
               <span class="slider round"></span>
             </label>
           </li>
@@ -178,9 +150,10 @@
         </ul>
       </div>
     </div>
-    <div class="modal-big-footer">
-      <button type="button" name="button" clas="ajouterProgramme">Valider</button>
+      <div class="modal-big-footer">
+      <input type="submit" name="" class="ajouterProgramme" value="Ajouter">
     </div>
+    </form>
   </div>
 </div>
 

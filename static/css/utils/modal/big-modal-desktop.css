@@ -43,7 +43,7 @@
     height: 548px;
 
   }
-    .container-big-modal > .modal-big > .modal-big-head {
+    .modal-big-head {
       flex-basis: 15%;
       background-color: #FAFAFA;
       border-bottom: solid 1Px rgba(0,0,0,0.2);
@@ -51,10 +51,10 @@
       border-top-right-radius: 4px;
 
     }
-    .container-big-modal > .modal-big > .modal-big-text {
+    .modal-big-text {
       flex-basis: 75%;
     }
-    .container-big-modal > .modal-big > .modal-big-footer {
+    .modal-big-footer {
       flex-basis: 5%;
       background-color: #FAFAFA;
       border-top: solid 1Px rgba(0,0,0,0.2);
