@@ -12,6 +12,6 @@
     <input type="text" name="complement_adresse" placeholder="Complement d'adresse">
     <input type="number" name="annee_construction" placeholder="Année de construction">
     <input class="bouton-ajouter" type="submit" name="ajouter" value="Ajouter">
-    <input class="bouton-ajouter-piece" type="submit" name="ajouter-piece" value="Ajouter une pièce">
+    <!-- <input class="bouton-ajouter-piece" type="submit" name="ajouter-piece" value="Ajouter une pièce"> -->
   </form>
 </div>

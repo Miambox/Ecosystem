@@ -10,6 +10,7 @@ $table = 'logement';
 function selectionerLogement($bdd) {
   $utilisateurId = 1;
   $query = 'SELECT
+      id,
       numero,
       rue,
       ville,
@@ -29,6 +30,8 @@ function selectionerLogement($bdd) {
 // Fonction permettant d'insérer un logement pour un utilisateur
 function insererNouveauLogement($bdd, $logement) {
 
+  $id_utilisateur = 1;
+
   $query = 'INSERT INTO logement(
     numero,
     rue,
@@ -37,7 +40,7 @@ function insererNouveauLogement($bdd, $logement) {
     nbr_habitant,
     surface,
     annee_construction,
-
+    id_utilisateur
   ) VALUES (
     :numero,
     :rue,
@@ -46,6 +49,7 @@ function insererNouveauLogement($bdd, $logement) {
     :nbr_habitant,
     :surface,
     :annee_construction,
+    :id_utilisateur
   )';
 
   $donnees = $bdd->prepare($query);
@@ -53,29 +57,31 @@ function insererNouveauLogement($bdd, $logement) {
   $donnees->bindParam(":numero", $logement['numero']);
   $donnees->bindParam(":rue", $logement['rue']);
   $donnees->bindParam(":ville", $logement['ville']);
-  $donnees->bindParam(":pays", $logement['pays']);
   $donnees->bindParam(":code_postal", $logement['code_postal']);
   $donnees->bindParam(":nbr_habitant", $logement['nbr_habitant']);
   $donnees->bindParam(":surface", $logement['surface']);
   $donnees->bindParam(":annee_construction", $logement['annee_construction']);
+  $donnees->bindParam(":id_utilisateur", $id_utilisateur);
 
   $request = $donnees->execute();
-
+  return $request;
 }
 
 // Fonction permettant de supprimer un logement
 function supprimerLogement($bdd, $logement) {
-  $queryVerif = 'SELECT codePostal FROM logement WHERE logement.id = :logementId';
-  $donnéesVerif = $bdd->prepare($queryVerif);
-  $donnéesVerif->bindParam(":logementId", $logement['id']);
+  $queryVerif = 'SELECT code_postal FROM logement WHERE logement.id = :logement_id';
+  $donneesVerif = $bdd->prepare($queryVerif);
+  $donneesVerif->bindParam(":logement_id", $logement['id']);
   $donneesVerif->execute();
-  $codePostal = $donneesVerif->fetchAll();
-
+  $response = $donneesVerif->fetchAll();
+  foreach ($response as $key => $value) {
+    $code_postal = $value['code_postal'];
+  }
   if($donneesVerif) {
-    if($codePostal == $logement['codePostal']) {
-      $query = 'DELETE FROM logement WHERE logement.id = :logementId';
+    if($code_postal == $logement['code_postal']) {
+      $query = 'DELETE FROM logement WHERE logement.id = :logement_id';
       $donnees = $bdd->prepare($query);
-      $donnees->bindParam(":logementId", $logement['id']);
+      $donnees->bindParam(":logement_id", $logement['id']);
       return $donnees->execute();
     } else {
       return false;

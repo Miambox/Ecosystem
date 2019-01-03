@@ -11,20 +11,6 @@ switch ($action) {
 
         $liste_logement = selectionerLogement($bdd);
 
-        if(isset($_POST['logementId']) and isset($_POST['codePostal'])) {
-          $logement = [
-            'id' => $_POST['logementId'],
-            'codePostal' => $_POST['codePostal'],
-          ];
-
-          $request = supprimerLogement($bdd, $logement);
-          if($request) {
-            alert("Suppresion réussi");
-          } else {
-            alert("ERREUR, veuillez réessayer !");
-          }
-        }
-
         break;
 
     case 'addLogement':
@@ -35,7 +21,6 @@ switch ($action) {
         if( isset($_POST['numero']) and
             isset($_POST['rue']) and
             isset($_POST['ville']) and
-            isset($_POST['pays']) and
             isset($_POST['code_postal']) and
             isset($_POST['nbr_habitant']) and
             isset($_POST['surface']) and
@@ -45,20 +30,44 @@ switch ($action) {
             'numero'              => $_POST['numero'],
             'rue'                 => $_POST['rue'],
             'ville'               => $_POST['ville'],
-            'pays'                => $_POST['pays'],
-            'code_postal'          => $_POST['codePostal'],
-            'nbr_habitant'         => $_POST['nbrHabitant'],
+            'code_postal'          => $_POST['code_postal'],
+            'nbr_habitant'         => $_POST['nbr_habitant'],
             'surface'             => $_POST['surface'],
-            'annee_construction'   => $_POST['anneeConstruction'],
+            'annee_construction'   => $_POST['annee_construction'],
           ];
           $request = insererNouveauLogement($bdd, $values);
 
           if(isset($request)) {
-            var_dump("insertion reussi");
+            header('Location: ?Route=client&Ctrl=piece&Vue=addPiece');
           }
+        } else {
+          $alerte = 1;
+          $alerte_explication= 'Vous avez oublié un champs obligatoire, merci de recommencer.';
         }
-
         break;
+
+    case "supprimerLogement":
+      $vue = "logement";
+      $title = "Les logements";
+
+      if(isset($_POST['logement_id']) and isset($_POST['code_postal'])) {
+        $logement = [
+          'id' => $_POST['logement_id'],
+          'code_postal' => $_POST['code_postal'],
+        ];
+
+        $request = supprimerLogement($bdd, $logement);
+
+        if($request) {
+          header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
+        } else {
+          $alerte = "Le code postal ne correspond pas";
+          header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
+        }
+      } else {
+          $alerte = "Le code postal ne correspond pas";
+          header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
+      }
 
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET

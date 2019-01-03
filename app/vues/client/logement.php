@@ -19,10 +19,32 @@
             </button>
             <nav id="parametres-logement">
               <ul>
-                <li><a href="#" id="supprimerLogement">Supprimer</a></li>
+                <li>
+                  <a href="#" id="supprimerLogement">
+                  Supprimer
+                  </a>
+                </li>
                 <li><a href="#" id="ajouterPartage">Partager</a></li>
               </ul>
             </nav>
+            <div class="container-modal" id="container-modal-supprimer">
+              <div class="modal modal-supprimer">
+                <div class="modal-head">
+                  <button class="close" id="close-supprimer">&times;</button>
+                  <p>Etes-vous sûr de vouloir supprimer ce logement ?</p>
+                </div>
+                <div class="modal-text">
+                  <form class="" action="?Route=client&Ctrl=logement&Vue=supprimerLogement" method="post">
+                    <div class="form-group">
+                      <label for="code_postal">Rentrer le code postal du logement<br></label>
+                      <input type="number" name="code_postal" placeholder="codePostal">
+                      <input type="hidden" name="logement_id" value="<?php echo $value['id'] ?>">
+                    </div>
+                    <button type="submit" name="" class="supprimerLogement">Valider</button>
+                  </form>
+                </div>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
@@ -64,25 +86,6 @@
           <input type="text" name="prenom_utilisateur" value="">
         </div>
         <button type="submit" name="button" clas="ajouterpartage">Valider</button>
-      </form>
-    </div>
-  </div>
-</div>
-
-<div class="container-modal" id="container-modal-supprimer">
-  <div class="modal modal-supprimer">
-    <div class="modal-head">
-      <button class="close" id="close-supprimer">&times;</button>
-      <p>Etes-vous sûr de vouloir supprimer ce logement ?</p>
-    </div>
-    <div class="modal-text">
-      <form class="" action="#" method="post">
-        <div class="form-group">
-          <label for="code_postal">Rentrer le code postal du logement<br></label>
-          <input type="number" name="codePostal" placeholder="codePostal">
-          <input type="hidden" name="logementId" value="<?php $value['id'] ?>">
-        </div>
-        <button type="submit" name="button" clas="supprimerLogement">Valider</button>
       </form>
     </div>
   </div>
