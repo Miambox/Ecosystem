@@ -1,11 +1,17 @@
 <?php
 
+include('app/model/client/requete.capteur.php');
+
+
 switch ($action) {
 
     case 'vuePrincipale':
 
         $vue = "capteur";
         $title = "Les capteurs";
+
+        $donneesCapteur = selectionerCapteur($bdd, 1);
+        $donneespiece = infoPiece($bdd, 1);
 
         break;
 
