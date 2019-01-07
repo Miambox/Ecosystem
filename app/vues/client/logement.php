@@ -54,7 +54,10 @@
       <div class="card-banniere">
       </div>
       <div class="card-footer">
-        <button type="button" name="button" class="button-go-to-piece" id="goTo">Plus de détails</button>
+        <form class="" action="?Route=client&Ctrl=piece&Vue=vuePrincipale" method="post">
+          <input type="hidden" name="id_logement" value="<?php echo $value['id'] ?>">
+          <input type="submit" name="" value="Plus de détail">
+        </form>
       </div>
     </div>
   <?php

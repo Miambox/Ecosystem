@@ -7,6 +7,12 @@ switch ($action) {
         $vue = "piece";
         $title = "Les pieces";
 
+        if(isset($_POST['id_logement'])) {
+          $liste_piece = selectionnerPiece($bdd, $_POST['id_logement']);
+        }
+
+
+
         break;
 
     case 'addPiece':
