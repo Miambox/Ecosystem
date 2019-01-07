@@ -1,7 +1,6 @@
 <?php
 include('app/model/client/requete.capteur.php');
 
-include('app/model/client/requete.capteur.php');
 
 
 switch ($action) {
@@ -11,11 +10,10 @@ switch ($action) {
         $vue = "capteur";
         $title = "Les capteurs";
 
-<<<<<<< HEAD
-        $donneesCapteur = selectionerCapteur($bdd, 1);
+        $donneesCapteur = selectionnerCapteur($bdd, 1);
         $donneespiece = infoPiece($bdd, 1);
-=======
->>>>>>> dev
+
+
 
         break;
 
