@@ -69,6 +69,10 @@ switch ($action) {
           header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
       }
 
+
+
+    break;
+
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $title = "error404";
