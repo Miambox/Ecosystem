@@ -15,34 +15,43 @@
 
   </div>
   <div class="container-pieces">
-
-    <div class="card-piece">
-      <div class="card-head">
-        <ul>
-          <li><h5>Amphithéatre</h5></li>
-          <li>
-            <button type="button" name="button" class="button-config-piece" id="button-config-piece" onclick="ouvreParemetresLogement()">
-              <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
-            </button>
-            <nav id="parametres-piece">
-              <ul>
-                <li><a href="#" id="supprimerPiece">Supprimer</a></li>
-              </ul>
-            </nav>
-          </li>
-        </ul>
+    <?php
+    if(isset($liste_piece)) {
+      foreach ($liste_piece as $key => $value) {
+      ?>
+      <div class="card-piece">
+        <div class="card-head">
+          <ul>
+            <li><h5><?php echo $value['nom'] ?></h5></li>
+            <li>
+              <button type="button" name="button" class="button-config-piece" id="button-config-piece" onclick="ouvreParemetresLogement()">
+                <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
+              </button>
+              <nav id="parametres-piece">
+                <ul>
+                  <li><a href="#" id="supprimerPiece">Supprimer</a></li>
+                </ul>
+              </nav>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <img src="<?=ROOT_URL?>/static/image/icon/cours-isep.jpg" width="100%" alt="">
+        </div>
+        <div class="card-banniere">
+        </div>
+        <div class="card-footer">
+          <button type="button" name="button" class="button-go-to-capteur" id="goToPiece">Plus de détails</button>
+        </div>
       </div>
-      <div class="card-body">
-        <img src="<?=ROOT_URL?>/static/image/icon/cours-isep.jpg" width="100%" alt="">
-      </div>
-      <div class="card-banniere">
-      </div>
-      <div class="card-footer">
-        <button type="button" name="button" class="button-go-to-capteur" id="goToPiece">Plus de détails</button>
-      </div>
-    </div>
-
-    <button type="button" name="button" id="ajouterPiece">+</button>
+      <?php
+      }
+    }
+    ?>
+    <form class="" action="?Route=client&Ctrl=piece&Vue=addPiece" method="post">
+      <input type="hidden" name="id_logement" value="<?php echo $id_logement ?>">
+      <input type="submit" name="" value="+">
+    </form>
   </div>
 </div>
 
