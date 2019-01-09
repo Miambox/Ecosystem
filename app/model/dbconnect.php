@@ -1,7 +1,7 @@
 <?php
 
 try {
-    $bdd = new PDO('mysql:host=localhost; dbname=ecosystem; charset=utf8','root','root',
+    $bdd = new PDO('mysql:host=localhost; dbname=Ecosystem; charset=utf8','root','root',
         array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
     );
 }

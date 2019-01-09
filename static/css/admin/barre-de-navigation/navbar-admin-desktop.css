@@ -190,6 +190,8 @@
                       box-shadow: 0 2px 8px rgba(0,0,0,.6);
                     }
 
+
+
                     /*Dropdown-connexion*/
                     header > nav > ul > li:last-of-type > nav {
                       width: 160%;
@@ -288,7 +290,7 @@
                       /*Contenance de cette liste*/
                       header nav > ul > li {
                           border-bottom: 1px dotted rgba(0,0,0,.1);
-                          position: relative;
+                          /*position: relative;*/
                       }
                           /*Texte des listes*/
                           header nav > ul > li > a {

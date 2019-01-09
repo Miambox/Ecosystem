@@ -15,17 +15,17 @@
                           Charles Dupont </div> 
 
                   <div class = "heure"> 
-                    <div class ="texte"> 12h15 </div>
-                    <img src="<?=ROOT_URL?>static/image/icon/horloge.png"  alt="" </a> </div>
+                    <img src="<?=ROOT_URL?>static/image/icon/horloge.png"  alt="" </a> 
+                    <h3>12h15<h3> </div>
 
                   <div class = "date"> 
-                     <div class ="texte"> 02/12/2018  </div>
-                    <img src="<?=ROOT_URL?>static/image/icon/calendrier.png"  alt="" </a> </div>
+                    <img src="<?=ROOT_URL?>static/image/icon/calendrier.png"  alt="" </a> 
+                  <h3>02/12/2018 <h3>  </div>
 
                </div>
 
             <div class ="profil">
-                 <a href="<?=ROOT_URL?>ROUTE=admin&amp;Ctrl=client&amp;Vue=vuePrincipale" title ="Profil"> <img src="<?=ROOT_URL?>static/image/icon/profil.jpg"  alt="" </a> 
+                 <a href="<?=ROOT_URL?>ROUTE=admin&amp;Ctrl=client&amp;Vue=vuePrincipale" title ="Profil"> <img src="<?=ROOT_URL?>static/image/icon/user2.png"  alt="" </a> 
                 </div>
 
             <div class ="accesChat">

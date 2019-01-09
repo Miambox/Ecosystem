@@ -42,6 +42,8 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addLogement/addLogement-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addPiece/addPiece-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addCapteur/addCapteur-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/chat.css">
+    
 
   </head>
   <body id="body">
@@ -66,6 +68,7 @@
               <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=general&Vue=home"><img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" alt=""></a></li>
               <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=profil&Vue=vuePrincipale"> Profil </a></li>
               <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=logement&Vue=vuePrincipale">Gestion des capteurs</a></li>
+              <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=chat&Vue=chat">Nous contacter</a></li>
               <li><a href="#">Connexion</a></li>
               <li>
                 <a href="#" id="ticket-alerte">
