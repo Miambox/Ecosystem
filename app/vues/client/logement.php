@@ -64,7 +64,7 @@
       }
   }
   ?>
-  <button type="button" name="button" id='ajouterLogement'>+</button>
+  <button type="button" name="button" id='ajouterLogement'></button>
 
 </div>
 
