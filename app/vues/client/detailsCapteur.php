@@ -17,17 +17,17 @@
       <button class="button-ajouter" type="button" name="button" id="ajouterProgramme">Ajouter</button>
       <button class="button-visualiser" type="button" name="button" id="visualiserProgramme">Visualiser</button>
     </div>
-    <!-- <div class="diagramme-baton">
+    <div class="diagramme-baton">
       <h2>Période d'utilisation</h2>
       <div class="chart_div" id="chart_div">
         <img src="<?=ROOT_URL?>/static/image/icon/loading-gif-lp.gif" width="40%" alt="">
       </div>
-    </div> -->
+    </div>
   </div>
 
 
   <div class="container-programme">
-    <!-- <div class="container-diagramme-circulaire">
+    <div class="container-diagramme-circulaire">
       <h2>Taux de luminosité</h2>
       <div class="diagramme-circulaire">
         <div class="" id='diagrammeCirculaire'>
@@ -38,7 +38,7 @@
           <button type="button" name="button" class="diminuerLuminosite" id="diminuerLum">-</button>
         </div>
       </div>
-    </div> -->
+    </div>
     <div class="ambiance">
       <h2>Gérer vos ambiances <button type="button" name="button"id="ajouterAmbiance">+</button> </h2>
       <div class="">
@@ -101,25 +101,21 @@
 </div>
 <!-- Ancien container pour ajouter un programme -->
 <div class="container-big-modal" id="container-modal-ajouter-programme">
-  <div class="modal-big modal-ajouter-programme">
-    <form class="" action="index.html" method="post">
+  <form class="modal-big modal-ajouter-programme" action="?Route=Client&Ctrl=capteur&Vue=addProgramme" method="post">
       <div class="modal-big-head">
         <button class="close" id="close-ajouter-programme">&times;</button>
-      <p>Ajouter un programme</p>
-    </div>
+        <p>Ajouter un programme</p>
+      </div>
       <div class="modal-big-text">
         <div class="modal-big-text-one">
           <h3>Selectionner date et heure</h3>
           <p>
             <label for="">Activez l'alarme :</label>
-            <input type="time" name="" value="">
+            <input type="time" name="heure_debut" value="">
             <label for="">à</label>
-            <input type="time" name="" value="">
+            <input type="time" name="heure_fin" value="">
             <label for="">le</label>
-            <input type="date" name="" value="">
-          </p>
-          <p>
-
+            <input type="date" name="date" value="">
           </p>
       </div>
       <div class="modal-big-text-two select-ambiance">
@@ -127,25 +123,15 @@
         <span>( Vous devez sélectionner qu'un seule ambiance ..)</span>
         <ul>
           <li>
-            <span>Tamisé</span>
-            <label class="toggle-button">
-              <input type="checkbox" name="" value="">
-              <span class="slider round"></span>
-            </label>
-          </li>
-          <li>
-            <span>Travail</span>
-            <label class="toggle-button">
-              <input type="checkbox" checked>
-              <span class="slider round"></span>
-            </label>
-          </li>
-          <li>
-            <span>Illumination Max</span>
-            <label class="toggle-button">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
+            <select name="ambiance">
+              <?php
+                foreach ($liste_ambiance as $key => $value) {
+              ?>
+              <option value="<?php echo $value['id']  ?>"><?php echo $value['nom']  ?></option>
+              <?php
+              }
+              ?>
+            </select>
           </li>
         </ul>
       </div>
@@ -153,8 +139,7 @@
       <div class="modal-big-footer">
       <input type="submit" name="" class="ajouterProgramme" value="Ajouter">
     </div>
-    </form>
-  </div>
+  </form>
 </div>
 
 
@@ -167,35 +152,48 @@
     <div class="modal-big-text">
       <table>
         <?php
-        for ($i=0; $i < 5; $i++) {
+        foreach ($liste_programme as $key => $value) {
           ?>
+
           <tr>
-            <td>Lundi</td>
+            <td><?php echo $value['date']?></td>
             <td>
-              <p class="heure">22:30</p>
-              <span>Tamisé</span>
+              <p class="heure"><?php echo $value['heure_debut'] ?></p>
+              <span><?php echo $value['heure_fin'] ?></span>
             </td>
             <td>
-              <label class="toggle-button">
-                <input type="checkbox">
-                <span class="slider round"></span>
-              </label>
+              <form class="" action="?Route)Client&Ctrl=capteur&Vue=activeProgramme" id="formulaireActiveProgramme" method="post">
+                <input type="hidden" name="id_programme" value="<?php echo $value['id'] ?>">
+                <label class="toggle-button">
+                  <?php
+                  if($value['etat'] == 'on') {
+                    ?>
+                    <input type="checkbox" name="off_programme" onchange="document.getElementById('formulaireActiveProgramme').submit();" checked>
+                    <?php
+                  } else {
+                    ?>
+                    <input type="checkbox" name="on_programme" onchange="document.getElementById('formulaireActiveProgramme').submit();">
+                    <?php
+                  }
+                  ?>
+                  <span class="slider round"></span>
+                </label>
+              </form>
             </td>
             <td>
-              <a href="#">
-                <img src="<?=ROOT_URL?>/static/image/icon/modifier-icon-lp.png" width="20%" alt="">
-              </a>
+              <?php echo $ambiance ?>
             </td>
             <td>
-              <a href="#">
-                <img src="<?=ROOT_URL?>/static/image/icon/delete-icon-lp.png" width="20%" alt="">
-              </a>
+              <form class="" action="?Route=Client&Ctrl=capteur&Vue=supprimerProgramme" method="post">
+                <input type="hidden" name="id_programme" value="<?php echo $value['id'] ?>">
+                <input type="submit" name="" value="x">
+              </form>
             </td>
           </tr>
+
           <?php
         }
         ?>
-
       </table>
 
     </div>

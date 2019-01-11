@@ -2,11 +2,13 @@
   <section class="first">
       <a href="#" class="scroll-down"> </a>
     <div class="inside">
-      <label for="uname"><b> Identifiant </b></label>
-      <input type="text" placeholder="Téléphone ou mail" name="uname" required> <br>
-      <label for="psw"><b> Mot de passe </b></label>
-      <input type="password" placeholder="Mot de passe" name="psw" required>
-      <button type="submit" id="gotoProfil"> Connexion </button>
+      <form class="" action="?Route=client&Ctrl=signin&Vue=connexion" method="post">
+        <label for="uname"><b> Identifiant </b></label>
+        <input type="text" placeholder="Téléphone ou mail" name="email" required> <br>
+        <label for="psw"><b> Mot de passe </b></label>
+        <input type="password" placeholder="Mot de passe" name="mdp" required>
+        <input type="submit" value="Connexion">
+      </form>
       <button type="submit" id="gotoInscription"> Inscription </button>
       <br><a href="<?=ROOT_URL?>?Route=admin&amp;Ctrl=general&amp;Vue=general">DEV: Go to admin</a>
       <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=logement&amp;Vue=vuePrincipale">DEV: Go to client</a>

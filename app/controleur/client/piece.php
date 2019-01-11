@@ -1,5 +1,7 @@
 <?php
 
+include('app/model/client/requete.piece.php');
+
 switch ($action) {
 
     case 'vuePrincipale':
@@ -7,13 +9,39 @@ switch ($action) {
         $vue = "piece";
         $title = "Les pieces";
 
+        if(isset($_POST['id_logement'])) {
+          $id_logement = $_POST['id_logement'];
+          $liste_piece = selectionnerPiece($bdd, $id_logement);
+        }
+
         break;
 
     case 'addPiece':
         //Ajouter un nouveau capteur
 
-        $title = "Ajouter un piece";
+        $title = "Ajouter une piece";
         $vue = "addPiece";
+        $id_logement = $_POST['id_logement'];
+        if( isset($_POST['nom']) and
+            isset($_POST['type']) and
+            isset($_POST['etage']) and
+            isset($_POST['surface']))
+            {
+            $values = [
+              'nom'              => $_POST['nom'],
+              'type'                 => $_POST['type'],
+              'etage'               => $_POST['etage'],
+              'surface'          => $_POST['surface']
+            ];
+            $request = insererNouvellePiece($bdd, $values, $id_logement);
+
+            if(isset($request)) {
+              header('Location: ?Route=client&Ctrl=capteur&Vue=addCapteur');
+            }
+        } else {
+          $alerte = 1;
+          $alerte_explication= 'Vous avez oublié un champs obligatoire, merci de recommencer.';
+        }
 
         break;
 
