@@ -1,4 +1,4 @@
-<button type="button" class="goBack" onclick="goBack()">Retour à la page logement</button>
+<button type="button" class="goBack" onclick="backToHome()">Retour à la page logement</button>
 
 <div class="container">
     <div class="element">
@@ -13,7 +13,7 @@
         </p>
     </div>
 
-        <div class="card-container-object" onclick="goTo()">
+        <div class="card-container-object" onclick="goToCapteur()">
             <div class="card-n">
                 <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="80%" alt="">
                 <div class="banniere">
@@ -22,18 +22,6 @@
             </div>
             <div class="input">
             </div>
-
         </div>
 
 </div>
-
-<script type="text/javascript">
-
-function goBack() {
-  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=piece";
-}
-
-function goTo() {
-  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=detailsCapteur";
-}
-</script>

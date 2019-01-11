@@ -1,0 +1,58 @@
+.card-container-object {
+    width: auto;
+    height: 500px;
+    margin: 2% 2% 2% 2%;
+    /* background-color: rgba(255,171,38, .6) ; Orange */
+    background-color: rgba(0,0,0,0.05);
+    border-radius: 10px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    }
+      .card-container-object > .card-n {
+      width: 200px;
+      height: 200px;
+      border: solid 1px rgba(0,0,0,0.6);
+      border-radius: 5px;
+      box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, .2); /*Style d'ombre 3D*/
+      background-color: white;
+      margin-left: 3.5%;
+      margin-top: 2.5%;
+      overflow: hidden;
+      }
+  
+      .card-container-object > .card-n  > img {
+        margin-left: 10%;
+      }
+  
+      .card-container-object > .card-n:hover {
+        border-color: orange;
+      }
+  
+      .card-container-object > .card-n > .banniere {
+        width: 100%;
+        height: 50px;
+        border-top: solid 1px rgba(0,0,0,0.15);
+        border-bottom: solid 1px rgba(0,0,0,0.15);
+        background-color: rgba(0,0,0,0.1);
+        text-align: center;
+        vertical-align: auto
+      }
+  
+    .card-container-object > input {
+      width: 50px;
+      height: 50px;
+      border: solid 1px;
+      border-radius: 50%;
+      background-color: grey;
+      color: white;
+      font-size: 30px;
+    }
+
+#textNoClient {
+  margin: auto;
+  font-size: 2em;
+  font-weight: bold;
+}
