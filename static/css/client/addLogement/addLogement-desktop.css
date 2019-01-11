@@ -1,232 +1,154 @@
-/* Résolution d'écran d'ordinateur 100% à 130%*/
-@media only screen and (min-width: 1100px) and (max-width: 1800px) {
-
-  .card-addLogement > p {
-    background: #FAFAFA;
-    color: #333333;
-
-    }
-
-  .card-addLogement {
-    width: 40%;
-    border: solid 1px;
-    border-color: rgba(0,0,0,0.2);
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
-    background-color: #FAFAFA;
-    border-radius: 5px;
-    margin-top: 8%;
-    margin-left: 30%;
-  }
-
-    .card-addLogement > form {
-      display: flex;
-      width: 80%;
-      padding:10%;
-      flex-direction: column;
-      text-align: center;
-      text-align: -moz-center;
-      grid-area: main;
-    }
-
-      .card-addLogement > form > input {
-        width: 80%;
-        height: 25px;
-        margin-right: 10%;
-        margin-left: 10%;
-        margin-bottom: 4%;
-        padding: 2%;
-        border: solid 1Px;
-        border-color: rgba(0,0,0,0.3);
-        border-radius: 5px;
-      }
-
-      .card-addLogement > form > input:hover {
-        background-color: #FAFAFA;
-      }
-
-
-      .card-addLogement > form > div {
-        width: 80%;
-        display: flex;
-        flex-direction: row;
-        margin-left: 10%;
-      }
-
-        .card-addLogement > form > div > input {
-          width: 30%;
-          border: solid 1px rgba(0,0,0,0.2);
-          border-radius: 5px;
-          padding: 2%;
-          margin-top: 10%;
-          size: 16px;
-          font-weight: 600;
-          margin-left: 12.5%;
-        }
-
-
-        .card-addLogement > form > div > .inscrire {
-          background-color: rgba(98, 98, 255);
-          color: white;
-          display: block;
-          margin-right: auto;
-          margin-left: auto;
-        }
-
-        .card-addLogement > form > div > .inscrire:hover {
-          color: rgba(98, 98, 255);
-          background-color: white;
-          display: block;
-          margin-right: auto;
-          margin-left: auto;
-        }
+.card-addLogement {
+  width: 50%;
+  border: solid 1px;
+  border-color: rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
+  background-color: #FAFAFA;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
-/*Résolution d'écran d'ordinateur 130% et au delà*/
-@media only screen and (min-width: 769px) and (max-width: 1100px) {
-  .card-addLogement {
-    width: 40%;
-    border: solid 1px;
-    border-color: rgba(0,0,0,0.2);
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
-    background-color: #FAFAFA;
-    border-radius: 5px;
-    margin-top: 10%;
+  .card-addLogement > form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    text-align: -moz-center;
   }
-
-    .card-addLogement > form {
-      display: flex;
-      width: 80%;
-      padding:10%;
-      flex-direction: column;
-      text-align: center;
-      text-align: -moz-center;
-      grid-area: main;
+    .card-addLogement > form > p {
+      background: #FAFAFA;
+      color: #FFAE37;
+      width: 100%;
+      font-weight: 700;
+      margin-top: 2%;
+      margin-bottom: 2%;
     }
 
-      .card-addLogement > form > input {
-        width: 80%;
-        height: 25px;
-        margin-right: 10%;
-        margin-left: 10%;
-        margin-bottom: 4%;
-        padding: 2%;
-        border: solid 1Px;
-        border-color: rgba(0,0,0,0.3);
-        border-radius: 5px;
-      }
+    .card-addLogement > form > input {
+      margin-bottom: 4%;
+      padding: 2%;
+      border: solid 1Px;
+      border-color: rgba(0,0,0,0.3);
+      border-radius: 5px;
+    }
 
-      .card-addLogement > form > input:hover {
-        background-color: #FAFAFA;
-      }
+    .card-addLogement > form > input:nth-of-type(1) {
+      width: 50%;
+      margin-left: 25%;
+    }
 
+    .card-addLogement > form > input:nth-of-type(2) {
+      flex-basis: 10%;
+      margin-left: 20%;
+    }
+    .card-addLogement > form > input:nth-of-type(3) {
+      flex-basis: 30%;
+    }
+    .card-addLogement > form > input:nth-of-type(4) {
+      flex-basis: 27.5%;
+      margin-left: 20%;
+      margin-right: 4%;
+    }
+    .card-addLogement > form > input:nth-of-type(5) {
+      flex-basis: 25%;
+    }
+    .card-addLogement > form > input:nth-of-type(6) {
+      flex-basis: 20%;
+      margin-left: 20%;
+      margin-right: 4%;
+    }
+    .card-addLogement > form > input:nth-of-type(7) {
+      flex-basis: 25%;
+    }
+    .card-addLogement > form > input:nth-of-type(8) {
+      margin-left: 20%;
+      flex-basis: 61%;
+    }
+    .card-addLogement > form > input:nth-of-type(9) {
+      flex-basis: 20%;
+      margin-left: 20%;
+    }
+    .card-addLogement > form > input:nth-of-type(10) {
+      flex-basis: 30%;
+    }
 
-      .card-addLogement > form > div {
-        width: 80%;
-        display: flex;
-        flex-direction: row;
-        margin-left: 10%;
-      }
+    .bouton-ajouter {
+      flex-basis: 27.5%;
+      margin-left: 20%;
+      margin-right: 4%;
+      padding: 2%;
+      border-radius: 4px;
+      border: none;
+      font-weight: 600;
+      color: white;
+      background-color: #FFAE37
+    }
 
-        .card-addLogement > form > div > button {
-          width: 30%;
-          border: solid 1px rgba(0,0,0,0.2);
-          border-radius: 5px;
-          padding: 2%;
-          margin-top: 10%;
-          size: 16px;
-          font-weight: 600;
-          margin-left: 12.5%;
-        }
+    .bouton-ajouter-piece {
+      flex-basis: 30%;
+      padding: 2%;
+      border-radius: 4px;
+      border: none;
+      font-weight: 800;
+      color: white;
+      background-color: #FFFF47;
+    }
+    .card-addLogement > form > input:hover {
+      background-color: #F2F2F2;
+      color: rgba(0,0,0,0.6);
+    }
 
-        .card-addLogement > form > div > .inscrire {
-          background-color: rgba(98, 98, 255);
-          color: white;
-          font-size: 9px;
-        }
+@media only screen and (max-width: 1800px) and (orientation: PORTRAIT) {
+  .card-addLogement {
+    margin-left: 2%;
+  }
 
-        .card-addLogement > form > div > .inscrire:hover {
-          color: rgba(98, 98, 255);
-          background-color: white;
-        }
+  .card-addLogement > form > input:nth-of-type(1) {
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  .card-addLogement > form > input:nth-of-type(2) {
+    flex-basis: 10%;
+    margin-left: 20%;
+  }
+  .card-addLogement > form > input:nth-of-type(3) {
+    flex-basis: 30%;
+    margin-left: 22.5%;
+  }
+  .card-addLogement > form > input:nth-of-type(4) {
+    flex-basis: 27.5%;
+    margin-left: 22.5%;
+  }
+  .card-addLogement > form > input:nth-of-type(5) {
+    flex-basis: 25%;
+    margin-left: 20%;
+  }
+  .card-addLogement > form > input:nth-of-type(6) {
+    flex-basis: 20%;
+    margin-left: 20%;
+  }
+  .card-addLogement > form > input:nth-of-type(7) {
+    flex-basis: 25%;
+    margin-left: 20%;
+  }
+  .card-addLogement > form > input:nth-of-type(8) {
+    margin-left: 20%;
+    flex-basis: 61%;
+  }
+  .card-addLogement > form > input:nth-of-type(9) {
+    flex-basis: 20%;
+    margin-left: 20%;
+  }
+  .card-addLogement > form > input:nth-of-type(10) {
+    flex-basis: 30%;
+    margin-left: 22.5%;
+  }
 }
 
 
 /*Résolution d'écran plus petit que 60%*/
 @media only screen and (min-width: 1800px) {
-  .card-addLogement {
-    width: 40%;
-    border: solid 1px;
-    border-color: rgba(0,0,0,0.2);
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
-    background-color: #FAFAFA;
-    border-radius: 5px;
-    margin-top: 10%;
-    margin-left: 30%;
-  }
-
-    .card-addLogement > form {
-      display: flex;
-      width: 80%;
-      padding:10%;
-      flex-direction: column;
-      text-align: center;
-      text-align: -moz-center;
-      grid-area: main;
-    }
-
-      .card-addLogement > form > input {
-        width: 80%;
-        height: 25px;
-        margin-right: 10%;
-        margin-left: 10%;
-        margin-bottom: 4%;
-        padding: 2%;
-        border: solid 1Px;
-        border-color: rgba(0,0,0,0.3);
-        border-radius: 5px;
-        font-size: 18px;
-      }
-
-      .card-addLogement > form > input:hover {
-        background-color: #FAFAFA;
-      }
-
-
-      .card-addLogement > form > div {
-        width: 80%;
-        display: flex;
-        flex-direction: row;
-        margin-left: 10%;
-      }
-
-        .card-addLogement > form > div > button {
-          width: 30%;
-          border: solid 1px rgba(0,0,0,0.2);
-          border-radius: 5px;
-          padding: 2%;
-          margin-top: 10%;
-          size: 16px;
-          font-weight: 600;
-          margin-left: 12.5%;
-        }
-
-
-        .card-addLogement > form > div > .inscrire {
-          background-color: rgba(98, 98, 255);
-          color: white;
-          font-size: 24px;
-        }
-
-        .card-addLogement > form > div > .inscrire:hover {
-          color: rgba(98, 98, 255);
-          background-color: white;
-        }
-}
-
-
-.ajouter-logement{
-  text-decoration-style: none;
-  border: solid 1px rgba(0,0,0,0.4);
-  padding: 2%;
-  border-radius: 5px;
 }

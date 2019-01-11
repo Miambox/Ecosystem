@@ -34,8 +34,8 @@
           <img src="<?=ROOT_URL?>/static/image/icon/loading-gif-lp.gif" width="65%" alt="">
         </div>
         <div class="plus_moins">
-          <button type="button" name="button" class="ajouterLuminosite">+</button>
-          <button type="button" name="button" class="diminuerLuminosite">-</button>
+          <button type="button" name="button" class="ajouterLuminosite" id="ajouterLum">+</button>
+          <button type="button" name="button" class="diminuerLuminosite" id="diminuerLum">-</button>
         </div>
       </div>
     </div>
@@ -99,91 +99,47 @@
     </div>
   </div>
 </div>
-
+<!-- Ancien container pour ajouter un programme -->
 <div class="container-big-modal" id="container-modal-ajouter-programme">
-  <div class="modal-big modal-ajouter-programme">
-    <div class="modal-big-head">
-      <button class="close" id="close-ajouter-programme">&times;</button>
-      <p>Ajouter un programme</p>
-    </div>
-    <div class="modal-big-text">
-      <div class="modal-big-text-one">
+  <form class="modal-big modal-ajouter-programme" action="?Route=Client&Ctrl=capteur&Vue=addProgramme" method="post">
+      <div class="modal-big-head">
+        <button class="close" id="close-ajouter-programme">&times;</button>
+        <p>Ajouter un programme</p>
+      </div>
+      <div class="modal-big-text">
+        <div class="modal-big-text-one">
           <h3>Selectionner date et heure</h3>
           <p>
-            <form class="" action="index.html" method="post">
-              <div class="form-group">
-                <select class="" id="heure">
-                  <?php
-                  for ($i=0; $i <= 23 ; $i++) {
-                    ?>
-                    <option value="<?php echo $i ?>"><?php echo $i ?></option>
-                    <?php
-                  }
-                  ?>
-                </select>
-                <span>:</span>
-                <select class="" id="minute">
-                  <?php for ($i=0; $i <= 60 ; $i++) {
-                    ?>
-                    <option value="<?php echo $i ?>"><?php echo $i ?></option>
-                    <?php
-                  } ?>
-                </select>
-              </div>
-              <div class="form-group">
-                <select class="" id="jour">
-                  <option value="lundi">lundi</option>
-                  <option value="mardi">mardi</option>
-                  <option value="mercredi">mercredi</option>
-                  <option value="jeudi">jeudi</option>
-                  <option value="vendredi">vendredi</option>
-                  <option value="samedi">samedi</option>
-                  <option value="dimanche">dimanche</option>
-
-
-                </select>
-              </div>
-              <div class="toujours">
-                <label for="">Tous les jours</label>
-                <label class="toggle-button">
-                  <input type="checkbox">
-                  <span class="slider round"></span>
-                </label>
-              </div>
-            </form>
+            <label for="">Activez l'alarme :</label>
+            <input type="time" name="heure_debut" value="">
+            <label for="">à</label>
+            <input type="time" name="heure_fin" value="">
+            <label for="">le</label>
+            <input type="date" name="date" value="">
           </p>
       </div>
       <div class="modal-big-text-two select-ambiance">
         <h3>Selectionner une ambiance</h3>
+        <span>( Vous devez sélectionner qu'un seule ambiance ..)</span>
         <ul>
           <li>
-            <span>Tamisé</span>
-            <label class="toggle-button">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
-          </li>
-          <li>
-            <span>Travail</span>
-            <label class="toggle-button">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
-          </li>
-          <li>
-            <span>Illumination Max</span>
-            <label class="toggle-button">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
+            <select name="ambiance">
+              <?php
+                foreach ($liste_ambiance as $key => $value) {
+              ?>
+              <option value="<?php echo $value['id']  ?>"><?php echo $value['nom']  ?></option>
+              <?php
+              }
+              ?>
+            </select>
           </li>
         </ul>
       </div>
     </div>
-    <div class="modal-big-footer">
-      <button type="button" name="button" clas="ajouterProgramme">Valider</button>
+      <div class="modal-big-footer">
+      <input type="submit" name="" class="ajouterProgramme" value="Ajouter">
     </div>
-  </div>
+  </form>
 </div>
 
 
@@ -196,35 +152,48 @@
     <div class="modal-big-text">
       <table>
         <?php
-        for ($i=0; $i < 5; $i++) {
+        foreach ($liste_programme as $key => $value) {
           ?>
+
           <tr>
-            <td>Lundi</td>
+            <td><?php echo $value['date']?></td>
             <td>
-              <p class="heure">22:30</p>
-              <span>Tamisé</span>
+              <p class="heure"><?php echo $value['heure_debut'] ?></p>
+              <span><?php echo $value['heure_fin'] ?></span>
             </td>
             <td>
-              <label class="toggle-button">
-                <input type="checkbox">
-                <span class="slider round"></span>
-              </label>
+              <form class="" action="?Route)Client&Ctrl=capteur&Vue=activeProgramme" id="formulaireActiveProgramme" method="post">
+                <input type="hidden" name="id_programme" value="<?php echo $value['id'] ?>">
+                <label class="toggle-button">
+                  <?php
+                  if($value['etat'] == 'on') {
+                    ?>
+                    <input type="checkbox" name="off_programme" onchange="document.getElementById('formulaireActiveProgramme').submit();" checked>
+                    <?php
+                  } else {
+                    ?>
+                    <input type="checkbox" name="on_programme" onchange="document.getElementById('formulaireActiveProgramme').submit();">
+                    <?php
+                  }
+                  ?>
+                  <span class="slider round"></span>
+                </label>
+              </form>
             </td>
             <td>
-              <a href="#">
-                <img src="<?=ROOT_URL?>/static/image/icon/modifier-icon-lp.png" width="20%" alt="">
-              </a>
+              <?php echo $ambiance ?>
             </td>
             <td>
-              <a href="#">
-                <img src="<?=ROOT_URL?>/static/image/icon/delete-icon-lp.png" width="20%" alt="">
-              </a>
+              <form class="" action="?Route=Client&Ctrl=capteur&Vue=supprimerProgramme" method="post">
+                <input type="hidden" name="id_programme" value="<?php echo $value['id'] ?>">
+                <input type="submit" name="" value="x">
+              </form>
             </td>
           </tr>
+
           <?php
         }
         ?>
-
       </table>
 
     </div>

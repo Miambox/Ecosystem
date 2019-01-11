@@ -405,42 +405,42 @@
 }
 
 /* GRAND MODAL PERMETTANT DAJOUTER UN PROGRAMME */
-.modal-ajouter-programme > .modal-big-head > p {
+.modal-big-head > p {
   font-size: 20px;
   text-align: center;
   text-align: -moz-center;
   color: #FFD006;
   font-weight: 600;
 }
-.modal-ajouter-programme > .modal-big-text > form {
+.modal-big-text > form {
   text-align: center;
   text-align: -moz-center;
   margin-top: 2%;
 
 }
-  .modal-ajouter-programme > .modal-big-text > form > .form-group {
+  .modal-big-text > form > .form-group {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
   }
-    .modal-ajouter-programme > .modal-big-text > form > .form-group > label {
+    .modal-big-text > form > .form-group > label {
       font-weight: 600;
       color: rgba(0,0,0,0.6);
       margin-right: 2%;
     }
-    .modal-ajouter-programme > .modal-big-text > form > .form-group > span {
+    .modal-big-text > form > .form-group > span {
       padding-right: 2%;
       padding-left: 2%;
       font-weight: 800;
       font-size: 20px;
     }
-    .modal-ajouter-programme > .modal-big-text > form > .form-group > input {
+    .modal-big-text > form > .form-group > input {
       border: solid 2px rgba(0,0,0,0.2);
       padding: 1%;
       border-radius: 5px;
       width: 8%;
     }
-.modal-ajouter-programme > .modal-big-footer > button {
+.modal-big-footer > button {
   border-radius: 5px;
   border-color: #FFD006;
   background-color: #FFD006;
@@ -450,7 +450,7 @@
   width: 20%;
   margin-top: 2%;
 }
-.modal-ajouter-programme > .modal-big-footer > button:hover {
+.modal-big-footer > button:hover {
   background-color: white;
   color: #FFD006;
   font-weight: 800;

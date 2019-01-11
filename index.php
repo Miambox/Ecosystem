@@ -12,10 +12,6 @@ if(isset($_SERVER["HTTPS"])&& strtolower($_SERVER["HTTPS"]) == "on" ) { $protoco
 	$protocol = 'http://';
 }
 
-// INITIALISATION VARIABLE DE SESSION.
-if (empty($_SESSION)) {
-    session_start();
-}
 
 // MISE EN PLACE DES ROUTES.
 define('PROTOCOL', $protocol);
