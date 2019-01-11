@@ -2,7 +2,6 @@
 
 include("app/model/requete.generique.php"); // On connecte la base de donnée
 
-<<<<<<< HEAD
 $table = 'logement';
 
 
@@ -24,7 +23,7 @@ function infoPiece($bdd, $pieceId){
   $donneespiece = $piece->fetch();
   return $donneespiece;
 }
-=======
+
 // Fonction permettant de sélectionner toutes les ambiances d'un objet
 function selectionnerAmbiance($bdd) {
   $utilisateurId = 1;
