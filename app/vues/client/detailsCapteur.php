@@ -1,7 +1,7 @@
 <div class="container-details-capteur">
 <?php
 
-echo $donneesCapteur['nom'];
+//echo $donneesCapteur['nom'];
 
 ?>
   <div class="container-logo">
@@ -9,14 +9,12 @@ echo $donneesCapteur['nom'];
     <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="100%" alt="">
     <div class="on_off">
       <span>Eteindre/Allumer le capteur</span>
-      <?php if ($donneesCapteur['etat']==1): ?>
-        echo oui
+      <?php if ($donneesCapteur['etat']=="marche"): ?>
         <label class="toggle-button">
           <input type="checkbox" checked>
           <span class="slider round"></span>
         </label>
       <?php else : ?>
-        echo non
         <label class="toggle-button">
           <input type="checkbox" >
           <span class="slider round"></span>

@@ -57,7 +57,7 @@ switch ($action) {
 
         $idCapteur = $_POST['id_capteur'];
         //if( isset($_POST['id_capteur'])) {
-        $donneesCapteur =  infoCapteur($bdd, idCapteur);
+        $donneesCapteur =  infoCapteur($bdd, $idCapteur);
         //}
 
         $liste_ambiance = selectionnerAmbiance($bdd);
