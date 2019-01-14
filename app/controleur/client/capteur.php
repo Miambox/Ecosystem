@@ -1,9 +1,6 @@
 <?php
 include('app/model/client/requete.capteur.php');
 
-include('app/model/client/requete.capteur.php');
-
-
 switch ($action) {
 
     case 'vuePrincipale':
@@ -11,27 +8,57 @@ switch ($action) {
         $vue = "capteur";
         $title = "Les capteurs";
 
-<<<<<<< HEAD
+
+
+
         $donneesCapteur = selectionerCapteur($bdd, 1);
         $donneespiece = infoPiece($bdd, 1);
-=======
->>>>>>> dev
 
         break;
 
     case 'addCapteur':
-        //Ajouter un nouveau capteur
-
+        /*@Todo: Ajouter les champs pas obligatoire*/
         $title = "Ajouter un capteur";
         $vue = "addCapteur";
+        $id_piece = $_POST['id_piece'];
+
+        if( isset($_POST['ref']) and
+            isset($_POST['nom']) and
+            isset($_POST['unit']) and
+            isset($_POST['type']) and
+            isset($_POST['id_piece'])) {
+
+          $values = [
+            'numero_ref'              => $_POST['ref'],
+            'nom'                 => $_POST['nom'],
+            'unit'               => $_POST['unit'],
+            'type'          => $_POST['type'],
+            'id_piece'      => $_POST['id_piece']
+
+          ];
+          $request = insererNouveauCapteur($bdd, $values);
+
+          if(isset($request)) {
+            header('Location: ?Route=client&Ctrl=capteur&Vue=vuePrincipale');
+          }
+        } else {
+          $alerte = 1;
+          $alerte_explication= 'Vous avez oublié un champs obligatoire, merci de recommencer.';
+        }
 
         break;
 
     case 'details':
         //Ajouter un nouveau capteur
 
+
         $title = "Détails capteur";
         $vue = "detailsCapteur";
+
+        $idCapteur = $_POST['id_capteur'];
+        //if( isset($_POST['id_capteur'])) {
+        $donneesCapteur =  infoCapteur($bdd, idCapteur);
+        //}
 
         $liste_ambiance = selectionnerAmbiance($bdd);
 
@@ -45,6 +72,7 @@ switch ($action) {
         }
 
         break;
+
     case 'data':
       echo json_encode( array( "name"=>"John","time"=>"2pm" ) );
       break;

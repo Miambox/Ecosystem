@@ -1,15 +1,15 @@
 
 <div class="card-addCapteur">
-  <form class="" action="index.html" method="post">
+  <form class="" action="?Route=client&Ctrl=capteur&Vue=addCapteur" method="post">
     <p> Ajout d'un capteur par référence </p>
-    <input type="numero1" name="numero1" placeholder="">
+    <input type="hidden" name="id_piece" value="<?php echo $id_piece ?>">
+    <input type="number" name="ref" placeholder="">
     <label for="">Détails</label>
-    <input type="numero1" name="numero1" placeholder="Nom">
-    <input type="numero1" name="numero1" placeholder="Unité de mesure">
-    <input type="numero1" name="numero1" placeholder="Type">
-
-    <div>
-      <a href="<?=ROOT_URL?>?Route=client&Ctrl=logement&Vue=vuePrincipale">Ajouter le capteur</a>
-    </div>
+    <input type="text" name="nom" placeholder="Nom">
+    <input type="text" name="unit" placeholder="Unité de mesure">
+    <SELECT type="number" name="type" size="1">
+        <OPTION value="1">Eco'light</OPTION>
+    </SELECT>
+    <input class="bouton-ajouter" type="submit" name="ajouter" value="Ajouter">
   </form>
 </div>

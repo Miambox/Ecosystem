@@ -22,6 +22,8 @@ $piece = $bdd->query('SELECT * FROM piece p
 											');
 $donneespiece = $piece->fetch()
 
+
+<a href="javascript:history.back()">Retour aux pieces</a>
 */
 
 
@@ -30,7 +32,11 @@ $donneespiece = $piece->fetch()
 
 <div class="container-piece-capteurs">
   <div class="container-resume-piece">
-    <a href="javascript:history.back()">Retour aux pieces</a>
+
+    <form class="button" action="?Route=client&Ctrl=piece&Vue=vuePrincipale" method="post">
+      <input type="hidden" name="id_logement" value="<?php echo $donneespiece['id'] ?>">
+      <input type="submit" name="" value="retour aux pieces">
+    </form>
 
     <div class="resume-piece">
       <img class="photo-piece" src="<?=ROOT_URL?>/static/image/icon/cours-isep.jpg" alt="">
@@ -54,7 +60,7 @@ $donneespiece = $piece->fetch()
     <div class="card-capteur">
       <div class="card-head">
         <ul>
-          <li><h5><?php echo $donnees['nom_objet']; ?></h5></li>
+          <li><h5><?php echo $donnees['nom']; ?></h5></li>
           <li>
             <button type="button" name="button" class="button-config-capteur" id="button-config-capteur" onclick="ouvreParemetresLogement()">
               <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
@@ -73,7 +79,10 @@ $donneespiece = $piece->fetch()
       <div class="card-banniere">
       </div>
       <div class="card-footer">
-        <button type="button" name="button" class="button-go-to-capteur" onclick="goTo()">Plus de détails</button>
+        <form class="btn-capteur" action="?Route=client&Ctrl=capteur&Vue=details" method="post">
+          <input type="hidden" name="id_capteur" value="<?php echo $donnees['id'] ?>">
+          <input type="submit" name="" value="Plus de détails">
+        </form>
       </div>
     </div>
 
@@ -82,6 +91,10 @@ $donneespiece = $piece->fetch()
 		 ?>
 
     <button type="button" name="button" onclick="ajouterCapteur()">+</button>
+    <form class="" action="?Route=client&Ctrl=capteur&Vue=addCapteur" method="post">
+      <input type="hidden" name="id_piece" value="<?php echo $donneespiece['id']  ?>">
+      <input type="submit" name="button" value="+">
+    </form>
   </div>
 </div>
 
