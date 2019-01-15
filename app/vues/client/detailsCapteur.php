@@ -22,22 +22,27 @@
       <?php endif ?>
     </div>
   </div>
+
   <div class="container-diagramme">
+
     <div class="programme">
       <h2>Programmer un horaire</h2>
       <button class="button-ajouter" type="button" name="button" id="ajouterProgramme">Ajouter</button>
       <button class="button-visualiser" type="button" name="button" id="visualiserProgramme">Visualiser</button>
     </div>
+
     <div class="diagramme-baton">
       <h2>Période d'utilisation</h2>
       <div class="chart_div" id="chart_div">
         <img src="<?=ROOT_URL?>/static/image/icon/loading-gif-lp.gif" width="40%" alt="">
       </div>
     </div>
+
   </div>
 
 
   <div class="container-programme">
+
     <div class="container-diagramme-circulaire">
       <h2>Taux de luminosité</h2>
       <div class="diagramme-circulaire">
@@ -50,6 +55,7 @@
         </div>
       </div>
     </div>
+
     <div class="ambiance">
       <h2>Gérer vos ambiances <button type="button" name="button"id="ajouterAmbiance">+</button> </h2>
       <div class="">
@@ -77,12 +83,9 @@
           </li>
         </ul>
       </div>
-
     </div>
-
   </div>
 </div>
-
 
 <div class="container-modal" id="container-modal">
   <div class="modal modal-ambiance">
@@ -97,7 +100,6 @@
       </form>
       <div class="modal-diagramme-circulaire">
         <div class="" id='diagrammeCirculaireModal'>
-
         </div>
         <div class="plus_moins_modal">
           <button type="button" name="button" class="ajouterLuminositeModal">+</button>
@@ -110,6 +112,8 @@
     </div>
   </div>
 </div>
+
+
 <!-- Ancien container pour ajouter un programme -->
 <div class="container-big-modal" id="container-modal-ajouter-programme">
   <form class="modal-big modal-ajouter-programme" action="?Route=Client&Ctrl=capteur&Vue=addProgramme" method="post">
@@ -153,7 +157,6 @@
   </form>
 </div>
 
-
 <div class="container-big-modal" id="container-modal-visualiser-programme">
   <div class="modal-big modal-visualiser-programme">
     <div class="modal-big-head">
@@ -165,7 +168,6 @@
         <?php
         foreach ($liste_programme as $key => $value) {
           ?>
-
           <tr>
             <td><?php echo $value['date']?></td>
             <td>
@@ -206,7 +208,6 @@
         }
         ?>
       </table>
-
     </div>
     <div class="modal-big-footer">
 
@@ -215,3 +216,9 @@
   </div>
 
 </div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<!-- Diagramme circulaire -->
+<script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/diagrammeCirculaire.js"></script>
+<!-- Diagramme en baton -->
+<script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/diagrammeBaton.js"></script>
