@@ -1,51 +1,60 @@
 <div class="container">
 
+<?php 
+$donneesProfil = donneesProfil($bdd, $id)->fetch();
+?>
+
         <div class="card-container-profil">
             <div class="photo ">
-                <img src="<?=ROOT_URL?>/static/image/icon/photo_de_profil.jpg" width="100%" alt="" >
-                <!--
+                <!-- <img src="<?=ROOT_URL?>/static/image/icon/photo_de_profil.jpg" width="100%" alt="" > -->
+
                 <img src="<?=ROOT_URL?>/static/image/icon/<?php echo $donneesProfil['photo']?>" width="100%" alt="" >
-                -->
+                
             </div>
             <div class="description">
                 <div class="title">
-                    Dupont Charles
+                    <?php echo $donneesProfil['prenom'] . " " . $donneesProfil['nom']?>
                 </div>
                <div class="subtitle">
                     Sexe : Homme
                 </div>
                 <div class="text">
-                    <strong>N°: </strong>198 0987 0567<br/>
+                    <!-- <strong>N°: </strong>198 0987 0567<br/>
                     <strong>N° de tel : </strong>06.XX.XX.XX.XX<br/>
-                    <strong>Mail : </strong>example@eco.com
-                    <!--
-                    <strong>N°: </strong><?php echo $donnees['id']?><br/>
-                    <strong>N° de tel : </strong><?php echo $donneesProfil['tel_portable']?><br/>
+                    <strong>Mail : </strong>example@eco.com -->
+                    
+                    <strong>N°: </strong><?php echo $donneesProfil['id']?><br/>
+                    <strong>N° de tel : </strong>0<?php echo $donneesProfil['tel_portable']?><br/>
                     <strong>Mail : </strong><?php echo $donneesProfil['mail']?>
-                    -->
+                    
                 </div>
             </div>
         </div>
 
-        <div class="card-container-object">
 
+
+        <div class="card-container-object">
+        
+        <?php
+        $donneesLogement = logement($bdd, $id)->fetchAll();
+        //var_dump($donneesLogement);
+        //echo "</pre>";
+        foreach($donneesLogement as $infoLogement) {
+        ?>
+        <form action="?Route=admin&Ctrl=client&Vue=piece" method="post">
+        <input type="hidden" name='id' value="<?php echo $infoLogement['id']?>">
             <div class="card-n"  onclick="goToHome()">
             <img src="<?=ROOT_URL?>/static/image/icon/maison-image.bmp" width="100%" alt="">
                 <div class="banniere">
-                    16 rue Clemenceau<br/>
-                    Paris, 75005
+                    <?php echo $infoLogement['numero'] . " " . $infoLogement['rue']?><br/>
+                    <?php echo $infoLogement['ville'] . " " . $infoLogement['code_postal']?>
                 </div>
+                <input type="submit" value="Voir">
             </div>
-
-
-            <div class="card-n">
-            <img src="<?=ROOT_URL?>/static/image/icon/maison-image2.bmp" width="100%" alt="">
-                <div class="banniere">
-                    86 rue Vaugirard<br/>
-                    Paris, 75015
-                </div>
-            </div>
-
+        <?php
+        }
+        ?>
         </div>
+
 
 </div>

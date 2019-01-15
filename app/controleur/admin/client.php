@@ -1,9 +1,15 @@
 <?php
 
+
+
+// Connexion a la base de donnees
+include('app/model/admin/general.php');
+
 switch ($action) {
 
     case 'logement':
 
+        $id = $_POST['id'];
         $vue = "logement";
         $title = "Détails client";
 
@@ -11,6 +17,7 @@ switch ($action) {
 
     case 'piece':
 
+        $idLogement = $_POST['id'];
         $vue = "piece";
         $title = "Logement client";
 

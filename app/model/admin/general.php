@@ -1,8 +1,9 @@
 <?php
+$bdd = new PDO('mysql:host=localhost; dbname=ecosystem; charset=utf8','root','root');
 
 // Fonction qui compte le nombre de personnes portant le nom entré
-function clientExiste($nomClient){
-    $bdd = new PDO('mysql:host=localhost; dbname=ecosystem; charset=utf8','root','root');
+function clientExiste($bdd, $nomClient){
+    
     $donnees = $bdd->prepare('SELECT nom
                               FROM utilisateur 
                               WHERE nom=:nom');
@@ -14,64 +15,110 @@ function clientExiste($nomClient){
         if(strcasecmp($client['nom'], $nomClient) == 0) {
             $compteur++;
         }
-    }; // fetch() retourne un array
+    }; 
     return $compteur;
 }
 
-function listeClient($nomClient){
-    $bdd = new PDO('mysql:host=localhost; dbname=ecosystem; charset=utf8','root','root');
+function listeClient($bdd, $nomClient){
+    
     $donnees = $bdd->prepare('SELECT nom, prenom, id
                               FROM utilisateur
                               WHERE nom=:nom');
     $donnees->execute(array(
         'nom' => $nomClient,
     ));
-    return $donnees;
+    $allName = $donnees->fetchAll();
+    return $allName;
 }
 
-function donneesProfil($id) {
-    $reqProfil = $bdd->prepare('SELECT nom, prenom, photo, tel_portable, mail 
+function donneesProfil($bdd, $id) {
+    
+    $reqProfil = $bdd->prepare('SELECT id, nom, prenom, photo, tel_portable, mail 
                                 FROM utilisateur 
                                 WHERE id = :id');
     $reqProfil->execute(array(
         'id' => $id,
     ));
 
-    $donneesProfil = $reqProfil->fetch();
+    return $reqProfil;
 }
 
-function donneesLogement($id) {
-    $reqLogement = $bdd->prepare('SELECT photo, numero, rue, ville, code_postal, complement_adresse, nbr_habitant, surface, annee_construction 
+function logement($bdd, $id) {
+    
+    $reqLogement = $bdd->prepare('SELECT numero, rue, ville, code_postal, complement_adresse, nbr_habitant, surface, annee_construction 
                                   FROM logement
                                   INNER JOIN utilisateur 
-                                  ON utilisateur.idLogement = :id');
+                                  ON logement.id_utilisateur = utilisateur.id
+                                  WHERE utilisateur.id = :id
+                                  
+                                  ');
     $reqLogement->execute(array(
         'id' => $id,
     ));
 
-    $donneesLogement = $reqLogement->fetch();
+    return $reqLogement;
 }
 
-function donneesPiece($id) {
-    $reqPiece = $bdd->prepare('SELECT nom, surface, etage, type
+function donneesLogement($bdd, $idLogement) {
+    
+    $reqLogement = $bdd->prepare('SELECT id, numero, rue, ville, code_postal, complement_adresse, nbr_habitant, surface, annee_construction
+                                FROM logement
+                                WHERE id = :id');
+    $reqLogement->execute(array(
+        'id' => $idLogement,
+    ));
+
+    return $reqLogement;
+}
+
+function piece($bdd, $id) {
+    
+    $reqPiece = $bdd->prepare('SELECT id, nom, surface, etage, type
                                FROM piece
                                INNER JOIN logement 
-                               ON logement.idPiece = :id');
+                               ON piece.id_logement = logement.id
+                               WHERE logement.id = :id');
     $reqPiece->execute(array(
         'id' => $id,
     ));
 
-    $donneesPiece = $reqPiece->fetch();
+    return $reqPiece;
 }
 
-function donneesCapteur() {
-    $reqCapteur = $bdd->prepare('SELECT nom, surface, etage, type
+function donneesPiece($bdd, $id) {
+    
+    $reqPiece = $bdd->prepare('SELECT id, nom, surface, etage, type
+                                FROM piece
+                                WHERE id = :id');
+    $reqPiece->execute(array(
+        'id' => $id,
+    ));
+
+    return $reqPiece;
+}
+
+function capteur($bdd, $id) {
+    
+    $reqCapteur = $bdd->prepare('SELECT id, nom, surface, etage, type
                                  FROM objet 
                                  INNER JOIN piece 
-                                 ON piece.idObjet = :id');
+                                 ON objet.id_piece = piece.id
+                                 WHERE piece.id = :id');
     $reqCapteur->execute(array(
         'id' => $id,
     ));
 
-    $donneesCapteur = $reqCapteur->fetch();
+    return $reqCapteur;
+}
+
+function donneesCapteur($bdd, $id) {
+    
+    $reqCapteur = $bdd->prepare('SELECT id, nom, surface, etage, type
+                                FROM piece
+                                WHERE id = :id');
+    $reqCapteur->execute(array(
+        'id' => $id,
+    ));
+
+    return $reqCapteur;
 }

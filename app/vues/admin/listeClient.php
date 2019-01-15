@@ -3,16 +3,19 @@
 
 switch($affiche){
     case 'oui':
-        $infoClient = listeClient($nomClient)->fetchAll();
+        $infoClient = listeClient($bdd, $nomClient)->fetchAll();
         foreach($infoClient as $info){
 ?>
-            <div class="card-n"  onclick="goToClient()">
-                <img src="app/static/image/loading-gif-lp.gif" width="100%" alt="">
+        <form action="?Route=admin&Ctrl=client&Vue=logement" method="post">
+        <input type="hidden" name='id' value="<?php echo $info['id']?>">
+            <div class="card-n">
+                <img src="<?=ROOT_URL?>static/image/icon/user-profil.png" width="100%" alt="">
                     <div class="banniere">
                         <?php echo $info['prenom']." ".$info['nom'];?>
                     </div>
+                    <input type="submit" value="Voir">
             </div>
-
+        </form>
 <?php
         }
 ?>

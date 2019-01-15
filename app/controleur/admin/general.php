@@ -1,6 +1,5 @@
 <?php
 // Connexion a la base de donnees
-include('app/model/dbConnect.php');
 include('app/model/admin/general.php');
 
 switch ($action) {
@@ -19,7 +18,7 @@ switch ($action) {
         
         // Fonction de app/model/admin/general.php
 
-        if(clientExiste($nomClient)!=0) {
+        if(clientExiste($bdd, $nomClient)!=0) {
             $affiche = 'oui';
         }
         else {
