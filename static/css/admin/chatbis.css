@@ -47,7 +47,7 @@ h2 {
 .container-chat > .container-details-chat > .informations > .nom  {
    text-align:  center;
    margin: 10px 10px 10px 10px;
-   font-size: bold 15px;
+   font-size: bold 11px;
    color : black;
    grid-column-start: 2;
    grid-column-end: 4;

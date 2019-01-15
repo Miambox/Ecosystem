@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/modal/modal-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/clientProfil.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/detailsCapteur.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/chat.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/chatbis.css">
+     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/faq.css">
 
     <title>Eco'system - admin</title>
   </head>

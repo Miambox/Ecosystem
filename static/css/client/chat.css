@@ -19,8 +19,7 @@ h1,h2 {
 	width: 80%;
 	justify-content: center;
     align-items: center;
-    background-image: url('../../../../image/icon/piece2.jpg');
-    background-size: 1920px 1080px;
+
 }
 
 .container > .utilisateur {
