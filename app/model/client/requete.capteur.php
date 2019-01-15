@@ -2,6 +2,34 @@
 
 include("app/model/requete.generique.php"); // On connecte la base de donnée
 
+$table = 'logement';
+
+
+function selectionerCapteur($bdd, $pieceId) {
+  $capteur = $bdd->query('SELECT * FROM objet o
+                          WHERE o.id_piece = '.$pieceId.'
+                          ');
+
+
+  return $capteur ;
+}
+
+function infoCapteur($bdd, $id) {
+  $capteur = $bdd->query('SELECT * FROM objet o
+                          WHERE o.id = '.$id.'
+                          ');
+  $donnees = $capteur->fetch();
+  return $donnees ;
+}
+
+function infoPiece($bdd, $pieceId){
+  $piece = $bdd->query('SELECT * FROM piece p
+  											WHERE p.id = '.$pieceId.'
+  											');
+  $donneespiece = $piece->fetch();
+  return $donneespiece;
+}
+
 // Fonction permettant de sélectionner toutes les ambiances d'un objet
 function selectionnerAmbiance($bdd) {
   $utilisateurId = 1;
@@ -37,6 +65,38 @@ function selectionnerProgramme($bdd) {
   $donnees->execute();
   return $donnees->fetchAll();
 }
+
+
+function insererNouveauCapteur($bdd, $capteur) {
+
+  $etat = 1;
+
+  $query = 'INSERT INTO objet(
+    numero_ref,
+    nom,
+    etat,
+    id_type_objet,
+    id_piece
+  ) VALUES (
+    :numero_ref,
+    :nom,
+    :etat,
+    :id_type_objet,
+    :id_piece
+  )';
+
+  $donnees = $bdd->prepare($query);
+
+  $donnees->bindParam(":numero_ref", $capteur['numero_ref']);
+  $donnees->bindParam(":nom", $capteur['nom']);
+  $donnees->bindParam(":etat", $etat);
+  $donnees->bindParam(":id_type_objet", $capteur['type']);
+  $donnees->bindParam(":id_piece", $capteur['id_piece']);
+
+  $request = $donnees->execute();
+  return $request;
+}
+
 
 function insererNouveauProgramme($bdd, $values) {
   $id_objet = 1;

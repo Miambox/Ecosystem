@@ -1,14 +1,25 @@
 <div class="container-details-capteur">
+<?php
 
+//echo $donneesCapteur['nom'];
+
+?>
   <div class="container-logo">
     <a type="button" href="javascript:history.back()" class="btn-retour-piece">Retour véranda</a>
     <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="100%" alt="">
     <div class="on_off">
       <span>Eteindre/Allumer le capteur</span>
-      <label class="toggle-button">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
+      <?php if ($donneesCapteur['etat']=="marche"): ?>
+        <label class="toggle-button">
+          <input type="checkbox" checked>
+          <span class="slider round"></span>
+        </label>
+      <?php else : ?>
+        <label class="toggle-button">
+          <input type="checkbox" >
+          <span class="slider round"></span>
+        </label>
+      <?php endif ?>
     </div>
   </div>
   <div class="container-diagramme">

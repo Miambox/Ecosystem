@@ -1,25 +1,66 @@
+<?php
+
+/*
+try
+{
+	// On se connecte à MySQL
+	$bdd = new PDO('mysql:host=localhost;dbname=ecosystem;charset=utf8', 'root', 'root');
+}
+catch(Exception $e)
+{
+	// En cas d'erreur, on affiche un message et on arrête tout
+        die('Erreur : '.$e->getMessage());
+}
+
+
+$capteur = $bdd->query('SELECT * FROM objet o
+                        INNER JOIN piece p ON o.id_piece = p.id
+                        WHERE p.id = 1
+                        ');
+$piece = $bdd->query('SELECT * FROM piece p
+											WHERE p.id = 1
+											');
+$donneespiece = $piece->fetch()
+
+
+<a href="javascript:history.back()">Retour aux pieces</a>
+*/
+
+
+?>
+
+
 <div class="container-piece-capteurs">
   <div class="container-resume-piece">
-    <a href="javascript:history.back()">Retour aux pieces</a>
+
+    <form class="button" action="?Route=client&Ctrl=piece&Vue=vuePrincipale" method="post">
+      <input type="hidden" name="id_logement" value="<?php echo $donneespiece['id'] ?>">
+      <input type="submit" name="" value="retour aux pieces">
+    </form>
 
     <div class="resume-piece">
       <img class="photo-piece" src="<?=ROOT_URL?>/static/image/icon/cours-isep.jpg" alt="">
       <div class="description-piece">
-        <h4>Amphithéatre</h4>
-        <p>Type: Amphithéatre</p>
-        <p>Surface: 60m²</p>
-        <p>Etage: 0</p>
+        <h4><?php echo $donneespiece['nom']; ?></h4>
+        <p>Type: <?php echo $donneespiece['type'] ?></p>
+        <p>Surface: <?php echo $donneespiece['surface'] ?>m²</p>
+				<?php
+					if ($donneespiece['etage'] != 9999)
+					echo 'Etage: ' . $donneespiece['etage']
+				 ?>
       </div>
     </div>
-
   </div>
 
   <div class="container-capteurs">
-
+		<?php
+		while ($donnees = $donneesCapteur->fetch())
+		{
+		?>
     <div class="card-capteur">
       <div class="card-head">
         <ul>
-          <li><h5>Eco'light - 1</h5></li>
+          <li><h5><?php echo $donnees['nom']; ?></h5></li>
           <li>
             <button type="button" name="button" class="button-config-capteur" id="button-config-capteur" onclick="ouvreParemetresLogement()">
               <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
@@ -38,37 +79,22 @@
       <div class="card-banniere">
       </div>
       <div class="card-footer">
-        <button type="button" name="button" class="button-go-to-capteur" onclick="goTo()">Plus de détails</button>
+        <form class="btn-capteur" action="?Route=client&Ctrl=capteur&Vue=details" method="post">
+          <input type="hidden" name="id_capteur" value="<?php echo $donnees['id'] ?>">
+          <input type="submit" name="" value="Plus de détails">
+        </form>
       </div>
     </div>
 
-    <div class="card-capteur">
-      <div class="card-head">
-        <ul>
-          <li><h5>Eco'light - 2</h5></li>
-          <li>
-            <button type="button" name="button" class="button-config-capteur" id="button-config-capteur" onclick="ouvreParemetresLogement()">
-              <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
-            </button>
-            <nav id="parametres-capteur">
-              <ul>
-                <li><a href="#" onclick="supprimer()">Supprimer</a></li>
-              </ul>
-            </nav>
-          </li>
-        </ul>
-      </div>
-      <div class="card-body">
-        <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" alt="">
-      </div>
-      <div class="card-banniere">
-      </div>
-      <div class="card-footer">
-        <button type="button" name="button" class="button-go-to-capteur" onclick="goTo()">Plus de détails</button>
-      </div>
-    </div>
+		<?php
+		}
+		 ?>
 
     <button type="button" name="button" onclick="ajouterCapteur()">+</button>
+    <form class="" action="?Route=client&Ctrl=capteur&Vue=addCapteur" method="post">
+      <input type="hidden" name="id_piece" value="<?php echo $donneespiece['id']  ?>">
+      <input type="submit" name="button" value="+">
+    </form>
   </div>
 </div>
 

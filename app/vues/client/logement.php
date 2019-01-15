@@ -88,7 +88,7 @@
           <label for="prenom_utilisateur">Prénom</label>
           <input type="text" name="prenom_utilisateur" value="">
         </div>
-        <button type="submit" name="button" clas="ajouterpartage">Valider</button>
+        <button type="submit" name="button" class="ajouterpartage">Valider</button>
       </form>
     </div>
   </div>
