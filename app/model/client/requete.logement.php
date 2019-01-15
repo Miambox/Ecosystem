@@ -1,29 +1,35 @@
 <?php
-
 include("app/model/requete.generique.php"); // On connecte la base de donnée
 
-$table = 'logement';
-
-/*@Todo: Attendre la connexion/inscription utilisateur et passer une variable de SESSION ici*/
-
-// Fonction permettant de sélectionner tous les logements d'un utilisateur
+/**
+* Fonction permettant de selectionner tous les logements d'un utilisateur
+* ainsi que ceux qu'on lui a partagé.
+**/
 function selectionerLogement($bdd) {
-  $utilisateurId = 2;
-  $query = 'SELECT * FROM logement
-            INNER JOIN partagelogement
-            ON logement.id = partagelogement.id_logement
-            AND partagelogement.id_utilisateur = :utilisateurId
-            OR logement.id_utilisateur = :utilisateurId';
+  $utilisateurId = $_SESSION['user']['id'];
+
+  $query = 'SELECT * FROM logement WHERE id_utilisateur =:utilisateurId';
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":utilisateurId", $utilisateurId);
   $donnees->execute();
-  return $donnees->fetchAll();
+  $liste_logement = $donnees->fetchAll();
+
+  $query = 'SELECT * FROM logement
+            INNER JOIN partagelogement
+            ON logement.id = partagelogement.id_logement
+            AND partagelogement.id_utilisateur = :utilisateurId';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":utilisateurId", $utilisateurId);
+  $donnees->execute();
+  return array_merge($liste_logement,$donnees->fetchAll());
 }
 
-// Fonction permettant d'insérer un logement pour un utilisateur
+/**
+* Fonction permettant d'ajouter un logement
+**/
 function insererNouveauLogement($bdd, $logement) {
 
-  $id_utilisateur = 1;
+  $id_utilisateur = $_SESSION['user']['id'];
 
   $query = 'INSERT INTO logement(
     numero,
@@ -60,7 +66,9 @@ function insererNouveauLogement($bdd, $logement) {
   return $request;
 }
 
-// Fonction permettant de supprimer un logement
+/**
+* Fonction permettant de supprimer un logement
+**/
 function supprimerLogement($bdd, $logement) {
   $queryVerif = 'SELECT code_postal FROM logement WHERE logement.id = :logement_id';
   $donneesVerif = $bdd->prepare($queryVerif);
@@ -85,4 +93,42 @@ function supprimerLogement($bdd, $logement) {
     return false;
   }
 }
+
+/**
+* Fonction permettant d'insérer un nouveau partage de logement
+**/
+function insererNouveauPartageLogement($bdd, $user_partage) {
+  $query = 'SELECT id FROM utilisateur
+            WHERE nom=:nom and prenom=:prenom and mail=:mail';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":nom", $user_partage['nom']);
+  $donnees->bindParam(":prenom", $user_partage['prenom']);
+  $donnees->bindParam(":mail", $user_partage['mail']);
+  $donnees->execute();
+  $response = $donnees->fetchAll();
+  foreach ($response as $key => $value) {
+    $id_user = $value['id'];
+  }
+  if($response) {
+    var_dump(intval($id_user));
+    var_dump($user_partage['id_logement']);
+    $query = 'INSERT INTO partagelogement(
+      id_logement,
+      id_utilisateur
+    ) VALUES (
+      :id_logement,
+      :id_utilisateur
+    )';
+
+    $donnees = $bdd->prepare($query);
+
+    $donnees->bindParam(":id_logement", intval($user_partage['id_logement']));
+    $donnees->bindParam(":id_utilisateur", intval($id_user));
+    return $donnees->execute();
+  } else {
+    return false;
+  }
+
+}
+
 ?>

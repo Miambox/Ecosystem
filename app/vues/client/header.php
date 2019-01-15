@@ -48,6 +48,8 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addPiece/addPiece-desktop.css">
     <!-- page ajout de capteur -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addCapteur/addCapteur-desktop.css">
+    <!-- 404 -->
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/erreur404.css">
 
   </head>
   <body id="body">
