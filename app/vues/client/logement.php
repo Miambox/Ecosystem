@@ -14,23 +14,21 @@
             </h5>
           </li>
           <li>
-            <button type="button" name="button" class="button-config-logement" id="button-config">
-              <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
-            </button>
-            <nav id="parametres-logement">
+            <nav>
               <ul>
                 <li>
-                  <a href="#" id="supprimerLogement">
+                  <a href="#" onclick="openPopup(<?php echo $value[0] ?>)">
                   Supprimer
                   </a>
                 </li>
                 <li><a href="#" id="ajouterPartage">Partager</a></li>
               </ul>
             </nav>
-            <div class="container-modal" id="container-modal-supprimer">
+
+            <div class="container-modal" id="container-modal-supprimer<?=$value[0]?>">
               <div class="modal modal-supprimer">
                 <div class="modal-head">
-                  <button class="close" id="close-supprimer">&times;</button>
+                  <button class="close" onclick="closePopup(<?=$value[0]?>)">&times;</button>
                   <p>Etes-vous sûr de vouloir supprimer ce logement ?</p>
                 </div>
                 <div class="modal-text">
@@ -38,13 +36,14 @@
                     <div class="form-group">
                       <label for="code_postal">Rentrer le code postal du logement<br></label>
                       <input type="number" name="code_postal" placeholder="codePostal">
-                      <input type="hidden" name="logement_id" value="<?php echo $value['id'] ?>">
+                      <input type="hidden" name="logement_id" value="<?php echo $value[0] ?>">
                     </div>
                     <button type="submit" name="" class="supprimerLogement">Valider</button>
                   </form>
                 </div>
               </div>
             </div>
+
           </li>
         </ul>
       </div>
@@ -65,7 +64,6 @@
   }
   ?>
   <button type="button" name="button" id='ajouterLogement'></button>
-
 </div>
 
 <div class="container-modal" id="container-modal-partage">
@@ -88,7 +86,7 @@
           <label for="prenom_utilisateur">Prénom</label>
           <input type="text" name="prenom_utilisateur" value="">
         </div>
-        <button type="submit" name="button" clas="ajouterpartage">Valider</button>
+        <button type="submit" name="button" class="ajouterpartage">Valider</button>
       </form>
     </div>
   </div>

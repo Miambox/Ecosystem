@@ -8,19 +8,12 @@ $table = 'logement';
 
 // Fonction permettant de sélectionner tous les logements d'un utilisateur
 function selectionerLogement($bdd) {
-  $utilisateurId = 1;
-  $query = 'SELECT
-      id,
-      numero,
-      rue,
-      ville,
-      code_postal,
-      complement_adresse,
-      nbr_habitant,
-      surface,
-      annee_construction
-    FROM logement
-    WHERE id_utilisateur = :utilisateurId';
+  $utilisateurId = 2;
+  $query = 'SELECT * FROM logement
+            INNER JOIN partagelogement
+            ON logement.id = partagelogement.id_logement
+            AND partagelogement.id_utilisateur = :utilisateurId
+            OR logement.id_utilisateur = :utilisateurId';
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":utilisateurId", $utilisateurId);
   $donnees->execute();
@@ -78,6 +71,8 @@ function supprimerLogement($bdd, $logement) {
     $code_postal = $value['code_postal'];
   }
   if($donneesVerif) {
+    var_dump($code_postal);
+    var_dump($logement['code_postal']);
     if($code_postal == $logement['code_postal']) {
       $query = 'DELETE FROM logement WHERE logement.id = :logement_id';
       $donnees = $bdd->prepare($query);
