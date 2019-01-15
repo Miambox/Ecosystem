@@ -25,6 +25,7 @@ switch ($action) {
 
     case 'capteur':
 
+        $idPiece = $_POST['id'];
         $vue = "capteur";
         $title = "Détails client";
 
@@ -32,6 +33,7 @@ switch ($action) {
 
     case 'detailsCapteur':
 
+        $idCapteur = $_POST['id'];
         $vue = "detailsCapteur";
         $title = "Détails client";
 

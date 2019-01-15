@@ -1,5 +1,5 @@
 <?php
-$bdd = new PDO('mysql:host=localhost; dbname=ecosystem; charset=utf8','root','root');
+include('app/model/requete.generique.php');
 
 // Fonction qui compte le nombre de personnes portant le nom entré
 function clientExiste($bdd, $nomClient){
@@ -45,7 +45,7 @@ function donneesProfil($bdd, $id) {
 
 function logement($bdd, $id) {
     
-    $reqLogement = $bdd->prepare('SELECT numero, rue, ville, code_postal, complement_adresse, nbr_habitant, surface, annee_construction 
+    $reqLogement = $bdd->prepare('SELECT logement.id, numero, rue, ville, code_postal, complement_adresse 
                                   FROM logement
                                   INNER JOIN utilisateur 
                                   ON logement.id_utilisateur = utilisateur.id
@@ -61,7 +61,7 @@ function logement($bdd, $id) {
 
 function donneesLogement($bdd, $idLogement) {
     
-    $reqLogement = $bdd->prepare('SELECT id, numero, rue, ville, code_postal, complement_adresse, nbr_habitant, surface, annee_construction
+    $reqLogement = $bdd->prepare('SELECT id, photo, numero, rue, ville, code_postal, complement_adresse, nbr_habitant, surface, annee_construction
                                 FROM logement
                                 WHERE id = :id');
     $reqLogement->execute(array(
@@ -73,7 +73,7 @@ function donneesLogement($bdd, $idLogement) {
 
 function piece($bdd, $id) {
     
-    $reqPiece = $bdd->prepare('SELECT id, nom, surface, etage, type
+    $reqPiece = $bdd->prepare('SELECT piece.id, nom, type
                                FROM piece
                                INNER JOIN logement 
                                ON piece.id_logement = logement.id
@@ -99,7 +99,7 @@ function donneesPiece($bdd, $id) {
 
 function capteur($bdd, $id) {
     
-    $reqCapteur = $bdd->prepare('SELECT id, nom, surface, etage, type
+    $reqCapteur = $bdd->prepare('SELECT objet.id, objet.nom
                                  FROM objet 
                                  INNER JOIN piece 
                                  ON objet.id_piece = piece.id
@@ -113,7 +113,7 @@ function capteur($bdd, $id) {
 
 function donneesCapteur($bdd, $id) {
     
-    $reqCapteur = $bdd->prepare('SELECT id, nom, surface, etage, type
+    $reqCapteur = $bdd->prepare('SELECT id, nom, surface, etage, id_type_objet
                                 FROM piece
                                 WHERE id = :id');
     $reqCapteur->execute(array(

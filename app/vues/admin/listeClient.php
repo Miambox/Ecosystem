@@ -3,7 +3,7 @@
 
 switch($affiche){
     case 'oui':
-        $infoClient = listeClient($bdd, $nomClient)->fetchAll();
+        $infoClient = listeClient($bdd, $nomClient);
         foreach($infoClient as $info){
 ?>
         <form action="?Route=admin&Ctrl=client&Vue=logement" method="post">

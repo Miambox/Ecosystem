@@ -41,9 +41,10 @@ $donneesProfil = donneesProfil($bdd, $id)->fetch();
         //echo "</pre>";
         foreach($donneesLogement as $infoLogement) {
         ?>
+
         <form action="?Route=admin&Ctrl=client&Vue=piece" method="post">
         <input type="hidden" name='id' value="<?php echo $infoLogement['id']?>">
-            <div class="card-n"  onclick="goToHome()">
+            <div class="card-n">
             <img src="<?=ROOT_URL?>/static/image/icon/maison-image.bmp" width="100%" alt="">
                 <div class="banniere">
                     <?php echo $infoLogement['numero'] . " " . $infoLogement['rue']?><br/>
@@ -51,6 +52,7 @@ $donneesProfil = donneesProfil($bdd, $id)->fetch();
                 </div>
                 <input type="submit" value="Voir">
             </div>
+        </form>
         <?php
         }
         ?>
