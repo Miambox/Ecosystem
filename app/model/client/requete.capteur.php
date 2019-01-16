@@ -69,7 +69,7 @@ function selectionnerProgramme($bdd) {
 
 function insererNouveauCapteur($bdd, $capteur) {
 
-  $etat = 1;
+  $etat = "marche";
 
   $query = 'INSERT INTO objet(
     numero_ref,
@@ -84,6 +84,8 @@ function insererNouveauCapteur($bdd, $capteur) {
     :id_type_objet,
     :id_piece
   )';
+
+
 
   $donnees = $bdd->prepare($query);
 

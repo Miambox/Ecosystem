@@ -20,6 +20,13 @@
           <span class="slider round"></span>
         </label>
       <?php endif ?>
+
+
+      <form action="?Route=client&Ctrl=piece&Vue=vuePrincipale" method="post">
+        <input type="hidden" name="etat_capteur" value="<?php echo $donneespiece['id'] ?>">
+        <input class = "retourPiece" type="submit" name="" value="retour aux pieces">
+      </form>
+
     </div>
   </div>
   <div class="container-diagramme">

@@ -33,9 +33,9 @@ $donneespiece = $piece->fetch()
 <div class="container-piece-capteurs">
   <div class="container-resume-piece">
 
-    <form class="button" action="?Route=client&Ctrl=piece&Vue=vuePrincipale" method="post">
+    <form action="?Route=client&Ctrl=piece&Vue=vuePrincipale" method="post">
       <input type="hidden" name="id_logement" value="<?php echo $donneespiece['id'] ?>">
-      <input type="submit" name="" value="retour aux pieces">
+      <input class = "retourPiece" type="submit" name="" value="retour aux pieces">
     </form>
 
     <div class="resume-piece">
@@ -90,7 +90,7 @@ $donneespiece = $piece->fetch()
 		}
 		 ?>
 
-    <button type="button" name="button" onclick="ajouterCapteur()">+</button>
+    <!-- <button type="button" name="button" onclick="ajouterCapteur()">+</button> -->
     <form class="" action="?Route=client&Ctrl=capteur&Vue=addCapteur" method="post">
       <input type="hidden" name="id_piece" value="<?php echo $donneespiece['id']  ?>">
       <input type="submit" name="button" value="+">
