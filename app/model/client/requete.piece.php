@@ -13,6 +13,14 @@ function selectionnerPiece($bdd, $id_logement) {
   return $donnees->fetchAll();
 }
 
+function selectionerLogementPourPiece($bdd) {
+  $query = 'SELECT * FROM logement INNER JOIN piece ON logement.id = piece.id_logement';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":id_logement", $id_logement);
+  $donnees->execute();
+  return $donnees->fetchAll();
+}
+
 
 function insererNouvellePiece($bdd, $value, $id_logement) {
 

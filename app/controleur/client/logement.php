@@ -26,23 +26,25 @@ switch ($action) {
             isset($_POST['surface']) and
             isset($_POST['annee_construction'])) {
 
-          $values = [
-            'numero'              => $_POST['numero'],
-            'rue'                 => $_POST['rue'],
-            'ville'               => $_POST['ville'],
-            'code_postal'          => $_POST['code_postal'],
-            'nbr_habitant'         => $_POST['nbr_habitant'],
-            'surface'             => $_POST['surface'],
-            'annee_construction'   => $_POST['annee_construction'],
-          ];
-          $request = insererNouveauLogement($bdd, $values);
+            $values = [
+              'numero'              => securitePourXSSFail($_POST['numero']),
+              'rue'                 => securitePourXSSFail($_POST['rue']),
+              'ville'               => securitePourXSSFail($_POST['ville']),
+              'code_postal'          => securitePourXSSFail($_POST['code_postal']),
+              'nbr_habitant'         => securitePourXSSFail($_POST['nbr_habitant']),
+              'surface'             => securitePourXSSFail($_POST['surface']),
+              'annee_construction'   => securitePourXSSFail($_POST['annee_construction']),
+            ];
+            $request = insererNouveauLogement($bdd, $values);
 
-          if(isset($request)) {
-            header('Location: ?Route=client&Ctrl=piece&Vue=addPiece');
-          }
+            if(isset($request)) {
+              header('Location: ?Route=client&Ctrl=piece&Vue=addPiece');
+            } else {
+              $alerte = 'Erreur de base de donnée, veuillez réessayer';
+            }
+
         } else {
-          $alerte = 1;
-          $alerte_explication= 'Vous avez oublié un champs obligatoire, merci de recommencer.';
+          $alerte= 'Vous avez surement oublié un champ obligatoire, réessayez !';
         }
         break;
 
@@ -60,17 +62,11 @@ switch ($action) {
 
         if($request) {
           header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
-        } else {
-          $alerte = "Le code postal ne correspond pas";
-          header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
         }
       } else {
           $alerte = "Le code postal ne correspond pas";
           header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
       }
-
-
-
     break;
 
     default:
