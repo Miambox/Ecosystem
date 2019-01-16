@@ -52,6 +52,7 @@
       </div>
     </div>
 
+    <!--AFFICHAGE DES AMBIANCES-->
     <div class="ambiance">
       <h2>Gérer vos ambiances</h2>
       <button type="button" name="button" onclick="openAddAmbiance(<?=$idCapteur?>)">Ajouter une ambiance</button>
@@ -72,6 +73,7 @@
         ?>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -83,10 +85,14 @@
     </div>
     <div class="modal-text">
       <form class="" action="?Route=client&Ctrl=capteur&Vue=addAmbiance" method="post">
-        <label for="nom">Nom</label>
-        <input type="text" name="nom" value="" required>
-        <label for="valeur">Pourcentage de luminosité:</label>
-        <input type="number" name="valeur" value="" required>%
+        <div class="">
+          <label for="nom">Nom</label>
+          <input type="text" name="nom" value="" required>
+        </div>
+        <div class="">
+          <label for="valeur">Pourcentage de luminosité:</label>
+          <input type="number" name="valeur" value="" required>%
+        </div>
         <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
         <input type="submit" name="" value="Ajouter">
       </form>
