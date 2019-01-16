@@ -1,8 +1,13 @@
-<div class="container">
+<form action="?Route=admin&Ctrl=general&Vue=listeClient" method="post">
+    <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
+    <input type="submit" value="Retour à la liste des clients">
+</form>
 
 <?php 
 $donneesProfil = donneesProfil($bdd, $id)->fetch();
 ?>
+
+<div class="container">
 
         <div class="card-container-profil">
             <div class="photo ">
@@ -43,7 +48,10 @@ $donneesProfil = donneesProfil($bdd, $id)->fetch();
         ?>
 
         <form action="?Route=admin&Ctrl=client&Vue=piece" method="post">
-        <input type="hidden" name='id' value="<?php echo $infoLogement['id']?>">
+        <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
+        <input type="hidden" name='id' value="<?php echo $donneesProfil['id']?>">
+        <input type="hidden" name='id_logement' value="<?php echo $infoLogement['id']?>">
+        
             <div class="card-n">
             <img src="<?=ROOT_URL?>/static/image/icon/maison-image.bmp" width="100%" alt="">
                 <div class="banniere">

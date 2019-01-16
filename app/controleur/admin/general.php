@@ -14,7 +14,7 @@ switch ($action) {
         $title = "Liste des clients";
 
         // Nom entre dans la barre de recherche
-        $nomClient = $_POST['search'];
+        $nomClient = $_POST['nomClient'];
         
         // Fonction de app/model/admin/general.php
 
