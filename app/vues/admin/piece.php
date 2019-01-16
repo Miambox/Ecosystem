@@ -1,4 +1,8 @@
-<button type="button" class="goBack" onclick="backToProfil()">Retour à la page profil client</button>
+<form action="?Route=admin&Ctrl=client&Vue=logement" method="post">
+    <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
+    <input type="hidden" name="id" value="<?php echo $id?>">
+    <input type="submit" name="" value="Retour aux logements">
+</form>
 
 <?php
 $donneesLogement = donneesLogement($bdd,$idLogement)->fetch();
@@ -47,7 +51,10 @@ $donneesLogement = donneesLogement($bdd,$idLogement)->fetch();
         ?>
 
         <form action="?Route=admin&Ctrl=client&Vue=capteur" method="post">
-        <input type="hidden" name='id' value="<?php echo $infoPiece['id']?>">
+        <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
+        <input type="hidden" name="id" value="<?php echo $id?>">
+        <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">
+        <input type="hidden" name='id_piece' value="<?php echo $infoPiece['id']?>">
             <div class="card-n">
                 <img src="<?=ROOT_URL?>/static/image/icon/salon-image.bmp" width="100%" alt="">
                 <div class="banniere">

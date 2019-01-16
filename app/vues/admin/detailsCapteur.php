@@ -1,4 +1,10 @@
-<button type="button" class="goBack" onclick="backToPiece()">Retour à la page cuisine</button>
+<form action="?Route=admin&Ctrl=client&Vue=piece" method="post">
+    <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
+    <input type="hidden" name="id" value="<?php echo $id?>">
+    <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">
+    <input type="hidden" name="id_piece" value="<?php echo $idPiece?>">
+    <input type="submit" name="" value="Retour aux capteurs">
+</form>
 
 <div class="container">
     <div class="element">
