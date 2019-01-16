@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/detailsCapteur.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/chatbis.css">
      <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/faq.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/listeClient.css">
 
     <title>Eco'system - admin</title>
   </head>
@@ -29,12 +30,13 @@
               </a>
             </li>
             <li>
-                <form class="" action="index.html" method="post">
+                <form autocomplete="off" action="?Route=admin&Ctrl=general&Vue=listeClient" method="post">
                   <div id="searchbar-mobile" class="searchbar">
                     <input type="search" name="search" id="search-mobile" placeholder="Rentrez le nom du client ...">
-                    <a href="<?=ROOT_URL?>">
+                    <input type="submit">
+                    <!-- <a href="?Route=admin&Ctrl=general&Vue=listeClient.php">
                       <img src="<?=ROOT_URL?>static/image/icon/search2-logo-grey-lp.png" alt="">
-                    </a>
+                    </a> -->
                   </div>
                 </form>
             </li>
@@ -59,12 +61,13 @@
               </li>
               <li>
                 <div class="container-searchbar">
-                  <form class="" action="index.html" method="post">
+                  <form autocomplete="off" action="?Route=admin&Ctrl=general&Vue=listeClient" method="post">
                     <div id="searchbar-desktop" class="searchbar">
                       <input type="search" name="search" id="search-desktop" placeholder="Rentrez le nom du client ...">
-                      <a href="<?=ROOT_URL?>">
+                      <input type="image" value="Submit" id="loupe" src="<?=ROOT_URL?>/static/image/icon/search-logo-lp.png">
+                      <!-- <a href="?Route=admin&Ctrl=general&Vue=listeClient">
                         <img src="<?=ROOT_URL?>static/image/icon/search2-logo-grey-lp.png" alt="">
-                      </a>
+                      </a> -->
                     </div>
                   </form>
                 </div>

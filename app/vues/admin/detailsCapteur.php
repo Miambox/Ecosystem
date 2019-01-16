@@ -1,4 +1,4 @@
-<button type="button" class="goBack" onclick="goBack()">Retour à la page cuisine</button>
+<button type="button" class="goBack" onclick="backToPiece()">Retour à la page cuisine</button>
 
 <div class="container">
     <div class="element">
@@ -14,15 +14,11 @@
         </div>
     </div>
     <div class="info">
-        <div class="tete">
         <div class="navbar">
-            <ul>
-              <li><button type="button" onclick="generale()">Générale</button></li>
-              <li><button type="button" onclick="programme()">Programme</button></li>
-              <li><button type="button" onclick="reglages()">Réglages</button></li>
-              <li><button type="button" onclick="ambiances()">Ambiances</button></li>
-            </ul>
-        </div>
+            <button type="button" onclick="generale()">Générale</button></li>
+            <button type="button" onclick="programme()">Programme</button></li>
+            <button type="button" onclick="reglages()">Réglages</button></li>
+            <button type="button" onclick="ambiances()">Ambiances</button></li>
         </div>
         <div id="tableau_de_bord">
             <div class="tabcontent" id="generale">
@@ -117,10 +113,6 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 
-function goBack() {
-  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=capteur";
-}
-
 function generale() {
     var tabcontent;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -129,7 +121,6 @@ function generale() {
     }
     document.getElementById("generale").style.display = "block";
 }
-
 function programme() {
     var tabcontent;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -137,9 +128,7 @@ function programme() {
         tabcontent[i].style.display = "none";
     }
     document.getElementById("programme").style.display = "block";
-
 }
-
 function reglages() {
     var tabcontent;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -148,7 +137,6 @@ function reglages() {
     }
     document.getElementById("reglages").style.display = "block";
 }
-
 function ambiances() {
     var tabcontent;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -157,9 +145,7 @@ function ambiances() {
     }
     document.getElementById("ambiances").style.display = "block";
 }
-
 /*Diagramme baton*/
-
 google.charts.load('current', {packages: ['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawBarColors)
 function drawBarColors() {
@@ -171,7 +157,6 @@ function drawBarColors() {
     ['25/11/2018', 8],
     ['26/11/2018', 3],
   ]);
-
   var options = {
     width: 550,
     height: 270,
@@ -184,17 +169,12 @@ function drawBarColors() {
     },
     legend: 'none',
   }
-
   var chart = new google.visualization.ColumnChart(document.getElementById('diagrammeBaton'));
   chart.draw(data, options);
-
 }
-
 /*Diagramme circulaire*/
-
 google.charts.load('current', {packages: ['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawChart)
-
 function drawChart() {
 // Define the chart to be drawn.
   var data = new google.visualization.DataTable();
@@ -230,6 +210,5 @@ function drawChart() {
   chart.draw(data, options);
   var chart_modal = new google.visualization.PieChart(document.getElementById('diagrammeCirculaireModal'));
   chart_modal.draw(data_modal, options_modal)
-
 }
 </script>
