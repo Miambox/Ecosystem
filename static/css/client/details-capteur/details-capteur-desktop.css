@@ -247,106 +247,55 @@
       margin-bottom: 5%;
       margin-right: 5%;
       width: 100%;
+      height: 200px;
       background-color: white;
+      text-align: center;
+      text-align: moz-center;
     }
       .ambiance > h2 {
         color: rgba(0,0,0,0.6);
         text-align: center;
         text-align: -moz-center;
-        position: sticky;
-        top: 20%;
-        padding: 2%;
-        margin: 0;
         margin-bottom: 2%;
       }
-        .ambiance > h2 > button {
-          border-radius: 50%;
-          width: 30px;
-          height: 30px;
+        .ambiance > button {
+          width: 150px;
+          height: 50px;
           font-weight: 800;
           color: white;
-          text-align: center;
-          text-align: -moz-center;
           background-color:  #FFD006;
           border-color:  #FFD006;
         }
-      .ambiance > div {
-        margin-bottom: 2%;
-        overflow-y: scroll;
-      }
-        .ambiance > div > ul {
-          display: flex;
-          flex-direction: column;
-          padding: 0;
-          padding-left: 15%;
-          padding-right: 15%;
-          padding-bottom: 5%;
-          margin: 0;
+        .ambiance > button:hover {
+          box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
         }
-          .ambiance > div > ul > li {
-            padding: 1%;
-            list-style-type: none;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            margin-top: 4%;
-          }
-          .ambiance > div > ul > li > .toggle-button {
-            position: relative;
-            display: inline-block;
-            width: 40px;
-            height: 22px;
-            margin-left: 36%;
-          }
-            .ambiance > div > ul > li > .toggle-button > input {
-              opacity: 0;
-              width: 0;
-              height: 0;
-            }
-            .ambiance > div > ul > li > .toggle-button > .slider {
-              position: absolute;
-              cursor: pointer;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              background-color: #ccc;
-              -webkit-transition: .4s;
-              transition: .4s;
-            }
-            .ambiance > div > ul > li > .toggle-button > .slider:before {
-              position: absolute;
-              content: "";
-              height: 15px;
-              width: 15px;
-              left: 4px;
-              bottom: 4px;
-              background-color: white;
-              -webkit-transition: .4s;
-              transition: .4s;
-            }
-            .ambiance > div > ul > li > .toggle-button > input:checked + .slider {
-              background-color: #FFD006;
-            }
-            .ambiance > div > ul > li > .toggle-button > input:focus + .slider {
-              box-shadow: 0 0 1px #2196F3;
-            }
-            .ambiance > div > ul > li > .toggle-button > input:checked + .slider:before {
-              -webkit-transform: translateX(17px);
-              -ms-transform: translateX(17px);
-              transform: translateX(17px);
-            }
-            .ambiance > div > ul > li > .toggle-button > .slider.round {
-              border-radius: 34px;
-            }
-            .ambiance > div > ul > li > .toggle-button > .slider.round:before {
-              border-radius: 50%;
-            }
-            .ambiance > div > ul > li > span {
-              flex-basis: 40%;
-              margin-left: 3%;
-              margin-top: 1%;
-            }
+        .ambiance > .ambiance-list {
+          padding: 4%;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          overflow-y:auto ;
+          height: 55px;
+        }
+        .ambiance > .ambiance-list > form {
+          border: solid 1px rgba(0,0,0,0.3);
+          height: 30%;
+          margin-right:2%;
+          margin-top: 1%;
+          border-radius: 5px;
+          padding: 2%;
+          background-color: #FAFAFA;
+        }
+        .ambiance > .ambiance-list > form > input {
+          border: none;
+          background-color: #FAFAFA;
+        }
+        .ambiance > .ambiance-list > form > input:hover {
+          cursor: grab;
+          font-size: 20px;
+
+        }
+
 
 /*MODAL PERMETTANT D AJOUTER UNE AMBIANCE*/
 .modal-ambiance > .modal-head > p {

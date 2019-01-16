@@ -53,23 +53,24 @@
     </div>
 
     <div class="ambiance">
-      <h2>Gérer vos ambiances
-         <button type="button" name="button" onclick="openAddAmbiance(<?=$idCapteur?>)">Ajouter une ambiance</button>
-      </h2>
-      <?php
-      if(sizeof($liste_ambiance) != 0) {
-        foreach ($liste_ambiance as $key => $value) {
-        ?>
-        <form class="" action="?Route=client&Ctrl=capteur&Vue=supprimerAmbiance" method="post">
-          <label for="nom"><?=$value['nom'] ?></label>
-          <input type="hidden" name="id_capteur" value="<?=$idCapteur ?>">
-          <input type="hidden" name="id_ambiance" value="<?= $value['id'] ?>">
-          <input type="submit" name="" value="Supprimer">
-        </form>
+      <h2>Gérer vos ambiances</h2>
+      <button type="button" name="button" onclick="openAddAmbiance(<?=$idCapteur?>)">Ajouter une ambiance</button>
+      <div class="ambiance-list">
         <?php
+        if(sizeof($liste_ambiance) != 0) {
+          foreach ($liste_ambiance as $key => $value) {
+          ?>
+          <form class="" action="?Route=client&Ctrl=capteur&Vue=supprimerAmbiance" method="post">
+            <label for="nom"><?=$value['nom'] ?></label>
+            <input type="hidden" name="id_capteur" value="<?=$idCapteur ?>">
+            <input type="hidden" name="id_ambiance" value="<?= $value['id'] ?>">
+            <input type="submit" name="" value="&times">
+          </form>
+          <?php
+          }
         }
-      }
-      ?>
+        ?>
+      </div>
     </div>
   </div>
 </div>
