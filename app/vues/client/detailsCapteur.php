@@ -102,45 +102,36 @@
 </div>
 
 <!--POPUP AJOUT PROGRAMME-->
-<div class="container-big-modal" id="container-modal-ajouter-programme<?=$idCapteur?>">
-  <form class="modal-big modal-ajouter-programme" action="?Route=Client&Ctrl=capteur&Vue=addProgramme" method="post">
-      <div class="modal-big-head">
+<div class="container-modal" id="container-modal-ajouter-programme<?=$idCapteur?>">
+  <form class="modal modal-ajouter-programme" action="?Route=Client&Ctrl=capteur&Vue=addProgramme" method="post">
+      <div class="modal-head">
         <button class="close" onclick="closeAjouterHorairePopup(<?=$idCapteur?>)">&times;</button>
         <p>Ajouter un programme</p>
       </div>
-      <div class="modal-big-text">
-        <div class="modal-big-text-one">
-          <h3>Selectionner date et heure</h3>
-          <p>
-            <label for="">Activez l'alarme :</label>
-            <input type="time" name="heure_debut" value="" required>
-            <label for="">à</label>
-            <input type="time" name="heure_fin" value="" required>
-            <label for="">le</label>
-            <input type="date" name="date" value="" required>
-          </p>
-      </div>
-      <div class="modal-big-text-two select-ambiance">
-        <h3>Selectionner une ambiance</h3>
-        <span>( Vous devez sélectionner qu'un seule ambiance ..)</span>
-        <ul>
-          <li>
-            <select name="ambiance" required>
-              <?php
-                foreach ($liste_ambiance as $key => $value) {
-              ?>
-              <option value="<?php echo $value['id']  ?>"><?php echo $value['nom']  ?></option>
-              <?php
-              }
-              ?>
-            </select>
-          </li>
-        </ul>
-      </div>
-    </div>
-      <div class="modal-big-footer">
-      <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
-      <input type="submit" name="" class="ajouterProgramme" value="Ajouter">
+      <div class="modal-text">
+        <h3>Selectionner date et heure</h3>
+        <p>
+          <label for="">Activez l'alarme :</label>
+          <input type="time" name="heure_debut" value="" required>
+          <label for="">à</label>
+          <input type="time" name="heure_fin" value="" required>
+          <label for="">le</label>
+          <input type="date" name="date" value="" required>
+        </p>
+        <div class="">
+          <h3>Selectionner une ambiance</h3>
+          <select name="ambiance" required>
+            <?php
+              foreach ($liste_ambiance as $key => $value) {
+            ?>
+            <option value="<?php echo $value['id']  ?>"><?php echo $value['nom']  ?></option>
+            <?php
+            }
+            ?>
+          </select>
+        </div>
+        <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
+        <input type="submit" name="" class="ajouterProgramme" value="Ajouter">
     </div>
   </form>
 </div>
@@ -190,7 +181,7 @@
               <form class="" action="?Route=Client&Ctrl=capteur&Vue=supprimerProgramme" method="post">
                 <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
                 <input type="hidden" name="id_programme" value="<?php echo $value['id'] ?>">
-                <input type="submit" name="" value="x">
+                <input type="submit" name="" value="&times">
               </form>
             </td>
           </tr>
