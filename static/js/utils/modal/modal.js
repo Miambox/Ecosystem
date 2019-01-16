@@ -17,3 +17,13 @@ function closeSharePopup(id_logement) {
   var containerModal = $("#container-modal-partage"+ id_logement);
   containerModal.css("display", "none");
 }
+
+function openAddAmbiance(id_capteur) {
+  var containerModal = $("#container-modal-add-ambiance"+ id_capteur );
+  containerModal.css("display","block");
+}
+
+function closeAddAmmbiancePopup(id_capteur) {
+  var containerModal = $("#container-modal-add-ambiance"+ id_capteur);
+  containerModal.css("display", "none");
+}

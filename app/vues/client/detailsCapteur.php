@@ -1,9 +1,5 @@
 <div class="container-details-capteur">
-<?php
 
-//echo $donneesCapteur['nom'];
-
-?>
   <div class="container-logo">
     <a type="button" href="javascript:history.back()" class="btn-retour-piece">Retour véranda</a>
     <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="100%" alt="">
@@ -57,58 +53,42 @@
     </div>
 
     <div class="ambiance">
-      <h2>Gérer vos ambiances <button type="button" name="button"id="ajouterAmbiance">+</button> </h2>
-      <div class="">
-        <ul>
-          <li>
-            <span>Tamisé</span>
-            <label class="toggle-button">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
-          </li>
-          <li>
-            <span>Travail</span>
-            <label class="toggle-button">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
-          </li>
-          <li>
-            <span>Illumination Max</span>
-            <label class="toggle-button">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
-          </li>
-        </ul>
-      </div>
+      <h2>Gérer vos ambiances
+         <button type="button" name="button" onclick="openAddAmbiance(<?=$idCapteur?>)">Ajouter une ambiance</button>
+      </h2>
+      <?php
+      if(sizeof($liste_ambiance) != 0) {
+        foreach ($liste_ambiance as $key => $value) {
+        ?>
+        <form class="" action="?Route=client&Ctrl=capteur&Vue=supprimerAmbiance" method="post">
+          <label for="nom"><?=$value['nom'] ?></label>
+          <input type="hidden" name="id_capteur" value="<?=$idCapteur ?>">
+          <input type="hidden" name="id_ambiance" value="<?= $value['id'] ?>">
+          <input type="submit" name="" value="Supprimer">
+        </form>
+        <?php
+        }
+      }
+      ?>
     </div>
   </div>
 </div>
 
-<div class="container-modal" id="container-modal">
+<div class="container-modal" id="container-modal-add-ambiance<?=$idCapteur?>">
   <div class="modal modal-ambiance">
     <div class="modal-head">
-      <button class="close" id="close">&times;</button>
+      <button class="close" onclick="closeAddAmmbiancePopup(<?=$idCapteur?>)">&times;</button>
       <p>Ajouter une ambiance</p>
     </div>
     <div class="modal-text">
-      <form class="name-ambiance" action="#" method="post">
-        <label for="name_ambiance">Nom</label>
-        <input type="text" name="name_ambiance" value="">
+      <form class="" action="?Route=client&Ctrl=capteur&Vue=addAmbiance" method="post">
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" value="" required>
+        <label for="valeur">Pourcentage de luminosité:</label>
+        <input type="number" name="valeur" value="" required>%
+        <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
+        <input type="submit" name="" value="Ajouter">
       </form>
-      <div class="modal-diagramme-circulaire">
-        <div class="" id='diagrammeCirculaireModal'>
-        </div>
-        <div class="plus_moins_modal">
-          <button type="button" name="button" class="ajouterLuminositeModal">+</button>
-          <button type="button" name="button" class="diminuerLuminositeModal">-</button>
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" name="button" clas="ajouterAmbiance">Ajouter</button>
     </div>
   </div>
 </div>
