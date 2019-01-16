@@ -14,6 +14,7 @@
   border: solid 1px;
   top: 0;
   left: 0;
+  z-index:1000;
 }
   .close {
       color: #aaaaaa;

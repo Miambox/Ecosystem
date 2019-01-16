@@ -8,9 +8,6 @@ switch ($action) {
         $vue = "capteur";
         $title = "Les capteurs";
 
-
-
-
         $donneesCapteur = selectionerCapteur($bdd, 1);
         $donneespiece = infoPiece($bdd, 1);
 
@@ -71,13 +68,6 @@ switch ($action) {
         }
 
         break;
-<<<<<<< Updated upstream
-
-    case 'data':
-      echo json_encode( array( "name"=>"John","time"=>"2pm" ) );
-      break;
-=======
->>>>>>> Stashed changes
 
     case 'addProgramme':
 
