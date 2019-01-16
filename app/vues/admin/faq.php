@@ -10,7 +10,7 @@
 						{ 
 	      	//echo $faq["question"];
 
-							echo '<p><strong>' . htmlspecialchars($faq['question']) . '</strong>  '.'</p>' ?> <?php  echo '<p>' . htmlspecialchars($faq['reponse']) . '</p>'; 
+							echo '<p><strong>' . htmlspecialchars($faq['question']) . '</strong>  ' . htmlspecialchars($faq['reponse']) . '</p>'; 
 						}
 
 

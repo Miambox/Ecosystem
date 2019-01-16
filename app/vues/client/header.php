@@ -49,6 +49,7 @@
     <!-- page ajout de capteur -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addCapteur/addCapteur-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/chat.css">
+     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/faq.css">
     
 
   </head>
