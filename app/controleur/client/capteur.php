@@ -87,62 +87,80 @@ switch ($action) {
         break;
 
     // LES PROGRAMMES
+    // Vue permettant d'ajouter un programme
     case 'addProgramme':
-
       if( isset($_POST['heure_debut']) and
           isset($_POST['heure_fin']) and
           isset($_POST['date']) and
           isset($_POST['ambiance'])) {
+            $id_capteur = securitePourXSSFail($_POST['id_capteur']);
             $values = [
               'heure_debut'       => securitePourXSSFail($_POST['heure_debut']),
               'heure_fin'         => securitePourXSSFail($_POST['heure_fin']),
               'date'              => securitePourXSSFail($_POST['date']),
               'ambiance'          => securitePourXSSFail($_POST['ambiance']),
             ];
-            $request = insererNouveauProgramme($bdd, $values);
+            $request = insererNouveauProgramme($bdd, $values, $id_capteur);
 
             if($request) {
+              header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. intval($id_capteur));
             } else {
-              $alerte = "Erreur de base de donnée, veuillez réessayer";
+              header('Location: ?Route=client&Ctrl=cpateurs');
             }
-          }
+      } else {
+        header('Location: ?Route=client&Ctrl=capteur');
+      }
     break;
 
+    // Vue permettant de supprimer un programme
     case 'supprimerProgramme':
-        $title = "Détails capteur";
-
         if(isset($_POST['id_programme'])) {
+          $id_capteur = securitePourXSSFail($_POST['id_capteur']);
+          $values = [
+            'id_programme'          => securitePourXSSFail($_POST['id_programme']),
+          ];
+          $request = supprimerProgramme($bdd, $values);
+
+          if($request) {
+            header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur);
+          } else {
+            header('Location: ?Route=Client&Ctrl=capteur');
+          }
+        } else {
+          header('Location: ?Route=Client&Ctrl=capteur');
+        }
+    break;
+
+    // Vue permettant d'activer et desactiver le programme
+    case 'activeProgramme':
+        $id_capteur = $_POST['id_capteur'];
+        if(isset($_POST['id_programme'])) {
+            if(isset($_POST['on_programme'])) {
               $values = [
-                'id_programme'          => securitePourXSSFail($_POST['id_programme']),
+              'id_programme'          => securitePourXSSFail($_POST['id_programme']),
+              'on_programme'       => securitePourXSSFail($_POST['on_programme']),
               ];
-              $request = supprimerProgramme($bdd, $values);
+              $request = activeProgramme($bdd, $values);
 
               if($request) {
-                header('Location: ?Route=Client&Ctrl=capteur&Vue=details');
+                header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur);
               } else {
-                $alerte = "Erreyr de base de donnée veuillez réessayer";
+                header('Location: ?Route=Client&Ctrl=capteur');
+              }
+            } else {
+            $values = [
+            'id_programme'        => securitePourXSSFail($_POST['id_programme']),
+            'off_programme'       => securitePourXSSFail($_POST['off_programme']),
+            ];
+            $request = desactiveProgramme($bdd, $values);
+              if($request) {
+                header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur);
+              } else {
+              header('Location: ?Route=Client&Ctrl=capteur');
               }
             }
-    break;
-
-    case 'activeProgramme':
-        $title = "Détails capteur";
-        $vue = "detailsCapteur";
-
-        if(isset($_POST['id_programme'])) {
-              if(isset($_POST['on_programme'])) {
-                $values = [
-                  'id_programme'          => securitePourXSSFail($_POST['id_programme']),
-                  'on_programme'       => securitePourXSSFail($_POST['on_programme']),
-                ];
-                $request = activeProgramme($bdd, $values);
-              } else {
-                $values = [
-                  'id_programme'        => securitePourXSSFail($_POST['id_programme']),
-                  'off_programme'       => securitePourXSSFail($_POST['off_programme']),
-                ];
-                $request = desactiveProgramme($bdd, $values);
-              }
+        } else {
+          header('Location: ?Route=Client&Ctrl=capteur');
         }
     break;
 

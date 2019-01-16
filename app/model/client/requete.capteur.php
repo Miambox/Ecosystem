@@ -153,8 +153,7 @@ function selectionnerProgramme($bdd, $idObjet) {
 /**
 * Fonction permettant d'insérer un nouveau programme
 **/
-function insererNouveauProgramme($bdd, $values) {
-  $id_objet = 1;
+function insererNouveauProgramme($bdd, $values, $id_capteur) {
 
   $query = 'INSERT INTO programmationhoraire(
     date,
@@ -175,7 +174,7 @@ function insererNouveauProgramme($bdd, $values) {
   $donnees->bindParam(":date", $values['date']);
   $donnees->bindParam(":heure_debut", $values['heure_debut']);
   $donnees->bindParam(":heure_fin", $values['heure_fin']);
-  $donnees->bindParam(":id_objet", $id_objet);
+  $donnees->bindParam(":id_objet", intval($id_capteur));
   $donnees->bindParam(":id_mode", $values['ambiance']);
 
   $request = $donnees->execute();

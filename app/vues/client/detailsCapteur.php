@@ -23,8 +23,8 @@
 
     <div class="programme">
       <h2>Programmer un horaire</h2>
-      <button class="button-ajouter" type="button" name="button" id="ajouterProgramme">Ajouter</button>
-      <button class="button-visualiser" type="button" name="button" id="visualiserProgramme">Visualiser</button>
+      <button class="button-ajouter" type="button" name="button" onclick="openAjouterHorairePopup(<?=$idCapteur?>)">Ajouter</button>
+      <button class="button-visualiser" type="button" name="button" onclick="openVisualiserHorairePopup(<?=$idCapteur?>)">Visualiser</button>
     </div>
 
     <div class="diagramme-baton">
@@ -77,6 +77,7 @@
   </div>
 </div>
 
+<!--POPUP MODAL AJOUT AMBIANCE-->
 <div class="container-modal" id="container-modal-add-ambiance<?=$idCapteur?>">
   <div class="modal modal-ambiance">
     <div class="modal-head">
@@ -100,12 +101,11 @@
   </div>
 </div>
 
-
-<!-- Ancien container pour ajouter un programme -->
-<div class="container-big-modal" id="container-modal-ajouter-programme">
+<!--POPUP AJOUT PROGRAMME-->
+<div class="container-big-modal" id="container-modal-ajouter-programme<?=$idCapteur?>">
   <form class="modal-big modal-ajouter-programme" action="?Route=Client&Ctrl=capteur&Vue=addProgramme" method="post">
       <div class="modal-big-head">
-        <button class="close" id="close-ajouter-programme">&times;</button>
+        <button class="close" onclick="closeAjouterHorairePopup(<?=$idCapteur?>)">&times;</button>
         <p>Ajouter un programme</p>
       </div>
       <div class="modal-big-text">
@@ -113,11 +113,11 @@
           <h3>Selectionner date et heure</h3>
           <p>
             <label for="">Activez l'alarme :</label>
-            <input type="time" name="heure_debut" value="">
+            <input type="time" name="heure_debut" value="" required>
             <label for="">à</label>
-            <input type="time" name="heure_fin" value="">
+            <input type="time" name="heure_fin" value="" required>
             <label for="">le</label>
-            <input type="date" name="date" value="">
+            <input type="date" name="date" value="" required>
           </p>
       </div>
       <div class="modal-big-text-two select-ambiance">
@@ -125,7 +125,7 @@
         <span>( Vous devez sélectionner qu'un seule ambiance ..)</span>
         <ul>
           <li>
-            <select name="ambiance">
+            <select name="ambiance" required>
               <?php
                 foreach ($liste_ambiance as $key => $value) {
               ?>
@@ -139,15 +139,17 @@
       </div>
     </div>
       <div class="modal-big-footer">
+      <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
       <input type="submit" name="" class="ajouterProgramme" value="Ajouter">
     </div>
   </form>
 </div>
 
-<div class="container-big-modal" id="container-modal-visualiser-programme">
+
+<div class="container-big-modal" id="container-modal-visualiser-programme<?=$idCapteur?>">
   <div class="modal-big modal-visualiser-programme">
     <div class="modal-big-head">
-      <button class="close" id="close-visualiser-programme">&times;</button>
+      <button class="close" onclick="closeVisualiserHorairePopup(<?=$idCapteur?>)">&times;</button>
       <p>Vos différents programmes</p>
     </div>
     <div class="modal-big-text">
@@ -178,6 +180,7 @@
                   ?>
                   <span class="slider round"></span>
                 </label>
+                <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
               </form>
             </td>
             <td>
@@ -185,6 +188,7 @@
             </td>
             <td>
               <form class="" action="?Route=Client&Ctrl=capteur&Vue=supprimerProgramme" method="post">
+                <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
                 <input type="hidden" name="id_programme" value="<?php echo $value['id'] ?>">
                 <input type="submit" name="" value="x">
               </form>
@@ -196,10 +200,6 @@
         ?>
       </table>
     </div>
-    <div class="modal-big-footer">
-
-    </div>
-
   </div>
 
 </div>
