@@ -2,6 +2,7 @@
 
 include('app/model/client/requete.connexion.php');
 
+
 switch ($action) {
 
     case 'information':
@@ -18,13 +19,19 @@ switch ($action) {
 
         break;
 
+     case 'valide':
+
+        $vue = "valide";
+        $title = "valide";
+
+        break;
+
     case 'connexion':
       $vue='home';
       if (isset($_POST['mdp']) && isset($_POST['email'])) {
-        //@Todo: A enlever lorsque le mot de passe
+      
         $mdp = $_POST['mdp'];
-        // @Todo: Il faut que Antoien has les mdp
-        // $mdp = hash('sha256', $_POST['mdp']);
+        $mdp = hash('sha256', $_POST['mdp']);
         $user = connexion($_POST['email'],$mdp, $bdd);
 
         if($user){
