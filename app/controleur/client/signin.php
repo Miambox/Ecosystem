@@ -20,7 +20,6 @@ switch ($action) {
 
     case 'connexion':
       $vue='home';
-      session_start();
       if (isset($_POST['mdp']) && isset($_POST['email'])) {
         //@Todo: A enlever lorsque le mot de passe
         $mdp = $_POST['mdp'];
@@ -33,7 +32,7 @@ switch ($action) {
           header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
           exit();
         } else{
-          // header('Location: ?index.php');
+          header('Location: ?index.php');
           exit();
         }
       }

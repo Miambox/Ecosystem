@@ -1,20 +1,18 @@
 <?php
-
 include('app/model/client/requete.logement.php');
 
 switch ($action) {
 
+    // Vue permettant d'afficher les logements de l'utilisateur
     case 'vuePrincipale':
-
         $vue = "logement";
         $title = "Les logements";
-
         $liste_logement = selectionerLogement($bdd);
 
         break;
 
+    // Vue permettant d'ajouter un logement
     case 'addLogement':
-        /*@Todo: Ajouter les champs pas obligatoire*/
         $title = "Ajouter un logement";
         $vue = "addLogement";
 
@@ -23,37 +21,36 @@ switch ($action) {
             isset($_POST['ville']) and
             isset($_POST['code_postal']) and
             isset($_POST['nbr_habitant']) and
-            isset($_POST['surface']) and
-            isset($_POST['annee_construction'])) {
+            isset($_POST['surface'])) {
 
-          $values = [
-            'numero'              => $_POST['numero'],
-            'rue'                 => $_POST['rue'],
-            'ville'               => $_POST['ville'],
-            'code_postal'          => $_POST['code_postal'],
-            'nbr_habitant'         => $_POST['nbr_habitant'],
-            'surface'             => $_POST['surface'],
-            'annee_construction'   => $_POST['annee_construction'],
-          ];
-          $request = insererNouveauLogement($bdd, $values);
+            $values = [
+              'numero'              => securitePourXSSFail($_POST['numero']),
+              'rue'                 => securitePourXSSFail($_POST['rue']),
+              'ville'               => securitePourXSSFail($_POST['ville']),
+              'code_postal'          => securitePourXSSFail($_POST['code_postal']),
+              'nbr_habitant'         => securitePourXSSFail($_POST['nbr_habitant']),
+              'surface'             => securitePourXSSFail($_POST['surface']),
+              'annee_construction'   => securitePourXSSFail($_POST['annee_construction']),
+            ];
+            $request = insererNouveauLogement($bdd, $values);
 
-          if(isset($request)) {
-            header('Location: ?Route=client&Ctrl=piece&Vue=addPiece');
-          }
-        } else {
-          $alerte = 1;
-          $alerte_explication= 'Vous avez oublié un champs obligatoire, merci de recommencer.';
+            if(isset($request)) {
+              header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
+            } else {
+              header('Location: ?Route=client&Ctrl=logement');
+            }
         }
         break;
 
+    // Vue permettant de supprimer un logement
     case "supprimerLogement":
       $vue = "logement";
       $title = "Les logements";
 
       if(isset($_POST['logement_id']) and isset($_POST['code_postal'])) {
         $logement = [
-          'id' => $_POST['logement_id'],
-          'code_postal' => $_POST['code_postal'],
+          'id'              => securitePourXSSFail($_POST['logement_id']),
+          'code_postal'     => securitePourXSSFail($_POST['code_postal']),
         ];
 
         $request = supprimerLogement($bdd, $logement);
@@ -61,22 +58,43 @@ switch ($action) {
         if($request) {
           header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
         } else {
-          $alerte = "Le code postal ne correspond pas";
+          header('Location: ?Route=client&Ctrl=logement');
+        }
+      } else {
+          header('Location: ?Route=client&Ctrl=logement');
+      }
+    break;
+
+    // Vue permettant de partager un logement
+    case "partageLogement":
+      $vue="logement";
+      $title="Les logements";
+
+      if( isset($_POST['nom']) and isset($_POST['prenom']) and isset($_POST['mail'])) {
+
+        $user_partage = [
+          'id_logement'   => securitePourXSSFail($_POST['id_logement']),
+          'nom'           => securitePourXSSFail($_POST['nom']),
+          'prenom'        => securitePourXSSFail($_POST['prenom']),
+          'mail'          => securitePourXSSFail($_POST['mail']),
+        ];
+
+        $request = insererNouveauPartageLogement($bdd, $user_partage);
+
+        if(!$request) {
+          header('Location: ?Route=client&Ctrl=logement');
+        } else {
           header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
         }
       } else {
-          $alerte = "Le code postal ne correspond pas";
-          header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
+        header('Location: ?Route=client&Ctrl=logement');
       }
-
-
-
     break;
 
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $title = "error404";
-        $message = "Erreur 404 : la page recherchée n'existe pas.";
+        $vue="erreur404";
 }
 
 include ('app/vues/client/header.php');

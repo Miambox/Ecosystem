@@ -82,4 +82,10 @@ function insert(PDO $bdd, array $values, string $table): bool {
     return $donnees->execute();
 }
 
+function securitePourXSSFail($string) {
+  $string = htmlspecialchars($string);
+	$string = htmlentities($string);
+	return $string;
+}
+
 ?>

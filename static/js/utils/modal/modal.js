@@ -1,13 +1,19 @@
+function openDeletePopup(id_logement) {
+  var containerModal = $("#container-modal-supprimer"+id_logement);
+  containerModal.css("display", "block");
+}
 
-  function modal(modal, close) {
-    modal.css("display", "block");
+function closeDeletePopup(id_logement) {
+  var containerModal = $("#container-modal-supprimer"+ id_logement);
+  containerModal.css("display", "none");
+}
 
-    close.click(function(e) {
-      modal.css("display", "none");
-    });
-    window.onclick = function(event) {
-      if (event.target == modal) {
-          modal.css("display", "none");
-      }
-    };
-  }
+function openSharePopup(id_logement) {
+  var containerModal = $("#container-modal-partage"+id_logement);
+  containerModal.css("display", "block");
+}
+
+function closeSharePopup(id_logement) {
+  var containerModal = $("#container-modal-partage"+ id_logement);
+  containerModal.css("display", "none");
+}

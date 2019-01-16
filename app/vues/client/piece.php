@@ -1,19 +1,41 @@
 <div class="container-logement-pieces">
+
   <div class="container-resume-logement">
-    <a href="javascript:history.back()">Retour aux logements</a>
-    <div class="resume-logement">
-      <img class="photo-logement" src="<?=ROOT_URL?>/static/image/icon/isep.jpg" width="100%" alt="">
-      <div class="description-logement">
-        <h4>10 Rue Vanves, 92130 Issy-Les-Moulineaux</h4>
-        <p>Surface: 350m²</p>
-        <p>Habitants: 1000</p>
-        <p>Diagnostique énergétique: E</p>
-        <p>Année de construction: 1969</p>
-        <p>Nombre totale de pièces: 25</p>
-      </div>
-    </div>
+    <?php if(isset($information_logement)) {
+      foreach ($information_logement as $key => $value) {
+        ?>
+          <form class="" action="?Route=client&Ctrl=logement&Vue=vuePrincipale" method="post">
+            <input type="submit" name="" value="Retour aux logements">
+          </form>
+          <div class="resume-logement">
+            <img class="photo-logement" src="<?=ROOT_URL?>/static/image/icon/isep.jpg" width="100%" alt="">
+            <div class="description-logement">
+              <h4>
+                <?= $value['numero'] ?> rue
+                <?= $value['rue'] ?>,
+                <?= $value['code_postal'] ?>
+                <?= $value['ville'] ?>
+              </h4>
+              <?php if(isset($value['complement_adresse'])) {
+                ?>
+                <p>Complément d'adresse: <?= $value['complement_adresse'] ?></p>
+                <?php
+              } ?>
+              <p>Surface: <?= $value['surface']?></p>
+              <p>Habitants: <?= $value['nbr_habitant'] ?></p>
+              <?php if(isset($value['annee_construction']) && $value['annee_construction']!=0 ) {
+                ?>
+                <p>Année de construction: <?= $value['annee_construction'] ?></p>
+                <?php
+              } ?>
+            </div>
+          </div>
+        <?php
+      }
+    } ?>
 
   </div>
+
   <div class="container-pieces">
     <?php
     if(isset($liste_piece)) {
@@ -24,24 +46,50 @@
           <ul>
             <li><h5><?php echo $value['nom'] ?></h5></li>
             <li>
-              <button type="button" name="button" class="button-config-piece" id="button-config-piece" onclick="ouvreParemetresLogement()">
-                <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
-              </button>
               <nav id="parametres-piece">
                 <ul>
-                  <li><a href="#" id="supprimerPiece">Supprimer</a></li>
+                  <li>
+                    <a href="#" onclick="openDeletePopup(<?= $value[0]?>)">
+                      Supprimer
+                    </a>
+                  </li>
                 </ul>
               </nav>
+
+              <!--POP up suppression-->
+              <div class="container-modal" id="container-modal-supprimer<?= $value[0]?>">
+                <div class="modal modal-supprimer">
+                  <div class="modal-head">
+                    <button class="close" onclick="closeDeletePopup(<?= $value[0]?>)">&times;</button>
+                    <p>Etes-vous sûr de vouloir supprimer cette piece?</p>
+                  </div>
+                  <div class="modal-text">
+                    <form class="" action="?Route=client&Ctrl=piece&Vue=supprimerPiece" method="post">
+                      <div class="form-group">
+                        <label for="code_postal">Rentrer le type de la piece<br></label>
+                        <input type="text" name="type" value="" required>
+                        <input type="hidden" name="id_piece" value="<?=$value[0] ?>">
+                        <input type="hidden" name="id_logement" value="<?= $value['id_logement'] ?>">
+                      </div>
+                      <button type="submit" name="button" class="supprimerLogement">Valider</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
             </li>
           </ul>
         </div>
         <div class="card-body">
-          <img src="<?=ROOT_URL?>/static/image/icon/cours-isep.jpg" width="100%" alt="">
+          <img src="<?=ROOT_URL?>/static/image/icon/piece.jpg" width="100%" alt="">
         </div>
         <div class="card-banniere">
         </div>
         <div class="card-footer">
-          <button type="button" name="button" class="button-go-to-capteur" id="goToPiece">Plus de détails</button>
+          <form class="" action="?Route=client&Ctrl=capteur&Vue=vuePrincipale" method="post">
+            <input type="hidden" name="id_piece" value="<?= $value[0] ?>">
+            <input type="submit" name="" value="Les capteurs..">
+          </form>
         </div>
       </div>
       <?php
@@ -49,26 +97,8 @@
     }
     ?>
     <form class="" action="?Route=client&Ctrl=piece&Vue=addPiece" method="post">
-      <input type="hidden" name="id_logement" value="<?php echo $id_logement ?>">
-      <input type="submit" name="" value="+">
+      <input type="hidden" name="id_logement" value="<?= $id_logement ?>">
+      <input type="submit" name="" value="Ajouter une pièce">
     </form>
-  </div>
-</div>
-
-<div class="container-modal" id="container-modal-supprimer">
-  <div class="modal modal-supprimer">
-    <div class="modal-head">
-      <button class="close" id="close-supprimer">&times;</button>
-      <p>Etes-vous sûr de vouloir supprimer cette piece?</p>
-    </div>
-    <div class="modal-text">
-      <form class="" action="#" method="post">
-        <div class="form-group">
-          <label for="code_postal">Rentrer le type de la piece<br></label>
-          <input type="text" name="code_postal" value="">
-        </div>
-        <button type="submit" name="button" clas="supprimerLogement">Valider</button>
-      </form>
-    </div>
   </div>
 </div>

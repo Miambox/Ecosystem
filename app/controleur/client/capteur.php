@@ -8,9 +8,6 @@ switch ($action) {
         $vue = "capteur";
         $title = "Les capteurs";
 
-
-
-
         $donneesCapteur = selectionerCapteur($bdd, 1);
         $donneespiece = infoPiece($bdd, 1);
 
@@ -61,7 +58,6 @@ switch ($action) {
         //}
 
         $liste_ambiance = selectionnerAmbiance($bdd);
-
         $liste_programme = selectionnerProgramme($bdd);
 
         foreach ($liste_programme as $key => $value) {
@@ -73,32 +69,26 @@ switch ($action) {
 
         break;
 
-    case 'data':
-      echo json_encode( array( "name"=>"John","time"=>"2pm" ) );
-      break;
-
     case 'addProgramme':
-
 
       if( isset($_POST['heure_debut']) and
           isset($_POST['heure_fin']) and
           isset($_POST['date']) and
           isset($_POST['ambiance'])) {
             $values = [
-              'heure_debut'              => $_POST['heure_debut'],
-              'heure_fin'                 => $_POST['heure_fin'],
-              'date'               => $_POST['date'],
-              'ambiance'          => $_POST['ambiance'],
+              'heure_debut'       => securitePourXSSFail($_POST['heure_debut']),
+              'heure_fin'         => securitePourXSSFail($_POST['heure_fin']),
+              'date'              => securitePourXSSFail($_POST['date']),
+              'ambiance'          => securitePourXSSFail($_POST['ambiance']),
             ];
             $request = insererNouveauProgramme($bdd, $values);
 
             if($request) {
               header('Location: ?Route=Client&Ctrl=capteur&Vue=details');
             } else {
-              var_dump("impossible d'ajouter le programme");
+              $alerte = "Erreur de base de donnée, veuillez réessayer";
             }
           }
-
       break;
 
       case 'supprimerProgramme':
@@ -106,15 +96,14 @@ switch ($action) {
 
         if(isset($_POST['id_programme'])) {
               $values = [
-                'id_programme'          => $_POST['id_programme'],
+                'id_programme'          => securitePourXSSFail($_POST['id_programme']),
               ];
-              var_dump($values);
               $request = supprimerProgramme($bdd, $values);
 
               if($request) {
                 header('Location: ?Route=Client&Ctrl=capteur&Vue=details');
               } else {
-                var_dump("impossible d'ajouter le programme");
+                $alerte = "Erreyr de base de donnée veuillez réessayer";
               }
             }
       break;
@@ -123,35 +112,25 @@ switch ($action) {
         $title = "Détails capteur";
         $vue = "detailsCapteur";
 
-
-      if(isset($_POST['id_programme'])) {
-            if(isset($_POST['on_programme'])) {
-              $values = [
-                'id_programme'          => $_POST['id_programme'],
-                'on_programme'       => $_POST['on_programme'],
-              ];
-              var_dump($values);
-              $request = activeProgramme($bdd, $values);
-            } else {
-              $values = [
-                'id_programme'          => $_POST['id_programme'],
-                'off_programme'       => $_POST['off_programme'],
-              ];
-              var_dump($values);
-              $request = desactiveProgramme($bdd, $values);
-            }
-
-            // if($request) {
-            //   header('Location: ?Route=Client&Ctrl=capteur&Vue=addProgramme');
-            // } else {
-            //   var_dump("impossible d'ajouter le programme");
-            // }
-          }
+        if(isset($_POST['id_programme'])) {
+              if(isset($_POST['on_programme'])) {
+                $values = [
+                  'id_programme'          => securitePourXSSFail($_POST['id_programme']),
+                  'on_programme'       => securitePourXSSFail($_POST['on_programme']),
+                ];
+                $request = activeProgramme($bdd, $values);
+              } else {
+                $values = [
+                  'id_programme'        => securitePourXSSFail($_POST['id_programme']),
+                  'off_programme'       => securitePourXSSFail($_POST['off_programme']),
+                ];
+                $request = desactiveProgramme($bdd, $values);
+              }
+        }
       break;
 
-
     default:
-        // si aucune fonction ne correspond au paramètre function passé en GET
+
         $title = "error404";
         $message = "Erreur 404 : la page recherchée n'existe pas.";
 }
