@@ -1,7 +1,9 @@
 <?php
-
 include("app/model/requete.generique.php"); // On connecte la base de donnée
 
+/**
+* Fonction permettant de selectioner les pièces
+**/
 function selectionnerPiece($bdd, $id_logement) {
   $query = 'SELECT
       *
@@ -13,15 +15,20 @@ function selectionnerPiece($bdd, $id_logement) {
   return $donnees->fetchAll();
 }
 
-function selectionerLogementPourPiece($bdd) {
-  $query = 'SELECT * FROM logement INNER JOIN piece ON logement.id = piece.id_logement';
+/**
+* Fonction permettant de selectionner les informations du logement
+**/
+function informationLogement($bdd, $id_logement) {
+  $query = 'SELECT * FROM logement WHERE id=:id_logement';
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":id_logement", $id_logement);
   $donnees->execute();
   return $donnees->fetchAll();
 }
 
-
+/**
+* Fonction permettant d'ajouter une nouvelle pièce
+**/
 function insererNouvellePiece($bdd, $value, $id_logement) {
 
   $query = 'INSERT INTO piece(
@@ -48,6 +55,35 @@ function insererNouvellePiece($bdd, $value, $id_logement) {
 
   $request = $donnees->execute();
   return $request;
+}
+
+/**
+* Fonction permettant de supprimer une piece
+**/
+function supprimerPiece($bdd, $piece) {
+  $queryVerif = 'SELECT type FROM piece WHERE piece.id = :id_piece';
+  $donneesVerif = $bdd->prepare($queryVerif);
+  $donneesVerif->bindParam(":id_piece", $piece['id']);
+  $donneesVerif->execute();
+  $response = $donneesVerif->fetchAll();
+  foreach ($response as $key => $value) {
+    $type = $value['type'];
+  }
+  if($donneesVerif) {
+    var_dump($type);
+    var_dump($piece['type']);
+    var_dump($type == $piece['type']);
+    if($type == $piece['type']) {
+      $query = 'DELETE FROM piece WHERE piece.id = :id_piece';
+      $donnees = $bdd->prepare($query);
+      $donnees->bindParam(":id_piece", $piece['id']);
+      return $donnees->execute();
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
 }
 
 ?>

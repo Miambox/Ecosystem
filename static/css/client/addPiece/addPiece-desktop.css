@@ -1,224 +1,59 @@
-/* Résolution d'écran d'ordinateur 100% à 130%*/
-@media only screen and (min-width: 1100px) and (max-width: 1800px) {
-
-  .card-addPiece > p {
-    background: #FAFAFA;
-    color: #333333;
-      
-    }
-    
-  .card-addPiece {
-    width: 40%;
-    border: solid 1px;
-    border-color: rgba(0,0,0,0.2);
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
-    background-color: #FAFAFA;
-    border-radius: 5px;
-    margin-top: 8%;
-    margin-left: 30%;
-  }
-
-    .card-addPiece > form {
-      display: flex;
-      width: 80%;
-      padding:10%;
-      flex-direction: column;
-      text-align: center;
-      text-align: -moz-center;
-      grid-area: main;
-    }
-
-      .card-addPiece > form > input {
-        width: 80%;
-        height: 25px;
-        margin-right: 10%;
-        margin-left: 10%;
-        margin-bottom: 4%;
-        padding: 2%;
-        border: solid 1Px;
-        border-color: rgba(0,0,0,0.3);
-        border-radius: 5px;
-      }
-
-      .card-addPiece > form > input:hover {
-        background-color: #FAFAFA;
-      }
-
-
-      .card-addPiece > form > div {
-        width: 80%;
-        display: flex;
-        flex-direction: row;
-        margin-left: 10%;
-      }
-
-        .card-addPiece > form > div > input {
-          width: 30%;
-          border: solid 1px rgba(0,0,0,0.2);
-          border-radius: 5px;
-          padding: 2%;
-          margin-top: 10%;
-          size: 16px;
-          font-weight: 600;
-          margin-left: 12.5%;
-        }
-
-
-        .card-addPiece > form > div > .inscrire {
-          background-color: rgba(98, 98, 255);
-          color: white;
-          display: block;
-          margin-right: auto;
-          margin-left: auto;
-        }
-
-        .card-addPiece > form > div > .inscrire:hover {
-          color: rgba(98, 98, 255);
-          background-color: white;
-          display: block;
-          margin-right: auto;
-          margin-left: auto;
-        }
+.card-addPiece {
+  width: 40%;
+  border: solid 1px;
+  border-color: rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
+  background-color: #FAFAFA;
+  border-radius: 5px;
+  margin-top: 5%;
+  margin-left: 30%;
 }
 
-/*Résolution d'écran d'ordinateur 130% et au delà*/
-@media only screen and (min-width: 769px) and (max-width: 1100px) {
-  .card-addPiece {
-    width: 40%;
-    border: solid 1px;
-    border-color: rgba(0,0,0,0.2);
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
-    background-color: #FAFAFA;
-    border-radius: 5px;
-    margin-top: 10%;
-  }
-
-    .card-addPiece > form {
-      display: flex;
-      width: 80%;
-      padding:10%;
-      flex-direction: column;
-      text-align: center;
-      text-align: -moz-center;
-      grid-area: main;
-    }
-
-      .card-addPiece > form > input {
-        width: 80%;
-        height: 25px;
-        margin-right: 10%;
-        margin-left: 10%;
-        margin-bottom: 4%;
-        padding: 2%;
-        border: solid 1Px;
-        border-color: rgba(0,0,0,0.3);
-        border-radius: 5px;
-      }
-
-      .card-addPiece > form > input:hover {
-        background-color: #FAFAFA;
-      }
-
-
-      .card-addPiece > form > div {
-        width: 80%;
-        display: flex;
-        flex-direction: row;
-        margin-left: 10%;
-      }
-
-        .card-addPiece > form > div > button {
-          width: 30%;
-          border: solid 1px rgba(0,0,0,0.2);
-          border-radius: 5px;
-          padding: 2%;
-          margin-top: 10%;
-          size: 16px;
-          font-weight: 600;
-          margin-left: 12.5%;
-        }
-
-        .card-addPiece > form > div > .inscrire {
-          background-color: rgba(98, 98, 255);
-          color: white;
-          font-size: 9px;
-        }
-
-        .card-addPiece > form > div > .inscrire:hover {
-          color: rgba(98, 98, 255);
-          background-color: white;
-        }
+.card-addPiece > form {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
 }
 
+.card-addPiece > form > p {
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFAE37;
+}
 
-/*Résolution d'écran plus petit que 60%*/
-@media only screen and (min-width: 1800px) {
-  .card-addPiece {
-    width: 40%;
-    border: solid 1px;
-    border-color: rgba(0,0,0,0.2);
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
-    background-color: #FAFAFA;
-    border-radius: 5px;
-    margin-top: 10%;
-    margin-left: 30%;
-  }
+.card-addPiece > form > input {
+  width: 150px;
+  padding: 1%;
+  margin: auto;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  background-color: #FFAE37;
+  color: white;
+  font-weight: 600;
+  border: 1px solid rgba(0,0,0,0.2);
+}
 
-    .card-addPiece > form {
-      display: flex;
-      width: 80%;
-      padding:10%;
-      flex-direction: column;
-      text-align: center;
-      text-align: -moz-center;
-      grid-area: main;
-    }
+.card-addPiece > form > input:hover {
+  background-color: #F2F2F2;
+  color: rgba(0,0,0,0.6);
+}
 
-      .card-addPiece > form > input {
-        width: 80%;
-        height: 25px;
-        margin-right: 10%;
-        margin-left: 10%;
-        margin-bottom: 4%;
-        padding: 2%;
-        border: solid 1Px;
-        border-color: rgba(0,0,0,0.3);
-        border-radius: 5px;
-        font-size: 18px;
-      }
+.card-addPiece > form > div {
+  margin-bottom: 3%;
+}
 
-      .card-addPiece > form > input:hover {
-        background-color: #FAFAFA;
-      }
+.card-addPiece > form > div >input {
+  padding: 2%;
+  border-radius: 4px;
+  border: solid 1px rgba(0,0,0,0.2);
+}
 
+.card-addPiece > form > div > select {
+  padding: 2%;
+  border-radius: 4px;
+  border: solid 1px rgba(0,0,0,0.2);
+}
 
-      .card-addPiece > form > div {
-        width: 80%;
-        display: flex;
-        flex-direction: row;
-        margin-left: 10%;
-      }
-
-        .card-addPiece > form > div > button {
-          width: 30%;
-          border: solid 1px rgba(0,0,0,0.2);
-          border-radius: 5px;
-          padding: 2%;
-          margin-top: 10%;
-          size: 16px;
-          font-weight: 600;
-          margin-left: 12.5%;
-        }
-
-
-        .card-addPiece > form > div > .inscrire {
-          background-color: rgba(98, 98, 255);
-          color: white;
-          font-size: 24px;
-        }
-
-        .card-addPiece > form > div > .inscrire:hover {
-          color: rgba(98, 98, 255);
-          background-color: white;
-        }
+.card-addPiece > form > div > label {
+  color: red;
 }
