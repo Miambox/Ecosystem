@@ -1,21 +1,26 @@
 <div class="container-details-capteur">
-
   <div class="container-logo">
     <a type="button" href="javascript:history.back()" class="btn-retour-piece">Retour véranda</a>
     <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="100%" alt="">
     <div class="on_off">
       <span>Eteindre/Allumer le capteur</span>
-      <?php if ($donneesCapteur['etat']=="marche"): ?>
+      <form class="" action="?Route=Client&Ctrl=capteur&Vue=activeCapteur" id="formulaireActiveCapteur" method="post">
         <label class="toggle-button">
-          <input type="checkbox" checked>
+          <?php
+          if($etatCapteur[0]['etat'] == 'on') {
+            ?>
+            <input type="checkbox" name="off-capteur" onchange="document.getElementById('formulaireActiveCapteur').submit();" checked>
+            <?php
+          } else {
+            ?>
+            <input type="checkbox" name="on_capteur" onchange="document.getElementById('formulaireActiveCapteur').submit();">
+            <?php
+          }
+          ?>
           <span class="slider round"></span>
         </label>
-      <?php else : ?>
-        <label class="toggle-button">
-          <input type="checkbox" >
-          <span class="slider round"></span>
-        </label>
-      <?php endif ?>
+        <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
+      </form>
     </div>
   </div>
 

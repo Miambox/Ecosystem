@@ -54,6 +54,8 @@ switch ($action) {
           $idCapteur = securitePourXSSFail($_POST['id_capteur']);
           $donneesCapteur =  infoCapteur($bdd, $idCapteur);
 
+          $etatCapteur = etatCapteur($bdd, $idCapteur);
+
           // Liste permettant de sélectionner les ambiances d'un capteur
           $liste_ambiance = selectionnerAmbiance($bdd);
           // liste permettant de sélectionner les programmes d'un capteur
@@ -68,6 +70,7 @@ switch ($action) {
         } else if(isset($_GET['id_capteur'])) {
           $idCapteur = securitePourXSSFail($_GET['id_capteur']);
           $donneesCapteur =  infoCapteur($bdd, $idCapteur);
+          $etatCapteur = etatCapteur($bdd, $idCapteur);
 
           // Liste permettant de sélectionner les ambiances d'un capteur
           $liste_ambiance = selectionnerAmbiance($bdd);
@@ -86,6 +89,37 @@ switch ($action) {
 
         break;
 
+    case 'activeCapteur':
+      if(isset($_POST['id_capteur'])) {
+          $id_capteur = securitePourXSSFail($_POST['id_capteur']);
+          if(isset($_POST['on_capteur'])) {
+            $values = [
+            'id_capteur'          => securitePourXSSFail($_POST['id_capteur']),
+            'on_capteur'       => securitePourXSSFail($_POST['on_capteur']),
+            ];
+            $request = activeCapteur($bdd, $values);
+
+            if($request) {
+              header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur);
+            } else {
+              header('Location: ?Route=Client&Ctrl=capteur');
+            }
+          } else {
+          $values = [
+          'id_capteur'        => securitePourXSSFail($_POST['id_capteur']),
+          'off_capteur'       => securitePourXSSFail($_POST['off_capteur']),
+          ];
+          $request = desactiveCapteur($bdd, $values);
+            if($request) {
+              header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur);
+            } else {
+            header('Location: ?Route=Client&Ctrl=capteur');
+            }
+          }
+      } else {
+        header('Location: ?Route=Client&Ctrl=capteur');
+      }
+    break;
     // LES PROGRAMMES
     // Vue permettant d'ajouter un programme
     case 'addProgramme':

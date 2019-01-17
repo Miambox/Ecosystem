@@ -32,6 +32,36 @@ function infoPiece($bdd, $pieceId){
   return $donneespiece;
 }
 
+function etatCapteur($bdd, $id_capteur) {
+  $query = 'SELECT etat FROM objet WHERE id =:id_capteur';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":id_capteur", $id_capteur);
+  $donnees->execute();
+  return $donnees->fetchAll();
+}
+
+/**
+* Fonction permettant d'activer un capteur
+**/
+function activeCapteur($bdd, $value) {
+  $query = 'UPDATE objet SET etat=:check_capteur WHERE id= :id_capteur';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":id_capteur", $value['id_capteur']);
+  $donnees->bindParam(":check_capteur", $value['on_capteur']);
+  return $donnees->execute();
+}
+
+/**
+* Fonction permettant de désactiver un capteur
+**/
+function desactiveCapteur($bdd, $value) {
+  $query = 'UPDATE objet SET etat=:check_capteur WHERE id= :id_capteur';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":id_capteur", $value['id_capteur']);
+  $donnees->bindParam(":check_capteur", $value['off_capteur']);
+  return $donnees->execute();
+}
+
 /**
 * Fonction permettant d'insérer un nouveau capteur
 **/
