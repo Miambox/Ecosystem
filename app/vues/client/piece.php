@@ -88,6 +88,7 @@
         <div class="card-footer">
           <form class="" action="?Route=client&Ctrl=capteur&Vue=vuePrincipale" method="post">
             <input type="hidden" name="id_piece" value="<?= $value[0] ?>">
+            <input type="hidden" name="id_logement" value="<?= $id_logement ?>">
             <input type="submit" name="" value="Les capteurs..">
           </form>
         </div>
