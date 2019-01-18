@@ -85,7 +85,7 @@
     <form class="" action="?Route=client&Ctrl=capteur&Vue=addCapteur" method="post">
       <input type="hidden" name="id_piece" value="<?php echo $donneespiece['id']  ?>">
       <input type="hidden" name="id_logement" value="<?php echo $IDLOGEMENT  ?>">
-      <input type="submit" name="button" value="+">
+      <input type="submit" name="button" value="Ajouter un capteur">
     </form>
   </div>
 </div>

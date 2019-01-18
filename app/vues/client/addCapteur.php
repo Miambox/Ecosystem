@@ -5,7 +5,7 @@
     <input type="hidden" name="id_logement" value="<?php echo $id_logement ?>">
     <input type="hidden" name="id_piece" value="<?php echo $id_piece ?>">
     <div>
-      <input type="number" name="ref" placeholder="" required>
+      <input type="number" name="ref" placeholder="Référence" required>
       <label for="nom">*</label>
     </div>
 
@@ -19,9 +19,9 @@
       <label for="nom">*</label>
     </div>
 
-    <SELECT type="number" name="type" size="1">
+    <select type="number" name="type" size="1">
         <OPTION value="1">Eco'light</OPTION>
-    </SELECT>
+    </select>
     <input class="bouton-ajouter" type="submit" name="ajouter" value="Ajouter">
   </form>
 </div>
