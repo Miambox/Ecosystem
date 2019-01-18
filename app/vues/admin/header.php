@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/modal/modal-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/clientProfil.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/detailsCapteur.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/general.css">
+     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/faq.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/listeClient.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/mentionsLegales.css">
 
     <title>Eco'system - admin</title>
   </head>
@@ -27,12 +31,13 @@
               </a>
             </li>
             <li>
-                <form class="" action="index.html" method="post">
+                <form autocomplete="off" action="?Route=admin&Ctrl=general&Vue=listeClient" method="post">
                   <div id="searchbar-mobile" class="searchbar">
                     <input type="search" name="search" id="search-mobile" placeholder="Rentrez le nom du client ...">
-                    <a href="<?=ROOT_URL?>">
+                    <input type="submit">
+                    <!-- <a href="?Route=admin&Ctrl=general&Vue=listeClient.php">
                       <img src="<?=ROOT_URL?>static/image/icon/search2-logo-grey-lp.png" alt="">
-                    </a>
+                    </a> -->
                   </div>
                 </form>
             </li>
@@ -49,20 +54,21 @@
       </div>
       <nav>
           <ul>
-              <li><a href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=logement"><img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" alt=""></a></li>
+              <li><a href="<?=ROOT_URL?>?Route=admin&Ctrl=general&Vue=general"><img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" alt=""></a></li>
               <li>
-                  <a href="#" id="dropdown-contact">
+                  <a href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=chatbis">
                     Chat
                   </a>
               </li>
               <li>
                 <div class="container-searchbar">
-                  <form class="" action="index.html" method="post">
+                  <form autocomplete="off" action="?Route=admin&Ctrl=general&Vue=listeClient" method="post">
                     <div id="searchbar-desktop" class="searchbar">
-                      <input type="search" name="search" id="search-desktop" placeholder="Rentrez le nom du client ...">
-                      <a href="<?=ROOT_URL?>">
+                      <input type="search" name="nomClient" id="search-desktop" placeholder="Rentrez le nom du client ...">
+                      <input type="image" value="Submit" id="loupe" src="<?=ROOT_URL?>/static/image/icon/search-logo-lp.png">
+                      <!-- <a href="?Route=admin&Ctrl=general&Vue=listeClient">
                         <img src="<?=ROOT_URL?>static/image/icon/search2-logo-grey-lp.png" alt="">
-                      </a>
+                      </a> -->
                     </div>
                   </form>
                 </div>

@@ -1,9 +1,14 @@
 <?php
 
+// Connexion a la base de donnees
+include('app/model/admin/general.php');
+
 switch ($action) {
 
     case 'logement':
 
+        $nomClient = $_POST['nomClient'];
+        $id = $_POST['id'];
         $vue = "logement";
         $title = "Détails client";
 
@@ -11,13 +16,27 @@ switch ($action) {
 
     case 'piece':
 
+        $nomClient = $_POST['nomClient'];
+        $id = $_POST['id'];
+        $idLogement = $_POST['id_logement'];
         $vue = "piece";
         $title = "Logement client";
 
         break;
 
+    case 'chatbis':
+
+        $vue = "chatbis";
+        $title = "Chatbis";
+
+        break;
+
     case 'capteur':
 
+        $nomClient = $_POST['nomClient'];
+        $id = $_POST['id'];
+        $idLogement = $_POST['id_logement'];
+        $idPiece = $_POST['id_piece'];
         $vue = "capteur";
         $title = "Détails client";
 
@@ -25,6 +44,11 @@ switch ($action) {
 
     case 'detailsCapteur':
 
+        $nomClient = $_POST['nomClient'];
+        $id = $_POST['id'];
+        $idLogement = $_POST['id_logement'];
+        $idPiece = $_POST['id_piece'];
+        $idCapteur = $_POST['id_capteur'];
         $vue = "detailsCapteur";
         $title = "Détails client";
 

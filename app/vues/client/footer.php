@@ -1,8 +1,8 @@
     <!-- Footer -->
     <footer>
       <ul>
-        <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=general&Vue=mentionLegale">Mentions légale</a></li>
-        <li><a href="#">CGU</a></li>
+        <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=mentionsLegales&Vue=mentionsLegales">Mentions légale</a></li>
+        <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=faq&Vue=faq">FAQ</a></li>
         <li><a href="#"><img src="<?=ROOT_URL?>/static/image/icon/fb-logo.png" width="15%" alt="Facebook"></a></li>
         <li><a href="#"><img src="<?=ROOT_URL?>/static/image/icon/linkedin-logo.png" width="15%" alt="Linkedin"></a></li>
         <li><a href="#"><img src="<?=ROOT_URL?>/static/image/icon/twitter-logo-lp.png" width="15%" alt="Twitter"></a></li>
@@ -31,25 +31,21 @@
 
     <!--  ajout des scripts JS -->
     <script type="text/javascript" src="<?=ROOT_URL?>static/js/vendor/jquery-3-3-1.js"></script>
+    <!-- logement -->
+    <script type="text/javascript" src="<?=ROOT_URL?>static/js/client/logement/logement.js"></script>
     <!-- navbar -->
     <script type="text/javascript" src="<?=ROOT_URL?>static/js/client/barre-de-navigation/navbar-client.js"></script>
     <!-- footer -->
     <script type="text/javascript" src="<?=ROOT_URL?>static/js/client/footer/footer.js"></script>
     <!-- modal -->
-    <script type="module" src="<?=ROOT_URL?>static/js/utils/modal/modal.js"></script>
+    <script type="text/javascript" src="<?=ROOT_URL?>static/js/utils/modal/modal.js"></script>
     <script type="module" src="<?=ROOT_URL?>static/js/utils/modal/modal-big.js"></script>
     <!-- détails capteurs-->
     <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/detailsCapteur.js"></script>
-    <!-- logement -->
-    <script type="module" src="<?=ROOT_URL?>static/js/client/logement/logement.js"></script>
+
     <!-- piece -->
     <script type="module" src="<?=ROOT_URL?>static/js/client/piece/piece.js"></script>
-    <!-- Librairie google -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <!-- Diagramme circulaire -->
-    <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/diagrammeCirculaire.js"></script>
-    <!-- Diagramme en baton -->
-    <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/diagrammeBaton.js"></script>
+
     <script type="module" src="<?=ROOT_URL?>static/js/client/home/home.js"></script>
   </body>
 </html>

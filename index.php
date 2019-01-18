@@ -1,6 +1,7 @@
 <?php
 namespace ECOSYSTEM;
 use ECOSYSTEM\app;
+session_start();
 
 ini_set('display_errors', 1);
 

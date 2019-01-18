@@ -4,20 +4,28 @@ include('app/model/client/requete.piece.php');
 
 switch ($action) {
 
+    // Vue permettant d'afficher les pièces et logements
     case 'vuePrincipale':
 
         $vue = "piece";
         $title = "Les pieces";
 
         if(isset($_POST['id_logement'])) {
-          $id_logement = $_POST['id_logement'];
+          $id_logement = securitePourXSSFail($_POST['id_logement']);
           $liste_piece = selectionnerPiece($bdd, $id_logement);
+          $information_logement = informationLogement($bdd, $id_logement);
+        } else if(isset($_GET['id_logement'])) {
+          $id_logement = securitePourXSSFail($_GET['id_logement']);
+          $liste_piece = selectionnerPiece($bdd, $id_logement);
+          $information_logement = informationLogement($bdd, $id_logement);
+        } else {
+          header('Location: ?Route=client&Ctrl=piece');
         }
 
         break;
 
+    // Vue permettant d'ajouter une pièce
     case 'addPiece':
-        //Ajouter un nouveau capteur
 
         $title = "Ajouter une piece";
         $vue = "addPiece";
@@ -28,27 +36,45 @@ switch ($action) {
             isset($_POST['surface']))
             {
             $values = [
-              'nom'              => $_POST['nom'],
-              'type'                 => $_POST['type'],
-              'etage'               => $_POST['etage'],
-              'surface'          => $_POST['surface']
+              'nom'              => securitePourXSSFail($_POST['nom']),
+              'type'             => securitePourXSSFail($_POST['type']),
+              'etage'            => securitePourXSSFail($_POST['etage']),
+              'surface'          => securitePourXSSFail($_POST['surface'])
             ];
             $request = insererNouvellePiece($bdd, $values, $id_logement);
 
             if(isset($request)) {
-              header('Location: ?Route=client&Ctrl=capteur&Vue=addCapteur');
+              header('Location: ?Route=client&Ctrl=piece&Vue=vuePrincipale&id_logement='. intval($id_logement));
+            } else {
+              header('Location: ?Route=client&Ctrl=piece');
             }
-        } else {
-          $alerte = 1;
-          $alerte_explication= 'Vous avez oublié un champs obligatoire, merci de recommencer.';
         }
 
         break;
 
+    // Vue permettant de supprimer les pièces
+    case 'supprimerPiece':
+      $vue = "piece";
+      $title = "Les pièces";
+
+      if(isset($_POST['id_piece']) and isset($_POST['type'])) {
+        $id_logement = $_POST['id_logement'];
+        $piece = [
+          'id'      => securitePourXSSFail($_POST['id_piece']),
+          'type'    => securitePourXSSFail($_POST['type']),
+        ];
+
+        $request = supprimerPiece($bdd, $piece);
+
+        if($request) {
+          header('Location: ?Route=client&Ctrl=piece&Vue=vuePrincipale&id_logement='. $id_logement);
+        } 
+      }
+    break;
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
-        $title = "error404";
-        $message = "Erreur 404 : la page recherchée n'existe pas.";
+        $title = "Erreur";
+        $vue = "piece";
 }
 
 include ('app/vues/client/header.php');

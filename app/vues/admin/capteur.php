@@ -1,39 +1,53 @@
-<button type="button" class="goBack" onclick="goBack()">Retour à la page logement</button>
+<form action="?Route=admin&Ctrl=client&Vue=piece" method="post">
+    <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
+    <input type="hidden" name="id" value="<?php echo $id?>">
+    <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">
+    <input type="submit" name="" value="Retour aux pieces">
+</form>
+
+<?php
+$donneesPiece = donneesPiece($bdd,$idPiece)->fetch();
+?>
 
 <div class="container">
     <div class="element">
         <div class="photo">
             <img src="<?=ROOT_URL?>/static/image/icon/cuisine-image.bmp" width="100%" height="100%" alt="">
         </div>
-        <div class="title">Cuisine
+        <div class="title">
+            <?php echo $donneesPiece['nom'];?>
         </div>
         <p>
-            <strong>Surface : </strong>30m<sup>2</sup><br/>
-            <strong>Etage : </strong>0<br/>
+            <strong>Surface : </strong><?php echo $donneesPiece['surface'];?>m<sup>2</sup><br/>
+            <strong>Etage : </strong><?php echo $donneesPiece['etage']?><br/>
         </p>
     </div>
 
-        <div class="card-container-object" onclick="goTo()">
+        <div class="card-container-object">
+
+        <?php
+        $donneesCapteur = capteur($bdd, $idPiece)->fetchAll();
+        foreach($donneesCapteur as $infoCapteur) {
+        ?>
+
+        <form action="?Route=admin&Ctrl=client&Vue=detailsCapteur" method="post">
+        <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
+        <input type="hidden" name="id" value="<?php echo $id?>">
+        <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">
+        <input type="hidden" name='id_piece' value="<?php echo $idPiece?>">
+        <input type="hidden" name='id_capteur' value="<?php echo $infoCapteur['id']?>">
             <div class="card-n">
                 <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="80%" alt="">
                 <div class="banniere">
-                    Eco'Light
+                    <?php echo $infoCapteur['nom']?>
                 </div>
+                <input type="submit" value="Voir">
             </div>
-            <div class="input">
-            </div>
+        </form>
+
+        <?php
+        }
+        ?>
 
         </div>
-
 </div>
-
-<script type="text/javascript">
-
-function goBack() {
-  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=piece";
-}
-
-function goTo() {
-  document.location.href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=detailsCapteur";
-}
-</script>

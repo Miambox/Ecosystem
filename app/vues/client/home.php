@@ -10,7 +10,7 @@
         <input type="submit" value="Connexion">
       </form>
       <button type="submit" id="gotoInscription"> Inscription </button>
-      <br><a href="<?=ROOT_URL?>?Route=admin&amp;Ctrl=client&amp;Vue=logement">DEV: Go to admin</a>
+      <br><a href="<?=ROOT_URL?>?Route=admin&amp;Ctrl=general&amp;Vue=general">DEV: Go to admin</a>
       <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=logement&amp;Vue=vuePrincipale">DEV: Go to client</a>
       <a href="<?=ROOT_URL?>?Route=adminsupreme&amp;Ctrl=general&amp;Vue=home">DEV: Go to admin supreme</a>
   </div>
