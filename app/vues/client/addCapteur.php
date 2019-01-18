@@ -5,20 +5,20 @@
     <input type="hidden" name="id_logement" value="<?php echo $id_logement ?>">
     <input type="hidden" name="id_piece" value="<?php echo $id_piece ?>">
     <div>
-      <input type="number" name="ref" placeholder="">
+      <input type="number" name="ref" placeholder="" required>
       <label for="nom">*</label>
     </div>
 
     <label for="">Détails</label>
     <div>
-      <input type="text" name="nom" placeholder="Nom">
+      <input type="text" name="nom" placeholder="Nom" required>
       <label for="nom">*</label>
     </div>
     <div>
-      <input type="text" name="unit" placeholder="Unité de mesure">
+      <input type="text" name="unit" placeholder="Unité de mesure" required>
       <label for="nom">*</label>
     </div>
-    
+
     <SELECT type="number" name="type" size="1">
         <OPTION value="1">Eco'light</OPTION>
     </SELECT>
