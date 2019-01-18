@@ -1,4 +1,4 @@
-<h1> Eco'Admin <h1>
+<h1> Eco'Message <h1>
   <h2> Comment gérer votre site ? <h2><br>
 
 
@@ -11,7 +11,7 @@
         </div>
 
         <div class ="mentionsLegales">
-          <a href="<?=ROOT_URL?>?Route=admin&amp;Ctrl=mentionsLegales&amp;Vue=mentionsLegales" title ="Faq" >
+          <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=general&amp;Vue=mentionLegale" title ="Faq" >
           <p> <img src="<?=ROOT_URL?>static/image/icon/crayon.png">  Éditez vos Mentions Légales</p> 
           
           </div>
@@ -24,3 +24,5 @@
 
 
         </div>
+
+
