@@ -1,20 +1,24 @@
 <?php
+$bdd = new PDO('mysql:host=localhost; dbname=ecosystem; charset=utf8','root','root');
+$donnees = $bdd->query('SELECT nom
+                        FROM utilisateur');
+$allName = array();
+while($name = $donnees->fetch()) {
+    $nomClient = array($name['nom']);
+    array_push($allName,$nomClient[0]);
+}
 
-// These values may have been gotten from a database.
-// We'll use a simple array just to show this example.
-$values = ['Neo',
-            'Ibiyemi',
-            'Olayinka',
-            'Jonathan',
-            'Stephen', 
-            'Fisayo', 
-            'Gideon',
-            'Mezie',
-            'Oreoluwa', 
-            'Jordan', 
-            'Enkay', 
-            'Michelle', 
-            'Jessica'];
+// array_unique supprime tous les valeurs en doublons dans un tableau
+$allNameOnce = array_unique($allName);
 
-echo json_encode(array_values($values));
+// Bizarrement, $allNameOnce ne s'affiche pas correctement
+// On va copier tous les valeurs de *allNameOnce dans un tableau $arrayNom
+$arrayNom = array();
+foreach($allNameOnce as $nom){
+    $arrayNom[] = $nom;
+}
+
+$myJSON = json_encode($arrayNom);
+
+echo $myJSON;
 ?>

@@ -1,35 +1,3 @@
-<?php
-
-/*
-try
-{
-	// On se connecte à MySQL
-	$bdd = new PDO('mysql:host=localhost;dbname=ecosystem;charset=utf8', 'root', 'root');
-}
-catch(Exception $e)
-{
-	// En cas d'erreur, on affiche un message et on arrête tout
-        die('Erreur : '.$e->getMessage());
-}
-
-
-$capteur = $bdd->query('SELECT * FROM objet o
-                        INNER JOIN piece p ON o.id_piece = p.id
-                        WHERE p.id = 1
-                        ');
-$piece = $bdd->query('SELECT * FROM piece p
-											WHERE p.id = 1
-											');
-$donneespiece = $piece->fetch()
-
-
-<a href="javascript:history.back()">Retour aux pieces</a>
-*/
-
-
-?>
-
-
 <div class="container-piece-capteurs">
   <div class="container-resume-piece">
 

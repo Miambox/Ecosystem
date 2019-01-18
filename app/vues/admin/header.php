@@ -64,7 +64,7 @@
                 <div class="container-searchbar">
                   <form autocomplete="off" action="?Route=admin&Ctrl=general&Vue=listeClient" method="post">
                     <div id="searchbar-desktop" class="searchbar">
-                      <input type="search" name="search" id="search-desktop" placeholder="Rentrez le nom du client ...">
+                      <input type="search" name="nomClient" id="search-desktop" placeholder="Rentrez le nom du client ...">
                       <input type="image" value="Submit" id="loupe" src="<?=ROOT_URL?>/static/image/icon/search-logo-lp.png">
                       <!-- <a href="?Route=admin&Ctrl=general&Vue=listeClient">
                         <img src="<?=ROOT_URL?>static/image/icon/search2-logo-grey-lp.png" alt="">

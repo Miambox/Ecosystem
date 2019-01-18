@@ -57,6 +57,16 @@ function autocomplete(inp, arr) {
     });
 }
 
-var nomClient = ["Ly", "Dupond", "De Sousa", "Perrault", "Forterre", "Remati", "Penin", "Feller"];
+var nomClient;
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    nomClient = JSON.parse(this.responseText);
+  }
+};
+xmlhttp.open("GET", "app/model/admin/query.php", false);
+xmlhttp.send();
+
+// var nomClient = ["Ly", "Dupond", "De Sousa", "Perrault", "Forterre", "Remati", "Penin", "Feller"];
 
 autocomplete(document.getElementById("search-desktop"), nomClient);
