@@ -1,25 +1,26 @@
 <div class="container-details-capteur">
-<?php
-
-//echo $donneesCapteur['nom'];
-
-?>
   <div class="container-logo">
     <a type="button" href="javascript:history.back()" class="btn-retour-piece">Retour véranda</a>
     <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="100%" alt="">
     <div class="on_off">
       <span>Eteindre/Allumer le capteur</span>
-      <?php if ($donneesCapteur['etat']=="marche"): ?>
+      <form class="" action="?Route=Client&Ctrl=capteur&Vue=activeCapteur" id="formulaireActiveCapteur" method="post">
         <label class="toggle-button">
-          <input type="checkbox" checked>
+          <?php
+          if($etatCapteur[0]['etat'] == 'on') {
+            ?>
+            <input type="checkbox" name="off-capteur" onchange="document.getElementById('formulaireActiveCapteur').submit();" checked>
+            <?php
+          } else {
+            ?>
+            <input type="checkbox" name="on_capteur" onchange="document.getElementById('formulaireActiveCapteur').submit();">
+            <?php
+          }
+          ?>
           <span class="slider round"></span>
         </label>
-      <?php else : ?>
-        <label class="toggle-button">
-          <input type="checkbox" >
-          <span class="slider round"></span>
-        </label>
-      <?php endif ?>
+        <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
+      </form>
     </div>
   </div>
 
@@ -27,8 +28,8 @@
 
     <div class="programme">
       <h2>Programmer un horaire</h2>
-      <button class="button-ajouter" type="button" name="button" id="ajouterProgramme">Ajouter</button>
-      <button class="button-visualiser" type="button" name="button" id="visualiserProgramme">Visualiser</button>
+      <button class="button-ajouter" type="button" name="button" onclick="openAjouterHorairePopup(<?=$idCapteur?>)">Ajouter</button>
+      <button class="button-visualiser" type="button" name="button" onclick="openVisualiserHorairePopup(<?=$idCapteur?>)">Visualiser</button>
     </div>
 
     <div class="diagramme-baton">
@@ -56,111 +57,95 @@
       </div>
     </div>
 
+    <!--AFFICHAGE DES AMBIANCES-->
     <div class="ambiance">
-      <h2>Gérer vos ambiances <button type="button" name="button"id="ajouterAmbiance">+</button> </h2>
-      <div class="">
-        <ul>
-          <li>
-            <span>Tamisé</span>
-            <label class="toggle-button">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
-          </li>
-          <li>
-            <span>Travail</span>
-            <label class="toggle-button">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
-          </li>
-          <li>
-            <span>Illumination Max</span>
-            <label class="toggle-button">
-              <input type="checkbox">
-              <span class="slider round"></span>
-            </label>
-          </li>
-        </ul>
+      <h2>Gérer vos ambiances</h2>
+      <button type="button" name="button" onclick="openAddAmbiance(<?=$idCapteur?>)">Ajouter une ambiance</button>
+      <div class="ambiance-list">
+        <?php
+        if(sizeof($liste_ambiance) != 0) {
+          foreach ($liste_ambiance as $key => $value) {
+          ?>
+          <form class="" action="?Route=client&Ctrl=capteur&Vue=supprimerAmbiance" method="post">
+            <label for="nom"><?=$value['nom'] ?></label>
+            <input type="hidden" name="id_capteur" value="<?=$idCapteur ?>">
+            <input type="hidden" name="id_ambiance" value="<?= $value['id'] ?>">
+            <input type="submit" name="" value="&times">
+          </form>
+          <?php
+          }
+        }
+        ?>
       </div>
     </div>
+
   </div>
 </div>
 
-<div class="container-modal" id="container-modal">
+<!--POPUP MODAL AJOUT AMBIANCE-->
+<div class="container-modal" id="container-modal-add-ambiance<?=$idCapteur?>">
   <div class="modal modal-ambiance">
     <div class="modal-head">
-      <button class="close" id="close">&times;</button>
+      <button class="close" onclick="closeAddAmmbiancePopup(<?=$idCapteur?>)">&times;</button>
       <p>Ajouter une ambiance</p>
     </div>
     <div class="modal-text">
-      <form class="name-ambiance" action="#" method="post">
-        <label for="name_ambiance">Nom</label>
-        <input type="text" name="name_ambiance" value="">
+      <form class="" action="?Route=client&Ctrl=capteur&Vue=addAmbiance" method="post">
+        <div class="">
+          <label for="nom">Nom</label>
+          <input type="text" name="nom" value="" required>
+        </div>
+        <div class="">
+          <label for="valeur">Pourcentage de luminosité:</label>
+          <input type="number" name="valeur" value="" required>%
+        </div>
+        <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
+        <input type="submit" name="" value="Ajouter">
       </form>
-      <div class="modal-diagramme-circulaire">
-        <div class="" id='diagrammeCirculaireModal'>
-        </div>
-        <div class="plus_moins_modal">
-          <button type="button" name="button" class="ajouterLuminositeModal">+</button>
-          <button type="button" name="button" class="diminuerLuminositeModal">-</button>
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" name="button" clas="ajouterAmbiance">Ajouter</button>
     </div>
   </div>
 </div>
 
-
-<!-- Ancien container pour ajouter un programme -->
-<div class="container-big-modal" id="container-modal-ajouter-programme">
-  <form class="modal-big modal-ajouter-programme" action="?Route=Client&Ctrl=capteur&Vue=addProgramme" method="post">
-      <div class="modal-big-head">
-        <button class="close" id="close-ajouter-programme">&times;</button>
+<!--POPUP AJOUT PROGRAMME-->
+<div class="container-modal" id="container-modal-ajouter-programme<?=$idCapteur?>">
+  <form class="modal modal-ajouter-programme" action="?Route=Client&Ctrl=capteur&Vue=addProgramme" method="post">
+      <div class="modal-head">
+        <button class="close" onclick="closeAjouterHorairePopup(<?=$idCapteur?>)">&times;</button>
         <p>Ajouter un programme</p>
       </div>
-      <div class="modal-big-text">
-        <div class="modal-big-text-one">
-          <h3>Selectionner date et heure</h3>
-          <p>
-            <label for="">Activez l'alarme :</label>
-            <input type="time" name="heure_debut" value="">
-            <label for="">à</label>
-            <input type="time" name="heure_fin" value="">
-            <label for="">le</label>
-            <input type="date" name="date" value="">
-          </p>
-      </div>
-      <div class="modal-big-text-two select-ambiance">
-        <h3>Selectionner une ambiance</h3>
-        <span>( Vous devez sélectionner qu'un seule ambiance ..)</span>
-        <ul>
-          <li>
-            <select name="ambiance">
-              <?php
-                foreach ($liste_ambiance as $key => $value) {
-              ?>
-              <option value="<?php echo $value['id']  ?>"><?php echo $value['nom']  ?></option>
-              <?php
-              }
-              ?>
-            </select>
-          </li>
-        </ul>
-      </div>
-    </div>
-      <div class="modal-big-footer">
-      <input type="submit" name="" class="ajouterProgramme" value="Ajouter">
+      <div class="modal-text">
+        <h3>Selectionner date et heure</h3>
+        <p>
+          <label for="">Activez l'alarme :</label>
+          <input type="time" name="heure_debut" value="" required>
+          <label for="">à</label>
+          <input type="time" name="heure_fin" value="" required>
+          <label for="">le</label>
+          <input type="date" name="date" value="" required>
+        </p>
+        <div class="">
+          <h3>Selectionner une ambiance</h3>
+          <select name="ambiance" required>
+            <?php
+              foreach ($liste_ambiance as $key => $value) {
+            ?>
+            <option value="<?php echo $value['id']  ?>"><?php echo $value['nom']  ?></option>
+            <?php
+            }
+            ?>
+          </select>
+        </div>
+        <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
+        <input type="submit" name="" class="ajouterProgramme" value="Ajouter">
     </div>
   </form>
 </div>
 
-<div class="container-big-modal" id="container-modal-visualiser-programme">
+
+<div class="container-big-modal" id="container-modal-visualiser-programme<?=$idCapteur?>">
   <div class="modal-big modal-visualiser-programme">
     <div class="modal-big-head">
-      <button class="close" id="close-visualiser-programme">&times;</button>
+      <button class="close" onclick="closeVisualiserHorairePopup(<?=$idCapteur?>)">&times;</button>
       <p>Vos différents programmes</p>
     </div>
     <div class="modal-big-text">
@@ -191,6 +176,7 @@
                   ?>
                   <span class="slider round"></span>
                 </label>
+                <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
               </form>
             </td>
             <td>
@@ -198,8 +184,9 @@
             </td>
             <td>
               <form class="" action="?Route=Client&Ctrl=capteur&Vue=supprimerProgramme" method="post">
+                <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
                 <input type="hidden" name="id_programme" value="<?php echo $value['id'] ?>">
-                <input type="submit" name="" value="x">
+                <input type="submit" name="" value="&times">
               </form>
             </td>
           </tr>
@@ -209,10 +196,6 @@
         ?>
       </table>
     </div>
-    <div class="modal-big-footer">
-
-    </div>
-
   </div>
 
 </div>
