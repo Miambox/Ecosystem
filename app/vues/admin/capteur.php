@@ -1,4 +1,9 @@
-<button type="button" class="goBack" onclick="backToHome()">Retour à la page Piece</button>
+<form action="?Route=admin&Ctrl=client&Vue=piece" method="post">
+    <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
+    <input type="hidden" name="id" value="<?php echo $id?>">
+    <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">
+    <input type="submit" name="" value="Retour aux pieces">
+</form>
 
 <?php
 $donneesPiece = donneesPiece($bdd,$idPiece)->fetch();
@@ -26,7 +31,11 @@ $donneesPiece = donneesPiece($bdd,$idPiece)->fetch();
         ?>
 
         <form action="?Route=admin&Ctrl=client&Vue=detailsCapteur" method="post">
-        <input type="hidden" name='id' value="<?php echo $infoPiece['id']?>">
+        <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
+        <input type="hidden" name="id" value="<?php echo $id?>">
+        <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">
+        <input type="hidden" name='id_piece' value="<?php echo $idPiece?>">
+        <input type="hidden" name='id_capteur' value="<?php echo $infoCapteur['id']?>">
             <div class="card-n">
                 <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="80%" alt="">
                 <div class="banniere">

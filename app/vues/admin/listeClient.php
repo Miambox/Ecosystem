@@ -7,6 +7,7 @@ switch($affiche){
         foreach($infoClient as $info){
 ?>
         <form action="?Route=admin&Ctrl=client&Vue=logement" method="post">
+        <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
         <input type="hidden" name='id' value="<?php echo $info['id']?>">
             <div class="card-n">
                 <img src="<?=ROOT_URL?>static/image/icon/user-profil.png" width="100%" alt="">
