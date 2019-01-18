@@ -66,17 +66,21 @@
                     <div id="searchbar-desktop" class="searchbar">
                       <input type="search" name="nomClient" id="search-desktop" placeholder="Rentrez le nom du client ...">
                       <input type="image" value="Submit" id="loupe" src="<?=ROOT_URL?>/static/image/icon/search-logo-lp.png">
-                      <!-- <a href="?Route=admin&Ctrl=general&Vue=listeClient">
-                        <img src="<?=ROOT_URL?>static/image/icon/search2-logo-grey-lp.png" alt="">
-                      </a> -->
                     </div>
                   </form>
                 </div>
               </li>
               <li>
-                <a href="#" id="ticket-alerte">
+                <?php if(isset($_SESSION['id'])) {
+                  ?>
+                  <a href="?Route=client&Ctrl=signin&Vue=deconnexion" >
+                    Deconnexion
+                  </a>
+                  <?php
+                } ?>
+                <!-- <a href="#" id="ticket-alerte">
                   <img src="<?=ROOT_URL?>/static/image/icon/bell-logo-lp.png" alt="Alerte">
-                </a>
+                </a> -->
               </li>
           </ul>
       </nav>
