@@ -1,15 +1,15 @@
 <div class="container-piece-capteurs">
   <div class="container-resume-piece">
 
-    <form class="button" action="?Route=client&Ctrl=piece&Vue=vuePrincipale" method="post">
-      <input type="hidden" name="id_logement" value="<?php echo $donneespiece['id'] ?>">
+    <form class="" action="?Route=client&Ctrl=piece&Vue=vuePrincipale" method="post">
+      <input type="hidden" name="id_logement" value="<?php echo $IDLOGEMENT ?>">
       <input type="submit" name="" value="retour aux pieces">
     </form>
 
     <div class="resume-piece">
-      <img class="photo-piece" src="<?=ROOT_URL?>/static/image/icon/cours-isep.jpg" alt="">
+      <img class="photo-piece" src="<?=ROOT_URL?>/static/image/icon/piece.jpg" alt="">
       <div class="description-piece">
-        <h4><?php echo $donneespiece['nom']; ?></h4>
+        <h4><?php echo $donneespiece['nom'] ?></h4>
         <p>Type: <?php echo $donneespiece['type'] ?></p>
         <p>Surface: <?php echo $donneespiece['surface'] ?>m²</p>
 				<?php
@@ -30,14 +30,38 @@
         <ul>
           <li><h5><?php echo $donnees['nom']; ?></h5></li>
           <li>
-            <button type="button" name="button" class="button-config-capteur" id="button-config-capteur" onclick="ouvreParemetresLogement()">
-              <img src="<?=ROOT_URL?>/static/image/icon/parameters-logo-lp.png" width="100%" alt="">
-            </button>
             <nav id="parametres-capteur">
               <ul>
-                <li><a href="#" onclick="supprimer()">Supprimer</a></li>
+                <li>
+                  <a href="#" onclick="openDeletePopup(<?= $donnees['id']?>)">
+                  Supprimer
+                </a>
+
+                </li>
               </ul>
             </nav>
+            <!--POP up suppression-->
+            <div class="container-modal" id="container-modal-supprimer<?= $donnees['id']?>">
+              <div class="modal modal-supprimer">
+                <div class="modal-head">
+                  <button class="close" onclick="closeDeletePopup(<?= $donnees['id']?>)">&times;</button>
+                  <p>Etes-vous sûr de vouloir supprimer ce capteur?</p>
+                </div>
+                <div class="modal-text">
+                  <form class="" action="?Route=client&Ctrl=capteur&Vue=supprimerCapteur" method="post">
+                    <div class="form-group">
+                      <label for="code_postal">Rentrer le nom du capteur<br></label>
+                      <input type="text" name="nom" value="" required>
+                      <input type="hidden" name="id_capteur" value="<?=$donnees['id'] ?>">
+                      <input type="hidden" name="id_piece" value="<?=$donneespiece['id'] ?>">
+                      <input type="hidden" name="id_logement" value="<?= $IDLOGEMENT ?>">
+                    </div>
+                    <button type="submit" name="button" class="supprimerLogement">Valider</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
           </li>
         </ul>
       </div>
@@ -47,9 +71,9 @@
       <div class="card-banniere">
       </div>
       <div class="card-footer">
-        <form class="btn-capteur" action="?Route=client&Ctrl=capteur&Vue=details" method="post">
+        <form class="" action="?Route=client&Ctrl=capteur&Vue=details" method="post">
           <input type="hidden" name="id_capteur" value="<?php echo $donnees['id'] ?>">
-          <input type="submit" name="" value="Plus de détails">
+          <input type="submit" name="" class='button-config-capteur' value="Plus de détails">
         </form>
       </div>
     </div>
@@ -58,14 +82,15 @@
 		}
 		 ?>
 
-    <button type="button" name="button" onclick="ajouterCapteur()">+</button>
     <form class="" action="?Route=client&Ctrl=capteur&Vue=addCapteur" method="post">
       <input type="hidden" name="id_piece" value="<?php echo $donneespiece['id']  ?>">
+      <input type="hidden" name="id_logement" value="<?php echo $IDLOGEMENT  ?>">
       <input type="submit" name="button" value="+">
     </form>
   </div>
 </div>
 
+<!--
 <div class="container-modal" id="container-modal-supprimer">
   <div class="modal modal-supprimer">
     <div class="modal-head">
@@ -83,6 +108,19 @@
     </div>
   </div>
 </div>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script type="text/javascript">
   function modal(modal, close) {

@@ -67,7 +67,7 @@ function desactiveCapteur($bdd, $value) {
 **/
 function insererNouveauCapteur($bdd, $capteur) {
 
-  $etat = 1;
+  $etat = "marche";
 
   $query = 'INSERT INTO objet(
     numero_ref,
@@ -241,5 +241,28 @@ function desactiveProgramme($bdd, $value) {
   $donnees->bindParam(":id_programme", $value['id_programme']);
   $donnees->bindParam(":check_programme", $value['off_programme']);
   return $donnees->execute();
+}
+
+function supprimerCapteur($bdd, $capteur) {
+  $queryVerif = 'SELECT nom FROM objet WHERE objet.id = :id_capteur';
+  $donneesVerif = $bdd->prepare($queryVerif);
+  $donneesVerif->bindParam(":id_capteur", $capteur['id']);
+  $donneesVerif->execute();
+  $response = $donneesVerif->fetchAll();
+  foreach ($response as $key => $value) {
+    $nom = $value['nom'];
+  }
+  if($donneesVerif) {
+    if($nom == $capteur['nom']) {
+      $query = 'DELETE FROM objet WHERE objet.id = :id_capteur';
+      $donnees = $bdd->prepare($query);
+      $donnees->bindParam(":id_capteur", $capteur['id']);
+      return $donnees->execute();
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
 }
 ?>

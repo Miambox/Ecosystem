@@ -2,6 +2,7 @@
 <div class="card-addCapteur">
   <form class="" action="?Route=client&Ctrl=capteur&Vue=addCapteur" method="post">
     <p> Ajout d'un capteur par référence </p>
+    <input type="hidden" name="id_logement" value="<?php echo $id_logement ?>">
     <input type="hidden" name="id_piece" value="<?php echo $id_piece ?>">
     <input type="number" name="ref" placeholder="">
     <label for="">Détails</label>
