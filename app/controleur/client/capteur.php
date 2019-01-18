@@ -7,10 +7,18 @@ switch ($action) {
 
         $vue = "capteur";
         $title = "Les capteurs";
+        if(isset ($_POST["id_piece"]) and isset ($_POST["id_logement"]) ){
+          $IDPIECE = $_POST["id_piece"];
+          $IDLOGEMENT = $_POST["id_logement"];
+        } else if(isset($_GET['id_piece']) and isset ($_GET["id_logement"]) ){
+          $IDPIECE = $_GET["id_piece"];
+          $IDLOGEMENT = $_GET["id_logement"];
+        } else {
+          header('Location: ?Route=client&Ctrl=capteur');
+        }
 
-        $donneesCapteur = selectionerCapteur($bdd, 1);
-        $donneespiece = infoPiece($bdd, 1);
-
+        $donneesCapteur = selectionerCapteur($bdd, $IDPIECE);
+        $donneespiece = infoPiece($bdd, $IDPIECE);
         break;
 
     case 'addCapteur':
@@ -18,7 +26,7 @@ switch ($action) {
         $title = "Ajouter un capteur";
         $vue = "addCapteur";
         $id_piece = $_POST['id_piece'];
-
+        $id_logement = $_POST['id_logement'];
         if( isset($_POST['ref']) and
             isset($_POST['nom']) and
             isset($_POST['unit']) and
@@ -36,16 +44,36 @@ switch ($action) {
           $request = insererNouveauCapteur($bdd, $values);
 
           if(isset($request)) {
-            header('Location: ?Route=client&Ctrl=capteur&Vue=vuePrincipale');
+            header('Location: ?Route=client&Ctrl=capteur&Vue=vuePrincipale&id_piece='. $id_piece . '&id_logement='. $id_logement);
           }
         } else {
           $alerte = 1;
           $alerte_explication= 'Vous avez oublié un champs obligatoire, merci de recommencer.';
         }
+    break;
 
-        break;
+    case 'supprimerCapteur':
 
-    // Vue permettant de voir les détails du capteur
+      if(isset($_POST['id_capteur']) and isset($_POST['nom'])) {
+        $id_logement = $_POST['id_logement'];
+        $id_piece = $_POST['id_piece'];
+        $capteur = [
+          'id'      => securitePourXSSFail($_POST['id_capteur']),
+          'nom'    => securitePourXSSFail($_POST['nom']),
+        ];
+
+        $request = supprimerCapteur($bdd, $capteur);
+
+        if($request) {
+          header('Location: ?Route=client&Ctrl=capteur&Vue=vuePrincipale&id_piece='. $id_piece . '&id_logement='. $id_logement);
+        } else {
+          header('Location: ?Route=client&Ctrl=capteur');
+        }
+      } else {
+        header('Location: ?Route=client&Ctrl=capteur');
+      }
+    break;
+
     case 'details':
         $title = "Détails capteur";
         $vue = "detailsCapteur";
@@ -239,7 +267,7 @@ switch ($action) {
 
     default:
         $title = "error404";
-        $vue="erreur404";
+        $vue = "erreur404";
 }
 
 include ('app/vues/client/header.php');

@@ -24,6 +24,13 @@ switch ($action) {
 
         break;
 
+    case 'chatbis':
+
+        $vue = "chatbis";
+        $title = "Chatbis";
+
+        break;
+
     case 'capteur':
 
         $nomClient = $_POST['nomClient'];

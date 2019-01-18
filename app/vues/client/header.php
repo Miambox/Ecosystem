@@ -48,6 +48,11 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addPiece/addPiece-desktop.css">
     <!-- page ajout de capteur -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addCapteur/addCapteur-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/chat.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/faq.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/mentionsLegales.css">
+    <!-- Mot de passe oubliée-->
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/motdepasseoublie.css">
     <!-- 404 -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/erreur404.css">
 
@@ -71,15 +76,70 @@
       </div>
       <nav id="menu">
           <ul>
-              <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=general&Vue=home"><img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" alt=""></a></li>
-              <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=profil&Vue=vuePrincipale"> Profil </a></li>
-              <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=logement&Vue=vuePrincipale">Gestion des capteurs</a></li>
-              <li><a href="#">Connexion</a></li>
               <li>
+                <?php
+                if(!isset($_SESSION['id'])) {
+                  ?>
+                  <a href="<?=ROOT_URL?>?Route=client&Ctrl=general&Vue=home">
+                    <img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" alt="">
+                  </a>
+                  <?php
+                } else {
+                  ?>
+                  <img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" width="10%" alt="">
+                  <?php
+                }
+                ?>
+              </li>
+              <li>
+                <?php
+                if(isset($_SESSION['id'])) {
+                  ?>
+                  <a href="<?=ROOT_URL?>?Route=client&Ctrl=profil&Vue=vuePrincipale">
+                  Profil
+                  </a>
+                  <?php
+                }
+                ?>
+              </li>
+              <li>
+                <?php
+                if(isset($_SESSION['id'])) {
+                  ?>
+                  <a href="<?=ROOT_URL?>?Route=client&Ctrl=logement&Vue=vuePrincipale">
+                    Gestion des capteurs
+                  </a>
+                  <?php
+                }
+                ?>
+              </li>
+              <li>
+                <?php
+                if(isset($_SESSION['id'])) {
+                  ?>
+                  <a href="<?=ROOT_URL?>?Route=client&Ctrl=chat&Vue=chat">
+                    Nous contacter
+                  </a>
+                  <?php
+                }
+                ?>
+              </li>
+              <li>
+                <?php
+                if(isset($_SESSION['id'])) {
+                  ?>
+                  <a href="<?=ROOT_URL?>?Route=client&Ctrl=signin&Vue=deconnexion">
+                    Deconnexion
+                  </a>
+                  <?php
+                }
+                ?>
+              </li>
+              <!-- <li>
                 <a href="#" id="ticket-alerte">
                   <img src="<?=ROOT_URL?>/static/image/icon/bell-logo-lp.png" alt="Alerte">
                 </a>
-              </li>
+              </li> -->
           </ul>
       </nav>
     </header>
