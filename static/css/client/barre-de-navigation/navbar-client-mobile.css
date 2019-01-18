@@ -1,4 +1,4 @@
-/*******************(MOBILE PORTRAIT: résolution adaptatif)****************************/
+/********************(MOBILE PORTRAIT: résolution adaptatif)****************************/
 @media only screen and (max-width: 768px) and (orientation: PORTRAIT){
     /* Container de la navbar */
     header {

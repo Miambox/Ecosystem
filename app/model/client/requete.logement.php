@@ -85,7 +85,7 @@ function supprimerLogement($bdd, $logement) {
       $query = 'DELETE FROM logement WHERE logement.id = :logement_id';
       $donnees = $bdd->prepare($query);
       $donnees->bindParam(":logement_id", $logement['id']);
-      return $donnees->execute();
+      return $donnees->fetchAll();
     } else {
       return false;
     }
