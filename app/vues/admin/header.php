@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/modal/modal-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/clientProfil.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/detailsCapteur.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/chatbis.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/general.css">
      <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/faq.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/listeClient.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/mentionsLegales.css">
 
     <title>Eco'system - admin</title>
   </head>
@@ -53,7 +54,7 @@
       </div>
       <nav>
           <ul>
-              <li><a href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=logement"><img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" alt=""></a></li>
+              <li><a href="<?=ROOT_URL?>?Route=admin&Ctrl=general&Vue=general"><img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" alt=""></a></li>
               <li>
                   <a href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=chatbis">
                     Chat
