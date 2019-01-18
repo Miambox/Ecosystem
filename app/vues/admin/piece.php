@@ -47,7 +47,14 @@ $donneesLogement = donneesLogement($bdd,$idLogement)->fetch();
 
         <?php
         $donneesPiece = piece($bdd, $idLogement)->fetchAll();
-        foreach($donneesPiece as $infoPiece) {
+
+        if($donneesPiece == null) {
+        ?>
+            <p id='textNoClient'>Aucune piece enregistrée pour ce logement</p>
+        <?php
+        }
+        else{
+            foreach($donneesPiece as $infoPiece) {
         ?>
 
         <form action="?Route=admin&Ctrl=client&Vue=capteur" method="post">
@@ -101,6 +108,7 @@ $donneesLogement = donneesLogement($bdd,$idLogement)->fetch();
             </div> -->
 
         <?php
+            }
         }
         ?>
         </div>

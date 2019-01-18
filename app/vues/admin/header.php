@@ -71,8 +71,8 @@
                 </div>
               </li>
               <li>
-                <a href="#" id="ticket-alerte">
-                  <img src="<?=ROOT_URL?>/static/image/icon/bell-logo-lp.png" alt="Alerte">
+                <a href="<?=ROOT_URL?>index.php" id="ticket-alerte">
+                  <img src="<?=ROOT_URL?>/static/image/icon/on-off.png" alt="Deconnexion">
                 </a>
               </li>
           </ul>
@@ -80,7 +80,7 @@
     </header>
 
     <!--Ticket -->
-    <div class="container-modal" id="container-modal-ticket">
+    <!-- <div class="container-modal" id="container-modal-ticket">
       <div class="modal modal-ticket">
         <div class="modal-head">
           <button class="close" id="close-ticket">&times;</button>
@@ -97,4 +97,4 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->

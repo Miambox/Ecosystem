@@ -44,7 +44,13 @@ $donneesProfil = donneesProfil($bdd, $id)->fetch();
         $donneesLogement = logement($bdd, $id)->fetchAll();
         //var_dump($donneesLogement);
         //echo "</pre>";
-        foreach($donneesLogement as $infoLogement) {
+        if($donneesLogement == null) {
+        ?>
+            <p id='textNoClient'>Aucun logement enregistré dans ce compte</p>
+        <?php
+        }
+        else{
+            foreach($donneesLogement as $infoLogement) {
         ?>
 
         <form action="?Route=admin&Ctrl=client&Vue=piece" method="post">
@@ -62,6 +68,7 @@ $donneesProfil = donneesProfil($bdd, $id)->fetch();
             </div>
         </form>
         <?php
+            }
         }
         ?>
         </div>

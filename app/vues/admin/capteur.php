@@ -27,10 +27,18 @@ $donneesPiece = donneesPiece($bdd,$idPiece)->fetch();
 
         <?php
         $donneesCapteur = capteur($bdd, $idPiece)->fetchAll();
-        foreach($donneesCapteur as $infoCapteur) {
+
+        if($donneesCapteur == null) {
+        ?>
+            <p id='textNoClient'>Aucun capteur enregitré pour cette pièce</p>
+        <?php
+        }
+        else{
+            foreach($donneesCapteur as $infoCapteur) {
         ?>
 
-        <form action="?Route=admin&Ctrl=client&Vue=detailsCapteur" method="post">
+        <!-- <form action="?Route=admin&Ctrl=client&Vue=detailsCapteur" method="post"> -->
+        <form action="?Route=client&Ctrl=capteur&Vue=details&id_capteur=<?=$infoCapteur['id'] ?>" method="post">
         <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
         <input type="hidden" name="id" value="<?php echo $id?>">
         <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">
@@ -46,6 +54,7 @@ $donneesPiece = donneesPiece($bdd,$idPiece)->fetch();
         </form>
 
         <?php
+            }
         }
         ?>
 
