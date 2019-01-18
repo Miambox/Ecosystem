@@ -1,0 +1,25 @@
+.droit {
+  display: flex;
+  flex-direction: row;
+}
+
+.droit > .card {
+  width: 400px;
+  height: 500px;
+  background-color: white;
+  border: solid 1px rgba(0,0,0,0.3);
+  box-shadow: 1px 2px 2px 2px rgba(0,0,0,0.3);
+  border-radius: 4px;
+  margin: auto;
+  margin-top: 2%;
+}
+
+.card-header {
+  height: 50px;
+  border-bottom: solid 1px rgba(0,0,0,0.3);
+}
+
+.card-body {
+  height: 400px;
+  overflow-y: auto;
+}

@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/clientProfil.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/detailsCapteur.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/listeClient.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/droit.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/erreur404.css">
 
     <title>Eco'system - admin</title>
   </head>
@@ -53,9 +55,16 @@
           <ul>
               <li><a href="<?=ROOT_URL?>?Route=admin&Ctrl=general&Vue=general"><img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" alt=""></a></li>
               <li>
-                  <a href="#" id="dropdown-contact">
-                    Chat
+                <?php
+                echo($_SESSION['user']['id']);
+                if($_SESSION['user']['type'] == "administrateur") {
+                  ?>
+                  <a href="?Route=admin&Ctrl=droit&Vue=vuePrincipale">
+                    Gérer les droits
                   </a>
+                  <?php
+                }
+                ?>
               </li>
               <li>
                 <div class="container-searchbar">
