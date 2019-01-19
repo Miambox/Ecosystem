@@ -1,4 +1,5 @@
 <div class="container-details-capteur">
+
   <div class="container-logo">
     <a type="button" href="javascript:history.back()" class="btn-retour-piece">Retour véranda</a>
     <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="100%" alt="">
@@ -46,6 +47,7 @@
 
     <div class="container-diagramme-circulaire">
       <h2>Taux de luminosité</h2>
+      <input type="hidden" name="" value="" id="capteur" data-id="<?=$idCapteur ?>">
       <div class="diagramme-circulaire">
         <div class="" id='diagrammeCirculaire'>
           <img src="<?=ROOT_URL?>/static/image/icon/loading-gif-lp.gif" width="65%" alt="">

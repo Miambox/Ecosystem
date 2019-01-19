@@ -2,8 +2,8 @@
 
 include("app/model/requete.generique.php"); // On connecte la base de donnée
 
-function selectValueOfCapteur($bdd) {
-  $objetId = 1;
+function selectValueOfCapteur($bdd, $id_capteur) {
+  $objetId = $id_capteur;
   $query = 'SELECT valeur FROM information where id_objet=:objetId ORDER BY date DESC LIMIT 0 , 1 ';
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":objetId", $objetId);
@@ -11,8 +11,8 @@ function selectValueOfCapteur($bdd) {
   return $donnees->fetchAll();
 }
 
-function insererNouvelleValeur($bdd, $value) {
-    $id_objet = 1;
+function insererNouvelleValeur($bdd, $value, $id_capteur) {
+    $id_objet = $id_capteur;
     $date = "2019-11-02";
     $time = "10:22:22";
 

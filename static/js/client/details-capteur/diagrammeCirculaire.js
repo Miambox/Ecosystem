@@ -5,7 +5,9 @@ google.charts.setOnLoadCallback(drawChart)
 function drawChart() {
 
   setInterval(function (data) {
-      $.get("?Route=client&Ctrl=data&Vue=capteur", function( data ) {
+      var capteur = document.getElementById('capteur');
+      var id_capteur = capteur.dataset.id;
+      $.get("?Route=client&Ctrl=data&Vue=capteur&id_capteur="+id_capteur, function( data ) {
         var arrayData = JSON.parse(data).dataPourcent;
 
         $("#ajouterLum").click(function(e) {
@@ -13,10 +15,9 @@ function drawChart() {
             $.ajax({
               url: '?Route=client&Ctrl=data&Vue=augmenterValeur',
               type: 'post',
-              data: {value: arrayData[0][1]+5},
+              data: {value: arrayData[0][1]+5, id_capteur: id_capteur},
               success: function(data) {
                 // Permet d'afficher les messages envoyés
-                console.log(data);
               }
               });
           }
@@ -31,7 +32,6 @@ function drawChart() {
               data: {value: arrayData[0][1]-5},
               success: function(data) {
                 // Permet d'afficher les messages envoyés
-                console.log(data);
               }
             });
           }

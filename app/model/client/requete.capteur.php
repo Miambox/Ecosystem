@@ -102,7 +102,7 @@ function insererNouveauCapteur($bdd, $capteur) {
 * Fonction permettant de sélectionner toutes les ambiances d'un utilisateur
 **/
 function selectionnerAmbiance($bdd) {
-  $utilisateurId = $_SESSION['user']['id'];
+  $utilisateurId = $_SESSION['id'];
   $query = 'SELECT
       *
     FROM mode
@@ -131,7 +131,7 @@ function selectionnerAmbianceParId($bdd, $ambianceId) {
 * Fonction permettant d'inserer une nouvelle ambiance
 **/
 function insererNouvelleAmbiance($bdd, $value) {
-  $id_utilisateur = $_SESSION['user']['id'];
+  $id_utilisateur = $_SESSION['id'];
 
   $query = 'INSERT INTO mode(
     nom,
