@@ -42,8 +42,11 @@ function inscrireEmployers($bdd, $value) {
 /**
 * Fonction permettant de supprimer un employé
 **/
-function supprimerEmployers($bdd) {
-
+function supprimerEmployers($bdd, $id_user) {
+  $query = 'DELETE FROM utilisateur WHERE id = :id_user';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":id_user", $id_user);
+  return $donnees->execute();
 }
 
 ?>

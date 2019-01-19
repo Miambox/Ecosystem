@@ -5,32 +5,30 @@
       Utilisateur de l'entreprise
     </div>
     <div class="card-body">
-      <table>
-        <tr>
-          <th>Nom</th>
-          <th>Prenom</th>
-          <th>Type</th>
-          <th>Actions</th>
-        </tr>
+      <ul>
+        <li>Nom</li>
+        <li>Prenom</li>
+        <li>Type</li>
+        <li>Actions</li>
+      </ul>
       <?php
       foreach ($liste_utilisateur as $key => $value) {
         ?>
-        <tr>
-          <th><?= $value['nom'] ?></th>
-          <th><?= $value['prenom'] ?></th>
-          <th><?= $value['type'] ?></th>
-          <th>
-            <form class="" action="index.html" method="post">
-              <input type="hidden" name="" value="<?= $value['id'] ?>">
+        <ul>
+          <li><?= $value['nom'] ?></li>
+          <li><?= $value['prenom'] ?></li>
+          <li><?= $value['type'] ?></li>
+          <li>
+            <form class="" action="?Route=admin&Ctrl=droit&Vue=supprimerEmploye" method="post">
+              <input type="hidden" name="id_user" value="<?= $value['id'] ?>">
               <input type="submit" name="" value="&times">
             </form>
-          </th>
-        </tr>
+          </li>
+        </ul>
+
         <?php
       }
       ?>
-      </table>
-
     </div>
   </div>
 
@@ -44,23 +42,35 @@
         <div class="">
           <input type="text" name="nom" value="" placeholder="Nom" required>
           <label for="nom">*</label>
+        </div>
 
-          <input type="prenom" name="prenom" placeholder="Prénom">
+        <div class="">
+          <input type="prenom" name="prenom" placeholder="Prénom" required>
           <label for="prenom">*</label>
+        </div>
 
-          <input type="" name="telephone" placeholder="Téléphone">
+        <div class="">
+          <input type="" name="telephone" placeholder="Téléphone" required>
           <label for="telephone">*</label>
+        </div>
 
-          <input type="email" name="mail" placeholder="E-mail">
+        <div class="">
+          <input type="email" name="mail" placeholder="E-mail" required>
           <label for="mail">*</label>
+        </div>
 
-          <input type="password" name="password" placeholder="Mot de passe">
+        <div class="">
+          <input type="password" name="password" placeholder="Mot de passe" required>
           <label for="password">*</label>
+        </div>
 
-          <select class="" name="type">
+        <div class="">
+          <select class="" name="type" required>
             <option value="depanneur">dépanneur</option>
             <option value="service_après_vente">service après vente</option>
           </select>
+          <label for="password">*</label>
+
         </div>
 
         <input type="submit" name="register" value="Inscrire l'employé" >

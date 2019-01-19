@@ -39,6 +39,22 @@ switch ($action) {
           }
     break;
 
+    case 'supprimerEmploye':
+      $title="Les droits";
+      $vue="droit";
+
+      if(isset($_POST['id_user'])) {
+        $request = supprimerEmployers($bdd, securitePourXSSFail($_POST['id_user']));
+        if($request) {
+          header('Location: ?Route=admin&Ctrl=droit&Vue=vuePrincipale');
+        } else {
+          header('Location: ?Route=admin&Ctrl=droit');
+        }
+      } else {
+        header('Location: ?Route=admin&Ctrl=droit');
+      }
+    break;
+
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $title = "error404";

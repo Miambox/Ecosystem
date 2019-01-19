@@ -59,13 +59,10 @@
               <li><a href="<?=ROOT_URL?>?Route=admin&Ctrl=general&Vue=general"><img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" alt=""></a></li>
               <li>
                 <?php
-                echo($_SESSION['user']['id']);
-                if($_SESSION['user']['type'] == "administrateur") {
+                if($_SESSION['type'] == "administrateur") {
                   ?>
                   <a href="?Route=admin&Ctrl=droit&Vue=vuePrincipale">
                     Gérer les droits
-                  <a href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=chatbis">
-                    Chat
                   </a>
                   <?php
                 }
