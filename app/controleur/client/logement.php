@@ -58,7 +58,6 @@ switch ($action) {
         if($request) {
           header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
         } else {
-          header('Location: ?Route=client&Ctrl=logement');
         }
       } else {
           header('Location: ?Route=client&Ctrl=logement');

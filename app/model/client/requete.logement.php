@@ -79,13 +79,11 @@ function supprimerLogement($bdd, $logement) {
     $code_postal = $value['code_postal'];
   }
   if($donneesVerif) {
-    var_dump($code_postal);
-    var_dump($logement['code_postal']);
     if($code_postal == $logement['code_postal']) {
-      $query = 'DELETE FROM logement WHERE logement.id = :logement_id';
+      $query = 'DELETE FROM logement WHERE id = :logement_id';
       $donnees = $bdd->prepare($query);
       $donnees->bindParam(":logement_id", $logement['id']);
-      return $donnees->fetchAll();
+      return $donnees->execute();
     } else {
       return false;
     }

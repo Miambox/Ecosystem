@@ -73,6 +73,7 @@
       <div class="card-footer">
         <form class="" action="?Route=client&Ctrl=capteur&Vue=details" method="post">
           <input type="hidden" name="id_capteur" value="<?php echo $donnees['id'] ?>">
+          <input type="hidden" name="id_piece" value="<?=$IDPIECE ?>">
           <input type="submit" name="" class='button-config-capteur' value="Plus de détails">
         </form>
       </div>

@@ -7,9 +7,11 @@ switch ($action) {
 
         $vue = "capteur";
         $title = "Les capteurs";
-        if(isset ($_POST["id_piece"]) and isset ($_POST["id_logement"]) ){
+        if(isset ($_POST["id_piece"])) {
+          if(isset($_POST["id_logement"])) {
+            $IDLOGEMENT = $_POST["id_logement"];
+          }
           $IDPIECE = $_POST["id_piece"];
-          $IDLOGEMENT = $_POST["id_logement"];
         } else if(isset($_GET['id_piece']) and isset ($_GET["id_logement"]) ){
           $IDPIECE = $_GET["id_piece"];
           $IDLOGEMENT = $_GET["id_logement"];
@@ -79,6 +81,7 @@ switch ($action) {
         $vue = "detailsCapteur";
 
         if(isset($_POST['id_capteur'])) {
+          $id_piece = securitePourXSSFail($_POST['id_piece']);
           $idCapteur = securitePourXSSFail($_POST['id_capteur']);
           $donneesCapteur =  infoCapteur($bdd, $idCapteur);
 
