@@ -82,10 +82,24 @@ function insert(PDO $bdd, array $values, string $table): bool {
     return $donnees->execute();
 }
 
+/**
+* Fontion permettant de contrer les fails HTML et quote etc.
+**/
 function securitePourXSSFail($string) {
   $string = htmlspecialchars($string);
 	$string = htmlentities($string);
 	return $string;
+}
+
+function convertTimeStampInDate($timestamp) {
+  $array_timestamp = explode("T", $timestamp);
+  return $array_timestamp[0];
+}
+
+function explodeTimeInTimestamp($timestamp) {
+  $array_timestamp = explode("T", $timestamp);
+  $array_time = explode("+", $array_timestamp[1]);
+  return $array_time[0];
 }
 
 ?>

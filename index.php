@@ -2,7 +2,7 @@
 namespace ECOSYSTEM;
 use ECOSYSTEM\app;
 session_start();
-
+date_default_timezone_set('Europe/Paris');
 ini_set('display_errors', 1);
 
 //More information on the global variable $_SERVER here ->

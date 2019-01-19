@@ -29,7 +29,7 @@ function drawChart() {
             $.ajax({
               url: '?Route=client&Ctrl=data&Vue=augmenterValeur',
               type: 'post',
-              data: {value: arrayData[0][1]-5},
+              data: {value: arrayData[0][1]-5, id_capteur: id_capteur},
               success: function(data) {
                 // Permet d'afficher les messages envoyés
               }
