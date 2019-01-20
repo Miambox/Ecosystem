@@ -1,5 +1,5 @@
-	<h1> Eco'FAQ <h1>
-		<h2> Aidez vos clients <h2><br>
+	<h1 class="faqTitre"> Eco'FAQ <h1>
+		<h2 class="faqSousTitre"> Aidez vos clients <h2><br>
 
 			<div class="container">
 				<div class="question">
