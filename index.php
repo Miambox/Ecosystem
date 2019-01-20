@@ -2,7 +2,7 @@
 namespace ECOSYSTEM;
 use ECOSYSTEM\app;
 session_start();
-
+date_default_timezone_set('Europe/Paris');
 ini_set('display_errors', 1);
 
 //More information on the global variable $_SERVER here ->
@@ -25,7 +25,15 @@ define('ROOT_PATH', __DIR__ . '/');
 if(!empty($_GET['Route'])) {
 	$route = $_GET['Route'];
 } else {
-	$route = 'client';
+	if(isset($_SESSION['id'])) {
+		if($_SESSION['type'] != "utilisateur") {
+			$route = 'admin';
+		} else {
+			$route = 'client';
+		}
+	} else {
+		$route = 'client';
+	}
 }
 
 // Remplissage d'un tableau ayant pour clé 'Ctrl' pour Choix de Contrôleur.
@@ -33,14 +41,30 @@ if(!empty($_GET['Route'])) {
 if(!empty($_GET['Ctrl'])) {
 	$controller = $_GET['Ctrl'];
 } else {
-	$controller = 'general'; // On initialise le contrôleur de base.
+	if(isset($_SESSION['id'])) {
+		if($_SESSION['type'] != "utilisateur") {
+			$controller = 'general';
+		} else {
+			$controller = 'logement';
+		}
+	} else {
+		$controller = 'general'; // On initialise le contrôleur de base.
+	}
 }
 
 // Remplissage d'un tableau ayant pour clé 'Vue' pour le Choix de la vue
 if(!empty($_GET['Vue'])){
     $action = $_GET['Vue'];
 } else {
-	$action = 'home'; // On initialise la vue de base.
+	if(isset($_SESSION['id'])) {
+		if($_SESSION['id'] != "utilisateur") {
+			$action = 'general';
+		} else {
+			$action = 'vuePrincipale';
+		}
+	} else {
+		$action = 'home'; // On initialise la vue de base.
+	}
 }
 
 // On stocke les valeurs choisies du contrôleurs et de l'action.

@@ -1,12 +1,14 @@
 /* Résolution d'écran d'ordinateur 100% à 130%*/
 @media only screen and (min-width: 1100px) and (max-width: 1800px) {
 
-  .card-signin > p {
+
+  .card-signin > form > p {
     background: #FAFAFA;
     color: #333333;
-      
-    }
-    
+    font-size: 20px;
+    color: #FE6801;
+  }
+
   .card-signin {
     width: 40%;
     border: solid 1px;
@@ -14,24 +16,42 @@
     box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
     background-color: #FAFAFA;
     border-radius: 5px;
-    margin-top: 8%;
+    margin-top: 2%;
     margin-left: 30%;
+    overflow-y: auto;
+    height: 500px;
   }
 
     .card-signin > form {
       display: flex;
       width: 80%;
-      padding:10%;
+      margin:auto;
       flex-direction: column;
       text-align: center;
       text-align: -moz-center;
       grid-area: main;
     }
 
-      .card-signin > form > input {
+      .card-signin > form > div > input {
         width: 80%;
         height: 25px;
-        margin-right: 10%;
+        margin-left: 10%;
+        margin-bottom: 4%;
+        padding: 2%;
+        border: solid 1Px;
+        border-color: rgba(0,0,0,0.3);
+        border-radius: 5px;
+      }
+      .card-signin > form > div:last-of-type > input {
+        width: 10%;
+        margin-left: 45%;
+      }
+
+      .card-signin > form > div > input:hover {
+        background-color: #FAFAFA;
+      }
+      .card-signin > form > div > select {
+        width: 85%;
         margin-left: 10%;
         margin-bottom: 4%;
         padding: 2%;
@@ -40,27 +60,34 @@
         border-radius: 5px;
       }
 
-      .card-signin > form > input:hover {
+      .card-signin > form > div > select:hover {
         background-color: #FAFAFA;
+      }
+      .card-signin > form > div > label {
+        color: red;
       }
 
 
       .card-signin > form > div {
-        width: 80%;
         display: flex;
         flex-direction: row;
-        margin-left: 10%;
       }
 
-        .card-signin > form > div > input {
+        .card-signin > form  > input {
           width: 30%;
-          border: solid 1px rgba(0,0,0,0.2);
-          border-radius: 5px;
+          border: none;
           padding: 2%;
-          margin-top: 10%;
+          margin-top: 1%;
+          margin-bottom: 4%;
           size: 16px;
           font-weight: 600;
-          margin-left: 12.5%;
+          margin-left: 35%;
+          color: white;
+          background-color: #FE6801;
+        }
+
+        .card-signin > form > input:hover {
+          box-shadow: 1px 2px 4px 2px rgba(0,0,0,0.3);
         }
 
 
@@ -162,6 +189,7 @@
     border-radius: 5px;
     margin-top: 10%;
     margin-left: 30%;
+    height: 500px;
   }
 
     .card-signin > form {

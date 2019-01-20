@@ -47,9 +47,14 @@
             header nav > ul > li:first-of-type { flex-basis: 10%; text-align: center; padding-left:2%; margin-right: 2%;}
             header nav > ul > li:nth-of-type(2) { flex-basis: 10%; }
             header nav > ul > li:nth-of-type(3) { flex-basis: 20%;}
-            header nav > ul > li:nth-of-type(4) { flex-basis: 15%; text-align: center;  margin-right: 16%; }
-            header nav > ul > li:nth-of-type(5) { flex-basis: 5%; text-align: center;}
-            header nav > ul > li:nth-of-type(6) { flex-basis: 20%; text-align: center;}
+            header nav > ul > li:nth-of-type(4) { flex-basis: 15%; text-align: center;  margin-right: 28%; }
+            header nav > ul > li:nth-of-type(5) { flex-basis: 13%; text-align: center; background-color: #FFB870;}
+            header nav > ul > li:nth-of-type(5) > a {
+              color: white;
+            }
+            header nav > ul > li:nth-of-type(5) > a:hover {
+              color: white;
+            }
 
               header nav > ul > li:last-of-type > a > img {
                 width: 10%;
@@ -100,6 +105,10 @@
 
                     /* Logo Eco'System */
                     header > nav > ul > li:first-of-type > a > img {
+                      width: 90%;
+                      vertical-align: middle; /*Alignement vertical au milieu*/
+                    }
+                    header > nav > ul > li:first-of-type > img {
                       width: 90%;
                       vertical-align: middle; /*Alignement vertical au milieu*/
                     }
