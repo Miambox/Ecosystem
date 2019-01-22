@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le :  mar. 22 jan. 2019 à 21:03
+-- Généré le :  mar. 22 jan. 2019 à 22:14
 -- Version du serveur :  5.6.34-log
 -- Version de PHP :  7.2.1
 
@@ -81,6 +81,13 @@ CREATE TABLE `logement` (
   `annee_construction` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `logement`
+--
+
+INSERT INTO `logement` (`id`, `photo`, `numero`, `rue`, `ville`, `code_postal`, `complement_adresse`, `nbr_habitant`, `surface`, `annee_construction`, `id_utilisateur`) VALUES
+(24, NULL, 16, 'DESNOUETTES', 'PARIS', 75015, NULL, 1, 14, 0, 17);
 
 -- --------------------------------------------------------
 
@@ -185,6 +192,13 @@ CREATE TABLE `piece` (
   `id_logement` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Déchargement des données de la table `piece`
+--
+
+INSERT INTO `piece` (`id`, `nom`, `surface`, `etage`, `type`, `id_logement`) VALUES
+(32, 'SALON', 12, 0, 'Salon', 24);
+
 -- --------------------------------------------------------
 
 --
@@ -201,6 +215,13 @@ CREATE TABLE `programmationhoraire` (
   `etat` varchar(11) DEFAULT NULL,
   `etat_second` varchar(5) NOT NULL DEFAULT 'off'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `programmationhoraire`
+--
+
+INSERT INTO `programmationhoraire` (`id`, `date`, `heure_debut`, `heure_fin`, `id_objet`, `id_mode`, `etat`, `etat_second`) VALUES
+(60, '2019-01-22', '23:12:00', '23:13:00', 9, 28, 'on', 'off');
 
 -- --------------------------------------------------------
 
@@ -295,9 +316,7 @@ ALTER TABLE `mode`
 -- Index pour la table `objet`
 --
 ALTER TABLE `objet`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_type` (`id_type_objet`),
-  ADD KEY `id_piece` (`id_piece`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `partagelogement`
@@ -358,13 +377,13 @@ ALTER TABLE `faq`
 -- AUTO_INCREMENT pour la table `information`
 --
 ALTER TABLE `information`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `logement`
 --
 ALTER TABLE `logement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT pour la table `mentionslegales`
@@ -382,13 +401,13 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT pour la table `mode`
 --
 ALTER TABLE `mode`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT pour la table `objet`
 --
 ALTER TABLE `objet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `partagelogement`
@@ -406,13 +425,13 @@ ALTER TABLE `partagepiece`
 -- AUTO_INCREMENT pour la table `piece`
 --
 ALTER TABLE `piece`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT pour la table `programmationhoraire`
 --
 ALTER TABLE `programmationhoraire`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT pour la table `typeobjet`
@@ -424,7 +443,7 @@ ALTER TABLE `typeobjet`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Contraintes pour les tables déchargées
@@ -442,13 +461,6 @@ ALTER TABLE `faq`
 ALTER TABLE `message`
   ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`id_expediteur`) REFERENCES `utilisateur` (`id`),
   ADD CONSTRAINT `message_ibfk_2` FOREIGN KEY (`id_destinataire`) REFERENCES `utilisateur` (`id`);
-
---
--- Contraintes pour la table `objet`
---
-ALTER TABLE `objet`
-  ADD CONSTRAINT `objet_ibfk_1` FOREIGN KEY (`id_type_objet`) REFERENCES `typeobjet` (`id`),
-  ADD CONSTRAINT `objet_ibfk_2` FOREIGN KEY (`id_piece`) REFERENCES `piece` (`id`);
 
 --
 -- Contraintes pour la table `partagepiece`
