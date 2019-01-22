@@ -16,10 +16,6 @@
                             <h3> Date de naissance </h3>
                             <h3> Numéro de téléphone </h3>
                             <h3> Adresse mail </h3>
-                        <a href="https://www.google.fr/" title="modifier profil"> <img src="<?=ROOT_URL?>static/image/icon/parameters-logo-lp.png" alt=""> </a>
-
-
-
             </div>
 
             <div class = "partage">
@@ -44,8 +40,6 @@
                 <div class="capteurs">
                     <h2> Mes capteurs </h2>
                     <figure class="ecolight">
-                        <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=capteur&amp;Vue=vuePrincipale" title="Voir mes capteurs"> <img src="<?=ROOT_URL?>static/image/icon/light.png" alt="">
-                        </a>
                     </figure>
 
 

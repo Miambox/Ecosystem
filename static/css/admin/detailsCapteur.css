@@ -1,7 +1,7 @@
 
 @media only screen and (min-width : 769px) {
   /*Bouton retour arriere*/
-  /* input[type="submit"] {
+  input[type="submit"] {
     cursor:pointer;
     border: solid 1px;
     margin-top: 2%;
@@ -16,7 +16,7 @@
   input[type="submit"]:hover {
     color: white;
     background-color: rgba(255, 208, 6, 0.8);
-  } */
+  }
 
   /*Bloc de gauche*/
   .container > .element:nth-child(1) {
@@ -318,7 +318,7 @@
 
 
   @media only screen and (max-width : 768px) {
-  
+
 
   /*Bloc de gauche*/
   .container > .element:nth-child(1) {

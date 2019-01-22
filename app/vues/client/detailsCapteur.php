@@ -1,11 +1,10 @@
 <div class="container-details-capteur">
 
   <div class="container-logo">
-    <form class="" action="?Route=client&Ctrl=capteur&Vue=vuePrincipale" method="post">
+    <form class="" action="?Route=client&Ctrl=capteur&Vue=vuePrincipale"  method="post">
       <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
-      <input type="submit" name="" value="Retour au capteur">
+      <input type="submit" name="" value="Retour au capteur" class="btn-retour-piece">
     </form>
-    <a type="button" href="javascript:history.back()" class="btn-retour-piece">Retour véranda</a>
     <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="100%" alt="">
     <div class="on_off">
       <span>Eteindre/Allumer le capteur</span>
