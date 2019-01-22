@@ -1,5 +1,8 @@
 <?php
-include('app/model/requete.faq.php');
+
+// @ Todo: En cours de développement, prêt pour la présentation
+
+include('app/model/admin/requete.faq.php');
 
 switch ($action) {
   // Vue permettant de visualiser la FAQ
@@ -7,7 +10,10 @@ switch ($action) {
       $vue        = "faq";
       $title      = "FAQ";
       $listeFAQ   = selectionnerFAQ($bdd);
-      if(isset($_POST['type']) and isset($_POST['question']) and isset($_POST['reponse']) and (($_POST['id_utilisateur']) ==3))  {
+      if( isset($_POST['type']) and
+          isset($_POST['question']) and
+          isset($_POST['reponse']) and
+          (($_POST['id_utilisateur']) ==3))  {
         $faq = [
           'type'       => htmlspecialchars($_POST['type']),
           'question'   => htmlspecialchars($_POST['question']),

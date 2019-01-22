@@ -1,6 +1,6 @@
 <?php
 
-include('app/model/requete.mentionsLegales.php');
+include('app/model/admin/requete.mentionsLegales.php');
 
 switch ($action) {
 

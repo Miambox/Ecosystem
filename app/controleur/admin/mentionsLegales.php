@@ -1,6 +1,6 @@
 <?php
 
-include('app/model/requete.mentionsLegales.php');
+include('app/model/admin/requete.mentionsLegales.php');
 
 switch ($action) {
 
@@ -12,7 +12,7 @@ switch ($action) {
 
         if(isset($_POST['message']))  {
           $mentionsLegales = [
-            'message'       => htmlspecialchars($_POST['message']),
+            'message'       => $_POST['message'],
           ];
          $request = insererMentionsLegales($bdd, $mentionsLegales);
          if($request) {

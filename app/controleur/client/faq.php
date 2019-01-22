@@ -1,6 +1,6 @@
 <?php
 
-include('app/model/requete.faq.php');
+include('app/model/admin/requete.faq.php');
 
 switch ($action) {
 

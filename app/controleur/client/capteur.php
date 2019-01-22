@@ -4,7 +4,6 @@ include('app/model/client/requete.capteur.php');
 switch ($action) {
 
     case 'vuePrincipale':
-
         $vue = "capteur";
         $title = "Les capteurs";
         if(isset ($_POST["id_piece"])) {

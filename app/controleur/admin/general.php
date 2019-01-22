@@ -25,6 +25,11 @@ switch ($action) {
         }
     break;
 
+    case 'cgu':
+      $vue="cgu";
+      $title="cgu";
+    break;
+
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $title  = "error404";

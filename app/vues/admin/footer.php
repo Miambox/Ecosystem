@@ -5,7 +5,6 @@
     <script type="text/javascript" src="<?=ROOT_URL?>static/js/admin/direction-page-suivante/goTo.js"></script>
 
     <script type="text/javascript" src="<?=ROOT_URL?>static/js/admin/searchbar/autocomplete.js"></script>
-
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   </body>
 </html>

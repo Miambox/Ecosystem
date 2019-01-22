@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/clientProfil.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/detailsCapteur.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/general.css">
-     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/faq.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/faq.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/listeClient.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/droit.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/erreur404.css">

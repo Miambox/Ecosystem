@@ -10,6 +10,7 @@ $donneesPiece = donneesPiece($bdd,$idPiece)->fetch();
 ?>
 
 <div class="container">
+
     <div class="element">
         <div class="photo">
             <img src="<?=ROOT_URL?>/static/image/icon/cuisine-image.bmp" width="100%" height="100%" alt="">

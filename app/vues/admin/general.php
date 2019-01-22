@@ -17,8 +17,8 @@
           </div>
 
           <div class ="cgu">
-             <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=general&amp;Vue=mentionLegale" title ="Faq">
-            <p> <img src="<?=ROOT_URL?>static/image/icon/crayon.png">  Éditez votre CGU</p>
+             <a href="<?=ROOT_URL?>?Route=admin&amp;Ctrl=general&amp;Vue=cgu">
+            <p> <img src="<?=ROOT_URL?>static/image/icon/crayon.png"> Éditez votre CGU</p>
           </div>
 
 

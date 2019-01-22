@@ -1,38 +1,29 @@
-	<h1> Eco'FAQ <h1>
-		<h2> Aidez vos clients <h2><br>
+<!-- <div class="container-faq">
+	<div class="question">
+		<?php if(isset($listeFAQ)) {
+			foreach($listeFAQ as $key => $faq)
+			{
+				echo $faq['question'];
+				echo $faq['reponse'];
+			}
+		}
+		?>
+	</div>
+	<form action="?Route=admin&Ctrl=faq&Vue=faq" method="post">
+		<div class = "formulaire">
+			<input type="text" name="id_utilisateur" id="id_utilisateur" placeholder="Utilisateur" />
+			<input type="text" name="type" id="type" placeholder="Type d'utilisateur"/>
 
-			<div class="container">
-				<div class="question">
+			<input type="text" name="question" id="question" placeholder="Questions"/>
 
-					<?php if(isset($listeFAQ)) {
-			//var_dump($listeFAQ);
-						foreach($listeFAQ as $key => $faq) 
-						{ 
-	      	//echo $faq["question"];
+			<input type="text" name="reponse" id="reponse" placeholder="Réponse"/>
 
-							echo '<p><strong>' . htmlspecialchars($faq['question']) . '</strong>  ' . htmlspecialchars($faq['reponse']) . '</p>'; 
-						}
+			<input type="submit" value="Envoyer" />
+		</div>
+	</form>
+</div> -->
 
-
-						?>
-					</div>
-
-
-					<form action="?Route=admin&Ctrl=faq&Vue=faq" method="post">
-						<div class = "formulaire">
-
-							<label for="id_utilisateur"><p>Utilisateur</label> : <input type="text" name="id_utilisateur" id="id_utilisateur" /><br />
-								<label for="type"><p>Type</label> : <input type="text" name="type" id="type" /><br />
-									<label for="question"><p>Question</label> : <input type="text" name="question" id="question" /><br />
-										<label for="reponse"><p>Reponse</label> :  <input type="text" name="reponse" id="reponse" /><br />
-
-											<div class ="bouton" > <input type="submit" value="Envoyer" /> </div>
-										</div>
-									</form>
-
-								</div>
-
-								<?php 
-
-							} 
-							?>
+<h2>
+	En cours de développement.
+	Cette vue sera prête dans quelques jours.
+</h2>
