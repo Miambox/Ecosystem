@@ -9,5 +9,8 @@
     <script type="text/javascript" src="<?=ROOT_URL?>static/js/utils/modal/modal.js"></script>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript" src="<?=ROOT_URL?>CKEditor/ckeditor/ckeditor.js"></script>
+
   </body>
 </html>
