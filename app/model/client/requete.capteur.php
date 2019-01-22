@@ -67,7 +67,7 @@ function desactiveCapteur($bdd, $value) {
 **/
 function insererNouveauCapteur($bdd, $capteur) {
 
-  $etat = 1;
+  $etat = "marche";
 
   $query = 'INSERT INTO objet(
     numero_ref,
@@ -82,6 +82,8 @@ function insererNouveauCapteur($bdd, $capteur) {
     :id_type_objet,
     :id_piece
   )';
+
+
 
   $donnees = $bdd->prepare($query);
 
@@ -100,7 +102,7 @@ function insererNouveauCapteur($bdd, $capteur) {
 * Fonction permettant de sélectionner toutes les ambiances d'un utilisateur
 **/
 function selectionnerAmbiance($bdd) {
-  $utilisateurId = $_SESSION['user']['id'];
+  $utilisateurId = $_SESSION['id'];
   $query = 'SELECT
       *
     FROM mode
@@ -129,7 +131,7 @@ function selectionnerAmbianceParId($bdd, $ambianceId) {
 * Fonction permettant d'inserer une nouvelle ambiance
 **/
 function insererNouvelleAmbiance($bdd, $value) {
-  $id_utilisateur = $_SESSION['user']['id'];
+  $id_utilisateur = $_SESSION['id'];
 
   $query = 'INSERT INTO mode(
     nom,
@@ -241,5 +243,28 @@ function desactiveProgramme($bdd, $value) {
   $donnees->bindParam(":id_programme", $value['id_programme']);
   $donnees->bindParam(":check_programme", $value['off_programme']);
   return $donnees->execute();
+}
+
+function supprimerCapteur($bdd, $capteur) {
+  $queryVerif = 'SELECT nom FROM objet WHERE objet.id = :id_capteur';
+  $donneesVerif = $bdd->prepare($queryVerif);
+  $donneesVerif->bindParam(":id_capteur", $capteur['id']);
+  $donneesVerif->execute();
+  $response = $donneesVerif->fetchAll();
+  foreach ($response as $key => $value) {
+    $nom = $value['nom'];
+  }
+  if($donneesVerif) {
+    if($nom == $capteur['nom']) {
+      $query = 'DELETE FROM objet WHERE objet.id = :id_capteur';
+      $donnees = $bdd->prepare($query);
+      $donnees->bindParam(":id_capteur", $capteur['id']);
+      return $donnees->execute();
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
 }
 ?>

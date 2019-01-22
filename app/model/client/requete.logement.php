@@ -6,7 +6,7 @@ include("app/model/requete.generique.php"); // On connecte la base de donnée
 * ainsi que ceux qu'on lui a partagé.
 **/
 function selectionerLogement($bdd) {
-  $utilisateurId = $_SESSION['user']['id'];
+  $utilisateurId = $_SESSION['id'];
 
   $query = 'SELECT * FROM logement WHERE id_utilisateur =:utilisateurId';
   $donnees = $bdd->prepare($query);
@@ -29,7 +29,7 @@ function selectionerLogement($bdd) {
 **/
 function insererNouveauLogement($bdd, $logement) {
 
-  $id_utilisateur = $_SESSION['user']['id'];
+  $id_utilisateur = $_SESSION['id'];
 
   $query = 'INSERT INTO logement(
     numero,

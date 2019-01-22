@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/clientProfil.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/detailsCapteur.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/general.css">
-     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/faq.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/faq.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/listeClient.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/droit.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/erreur404.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/mentionsLegales.css">
 
     <title>Eco'system - admin</title>
@@ -56,9 +58,15 @@
           <ul>
               <li><a href="<?=ROOT_URL?>?Route=admin&Ctrl=general&Vue=general"><img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" alt=""></a></li>
               <li>
-                  <a href="<?=ROOT_URL?>?Route=admin&Ctrl=client&Vue=chatbis">
-                    Chat
+                <?php
+                if($_SESSION['type'] == "administrateur") {
+                  ?>
+                  <a href="?Route=admin&Ctrl=droit&Vue=vuePrincipale">
+                    Gérer les droits
                   </a>
+                  <?php
+                }
+                ?>
               </li>
               <li>
                 <div class="container-searchbar">
@@ -66,24 +74,28 @@
                     <div id="searchbar-desktop" class="searchbar">
                       <input type="search" name="nomClient" id="search-desktop" placeholder="Rentrez le nom du client ...">
                       <input type="image" value="Submit" id="loupe" src="<?=ROOT_URL?>/static/image/icon/search-logo-lp.png">
-                      <!-- <a href="?Route=admin&Ctrl=general&Vue=listeClient">
-                        <img src="<?=ROOT_URL?>static/image/icon/search2-logo-grey-lp.png" alt="">
-                      </a> -->
                     </div>
                   </form>
                 </div>
               </li>
               <li>
-                <a href="#" id="ticket-alerte">
+                <?php if(isset($_SESSION['id'])) {
+                  ?>
+                  <a href="?Route=client&Ctrl=signin&Vue=deconnexion" >
+                    Deconnexion
+                  </a>
+                  <?php
+                } ?>
+                <!-- <a href="#" id="ticket-alerte">
                   <img src="<?=ROOT_URL?>/static/image/icon/bell-logo-lp.png" alt="Alerte">
-                </a>
+                </a> -->
               </li>
           </ul>
       </nav>
     </header>
 
     <!--Ticket -->
-    <div class="container-modal" id="container-modal-ticket">
+    <!-- <div class="container-modal" id="container-modal-ticket">
       <div class="modal modal-ticket">
         <div class="modal-head">
           <button class="close" id="close-ticket">&times;</button>
@@ -100,4 +112,4 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->

@@ -2,17 +2,35 @@
   <section class="first">
       <a href="#" class="scroll-down"> </a>
     <div class="inside">
+
       <form class="" action="?Route=client&Ctrl=signin&Vue=connexion" method="post">
-        <label for="uname"><b> Identifiant </b></label>
-        <input type="text" placeholder="Téléphone ou mail" name="email" required> <br>
-        <label for="psw"><b> Mot de passe </b></label>
-        <input type="password" placeholder="Mot de passe" name="mdp" required>
-        <input type="submit" value="Connexion">
+
+        <div class="">
+          <label for="uname"><b> Identifiant </b></label>
+          <input type="text" placeholder="Téléphone ou mail" name="email" required>
+        </div>
+
+        <div class="">
+          <label for="psw"><b> Mot de passe </b></label>
+          <input type="password" placeholder="Mot de passe" name="mdp" required>
+        </div>
+
+        <a href="?Route=client&Ctrl=signin&Vue=mdpOublie">Mot de passe oublié ?</a>
+
+        <input class="connexion" type="submit" value="Connexion">
       </form>
-      <button type="submit" id="gotoInscription"> Inscription </button>
-      <br><a href="<?=ROOT_URL?>?Route=admin&amp;Ctrl=general&amp;Vue=general">DEV: Go to admin</a>
-      <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=logement&amp;Vue=vuePrincipale">DEV: Go to client</a>
-      <a href="<?=ROOT_URL?>?Route=adminsupreme&amp;Ctrl=general&amp;Vue=home">DEV: Go to admin supreme</a>
+
+      <form class="" action="?Route=client&Ctrl=signin&Vue=inscription" method="post">
+        <p>Vous n'êtes toujours pas inscrit ?</p>
+        <input class="inscription" type="submit" name="" value="Inscrivez-vous">
+      </form>
+
+      <div class="alerte-connexion">
+        <?php
+        if(isset($alerte)) {
+          echo $alerte;
+        } ?>
+      </div>
   </div>
 
   </section>

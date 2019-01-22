@@ -6,7 +6,7 @@
     <input type="submit" name="" value="Retour aux capteurs">
 </form>
 
-<div class="container">
+<div class="container-all">
     <div class="element">
         <div class="photo">
             <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="100%" alt="">

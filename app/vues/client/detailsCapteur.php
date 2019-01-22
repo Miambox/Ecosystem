@@ -1,4 +1,26 @@
+<?php
+if($_SESSION['type'] != "utilisateur") {
+  $nomClient = $_POST['nomClient'];
+  $id = $_POST['id'];
+  $idLogement = $_POST['id_logement'];
+  $idPiece = $_POST['id_piece'];
+?>
+
+<form action="?Route=admin&Ctrl=client&Vue=piece" method="post">
+    <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
+    <input type="hidden" name="id" value="<?php echo $id?>">
+    <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">
+    <input type="hidden" name="id_piece" value="<?php echo $idPiece?>">
+    <input type="submit" class="retour" value="Retour aux capteurs">
+</form>
+<?php
+}
+?>
+
 <div class="container-details-capteur">
+<?php
+if($_SESSION['type'] == "utilisateur") {
+?>
   <div class="container-logo">
     <a type="button" href="javascript:history.back()" class="btn-retour-piece">Retour véranda</a>
     <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="100%" alt="">
@@ -46,6 +68,7 @@
 
     <div class="container-diagramme-circulaire">
       <h2>Taux de luminosité</h2>
+      <input type="hidden" name="" value="" id="capteur" data-id="<?=$idCapteur ?>">
       <div class="diagramme-circulaire">
         <div class="" id='diagrammeCirculaire'>
           <img src="<?=ROOT_URL?>/static/image/icon/loading-gif-lp.gif" width="65%" alt="">
@@ -80,6 +103,67 @@
     </div>
 
   </div>
+<?php
+} else {
+?>
+
+<div class="container-logo">
+    <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="100%" alt="">
+    <div class="on_off">
+      <span>Eteindre/Allumer le capteur</span>
+      <form class="" action="?Route=Client&Ctrl=capteur&Vue=activeCapteur" id="formulaireActiveCapteur" method="post">
+        <label class="toggle-button">
+          <?php
+          if($etatCapteur[0]['etat'] == 'on') {
+            ?>
+            <input type="checkbox" name="off-capteur" onchange="document.getElementById('formulaireActiveCapteur').submit();" checked>
+            <?php
+          } else {
+            ?>
+            <input type="checkbox" name="on_capteur" onchange="document.getElementById('formulaireActiveCapteur').submit();">
+            <?php
+          }
+          ?>
+          <span class="slider round"></span>
+        </label>
+        <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
+      </form>
+    </div>
+  </div>
+
+  <div class="container-diagramme">
+
+    <div class="diagramme-baton">
+      <h2>Période d'utilisation</h2>
+      <div class="chart_div" id="chart_div">
+        <img src="<?=ROOT_URL?>/static/image/icon/loading-gif-lp.gif" width="40%" alt="">
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="container-programme">
+
+    <div class="container-diagramme-circulaire">
+      <h2>Taux de luminosité</h2>
+      <input type="hidden" name="" value="" id="capteur" data-id="<?=$idCapteur ?>">
+      <div class="diagramme-circulaire">
+        <div class="" id='diagrammeCirculaire'>
+          <img src="<?=ROOT_URL?>/static/image/icon/loading-gif-lp.gif" width="65%" alt="">
+        </div>
+        <div class="plus_moins">
+          <button type="button" name="button" class="ajouterLuminosite" id="ajouterLum">+</button>
+          <button type="button" name="button" class="diminuerLuminosite" id="diminuerLum">-</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<?php
+}
+?>
 </div>
 
 <!--POPUP MODAL AJOUT AMBIANCE-->

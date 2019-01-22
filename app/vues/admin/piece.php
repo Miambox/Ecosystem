@@ -8,7 +8,7 @@
 $donneesLogement = donneesLogement($bdd,$idLogement)->fetch();
 ?>
 
-<div class="container">
+<div class="container-all">
     <div class="element">
         <div class="photo">
             <img src="<?=ROOT_URL?>/static/image/icon/maison-image.bmp" width="100%" height=100% alt="">
@@ -47,7 +47,14 @@ $donneesLogement = donneesLogement($bdd,$idLogement)->fetch();
 
         <?php
         $donneesPiece = piece($bdd, $idLogement)->fetchAll();
-        foreach($donneesPiece as $infoPiece) {
+
+        if($donneesPiece == null) {
+        ?>
+            <p id='textNoClient'>Aucune piece enregistrée pour ce logement</p>
+        <?php
+        }
+        else{
+            foreach($donneesPiece as $infoPiece) {
         ?>
 
         <form action="?Route=admin&Ctrl=client&Vue=capteur" method="post">
@@ -101,6 +108,7 @@ $donneesLogement = donneesLogement($bdd,$idLogement)->fetch();
             </div> -->
 
         <?php
+            }
         }
         ?>
         </div>

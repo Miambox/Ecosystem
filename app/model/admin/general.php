@@ -6,9 +6,11 @@ function clientExiste($bdd, $nomClient){
     
     $donnees = $bdd->prepare('SELECT nom
                               FROM utilisateur 
-                              WHERE nom=:nom');
+                              WHERE nom=:nom
+                              AND type=:type');
     $donnees->execute(array(
         'nom' => $nomClient,
+        'type' => "utilisateur",
     ));
     $compteur = 0;
     while($client = $donnees->fetch()) {
@@ -62,8 +64,8 @@ function logement($bdd, $id) {
 function donneesLogement($bdd, $idLogement) {
     
     $reqLogement = $bdd->prepare('SELECT id, photo, numero, rue, ville, code_postal, complement_adresse, nbr_habitant, surface, annee_construction
-                                FROM logement
-                                WHERE id = :id');
+                                  FROM logement
+                                  WHERE id = :id');
     $reqLogement->execute(array(
         'id' => $idLogement,
     ));
@@ -88,8 +90,8 @@ function piece($bdd, $id) {
 function donneesPiece($bdd, $id) {
     
     $reqPiece = $bdd->prepare('SELECT id, nom, surface, etage, type
-                                FROM piece
-                                WHERE id = :id');
+                               FROM piece
+                               WHERE id = :id');
     $reqPiece->execute(array(
         'id' => $id,
     ));
@@ -114,11 +116,30 @@ function capteur($bdd, $id) {
 function donneesCapteur($bdd, $id) {
     
     $reqCapteur = $bdd->prepare('SELECT id, nom, surface, etage, id_type_objet
-                                FROM piece
-                                WHERE id = :id');
+                                 FROM piece
+                                 WHERE id = :id');
     $reqCapteur->execute(array(
         'id' => $id,
     ));
 
     return $reqCapteur;
+}
+
+function mdpCorrect($bdd, $id) {
+    $reqMdp = $bdd->prepare('SELECT prenom
+                             FROM utilisateur
+                             WHERE id = :id');
+    $reqMdp->execute(array(
+        'id' => $id,
+    ));
+
+    return $reqMdp;
+}
+
+function deleteUser($bdd, $id) {
+    $delete = $bdd->prepare('DELETE FROM utilisateur
+                             WHERE id = :id');
+    $delete->execute(array(
+        'id' => $id,
+    ));
 }

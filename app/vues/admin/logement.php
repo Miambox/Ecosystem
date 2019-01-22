@@ -7,7 +7,7 @@
 $donneesProfil = donneesProfil($bdd, $id)->fetch();
 ?>
 
-<div class="container">
+<div class="container-all">
 
         <div class="card-container-profil">
             <div class="photo ">
@@ -21,8 +21,9 @@ $donneesProfil = donneesProfil($bdd, $id)->fetch();
                     <?php echo $donneesProfil['prenom'] . " " . $donneesProfil['nom']?>
                 </div>
                <div class="subtitle">
-                    Sexe : Homme
+                    <!-- Sexe : Homme -->
                 </div>
+                <br />
                 <div class="text">
                     <!-- <strong>N°: </strong>198 0987 0567<br/>
                     <strong>N° de tel : </strong>06.XX.XX.XX.XX<br/>
@@ -44,7 +45,13 @@ $donneesProfil = donneesProfil($bdd, $id)->fetch();
         $donneesLogement = logement($bdd, $id)->fetchAll();
         //var_dump($donneesLogement);
         //echo "</pre>";
-        foreach($donneesLogement as $infoLogement) {
+        if($donneesLogement == null) {
+        ?>
+            <p id='textNoClient'>Aucun logement enregistré dans ce compte</p>
+        <?php
+        }
+        else{
+            foreach($donneesLogement as $infoLogement) {
         ?>
 
         <form action="?Route=admin&Ctrl=client&Vue=piece" method="post">
@@ -62,6 +69,7 @@ $donneesProfil = donneesProfil($bdd, $id)->fetch();
             </div>
         </form>
         <?php
+            }
         }
         ?>
         </div>
