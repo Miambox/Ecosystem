@@ -9,7 +9,7 @@
 $donneesPiece = donneesPiece($bdd,$idPiece)->fetch();
 ?>
 
-<div class="container">
+<div class="container-all">
     <div class="element">
         <div class="photo">
             <img src="<?=ROOT_URL?>/static/image/icon/cuisine-image.bmp" width="100%" height="100%" alt="">
@@ -39,11 +39,11 @@ $donneesPiece = donneesPiece($bdd,$idPiece)->fetch();
 
         <!-- <form action="?Route=admin&Ctrl=client&Vue=detailsCapteur" method="post"> -->
         <form action="?Route=client&Ctrl=capteur&Vue=details&id_capteur=<?=$infoCapteur['id'] ?>" method="post">
-        <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
-        <input type="hidden" name="id" value="<?php echo $id?>">
-        <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">
-        <input type="hidden" name='id_piece' value="<?php echo $idPiece?>">
-        <input type="hidden" name='id_capteur' value="<?php echo $infoCapteur['id']?>">
+            <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
+            <input type="hidden" name="id" value="<?php echo $id?>">
+            <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">
+            <input type="hidden" name='id_piece' value="<?php echo $idPiece?>">
+            <input type="hidden" name='id_capteur' value="<?php echo $infoCapteur['id']?>">
             <div class="card-n">
                 <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="80%" alt="">
                 <div class="banniere">

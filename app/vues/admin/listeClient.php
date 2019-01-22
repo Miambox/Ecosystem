@@ -32,7 +32,7 @@ switch($affiche){
                   <form class="" action="?Route=admin&Ctrl=general&Vue=deleteUser" method="post">
                     <div class="form-group">
                       <label for="mdp-admin">Saisissez le prénom du client : <br></label>
-                      <input type="text" name="mdp-admin" placeholder="Mot de passe" required>
+                      <input type="text" name="mdp-admin" placeholder="Nom du client" required>
                       <input type="hidden" name="id-client" value="<?php echo $info['id'] ?>">
                     </div>
                     <input type="submit" value="Valider">

@@ -1,5 +1,23 @@
 /*Page CSS du design des détails du capteur*/
 
+/*Bouton retour*/
+.retour {
+  cursor:pointer;
+  border: solid 1px;
+  margin-top: 2%;
+  padding: 1% 2% 1% 2%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 1em;
+  color: #FFD006;
+  background-color: white;
+}
+
+.retour:hover {
+  color: white;
+  background-color: #FFD006;
+}
+
 /*Container de toute la page*/
 .container-details-capteur {
   display: flex;
@@ -50,7 +68,7 @@
       .programme > .button-visualiser {
         color: white;
         border: none;
-        background-color: rgba(255, 208, 6, 0.8);
+        background-color: #FFD006;
         font-weight: 800;
         font-size: 14px;
         padding: 2%;

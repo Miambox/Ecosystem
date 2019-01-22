@@ -6,9 +6,11 @@ function clientExiste($bdd, $nomClient){
     
     $donnees = $bdd->prepare('SELECT nom
                               FROM utilisateur 
-                              WHERE nom=:nom');
+                              WHERE nom=:nom
+                              AND type=:type');
     $donnees->execute(array(
         'nom' => $nomClient,
+        'type' => "utilisateur",
     ));
     $compteur = 0;
     while($client = $donnees->fetch()) {

@@ -8,7 +8,7 @@
 $donneesLogement = donneesLogement($bdd,$idLogement)->fetch();
 ?>
 
-<div class="container">
+<div class="container-all">
     <div class="element">
         <div class="photo">
             <img src="<?=ROOT_URL?>/static/image/icon/maison-image.bmp" width="100%" height=100% alt="">
