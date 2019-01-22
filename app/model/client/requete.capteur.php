@@ -67,7 +67,7 @@ function desactiveCapteur($bdd, $value) {
 **/
 function insererNouveauCapteur($bdd, $capteur) {
 
-  $etat = "marche";
+  $etat = "";
 
   $query = 'INSERT INTO objet(
     numero_ref,

@@ -23,7 +23,6 @@ switch ($action) {
           $active_programme = updateSecondEtat($bdd, $id_programme, "on");
         }
         $programme = selectProgrammeOn($bdd, $id_capteur);
-
         // S'il y a un programme à ON.
         if(sizeof($programme) != 0) {
 
@@ -58,8 +57,11 @@ switch ($action) {
           }
         } else {
 
+          $liste_value = selectValueOfCapteur($bdd, $id_capteur);
+
           foreach ($etat_capteur as $key => $value) {
             // Si l'état est éteint donc nul en bdd.
+
             if($value['etat'] == "") {
               // On met la valeur à 0
               echo initLumValue();
