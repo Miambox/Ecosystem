@@ -6,13 +6,13 @@
 
       <div class ="faq">
       <a href="<?=ROOT_URL?>?Route=admin&amp;Ctrl=faq&amp;Vue=faq" title ="Faq">
-        <p> <img src="<?=ROOT_URL?>static/image/icon/crayon.png">  Éditez votre FAQ </p>
+        <p> <img class="crayon" src="<?=ROOT_URL?>static/image/icon/crayon.png">  Éditez votre FAQ </p>
 
         </div>
 
         <div class ="mentionsLegales">
           <a href="<?=ROOT_URL?>?Route=admin&amp;Ctrl=mentionsLegales&amp;Vue=mentionsLegales" title ="Faq" >
-          <p> <img src="<?=ROOT_URL?>static/image/icon/crayon.png">  Éditez vos Mentions Légales</p>
+          <p> <img class="crayon" src="<?=ROOT_URL?>static/image/icon/crayon.png">  Éditez vos Mentions Légales</p>
 
           </div>
 

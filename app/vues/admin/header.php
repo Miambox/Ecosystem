@@ -95,7 +95,7 @@
     </header>
 
     <!--Ticket -->
-    <div class="container-modal" id="container-modal-ticket">
+    <!-- <div class="container-modal" id="container-modal-ticket">
       <div class="modal modal-ticket">
         <div class="modal-head">
           <button class="close" id="close-ticket">&times;</button>
@@ -112,4 +112,4 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->

@@ -14,12 +14,38 @@ switch($affiche){
                     <div class="banniere">
                         <?php echo $info['prenom']." ".$info['nom'];?>
                     </div>
-                    <input type="submit" value="Voir">
+                    <div>
+                        <input type="submit" value="Voir">
+                        <button type="button" id="delete" onclick="openDeletePopup(<?= $info['id']?>)">Supprimer</button>
+                    </div>
             </div>
+            
         </form>
+        <!--POP up de suppression-->
+        <div class="container-modal" id="container-modal-supprimer<?= $info['id']?>">
+              <div class="modal modal-supprimer">
+                <div class="modal-head">
+                  <button class="close" onclick="closeDeletePopup(<?= $info['id']?>)">&times;</button>
+                  <p>Etes-vous sûr de vouloir supprimer ce client ?</p>
+                </div>
+                <div class="modal-text">
+                  <form class="" action="?Route=admin&Ctrl=general&Vue=deleteUser" method="post">
+                    <div class="form-group">
+                      <label for="mdp-admin">Saisissez le prénom du client : <br></label>
+                      <input type="text" name="mdp-admin" placeholder="Nom du client" required>
+                      <input type="hidden" name="id-client" value="<?php echo $info['id'] ?>">
+                    </div>
+                    <input type="submit" value="Valider">
+                  </form>
+                </div>
+              </div>
+            </div>
 <?php
         }
 ?>
+
+
+            
 </div>
 <?php
         

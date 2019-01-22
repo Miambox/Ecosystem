@@ -30,6 +30,15 @@ switch ($action) {
       $title="cgu";
     break;
 
+    case 'deleteUser':
+        $vue = 'deleteUser';
+        $title = 'Supprimer un client';
+        $mdp = $_POST['mdp-admin'];
+        $id = $_POST['id-client'];
+
+        $trueMdp = mdpCorrect($bdd,$id)->fetch();
+        break;
+
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $title  = "error404";
