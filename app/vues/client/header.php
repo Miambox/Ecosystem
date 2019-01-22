@@ -117,17 +117,6 @@
                 <?php
                 if(isset($_SESSION['id'])) {
                   ?>
-                  <a href="<?=ROOT_URL?>?Route=client&Ctrl=chat&Vue=chat">
-                    Nous contacter
-                  </a>
-                  <?php
-                }
-                ?>
-              </li>
-              <li>
-                <?php
-                if(isset($_SESSION['id'])) {
-                  ?>
                   <a href="<?=ROOT_URL?>?Route=client&Ctrl=signin&Vue=deconnexion">
                     Deconnexion
                   </a>

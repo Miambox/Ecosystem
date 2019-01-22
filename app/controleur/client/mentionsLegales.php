@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include('app/model/requete.mentionsLegales.php');
 
@@ -8,41 +8,24 @@ switch ($action) {
 
         $vue = "mentionsLegales";
         $title = "MentionsLegales";
-
         $messageMentionsLegales = selectionnerMentionsLegales($bdd);
-
-        //var_dump($listeFAQ);
-
         if(isset($_POST['message']))  {
-
           $mentionsLegales = [
-
             'message'       => htmlspecialchars($_POST['message']),
           ];
-
-          
-         $request = insererMentionsLegales($bdd, $mentionsLegales); 
-
+         $request = insererMentionsLegales($bdd, $mentionsLegales);
          if($request) {
               header('Location: ?Route=admin&Ctrl=mentionsLegales&Vue=mentionsLegales');
             } else {
-              var_dump("impossible d'ajouter le programme");
+              header('Location: ?Route=admin&Ctrl=mentionsLegales');
             }
           }
-
-        
-        break;
-	 
-  
-
-     default:
+    break;
+    default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $title = "error404";
-        $message = "Erreur 404 : la page recherchée n'existe pas.";
-
-        
+        $vue = "erreur404";
 }
-
 
 include ('app/vues/client/header.php');
 include ('app/vues/client/'.$vue.'.php');

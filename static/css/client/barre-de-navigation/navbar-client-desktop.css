@@ -46,10 +46,9 @@
             /*Paramètres personnalisés pour chaque contenance*/
             header nav > ul > li:first-of-type { flex-basis: 10%; text-align: center; padding-left:2%; margin-right: 2%;}
             header nav > ul > li:nth-of-type(2) { flex-basis: 10%; }
-            header nav > ul > li:nth-of-type(3) { flex-basis: 20%;}
-            header nav > ul > li:nth-of-type(4) { flex-basis: 15%; text-align: center;  margin-right: 28%; }
-            header nav > ul > li:nth-of-type(5) { flex-basis: 13%; text-align: center; background-color: #FFB870;}
-            header nav > ul > li:nth-of-type(5) > a {
+            header nav > ul > li:nth-of-type(3) { flex-basis: 20%; margin-right: 43%;}
+            header nav > ul > li:nth-of-type(4) { flex-basis: 13%; text-align: center; background-color: #FFB870;}
+            header nav > ul > li:nth-of-type(4) > a {
               color: white;
             }
             header nav > ul > li:nth-of-type(5) > a:hover {

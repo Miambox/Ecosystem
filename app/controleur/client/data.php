@@ -23,9 +23,9 @@ switch ($action) {
           $active_programme = updateSecondEtat($bdd, $id_programme, "on");
         }
         $programme = selectProgrammeOn($bdd, $id_capteur);
+
         // S'il y a un programme à ON.
         if(sizeof($programme) != 0) {
-
           foreach ($programme as $key => $value) {
             $programme_on = $value['id'];
             $heure_fin = $value['heure_fin'];
@@ -87,7 +87,6 @@ switch ($action) {
             }
           }
         }
-
       }
     break;
 
@@ -98,12 +97,12 @@ switch ($action) {
         $value = securitePourXSSFail($_POST['value']);
         $request = updateValeur($bdd, $value, $id_capteur);
       }
-      break;
+    break;
 
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $title = "error404";
-        $message = "Erreur 404 : la page recherchée n'existe pas.";
+        $message = "erreur404";
 }
 
 

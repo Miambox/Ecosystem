@@ -6,8 +6,6 @@ switch ($action) {
 
         $vue = "profil";
         $title = "Profil";
-        // $id = $_SESSION['user']['id']
-
         break;
 
     default:

@@ -4,16 +4,17 @@ include('app/model/admin/requete.droit.php');
 
 switch ($action) {
 
+    // Vue des droits du super-administrateur
     case 'vuePrincipale':
-        $vue = "droit";
-        $title = "Les droits";
-
-        $liste_utilisateur = selectionnerEmployers($bdd);
+        $vue                = "droit";
+        $title              = "Droits du SUPER-ADMIN";
+        $liste_utilisateur  = selectionnerEmployers($bdd);
     break;
 
+    // Vue permettant d'ajouter un employé en tant qu'utilisateur
     case 'inscrireUtilisateur':
-      $vue = "droit";
-      $title = "Les droits";
+      $vue        = "droit";
+      $title      = "Les droits";
 
       if (isset($_POST['nom']) &&
           isset($_POST['prenom']) &&
@@ -39,9 +40,10 @@ switch ($action) {
           }
     break;
 
+    // Vue permettant de supprimer un employé
     case 'supprimerEmploye':
-      $title="Les droits";
-      $vue="droit";
+      $title      ="Les droits";
+      $vue        ="droit";
 
       if(isset($_POST['id_user'])) {
         $request = supprimerEmployers($bdd, securitePourXSSFail($_POST['id_user']));

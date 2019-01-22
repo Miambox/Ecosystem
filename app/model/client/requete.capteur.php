@@ -83,10 +83,7 @@ function insererNouveauCapteur($bdd, $capteur) {
     :id_piece
   )';
 
-
-
   $donnees = $bdd->prepare($query);
-
   $donnees->bindParam(":numero_ref", $capteur['numero_ref']);
   $donnees->bindParam(":nom", $capteur['nom']);
   $donnees->bindParam(":etat", $etat);

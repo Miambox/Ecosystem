@@ -1,62 +1,51 @@
 <?php
 
-// Connexion a la base de donnees
 include('app/model/admin/general.php');
 
 switch ($action) {
-
+    // Vue permettant de visualiser les logements du client
     case 'logement':
+        $nomClient  = securitePourXSSFail($_POST['nomClient']);
+        $id         = securitePourXSSFail($_POST['id']);
+        $vue        = "logement";
+        $title      = "Détails client";
+    break;
 
-        $nomClient = $_POST['nomClient'];
-        $id = $_POST['id'];
-        $vue = "logement";
-        $title = "Détails client";
-
-        break;
-
+    // Vue permettant de visualier les pièces du client
     case 'piece':
+        $nomClient        = securitePourXSSFail($_POST['nomClient']);
+        $id               = securitePourXSSFail($_POST['id']);
+        $idLogement       = securitePourXSSFail($_POST['id_logement']);
+        $vue              = "piece";
+        $title            = "Logement client";
+    break;
 
-        $nomClient = $_POST['nomClient'];
-        $id = $_POST['id'];
-        $idLogement = $_POST['id_logement'];
-        $vue = "piece";
-        $title = "Logement client";
-
-        break;
-
-    case 'chatbis':
-
-        $vue = "chatbis";
-        $title = "Chatbis";
-
-        break;
-
+    // Vue permettant de visualiser les capteurs
     case 'capteur':
-
-        $nomClient = $_POST['nomClient'];
-        $id = $_POST['id'];
-        $idLogement = $_POST['id_logement'];
-        $idPiece = $_POST['id_piece'];
-        $vue = "capteur";
-        $title = "Détails client";
+        $nomClient      = securitePourXSSFail($_POST['nomClient']);
+        $id             = securitePourXSSFail($_POST['id']);
+        $idLogement     = securitePourXSSFail($_POST['id_logement']);
+        $idPiece        = securitePourXSSFail($_POST['id_piece']);
+        $vue            = "capteur";
+        $title          = "Détails client";
 
         break;
 
     case 'detailsCapteur':
 
-        $nomClient = $_POST['nomClient'];
-        $id = $_POST['id'];
-        $idLogement = $_POST['id_logement'];
-        $idPiece = $_POST['id_piece'];
-        $idCapteur = $_POST['id_capteur'];
-        $vue = "detailsCapteur";
-        $title = "Détails client";
+        $nomClient        = securitePourXSSFail($_POST['nomClient']);
+        $id               = securitePourXSSFail($_POST['id']);
+        $idLogement       = securitePourXSSFail($_POST['id_logement']);
+        $idPiece          = securitePourXSSFail($_POST['id_piece']);
+        $idCapteur        = securitePourXSSFail($_POST['id_capteur']);
+        $vue              = "detailsCapteur";
+        $title            = "Détails client";
 
         break;
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
-        $title = "error404";
-        $message = "Erreur 404 : la page recherchée n'existe pas.";
+        $title            = "error404";
+        $vue              = "erreur404";
 }
 
 include ('app/vues/admin/header.php');

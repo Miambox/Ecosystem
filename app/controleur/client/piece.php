@@ -68,7 +68,7 @@ switch ($action) {
 
         if($request) {
           header('Location: ?Route=client&Ctrl=piece&Vue=vuePrincipale&id_logement='. $id_logement);
-        } 
+        }
       }
     break;
     default:
