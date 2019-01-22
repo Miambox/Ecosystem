@@ -4,11 +4,7 @@ google.charts.setOnLoadCallback(drawBarColors)
 function drawBarColors() {
   var data = google.visualization.arrayToDataTable([
     ['Date', 'Heure'],
-    ['22/11/2018', 2],
-    ['23/11/2018', 4],
-    ['24/11/2018', 10],
-    ['25/11/2018', 8],
-    ['26/11/2018', 3],
+    ['24/11/2018', 0],
   ]);
 
   var options = {
