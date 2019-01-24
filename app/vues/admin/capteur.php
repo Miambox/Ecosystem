@@ -1,4 +1,4 @@
-<form action="?Route=admin&Ctrl=client&Vue=piece" method="post">
+<form action="?Route=admin&Ctrl=client&Vue=piece" method="post" class="retour-in">
     <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
     <input type="hidden" name="id" value="<?php echo $id?>">
     <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">

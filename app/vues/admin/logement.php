@@ -1,4 +1,4 @@
-<form action="?Route=admin&Ctrl=general&Vue=listeClient" method="post">
+<form action="?Route=admin&Ctrl=general&Vue=listeClient" method="post" class="retour-in">
     <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
     <input type="submit" value="Retour à la liste des clients">
 </form>
