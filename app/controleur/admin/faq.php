@@ -9,24 +9,60 @@ switch ($action) {
   case 'faq':
       $vue        = "faq";
       $title      = "FAQ";
+      $edit = 0;
       $listeFAQ   = selectionnerFAQ($bdd);
-      if( isset($_POST['type']) and
-          isset($_POST['question']) and
-          isset($_POST['reponse']) and
-          (($_POST['id_utilisateur']) ==3))  {
-        $faq = [
-          'type'       => htmlspecialchars($_POST['type']),
-          'question'   => htmlspecialchars($_POST['question']),
-          'reponse'    => htmlspecialchars($_POST['reponse']),
-          'id_utilisateur'  => htmlspecialchars($_POST['id_utilisateur']),
-        ];
-       $request   = insererFAQ($bdd, $faq);
-       if($request) {
-            header('Location: ?Route=admin&Ctrl=faq&Vue=faq');
+      if(isset($_POST['question']) and isset($_POST['reponse']))
+      {
+          $faq = [
+            'question'       => htmlspecialchars($_POST['question']),
+            'reponse'   => $_POST['reponse'],
+          ];
+          $request   = insererFAQ($bdd, $faq);
+          if($request) {
+              header('Location: ?Route=admin&Ctrl=faq&Vue=faq');
           } else {
-            header('Location: ?Route=admin&Ctrl=faq');
           }
+      } else if(isset($_POST['reponse_edit']) AND isset($_POST['question_edit'])) {
+        $id_faq = securitePourXSSFail($_POST['id_faq']);
+        $faq = [
+          'question' => securitePourXSSFail($_POST['question_edit']),
+          'reponse'   => $_POST['reponse_edit']
+        ];
+        $request = updateFAQ($bdd, $id_faq, $faq);
+        if(!$request) {
+          header('Location: ?Route=admin&Ctrl=faq');
+        } else {
+          header('Location: ?Route=admin&Ctrl=faq&Vue=faq');
         }
+      }
+    break;
+
+    case 'editerFaq':
+      $vue        = "faq";
+      $title      = "FAQ";
+      $edit = 1;
+      if(isset($_POST['id_faq']))  {
+        $id_faq = securitePourXSSFail($_POST['id_faq']);
+        $listeFAQ   = selectionnerFAQ($bdd);
+        $listeFAQByID = selectionnerFAQByID($bdd, $id_faq);
+      }
+    break;
+
+    case 'supprimerFaq':
+      $vue        = "faq";
+      $title      = "FAQ";
+      if(isset($_POST['id_faq']))  {
+        $id_faq = securitePourXSSFail($_POST['id_faq']);
+        $request = supprimerFaq($bdd, $id_faq);
+        if($request) {
+          header('Location: ?Route=admin&Ctrl=faq&Vue=faq');
+        } else {
+          header('Location: ?Route=admin&Ctrl=faq');
+        }
+      } else {
+        header('Location: ?Route=admin&Ctrl=faq');
+      }
+
     break;
 
     default:
