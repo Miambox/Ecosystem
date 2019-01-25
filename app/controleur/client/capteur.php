@@ -272,7 +272,14 @@ switch ($action) {
         $vue = "erreur404";
 }
 
-include ('app/vues/client/header.php');
-include ('app/vues/client/'.$vue. '.php');
-include ('app/vues/client/footer.php');
+if($_SESSION['type']=="utilisateur"){
+  include ('app/vues/client/header.php');
+  include ('app/vues/client/'.$vue. '.php');
+  include ('app/vues/client/footer.php');
+} else {
+  include ('app/vues/admin/header.php');
+  include ('app/vues/client/'.$vue. '.php');
+  include ('app/vues/admin/footer.php');
+}
+
 ?>

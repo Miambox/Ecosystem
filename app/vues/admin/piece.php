@@ -11,7 +11,7 @@ $donneesLogement = donneesLogement($bdd,$idLogement)->fetch();
 <div class="container-all">
     <div class="element">
         <div class="photo">
-            <img src="<?=ROOT_URL?>/static/image/icon/maison-image.bmp" width="100%" height=100% alt="">
+            <img src="<?=ROOT_URL?>/static/image/icon/isep.jpg" width="100%" height=100% alt="">
             <!--
             <img src="<?=ROOT_URL?>/static/image/icon/<?php echo $donneesLogement['photo']?>" width="100%" height=100% alt="">
             -->
@@ -35,9 +35,7 @@ $donneesLogement = donneesLogement($bdd,$idLogement)->fetch();
             
             <strong>Surface : </strong><?php echo $donneesLogement['surface']?>m<sup>2</sup><br/>
             <strong>Nombre d'habitant : </strong><?php echo $donneesLogement['nbr_habitant']?><br/>
-            <strong>Diagnostique énergétique : </strong>E<br/>
             <strong>Année de construction : </strong><?php echo $donneesLogement['annee_construction']?><br/>
-            <strong>Nombre totale de pièces : </strong>8<br/>
             
         </p>
     </div>
@@ -63,7 +61,7 @@ $donneesLogement = donneesLogement($bdd,$idLogement)->fetch();
         <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">
         <input type="hidden" name='id_piece' value="<?php echo $infoPiece['id']?>">
             <div class="card-n">
-                <img src="<?=ROOT_URL?>/static/image/icon/salon-image.bmp" width="100%" alt="">
+                <img src="<?=ROOT_URL?>/static/image/icon/piece.jpg" width="100%" alt="">
                 <div class="banniere">
                     <?php echo $infoPiece['nom'];?>
                 </div>

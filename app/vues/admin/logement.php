@@ -11,9 +11,9 @@ $donneesProfil = donneesProfil($bdd, $id)->fetch();
 
         <div class="card-container-profil">
             <div class="photo ">
-                <!-- <img src="<?=ROOT_URL?>/static/image/icon/photo_de_profil.jpg" width="100%" alt="" > -->
 
-                <img src="<?=ROOT_URL?>/static/image/icon/<?php echo $donneesProfil['photo']?>" width="100%" alt="" >
+                <img src="<?=ROOT_URL?>/static/image/icon/user4.png" width="100%" alt="" >
+                <!-- <img src="<?=ROOT_URL?>/static/image/icon/<?php echo $donneesProfil['photo']?>" width="100%" alt="" > -->
                 
             </div>
             <div class="description">
@@ -60,7 +60,7 @@ $donneesProfil = donneesProfil($bdd, $id)->fetch();
         <input type="hidden" name='id_logement' value="<?php echo $infoLogement['id']?>">
         
             <div class="card-n">
-            <img src="<?=ROOT_URL?>/static/image/icon/maison-image.bmp" width="100%" alt="">
+            <img src="<?=ROOT_URL?>/static/image/icon/isep.jpg" height="100%" alt="">
                 <div class="banniere">
                     <?php echo $infoLogement['numero'] . " " . $infoLogement['rue']?><br/>
                     <?php echo $infoLogement['ville'] . " " . $infoLogement['code_postal']?>

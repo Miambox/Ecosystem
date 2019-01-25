@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 if($_SESSION['type'] != "utilisateur") {
   $nomClient = $_POST['nomClient'];
   $id = $_POST['id'];
@@ -15,7 +15,7 @@ if($_SESSION['type'] != "utilisateur") {
 </form>
 <?php
 }
-?>
+?> -->
 
 <div class="container-details-capteur">
 <?php
