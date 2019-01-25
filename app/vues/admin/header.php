@@ -7,15 +7,29 @@
     <!-- Barre de navigation -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/barre-de-navigation/navbar-admin-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/barre-de-navigation/navbar-admin-mobile.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/modal/modal-desktop.css">
+    <!-- pages logement, piece, capteur -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/clientProfil.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/detailsCapteur.css">
+    <!-- page d'accueil -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/general.css">
+    <!-- faq -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/faq.css">
+    <!-- liste des clients -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/listeClient.css">
+    <!-- page supreme admin gestion des droits -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/droit.css">
+    <!-- page erreur -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/erreur404.css">
+    <!-- mentions légales -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/mentionsLegales.css">
+
+    <!-- modal -->
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/modal/modal-desktop.css">
+    <!-- big modal -->
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/modal/big-modal-desktop.css">
+    <!-- page détails du capteur -->
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/details-capteur/details-capteur-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/details-capteur/details-capteur-mobile.css">
 
     <title>Eco'system - admin</title>
   </head>

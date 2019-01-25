@@ -77,24 +77,34 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     }
-      .container-all > .card-container-object > form > .card-n {
-      width: 200px;
-      height: 300px;
-      border: solid 1px rgba(0,0,0,0.6);
-      border-radius: 5px;
-      box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, .2); /*Style d'ombre 3D*/
-      background-color: white;
+
+    .container-all > .card-container-object > form {
       margin-left: 3.5%;
       margin-top: 2.5%;
-      overflow: hidden;
+    }
+
+      .container-all > .card-container-object > form > .card-n {
+        width: 200px;
+        height: 300px;
+        border: solid 1px rgba(0,0,0,0.6);
+        border-radius: 5px;
+        box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, .2); /*Style d'ombre 3D*/
+        background-color: white;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .container-all > .card-container-object > form > .card-n:hover {
+        border-color: orange;
       }
   
       .container-all > .card-container-object > form > .card-n  > img {
         margin: auto;
-      }
-  
-      .container-all > .card-container-object > form > .card-n:hover {
-        border-color: orange;
+        width: 100%;
+        height: 200px;
       }
   
       .container-all > .card-container-object > form > .card-n > .banniere {
@@ -103,8 +113,10 @@
         border-top: solid 1px rgba(0,0,0,0.15);
         border-bottom: solid 1px rgba(0,0,0,0.15);
         background-color: rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        vertical-align: auto
       }
   
     .container-all > .card-container-object > form > .card-n > input {

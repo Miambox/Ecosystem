@@ -12,7 +12,7 @@ $donneesPiece = donneesPiece($bdd,$idPiece)->fetch();
 <div class="container-all">
     <div class="element">
         <div class="photo">
-            <img src="<?=ROOT_URL?>/static/image/icon/cuisine-image.bmp" width="100%" height="100%" alt="">
+            <img src="<?=ROOT_URL?>/static/image/icon/piece.jpg" width="100%" height="100%" alt="">
         </div>
         <div class="title">
             <?php echo $donneesPiece['nom'];?>
