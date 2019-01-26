@@ -90,6 +90,45 @@ switch ($action) {
       }
     break;
 
+    case 'editerLogement':
+      $title = "Editer un logement";
+      $vue = "addLogement";
+      if(isset($_POST['id_logement'])) {
+        $id_logement = securitePourXSSFail($_POST['id_logement']);
+        $information_logement = selectionnerLogementById($bdd, intval($id_logement));
+      }
+    break;
+
+    case 'updaterLogement':
+      $title = "Editer un logement";
+      $vue="addLogement";
+      if( isset($_POST['numero']) and
+          isset($_POST['rue']) and
+          isset($_POST['ville']) and
+          isset($_POST['code_postal']) and
+          isset($_POST['nbr_habitant']) and
+          isset($_POST['surface'])) {
+
+          $values = [
+            'numero'              => securitePourXSSFail($_POST['numero']),
+            'rue'                 => securitePourXSSFail($_POST['rue']),
+            'ville'               => securitePourXSSFail($_POST['ville']),
+            'code_postal'          => securitePourXSSFail($_POST['code_postal']),
+            'nbr_habitant'         => securitePourXSSFail($_POST['nbr_habitant']),
+            'surface'             => securitePourXSSFail($_POST['surface']),
+            'annee_construction'   => securitePourXSSFail($_POST['annee_construction']),
+          ];
+
+          $id_logement = securitePourXSSFail($_POST['id_logement']);
+          $request = updaterLogement($bdd, $values, intval($id_logement));
+          if(isset($request)) {
+            header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
+          } else {
+            header('Location: ?Route=client&Ctrl=logement');
+          }
+      }
+
+
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $title = "error404";

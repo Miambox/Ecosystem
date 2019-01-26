@@ -24,6 +24,16 @@ function selectionerLogement($bdd) {
   return array_merge($liste_logement,$donnees->fetchAll());
 }
 
+function  selectionnerLogementById($bdd, $id_logement) {
+
+  $query = 'SELECT * FROM logement WHERE id=:id_logement';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":id_logement", $id_logement);
+  $donnees->execute();
+  return $donnees->fetchAll();
+
+}
+
 /**
 * Fonction permettant d'ajouter un logement
 **/
@@ -64,6 +74,28 @@ function insererNouveauLogement($bdd, $logement) {
 
   $request = $donnees->execute();
   return $request;
+}
+
+function updaterLogement($bdd, $value, $id_logement) {
+  $query = 'UPDATE logement SET
+            numero              =:numero,
+            rue                 =:rue,
+            ville               =:ville,
+            code_postal         =:code_postal,
+            nbr_habitant        =:nbr_habitant,
+            surface             =:surface,
+            annee_construction  =:annee_construction
+            WHERE id   =:id_logement';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":id_logement", $id_logement);
+  $donnees->bindParam(":numero", $value['numero']);
+  $donnees->bindParam(":rue", $value['rue']);
+  $donnees->bindParam(":ville", $value['ville']);
+  $donnees->bindParam(":code_postal", $value['code_postal']);
+  $donnees->bindParam(":nbr_habitant", $value['nbr_habitant']);
+  $donnees->bindParam(":surface", $value['surface']);
+  $donnees->bindParam(":annee_construction", $value['annee_construction']);
+  return $donnees->execute();
 }
 
 /**
