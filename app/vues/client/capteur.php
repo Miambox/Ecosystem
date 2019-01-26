@@ -1,8 +1,7 @@
 <div class="container-piece-capteurs">
   <div class="container-resume-piece">
-
     <form class="" action="?Route=client&Ctrl=piece&Vue=vuePrincipale" method="post">
-      <input type="hidden" name="id_logement" value="<?php echo $IDLOGEMENT ?>">
+      <input type="hidden" name="id_piece" value="<?php echo $IDPIECE ?>">
       <input type="submit" name="" value="retour aux pieces">
     </form>
 

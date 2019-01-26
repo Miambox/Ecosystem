@@ -15,6 +15,17 @@ function selectionnerPiece($bdd, $id_logement) {
   return $donnees->fetchAll();
 }
 
+function selectionnerIDLogementBYPieceId($bdd, $id_piece) {
+  $query = 'SELECT
+      *
+    FROM piece
+    WHERE id = :id_piece';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":id_piece", $id_piece);
+  $donnees->execute();
+  return $donnees->fetchAll();
+}
+
 /**
 * Fonction permettant de selectionner les informations du logement
 **/

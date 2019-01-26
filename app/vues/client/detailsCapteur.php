@@ -17,7 +17,6 @@
 <?php
 // }
 ?>
-
 <div class="container-details-capteur">
 <?php
 if($_SESSION['type'] == "utilisateur") {

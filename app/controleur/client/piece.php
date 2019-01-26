@@ -18,6 +18,17 @@ switch ($action) {
           $id_logement = securitePourXSSFail($_GET['id_logement']);
           $liste_piece = selectionnerPiece($bdd, $id_logement);
           $information_logement = informationLogement($bdd, $id_logement);
+        } else if(isset($_POST['id_piece'])) {
+          $id_piece = securitePourXSSFail($_POST['id_piece']);
+          $liste_piece = selectionnerIDLogementBYPieceId($bdd, $id_piece);
+          if(isset($liste_piece)) {
+            foreach ($liste_piece as $key => $value) {
+              $liste_piece = selectionnerPiece($bdd, intval($value['id_logement']));
+              $information_logement = informationLogement($bdd, intval($value['id_logement']));
+            }
+          } else {
+            header('Location: ?Route=client&Ctrl=piece');
+          }
         } else {
           header('Location: ?Route=client&Ctrl=piece');
         }
