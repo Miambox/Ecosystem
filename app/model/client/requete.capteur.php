@@ -16,6 +16,17 @@ function selectionerCapteur($bdd, $pieceId) {
   return $capteur ;
 }
 
+function selectionnerCapteurById($bdd, $id_capteur) {
+  $query = 'SELECT
+      *
+    FROM objet
+    WHERE id= :id_capteur';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":id_capteur", $id_capteur);
+  $donnees->execute();
+  return $donnees->fetchAll();
+}
+
 function infoCapteur($bdd, $id) {
   $capteur = $bdd->query('SELECT * FROM objet o
                           WHERE o.id = '.$id.'
@@ -67,31 +78,35 @@ function desactiveCapteur($bdd, $value) {
 **/
 function insererNouveauCapteur($bdd, $capteur) {
 
-  $etat = "";
-
   $query = 'INSERT INTO objet(
     numero_ref,
     nom,
-    etat,
-    id_type_objet,
     id_piece
   ) VALUES (
     :numero_ref,
     :nom,
-    :etat,
-    :id_type_objet,
     :id_piece
   )';
 
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":numero_ref", $capteur['numero_ref']);
   $donnees->bindParam(":nom", $capteur['nom']);
-  $donnees->bindParam(":etat", $etat);
-  $donnees->bindParam(":id_type_objet", $capteur['type']);
   $donnees->bindParam(":id_piece", $capteur['id_piece']);
 
   $request = $donnees->execute();
   return $request;
+}
+
+function updaterCapteur($bdd, $id_capteur, $value) {
+  $query = 'UPDATE objet SET
+            nom =:nom,
+            numero_ref =:numero_ref
+            WHERE id=:id_capteur';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":id_capteur", $id_capteur);
+  $donnees->bindParam(":nom", $value['nom']);
+  $donnees->bindParam(":numero_ref", $value['numero_ref']);
+  return $donnees->execute();
 }
 
 // *********************************LES AMBIANCES************************************************
