@@ -26,12 +26,6 @@
 
 }
 
-.partage > h2 {
-	font-size: 25px;
-	text-align: center;
-	color: #8C8C8C;
-}
-
 .logements > h2 {
 	font-size: 25px;
 	text-align: center;
@@ -84,27 +78,6 @@
 	height: 80px;
 }
 
-.partage {
-	background-color: white;
-	color: black;
-	border: 3px grey;
-	box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
-	border-radius: 30px;
-	margin: 12px;
-	height: 250px;
-	width: 100%;
-	padding-bottom: 50px;
-	padding-top: 20px;
-}
-
-.partage img{
-	width: 80px;
-	height: 80px;
-	margin-bottom: 20px;
-	padding-top: 20px;
-
-}
-
 .logements {
 	color: black;
 	border: 3px grey;
@@ -150,4 +123,67 @@
 	margin-right:auto;
 	margin-bottom: 20px;
 	padding-top: 20px;
+}
+
+.partage {
+	background-color: white;
+	color: black;
+	border: 3px grey;
+	box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
+	margin: 12px;
+	height: 250px;
+	width: 100%;
+	padding-bottom: 50px;
+	padding-top: 20px;
+	border-radius: 4px;
+}
+
+.partage-header {
+	height: 50px;
+	border-bottom: solid 1px rgba(0,0,0,0.1);
+	text-align: center;
+	font-weight: 600;
+	color: orange;
+	font-size: 18px;
+}
+
+.partage > .card-logement-profil {
+	margin: auto;
+	width: 100%;
+	height: 249px;
+	overflow-y: scroll;
+}
+
+.card-logement-profil > details {
+	border-bottom: solid 1px rgba(0,0,0,0.1);
+	padding: 4%;
+}
+
+.card-logement-profil > details:hover {
+	background-color: #FAFAFA;
+	cursor: grabbing;
+}
+
+.card-logement-profil > details > div {
+	display: flex;
+	flex-direction: row;
+	padding: 4%;
+}
+
+.card-logement-profil > details > summary {
+	font-weight: 600;
+	font-size: 18px;
+}
+
+.card-logement-profil > details > div > form {
+	margin-left: 40%;
+}
+
+.card-logement-profil > details > div > form > input  {
+	background-color: white;
+	border: none;
+}
+
+.card-logement-profil > details > div > form > input:hover  {
+	color: red;
 }

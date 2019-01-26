@@ -96,7 +96,7 @@ function supprimerLogement($bdd, $logement) {
 * Fonction permettant d'insérer un nouveau partage de logement
 **/
 function insererNouveauPartageLogement($bdd, $user_partage) {
-  $query = 'SELECT id FROM utilisateur
+  $query = 'SELECT * FROM utilisateur
             WHERE nom=:nom and prenom=:prenom and mail=:mail';
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":nom", $user_partage['nom']);
@@ -105,11 +105,9 @@ function insererNouveauPartageLogement($bdd, $user_partage) {
   $donnees->execute();
   $response = $donnees->fetchAll();
   foreach ($response as $key => $value) {
-    $id_user = $value['id'];
+    $id_user_sharing = $value['id'];
   }
   if($response) {
-    var_dump(intval($id_user));
-    var_dump($user_partage['id_logement']);
     $query = 'INSERT INTO partagelogement(
       id_logement,
       id_utilisateur
@@ -121,7 +119,7 @@ function insererNouveauPartageLogement($bdd, $user_partage) {
     $donnees = $bdd->prepare($query);
 
     $donnees->bindParam(":id_logement", intval($user_partage['id_logement']));
-    $donnees->bindParam(":id_utilisateur", intval($id_user));
+    $donnees->bindParam(":id_utilisateur", intval($id_user_sharing));
     return $donnees->execute();
   } else {
     return false;
