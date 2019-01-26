@@ -6,20 +6,20 @@
       ?>
       <form class="" action="?Route=client&Ctrl=logement&Vue=updaterLogement" method="post">
         <p> Editer votre logement </p>
-        <input type="intval" name="numero" value=" <?= intval($logement['numero'])  ?> " required>
+        <input type="intval" name="numero" placeholder="numero" value=" <?= intval($logement['numero'])  ?> " required>
         <label for="numero">*</label>
-        <input type="text" name="rue" value="<?= $logement['rue']?>" required>
+        <input type="text" name="rue" placeholder="rue" value="<?= $logement['rue']?>" required>
         <label for="numero">*</label>
-        <input type="text" name="ville" value="<?= $logement['ville']  ?>" required>
+        <input type="text" name="ville" placeholder="ville" value="<?= $logement['ville']  ?>" required>
         <label for="numero">*</label>
-        <input type="number" name="code_postal" value="<?= $logement['code_postal']  ?>" required>
+        <input type="number" name="code_postal" placeholder="code postal" value="<?= $logement['code_postal']  ?>" required>
         <label for="numero">*</label>
-        <input type="number" name="nbr_habitant" value="<?= $logement['nbr_habitant']  ?>" required>
+        <input type="number" name="nbr_habitant" placeholder="nombre d'habitant" value="<?= $logement['nbr_habitant']  ?>" required>
         <label for="numero">*</label>
-        <input type="number" name="surface" value="<?= $logement['surface']  ?>" required>
+        <input type="number" name="surface" placeholder="surface" value="<?= $logement['surface']  ?>" required>
         <label for="numero">*</label>
-        <input type="text" name="complement_adresse" value="<?= $logement['complement_adresse']  ?>">
-        <input type="number" name="annee_construction" value="<?= $logement['annee_construction']  ?>">
+        <input type="text" name="complement_adresse" placeholder="complement d'adresse" value="<?= $logement['complement_adresse']  ?>">
+        <input type="number" name="annee_construction" placeholder="annee de construction" value="<?= $logement['annee_construction']  ?>">
         <input type="hidden" name="id_logement" value="<?= $logement['id'] ?>">
         <input class="bouton-ajouter" type="submit" name="ajouter" value="Editer">
       </form>

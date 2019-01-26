@@ -26,6 +26,22 @@ function selectionnerIDLogementBYPieceId($bdd, $id_piece) {
   return $donnees->fetchAll();
 }
 
+function updaterPiece($bdd, $value, $id_piece) {
+  $query = 'UPDATE piece SET
+            nom =:nom,
+            type =:type,
+            surface =:surface,
+            etage =:etage
+            WHERE id=:id_piece';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":id_piece", $id_piece);
+  $donnees->bindParam(":nom", $value['nom']);
+  $donnees->bindParam(":type", $value['type']);
+  $donnees->bindParam(":surface", $value['surface']);
+  $donnees->bindParam(":etage", $value['etage']);
+  return $donnees->execute();
+}
+
 /**
 * Fonction permettant de selectionner les informations du logement
 **/
