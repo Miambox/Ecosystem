@@ -6,6 +6,7 @@ switch ($action) {
 
         $vue = "profil";
         $title = "Profil";
+        // $liste_user_share_logement = selectionnerUsersShareLogement($bdd);
         break;
 
     default:

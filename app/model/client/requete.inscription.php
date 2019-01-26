@@ -26,8 +26,8 @@ function inscription($bdd, $value) {
       :type
     )');
 // bindParam chercher et remplacer
-   $stmt->bindParam(':nom', $value['name']);
-   $stmt->bindParam(':prenom', $value['lastname']);
+   $stmt->bindParam(':nom', $value['lastname']);
+   $stmt->bindParam(':prenom', $value['name']);
    $stmt->bindParam(':date_naissance', $value['date']);
    $stmt->bindParam(':tel_portable', $value['telephone']);
    $stmt->bindParam(':mail', $value['mail']);

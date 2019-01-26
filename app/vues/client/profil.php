@@ -19,10 +19,7 @@
             </div>
 
             <div class = "partage">
-                <h2> Mes partages </h2>
-                <a href="<?=ROOT_URL?>?Route=client&amp;Ctrl=logement&amp;Vue=vuePrincipale" title="mes partages"> <img src="<?=ROOT_URL?>static/image/icon/add.png" alt="">
-                </a>
-
+                
             </div>
         </div>
 
