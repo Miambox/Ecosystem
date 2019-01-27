@@ -124,10 +124,18 @@
       color: white;
       box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
     }
-    .container-logo > .btn-retour-piece {
+    .btn-retour-piece {
+      margin-top: 4%;
       position: sticky;
       top: 14%;
-      color: #FFD006;
+      color: white;
+      background-color: #FFD006;
+      border: none;
+      padding: 2%;
+      font-weight: 600;
+    }
+    .btn-retour-piece:hover {
+      box-shadow: 1px 2px 2px 1px rgba(0,0,0,0.2);
     }
     /*Logo de pièce*/
     .container-logo > img {

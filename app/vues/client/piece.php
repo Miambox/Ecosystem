@@ -53,6 +53,13 @@
                       Supprimer
                     </a>
                   </li>
+                  <li>
+                    <form class="" action="?Route=client&Ctrl=piece&Vue=editerPiece" method="post">
+                      <input type="hidden" name="id_piece" value="<?= $value[0]?>">
+                      <input type="hidden" name="id_logement" value="<?= $value['id_logement'] ?>">
+                      <input type="submit" name="" value="Modifier">
+                    </form>
+                  </li>
                 </ul>
               </nav>
 

@@ -1,27 +1,24 @@
 @media only screen and (min-width: 1100px) {
-h1 {
-  color : orange;
-  text-align:center;  
-}
-
-h2 {
-  color : orange;
-  text-align:center;
-}
-
-a {
-  outline: none;
-  text-decoration: none;
-}
 
 .crayon {
   height: 40px;
+}
+
+.general > h1 {
+  text-align: center;
+  color: orange;
+}
+
+.general > h2 {
+  text-align: center;
+  color: orange;
 }
 
 /*Container de toute la page*/
 .container {
   display: flex;
   flex-direction: row;
+  margin-left: 2%;
 }
 
 .faq {
@@ -29,7 +26,7 @@ a {
   flex-direction: column;
   flex-wrap: nowrap;
   width: 30%;
-  height: auto;
+  height: 100px;
   align-content: space-around;
   justify-content: space-around;
   background-color: orange /*rgba(0,0,0,0.05)*/;
@@ -44,12 +41,11 @@ a {
    font: 20px Arial;
    text-align: left;
    color: black;
-   padding: 1px 1px 1px 1px;
 }
 
 .faq img {
-  float:left;
-  padding-right: 10px;
+  margin-left: 20%;
+  margin-right: 3%;
 }
 
 
@@ -57,24 +53,33 @@ a {
   background-color: white;
 }
 
+.faq > a {
+  text-decoration: none;
+}
+
 .mentionsLegales {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   width: 30%;
-  height: auto;
+  height: 100px;
   align-content: space-around;
   justify-content: space-around;
   background-color: orange /*rgba(0,0,0,0.05)*/;
   border-radius: 10px;
   box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
   margin: 60px 40px 1px 1px;
+  padding: 10px 10px 10px 10px
 }
 
 .mentionsLegales p {
    font: 20px Arial;
    text-align: center;
    color: black;
+}
+
+.mentionsLegales a {
+  text-decoration: none;
 }
 
 
@@ -87,27 +92,29 @@ a {
   flex-direction: row;
   flex-wrap: nowrap;
   width: 30%;
-  height: auto;
+  height: 100px;
   align-content: space-around;
   justify-content: space-around;
   background-color: orange /*rgba(0,0,0,0.05)*/;
   border-radius: 10px;
   box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
   margin: 60px 40px 1px 1px;
+  padding: 10px;
 }
 
 .cgu p {
    font: 20px Arial;
    text-align: center;
    color: black;
-   
 }
-
 
 .cgu:hover {
   background-color: white;
 }
 
-
+.cgu > a {
+  text-decoration: none;
+  margin-right: 24%;
 }
 
+}

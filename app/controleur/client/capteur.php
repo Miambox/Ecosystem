@@ -4,12 +4,13 @@ include('app/model/client/requete.capteur.php');
 switch ($action) {
 
     case 'vuePrincipale':
-
         $vue = "capteur";
         $title = "Les capteurs";
-        if(isset ($_POST["id_piece"]) and isset ($_POST["id_logement"]) ){
+        if(isset ($_POST["id_piece"])) {
+          if(isset($_POST["id_logement"])) {
+            $IDLOGEMENT = $_POST["id_logement"];
+          }
           $IDPIECE = $_POST["id_piece"];
-          $IDLOGEMENT = $_POST["id_logement"];
         } else if(isset($_GET['id_piece']) and isset ($_GET["id_logement"]) ){
           $IDPIECE = $_GET["id_piece"];
           $IDLOGEMENT = $_GET["id_logement"];
@@ -29,15 +30,11 @@ switch ($action) {
         $id_logement = $_POST['id_logement'];
         if( isset($_POST['ref']) and
             isset($_POST['nom']) and
-            isset($_POST['unit']) and
-            isset($_POST['type']) and
             isset($_POST['id_piece'])) {
 
           $values = [
             'numero_ref'              => $_POST['ref'],
             'nom'                 => $_POST['nom'],
-            'unit'               => $_POST['unit'],
-            'type'          => $_POST['type'],
             'id_piece'      => $_POST['id_piece']
 
           ];
@@ -79,6 +76,7 @@ switch ($action) {
         $vue = "detailsCapteur";
 
         if(isset($_POST['id_capteur'])) {
+          $id_piece = securitePourXSSFail($_POST['id_piece']);
           $idCapteur = securitePourXSSFail($_POST['id_capteur']);
           $donneesCapteur =  infoCapteur($bdd, $idCapteur);
 
@@ -265,12 +263,53 @@ switch ($action) {
 
     break;
 
+    case 'editerCapteur':
+      $vue="addCapteur";
+      $title="Editer un capteur";
+      $id_capteur = securitePourXSSFail($_POST['id_capteur']);
+      $id_piece = $_POST['id_piece'];
+      $id_logement = $_POST['id_logement'];
+      $information_capteur = selectionnerCapteurById($bdd, intval($id_capteur));
+    break;
+
+    case 'updaterCapteur':
+      $vue="addCapteur";
+      $title="Editer un capteur";
+      $id_piece = $_POST['id_piece'];
+      $id_logement = $_POST['id_logement'];
+      $id_capteur = securitePourXSSFail($_POST['id_capteur']);
+      if( isset($_POST['ref']) and
+          isset($_POST['nom']) and
+          isset($_POST['id_piece']))
+          {
+          $values = [
+            'numero_ref'              => $_POST['ref'],
+            'nom'                 => $_POST['nom'],
+            'id_piece'      => $_POST['id_piece']
+          ];
+          $request = updaterCapteur($bdd, $id_capteur, $values);
+          if(isset($request)) {
+            header('Location: ?Route=client&Ctrl=capteur&Vue=vuePrincipale&id_piece='. intval($id_piece) . '&id_logement='. intval($id_logement));
+          }
+      } else {
+        $alerte = 1;
+        $alerte_explication= 'Vous avez oublié un champs obligatoire, merci de recommencer.';
+      }
+    break;
+
     default:
         $title = "error404";
         $vue = "erreur404";
 }
 
-include ('app/vues/client/header.php');
-include ('app/vues/client/'.$vue. '.php');
-include ('app/vues/client/footer.php');
+if($_SESSION['type']=="utilisateur"){
+  include ('app/vues/client/header.php');
+  include ('app/vues/client/'.$vue. '.php');
+  include ('app/vues/client/footer.php');
+} else {
+  include ('app/vues/admin/header.php');
+  include ('app/vues/client/'.$vue. '.php');
+  include ('app/vues/admin/footer.php');
+}
+
 ?>
