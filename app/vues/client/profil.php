@@ -3,19 +3,66 @@
 
     <div id="container">
         <div id="containerleft">
-            <figure class="profil">
-                        <img src="<?=ROOT_URL?>static/image/icon/user-profil.png" alt="">
-
-            </figure>
-
-            <div class="informations">
-              <h3> Nom </h3>
-              <h3> Prénom </h3>
-              <h3> Date de naissance </h3>
-              <h3> Numéro de téléphone </h3>
-              <h3> Adresse mail </h3>
-            </div>
-
+          <?php
+          if(isset($information_user) && sizeof($information_user) != 0) {
+            foreach ($information_user as $key => $user) {
+              ?>
+              <div class="informations">
+                <table class="table-information">
+                  <div class="head-table">
+                    Informations personnelles
+                  </div>
+                  <tr>
+                    <td>
+                      Nom :
+                    </td>
+                    <td>
+                      <?= $user['nom'] ?>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Prénom :
+                    </td>
+                    <td>
+                      <?= $user['prenom'] ?>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Date de naissance :
+                    </td>
+                    <td>
+                      <?=strftime("%d %B %Y",strtotime($user['date_naissance']));?>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      N° de téléphone :
+                    </td>
+                    <td>
+                      0<?= $user['tel_portable'] ?>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Adresse mail :
+                    </td>
+                    <td>
+                      <?= $user['mail'] ?>
+                    </td>
+                  </tr>
+                </table>
+                <div class="footer-table">
+                  <form class="" action="?Route=client&Ctrl=profil&Vue=editerProfil" method="post">
+                    <input type="submit" name="" value="Editer">
+                  </form>
+                </div>
+              </div>
+              <?php
+            }
+          }
+          ?>
         </div>
 
         <div id="containeright">

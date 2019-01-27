@@ -99,6 +99,9 @@ switch ($action) {
       }
     break;
 
+    case 'capteurBaton':
+    break;
+
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $title = "error404";

@@ -8,7 +8,6 @@ function drawChart() {
       var capteur = document.getElementById('capteur');
       var id_capteur = capteur.dataset.id;
       $.get("?Route=client&Ctrl=data&Vue=capteur&id_capteur="+id_capteur, function( data ) {
-        console.log(data);
         var arrayData = JSON.parse(data).dataPourcent;
 
         $("#ajouterLum").click(function(e) {
