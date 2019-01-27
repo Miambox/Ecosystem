@@ -1,28 +1,31 @@
 <?php
-if($_SESSION['type'] != "utilisateur") {
-  $nomClient = $_POST['nomClient'];
-  $id = $_POST['id'];
-  $idLogement = $_POST['id_logement'];
-  $idPiece = $_POST['id_piece'];
+// if($_SESSION['type'] != "utilisateur") {
+//   $nomClient = $_POST['nomClient'];
+//   $id = $_POST['id'];
+//   $idLogement = $_POST['id_logement'];
+//   $idPiece = $_POST['id_piece'];
 ?>
 
-<form action="?Route=admin&Ctrl=client&Vue=piece" method="post">
+<!-- <form action="?Route=admin&Ctrl=client&Vue=piece" method="post">
     <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
     <input type="hidden" name="id" value="<?php echo $id?>">
     <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">
     <input type="hidden" name="id_piece" value="<?php echo $idPiece?>">
     <input type="submit" class="retour" value="Retour aux capteurs">
-</form>
-<?php
-}
-?>
+</form> -->
 
+<?php
+// }
+?>
 <div class="container-details-capteur">
 <?php
 if($_SESSION['type'] == "utilisateur") {
 ?>
   <div class="container-logo">
-    <a type="button" href="javascript:history.back()" class="btn-retour-piece">Retour véranda</a>
+    <form class="" action="?Route=client&Ctrl=capteur&Vue=vuePrincipale"  method="post">
+      <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
+      <input type="submit" name="" value="Retour au capteur" class="btn-retour-piece">
+    </form>
     <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="100%" alt="">
     <div class="on_off">
       <span>Eteindre/Allumer le capteur</span>

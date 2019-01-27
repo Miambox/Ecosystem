@@ -3,7 +3,6 @@
 switch ($action) {
 
     case 'home':
-
         $vue = "home";
         $title = "Accueil";
 
@@ -11,7 +10,6 @@ switch ($action) {
 
     case 'mentionLegale':
         //Ajouter un nouveau capteur
-
         $title = "mentionLegale";
         $vue = "mentionLegale";
 
@@ -20,7 +18,7 @@ switch ($action) {
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $title = "error404";
-        $message = "Erreur 404 : la page recherchée n'existe pas.";
+        $vue = "erreur404";
 }
 
 include ('app/vues/client/header.php');

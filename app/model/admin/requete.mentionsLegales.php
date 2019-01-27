@@ -12,12 +12,12 @@ function selectionnerMentionsLegales($bdd) {
 }
 
 function insererMentionsLegales($bdd, $mentionsLegales) {
-	
+
 
 	$query = 'INSERT INTO mentionsLegales(message) VALUES (:message)';
 	$donnees = $bdd->prepare($query);
-	
-	$donnees->bindParam(":message", $mentionsLegales['message']);
+
+	$donnees->bindParam(":message", addslashes($mentionsLegales['message']));
 	$request = $donnees->execute();
   	return $request;
 }

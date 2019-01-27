@@ -2,6 +2,7 @@
 namespace ECOSYSTEM;
 use ECOSYSTEM\app;
 session_start();
+setlocale(LC_ALL, 'fr_FR');
 date_default_timezone_set('Europe/Paris');
 ini_set('display_errors', 1);
 

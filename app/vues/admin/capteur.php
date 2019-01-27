@@ -1,4 +1,4 @@
-<form action="?Route=admin&Ctrl=client&Vue=piece" method="post">
+<form action="?Route=admin&Ctrl=client&Vue=piece" method="post" class="retour-in">
     <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
     <input type="hidden" name="id" value="<?php echo $id?>">
     <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">
@@ -12,7 +12,7 @@ $donneesPiece = donneesPiece($bdd,$idPiece)->fetch();
 <div class="container-all">
     <div class="element">
         <div class="photo">
-            <img src="<?=ROOT_URL?>/static/image/icon/cuisine-image.bmp" width="100%" height="100%" alt="">
+            <img src="<?=ROOT_URL?>/static/image/icon/piece.jpg" width="100%" height="100%" alt="">
         </div>
         <div class="title">
             <?php echo $donneesPiece['nom'];?>

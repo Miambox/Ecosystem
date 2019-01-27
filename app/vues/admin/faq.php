@@ -1,38 +1,76 @@
-	<h1 class="faqTitre"> Eco'FAQ <h1>
-		<h2 class="faqSousTitre"> Aidez vos clients <h2><br>
+<div class="container-faq">
+	<div class="card-question-reponse">
+		<?php if(isset($listeFAQ)) {
+			foreach($listeFAQ as $key => $faq)
+			{
+				?>
+				<details close>
+					<summary>
+						<div class="">
+							<?php echo $faq['question']; ?>
+						</div>
+						<div class="">
+							<form class="" action="?Route=admin&Ctrl=faq&Vue=editerFaq" method="post">
+								<input type="hidden" name="id_faq" value="<?= $faq['id'] ?>">
+								<input type="submit" name="" value="edit">
+							</form>
+							<form class="" action="?Route=admin&Ctrl=faq&Vue=supprimerFaq" method="post">
+								<input type="hidden" name="id_faq" value="<?= $faq['id'] ?>">
+								<input type="submit" name="" value="supprimer">
+							</form>
+						</div>
+					</summary>
+					<?php echo $faq['reponse']; ?>
+				</details>
+				<?php
+			}
+		}
+		?>
+	</div>
 
-			<div class="container">
-				<div class="question">
-
-					<?php if(isset($listeFAQ)) {
-			//var_dump($listeFAQ);
-						foreach($listeFAQ as $key => $faq) 
-						{ 
-	      	//echo $faq["question"];
-
-							echo '<p><strong>' . htmlspecialchars($faq['question']) . '</strong>  ' . htmlspecialchars($faq['reponse']) . '</p>'; 
-						}
-
-
-						?>
+	<form action="?Route=admin&Ctrl=faq&Vue=faq" method="post">
+			<?php
+			if(isset($listeFAQByID)) {
+				foreach ($listeFAQByID as $key => $value) {
+					?>
+					<div class="question_faq">
+						<input type="text" name="question_edit" value="<?= $value['question'] ?>">
 					</div>
 
+					<div class="reponse_faq">
+						<textarea name="reponse_edit" id="reponse"><?= $value['reponse'] ?></textarea>
+						<script src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js"></script>
+						<script>
+						CKEDITOR.replace( 'reponse');
+						</script>
+					</div>
+					<input type="hidden" name="id_faq" value="<?= $value['id'] ?>">
+					<?php
+				}
+			} else {
+				?>
+				<div class="question_faq">
+					<input type="text" name="question" value="" placeholder="Question à ajouter ?">
+				</div>
 
-					<form action="?Route=admin&Ctrl=faq&Vue=faq" method="post">
-						<div class = "formulaire">
-
-							<label for="id_utilisateur"><p>Utilisateur</label> : <input type="text" name="id_utilisateur" id="id_utilisateur" /><br />
-								<label for="type"><p>Type</label> : <input type="text" name="type" id="type" /><br />
-									<label for="question"><p>Question</label> : <input type="text" name="question" id="question" /><br />
-										<label for="reponse"><p>Reponse</label> :  <input type="text" name="reponse" id="reponse" /><br />
-
-											<div class ="bouton" > <input type="submit" value="Envoyer" /> </div>
-										</div>
-									</form>
-
-								</div>
-
-								<?php 
-
-							} 
-							?>
+				<div class="reponse_faq">
+					<textarea name="reponse" id="reponse">Votre réponse</textarea>
+					<script src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js"></script>
+					<script>
+					CKEDITOR.replace( 'reponse');
+					</script>
+				</div>
+				<?php
+			}
+			if($edit != 0) {
+				?>
+				<input type="submit" value="Editer" />
+				<?php
+			} else {
+				?>
+				<input type="submit" value="Envoyer" />
+				<?php
+			}
+			?>
+	</form>
+</div>

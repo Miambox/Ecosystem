@@ -35,7 +35,7 @@ switch ($action) {
               ];
               $request = inscription($bdd, $value);
               if($request) {
-                header('Location: ?Route=client&Ctrl=profil&vuePrincipale');
+                header('Location: ?Route=client&Ctrl=profil&Vue=vuePrincipale');
               } else {
                 header('Location: ?Route=client&signin');
               }
@@ -59,6 +59,9 @@ switch ($action) {
           $_SESSION['prenom'] = $value['prenom'];
           $_SESSION['id'] = $value['id'];
           $_SESSION['type'] = $value['type'];
+          $_SESSION['date_naissance'] = $value['date_naissance'];
+          $_SESSION['tel_portable'] = $value['tel_portable'];
+          $_SESSION['mail'] = $value['mail'];
         }
 
         if(isset($_SESSION['id'])) {
