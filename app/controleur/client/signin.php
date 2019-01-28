@@ -19,7 +19,8 @@ switch ($action) {
             isset($_POST['password'])&&
             isset($_POST['password_confirmation'])&&
             isset($_POST['securityQuestion'])&&
-            isset($_POST['securityResponse']))
+            isset($_POST['securityResponse']) &&
+            isset($_POST["g-recaptcha-response"]))
             {
               $value = [
                 'lastname'                => securitePourXSSFail($_POST['lastname']),
@@ -35,7 +36,7 @@ switch ($action) {
               ];
               $request = inscription($bdd, $value);
               if($request) {
-                header('Location: ?Route=client&Ctrl=profil&vuePrincipale');
+                header('Location: index.php');
               } else {
                 header('Location: ?Route=client&signin');
               }
@@ -59,6 +60,9 @@ switch ($action) {
           $_SESSION['prenom'] = $value['prenom'];
           $_SESSION['id'] = $value['id'];
           $_SESSION['type'] = $value['type'];
+          $_SESSION['date_naissance'] = $value['date_naissance'];
+          $_SESSION['tel_portable'] = $value['tel_portable'];
+          $_SESSION['mail'] = $value['mail'];
         }
 
         if(isset($_SESSION['id'])) {
@@ -84,7 +88,7 @@ switch ($action) {
     case 'mdpOublie':
       $title = "Récupération de mot de passe";
       $vue = "recupMdp";
-
+      $enterMail = 0;
       if(isset($_POST['email'])) {
         $mail_mdp = passwordForget($bdd, securitePourXSSFail($_POST['email']));
         if(sizeof($mail_mdp)) {
@@ -96,7 +100,7 @@ switch ($action) {
             $headers = 'From: lucas.perrault@hotmail.com' . "\r\n";
             $request = mail($to, $subject, $message, $headers);
             if($request) {
-              header('Location: index.php');
+              header('Location: ?Route=client&Ctrl=signin&Vue=recupMdpDeux');
             } else {
               header('Location: ?Route=client&Ctrl=signin');
             }
@@ -104,7 +108,35 @@ switch ($action) {
         } else {
           $alerte = "Le mail ne correspond pas à aucun autres.. Veuillez rééssayer !";
         }
+      }
+    break;
 
+    case 'recupMdpDeux':
+      $vue="recupMdp";
+      $title= "Récupération de mot de passe";
+      $enterMail = 1;
+      if(isset($_POST["g-recaptcha-response"]) and
+         isset($_POST['nom']) and
+         isset($_POST['prenom']) and
+         isset($_POST['question_securite']) and
+         isset($_POST['reponse_securite'])) {
+
+           $values = [
+             'prenom' => securitePourXSSFail($_POST['prenom']),
+             'nom' => securitePourXSSFail($_POST['nom']),
+             'question_securite' => securitePourXSSFail($_POST['question_securite']),
+             'reponse_securite' => securitePourXSSFail($_POST['reponse_securite'])
+           ];
+
+           $searchMdp = selectionnerMdp($bdd, $values);
+           if($searchMdp) {
+             foreach ($searchMdp as $key => $value) {
+               $mot_de_passe = $value['mot_de_passe'];
+               $enterMail = 2;
+             }
+           } else {
+             $alerte = "Personne ne correspond à ces caractéristiques, veuillez rééssayer";
+           }
       }
     break;
 

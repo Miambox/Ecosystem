@@ -26,6 +26,12 @@
                     Partager
                   </a>
                 </li>
+                <li>
+                  <form class="" action="?Route=client&Ctrl=logement&Vue=editerLogement" method="post">
+                    <input type="hidden" name="id_logement" value="<?= $value['id'] ?>">
+                    <input type="submit" name="" value="Modifer">
+                  </form>
+                </li>
               </ul>
             </nav>
             <!--POP up de suppression-->

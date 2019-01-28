@@ -7,21 +7,32 @@ switch ($action) {
   // Vue des mentions légales
   case 'mentionsLegales':
         $vue                      = "mentionsLegales";
-        $title                    = "MentionsLegales";
+        $title                    = "Mentions Legales";
+        $edit = 0;
         $messageMentionsLegales   = selectionnerMentionsLegales($bdd);
 
         if(isset($_POST['message']))  {
-          $mentionsLegales = [
-            'message'       => $_POST['message'],
-          ];
-         $request = insererMentionsLegales($bdd, $mentionsLegales);
-         if($request) {
-              header('Location: ?Route=admin&Ctrl=mentionsLegales&Vue=mentionsLegales');
-            } else {
-              header('Location: ?Route=admin&Ctrl=mentionsLegales&Vue=mentionsLegales');
+          if($_POST['message'] != "") {
+            $mentionsLegales = [
+              'message'       => $_POST['message'],
+            ];
+           $request = insererMentionsLegales($bdd, $mentionsLegales);
+           if($request) {
+                header('Location: ?Route=admin&Ctrl=mentionsLegales&Vue=mentionsLegales');
+              } else {
+                header('Location: ?Route=admin&Ctrl=mentionsLegales&Vue=mentionsLegales');
             }
           }
+        }
     break;
+
+    case 'editMentionsLegales':
+      $vue            = "mentionsLegales";
+      $title          = "Mentions Legales";
+      $edit = 1;
+      $messageMentionsLegales   = selectionnerMentionsLegales($bdd);
+    break;
+
 
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET

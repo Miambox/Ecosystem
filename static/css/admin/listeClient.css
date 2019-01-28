@@ -1,4 +1,4 @@
-.card-container-object {
+.card-container-client {
     width: auto;
     height: 500px;
     margin: 2% 2% 2% 2%;
@@ -12,11 +12,11 @@
     justify-content: flex-start;
     }
 
-    .card-container-object > form {
+    .card-container-client > form {
       margin-left: 3.5%;
       margin-top: 2.5%;
     }
-      .card-container-object > form > .card-n {
+      .card-container-client > form > .card-n {
       width: 200px;
       height: 300px;
       border: solid 1px rgba(0,0,0,0.6);
@@ -30,15 +30,17 @@
       align-items: center;
       }
   
-      .card-container-object > form > .card-n > img {
+      .card-container-client > form > .card-n > img {
         margin: auto;
+        width: 100%;
+        height: auto;
       }
   
-      .card-container-object > form > .card-n:hover {
+      .card-container-client > form > .card-n:hover {
         border-color: orange;
       }
   
-      .card-container-object > form > .card-n > .banniere {
+      .card-container-client > form > .card-n > .banniere {
         width: 100%;
         height: 50px;
         border-top: solid 1px rgba(0,0,0,0.15);
@@ -50,11 +52,11 @@
         align-items: center;
       }
   
-    .card-container-object > form > .card-n > div {
+    .card-container-client > form > .card-n > div {
       display: flex;
     }
     
-    .card-container-object > form > .card-n > div > input {
+    .card-container-client > form > .card-n > div > input {
       width: 100px;
       height: 50px;
       border: solid 1px;

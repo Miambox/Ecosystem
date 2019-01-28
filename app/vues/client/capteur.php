@@ -1,8 +1,7 @@
 <div class="container-piece-capteurs">
   <div class="container-resume-piece">
-
     <form class="" action="?Route=client&Ctrl=piece&Vue=vuePrincipale" method="post">
-      <input type="hidden" name="id_logement" value="<?php echo $IDLOGEMENT ?>">
+      <input type="hidden" name="id_piece" value="<?php echo $IDPIECE ?>">
       <input type="submit" name="" value="retour aux pieces">
     </form>
 
@@ -35,8 +34,15 @@
                 <li>
                   <a href="#" onclick="openDeletePopup(<?= $donnees['id']?>)">
                   Supprimer
-                </a>
-
+                  </a>
+                </li>
+                <li>
+                  <form class="" action="?Route=client&Ctrl=capteur&Vue=editerCapteur" method="post">
+                    <input type="hidden" name="id_capteur" value="<?= $donnees['id'] ?>">
+                    <input type="hidden" name="id_piece" value="<?php echo $donneespiece['id']  ?>">
+                    <input type="hidden" name="id_logement" value="<?php echo $IDLOGEMENT  ?>">
+                    <input type="submit" name="" value="Modifier">
+                  </form>
                 </li>
               </ul>
             </nav>
@@ -74,7 +80,7 @@
         <form class="" action="?Route=client&Ctrl=capteur&Vue=details" method="post">
           <input type="hidden" name="id_capteur" value="<?php echo $donnees['id'] ?>">
           <input type="hidden" name="id_piece" value="<?=$IDPIECE ?>">
-          <input type="submit" name="" class='button-config-capteur' value="Plus de détails">
+          <input type="submit" name="" class='button-config-capteur' value="Contrôler">
         </form>
       </div>
     </div>

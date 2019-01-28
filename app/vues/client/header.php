@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/addCapteur/addCapteur-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/chat.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/faq.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/cgu.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/mentionsLegales.css">
     <!-- Mot de passe oubliée-->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/motdepasseoublie.css">
@@ -107,7 +108,7 @@
                 if(isset($_SESSION['id'])) {
                   ?>
                   <a href="<?=ROOT_URL?>?Route=client&Ctrl=logement&Vue=vuePrincipale">
-                    Gestion des capteurs
+                    Gestion
                   </a>
                   <?php
                 }

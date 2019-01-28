@@ -1,4 +1,4 @@
-<div class="card-container-object">
+<div class="card-container-client">
 <?php
 
 switch($affiche){
@@ -10,7 +10,7 @@ switch($affiche){
         <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
         <input type="hidden" name='id' value="<?php echo $info['id']?>">
             <div class="card-n">
-                <img src="<?=ROOT_URL?>static/image/icon/user-profil.png" width="100%" alt="">
+                <img src="<?=ROOT_URL?>static/image/icon/user4.png" alt="">
                     <div class="banniere">
                         <?php echo $info['prenom']." ".$info['nom'];?>
                     </div>
@@ -32,7 +32,7 @@ switch($affiche){
                   <form class="" action="?Route=admin&Ctrl=general&Vue=deleteUser" method="post">
                     <div class="form-group">
                       <label for="mdp-admin">Saisissez le prénom du client : <br></label>
-                      <input type="text" name="mdp-admin" placeholder="Nom du client" required>
+                      <input type="text" name="mdp-admin" placeholder="Prénom du client" required>
                       <input type="hidden" name="id-client" value="<?php echo $info['id'] ?>">
                     </div>
                     <input type="submit" value="Valider">

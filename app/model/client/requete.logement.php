@@ -24,6 +24,16 @@ function selectionerLogement($bdd) {
   return array_merge($liste_logement,$donnees->fetchAll());
 }
 
+function  selectionnerLogementById($bdd, $id_logement) {
+
+  $query = 'SELECT * FROM logement WHERE id=:id_logement';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":id_logement", $id_logement);
+  $donnees->execute();
+  return $donnees->fetchAll();
+
+}
+
 /**
 * Fonction permettant d'ajouter un logement
 **/
@@ -66,6 +76,28 @@ function insererNouveauLogement($bdd, $logement) {
   return $request;
 }
 
+function updaterLogement($bdd, $value, $id_logement) {
+  $query = 'UPDATE logement SET
+            numero              =:numero,
+            rue                 =:rue,
+            ville               =:ville,
+            code_postal         =:code_postal,
+            nbr_habitant        =:nbr_habitant,
+            surface             =:surface,
+            annee_construction  =:annee_construction
+            WHERE id   =:id_logement';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":id_logement", $id_logement);
+  $donnees->bindParam(":numero", $value['numero']);
+  $donnees->bindParam(":rue", $value['rue']);
+  $donnees->bindParam(":ville", $value['ville']);
+  $donnees->bindParam(":code_postal", $value['code_postal']);
+  $donnees->bindParam(":nbr_habitant", $value['nbr_habitant']);
+  $donnees->bindParam(":surface", $value['surface']);
+  $donnees->bindParam(":annee_construction", $value['annee_construction']);
+  return $donnees->execute();
+}
+
 /**
 * Fonction permettant de supprimer un logement
 **/
@@ -96,7 +128,7 @@ function supprimerLogement($bdd, $logement) {
 * Fonction permettant d'insérer un nouveau partage de logement
 **/
 function insererNouveauPartageLogement($bdd, $user_partage) {
-  $query = 'SELECT id FROM utilisateur
+  $query = 'SELECT * FROM utilisateur
             WHERE nom=:nom and prenom=:prenom and mail=:mail';
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":nom", $user_partage['nom']);
@@ -105,11 +137,9 @@ function insererNouveauPartageLogement($bdd, $user_partage) {
   $donnees->execute();
   $response = $donnees->fetchAll();
   foreach ($response as $key => $value) {
-    $id_user = $value['id'];
+    $id_user_sharing = $value['id'];
   }
   if($response) {
-    var_dump(intval($id_user));
-    var_dump($user_partage['id_logement']);
     $query = 'INSERT INTO partagelogement(
       id_logement,
       id_utilisateur
@@ -121,7 +151,7 @@ function insererNouveauPartageLogement($bdd, $user_partage) {
     $donnees = $bdd->prepare($query);
 
     $donnees->bindParam(":id_logement", intval($user_partage['id_logement']));
-    $donnees->bindParam(":id_utilisateur", intval($id_user));
+    $donnees->bindParam(":id_utilisateur", intval($id_user_sharing));
     return $donnees->execute();
   } else {
     return false;

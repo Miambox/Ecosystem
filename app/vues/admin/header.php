@@ -7,15 +7,30 @@
     <!-- Barre de navigation -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/barre-de-navigation/navbar-admin-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/barre-de-navigation/navbar-admin-mobile.css">
-    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/modal/modal-desktop.css">
+    <!-- pages logement, piece, capteur -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/clientProfil.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/detailsCapteur.css">
+    <!-- page d'accueil -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/general.css">
+    <!-- faq -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/faq.css">
+    <!-- liste des clients -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/listeClient.css">
+    <!-- page supreme admin gestion des droits -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/droit.css">
+    <!-- page erreur -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/erreur404.css">
+    <!-- mentions légales -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/mentionsLegales.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/admin/cgu.css">
+
+    <!-- modal -->
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/modal/modal-desktop.css">
+    <!-- big modal -->
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/utils/modal/big-modal-desktop.css">
+    <!-- page détails du capteur -->
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/details-capteur/details-capteur-desktop.css">
+    <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/details-capteur/details-capteur-mobile.css">
 
     <title>Eco'system - admin</title>
   </head>
@@ -59,24 +74,32 @@
               <li><a href="<?=ROOT_URL?>?Route=admin&Ctrl=general&Vue=general"><img src="<?=ROOT_URL?>static/image/entreprise/ecosystem-text-logo.png" alt=""></a></li>
               <li>
                 <?php
-                if($_SESSION['type'] == "administrateur") {
-                  ?>
-                  <a href="?Route=admin&Ctrl=droit&Vue=vuePrincipale">
-                    Gérer les droits
-                  </a>
-                  <?php
+                if(isset($_SESSION['id'])) {
+                  if($_SESSION['type'] == "administrateur") {
+                    ?>
+                    <a href="?Route=admin&Ctrl=droit&Vue=vuePrincipale">
+                      Gérer les droits
+                    </a>
+                    <?php
+                  }
                 }
                 ?>
               </li>
               <li>
-                <div class="container-searchbar">
-                  <form autocomplete="off" action="?Route=admin&Ctrl=general&Vue=listeClient" method="post">
-                    <div id="searchbar-desktop" class="searchbar">
-                      <input type="search" name="nomClient" id="search-desktop" placeholder="Rentrez le nom du client ...">
-                      <input type="image" value="Submit" id="loupe" src="<?=ROOT_URL?>/static/image/icon/search-logo-lp.png">
-                    </div>
-                  </form>
-                </div>
+                <?php
+                if(isset($_SESSION['id'])) {
+                  ?>
+                  <div class="container-searchbar">
+                    <form autocomplete="off" action="?Route=admin&Ctrl=general&Vue=listeClient" method="post">
+                      <div id="searchbar-desktop" class="searchbar">
+                        <input type="search" name="nomClient" id="search-desktop" placeholder="Rentrez le nom du client ...">
+                        <input type="image" value="Submit" id="loupe" src="<?=ROOT_URL?>/static/image/icon/search-logo-lp.png">
+                      </div>
+                    </form>
+                  </div>
+                  <?php
+                }
+                ?>
               </li>
               <li>
                 <?php if(isset($_SESSION['id'])) {
