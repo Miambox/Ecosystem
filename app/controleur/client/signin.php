@@ -10,37 +10,46 @@ switch ($action) {
         $title = "Inscription";
         $vue = 'signin';
 
-        if (isset($_POST['lastname']) &&
-            isset($_POST['name']) &&
-            isset($_POST['date']) &&
-            isset($_POST['telephone']) &&
-            isset($_POST['mail'])&&
-            isset($_POST['mail_confirmation']) &&
-            isset($_POST['password'])&&
-            isset($_POST['password_confirmation'])&&
-            isset($_POST['securityQuestion'])&&
-            isset($_POST['securityResponse']) &&
-            isset($_POST["g-recaptcha-response"]))
-            {
-              $value = [
-                'lastname'                => securitePourXSSFail($_POST['lastname']),
-                'name'                    => securitePourXSSFail($_POST['name']),
-                'date'                    => securitePourXSSFail($_POST['date']),
-                'telephone'               => securitePourXSSFail($_POST['telephone']),
-                'mail'                    => securitePourXSSFail($_POST['mail']),
-                'mail_confirmation'       => securitePourXSSFail($_POST['mail_confirmation']),
-                'password'                => securitePourXSSFail($_POST['password']),
-                'password_confirmation'   => securitePourXSSFail($_POST['password_confirmation']),
-                'securityQuestion'        => securitePourXSSFail($_POST['securityQuestion']),
-                'securityResponse'        => securitePourXSSFail($_POST['securityResponse']),
-              ];
-              $request = inscription($bdd, $value);
-              if($request) {
-                header('Location: index.php');
-              } else {
-                header('Location: ?Route=client&signin');
-              }
-            }
+        if(isset($_POST['password'])) {
+          $password = $_POST['password'];
+          if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $password)) {
+            if (isset($_POST['lastname']) &&
+                isset($_POST['name']) &&
+                isset($_POST['date']) &&
+                isset($_POST['telephone']) &&
+                isset($_POST['mail'])&&
+                isset($_POST['mail_confirmation']) &&
+                isset($_POST['password'])&&
+                isset($_POST['password_confirmation'])&&
+                isset($_POST['securityQuestion'])&&
+                isset($_POST['securityResponse']) &&
+                isset($_POST["g-recaptcha-response"]))
+                {
+                  $value = [
+                    'lastname'                => securitePourXSSFail($_POST['lastname']),
+                    'name'                    => securitePourXSSFail($_POST['name']),
+                    'date'                    => securitePourXSSFail($_POST['date']),
+                    'telephone'               => securitePourXSSFail($_POST['telephone']),
+                    'mail'                    => securitePourXSSFail($_POST['mail']),
+                    'mail_confirmation'       => securitePourXSSFail($_POST['mail_confirmation']),
+                    'password'                => securitePourXSSFail($_POST['password']),
+                    'password_confirmation'   => securitePourXSSFail($_POST['password_confirmation']),
+                    'securityQuestion'        => securitePourXSSFail($_POST['securityQuestion']),
+                    'securityResponse'        => securitePourXSSFail($_POST['securityResponse']),
+                  ];
+                  $request = inscription($bdd, $value);
+                  if($request) {
+                    header('Location: index.php');
+                  } else {
+                    header('Location: ?Route=client&signin');
+                  }
+                }
+          }
+          else {
+            $alerte_mdp = "Votre mot de passe doit contenir au minimum: 1 Majuscule, 1 Miniscule, 1 caractère spécial, des chiffres et 8 caractères";
+            
+          }
+        }
 
         break;
 

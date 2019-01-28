@@ -33,9 +33,9 @@
     <!--  ajout des scripts JS -->
     <script type="text/javascript" src="<?=ROOT_URL?>static/js/vendor/jquery-3-3-1.js"></script>
     <!-- logement -->
-    <script type="text/javascript" src="<?=ROOT_URL?>static/js/client/logement/logement.js"></script>
+    <!-- <script type="text/javascript" src="<?=ROOT_URL?>static/js/client/logement/logement.js"></script> -->
     <!-- navbar -->
-    <script type="text/javascript" src="<?=ROOT_URL?>static/js/client/barre-de-navigation/navbar-client.js"></script>
+    <!-- <script type="text/javascript" src="<?=ROOT_URL?>static/js/client/barre-de-navigation/navbar-client.js"></script> -->
     <!-- footer -->
     <script type="text/javascript" src="<?=ROOT_URL?>static/js/client/footer/footer.js"></script>
     <!-- modal -->

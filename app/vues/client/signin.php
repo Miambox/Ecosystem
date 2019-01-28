@@ -1,4 +1,5 @@
 
+
 <div class="card-signin">
   <?php
   if(isset($information_user) && sizeof($information_user) != 0) {
@@ -69,25 +70,36 @@
       </div>
 
       <div class="">
-        <input type="email" name="mail" placeholder="E-mail" required>
+        <input type="email" name="mail" placeholder="E-mail" id="email" onchange="checkNumberLetterMdp()" required>
         <label for="mail">*</label>
       </div>
 
       <div class="">
-        <input type="email" name="mail_confirmation" placeholder="Confirmation de l'e-mail" required>
+        <input type="email" name="mail_confirmation" placeholder="Confirmation de l'e-mail" id="email_confirm" onchange="checkSameEmail()" required>
         <label for="mail_confirmation">*</label>
       </div>
+      <span id="alerte_email_confirm"></span>
 
       <div class="">
-        <input type="password" name="password" placeholder="Mot de passe" required>
+        <input type="password" name="password" placeholder="Mot de passe" id="mot_de_passe" required>
         <label for="password">*</label>
       </div>
+      <span>
+        <?php
+        if(isset($alerte_mdp)) {
+          echo $alerte_mdp;
+        }
+        ?>
+      </span>
 
       <div class="">
-        <input type="password" name="password_confirmation" placeholder="Confirmer mot de passe" required>
+        <input type="password" name="password_confirmation" placeholder="Confirmer mot de passe" id="mot_de_passe_confirm"
+        onchange="checkSameMdp()" required>
         <label for="name">*</label>
+        <span id="alerte_mdp_confirm"></span>
 
       </div>
+      <script type="text/javascript" src="<?=ROOT_URL?>static/js/client/inscription/inscription.js"></script>
 
       <div class="">
         <select class="" name="securityQuestion">
