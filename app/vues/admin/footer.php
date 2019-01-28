@@ -13,13 +13,12 @@
     <!-- détails capteurs-->
     <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/detailsCapteur.js"></script>
 
-<<<<<<< HEAD
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <script type="text/javascript" src="<?=ROOT_URL?>CKEditor/ckeditor/ckeditor.js"></script>
 
-=======
+
     <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
->>>>>>> dev
+
   </body>
 </html>

@@ -3,6 +3,7 @@
       <ul>
         <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=mentionsLegales&Vue=mentionsLegales">Mentions légale</a></li>
         <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=faq&Vue=faq">FAQ</a></li>
+        <li><a href="<?=ROOT_URL?>?Route=client&Ctrl=cgu&Vue=cgu">CGU</a></li>
         <li><a href="#"><img src="<?=ROOT_URL?>/static/image/icon/fb-logo.png" width="15%" alt="Facebook"></a></li>
         <li><a href="#"><img src="<?=ROOT_URL?>/static/image/icon/linkedin-logo.png" width="15%" alt="Linkedin"></a></li>
         <li><a href="#"><img src="<?=ROOT_URL?>/static/image/icon/twitter-logo-lp.png" width="15%" alt="Twitter"></a></li>
