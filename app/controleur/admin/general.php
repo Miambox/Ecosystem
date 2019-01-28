@@ -8,6 +8,9 @@ switch ($action) {
     case 'general':
         $vue = "general";
         $title = "Accueil";
+        if(!isset($_SESSION['id'])) {
+          header('Location: ?Route=admin&Ctrl=general');
+        }
     break;
 
     // Liste des clients de la barre de recherche

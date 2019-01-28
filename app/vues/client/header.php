@@ -108,7 +108,7 @@
                 if(isset($_SESSION['id'])) {
                   ?>
                   <a href="<?=ROOT_URL?>?Route=client&Ctrl=logement&Vue=vuePrincipale">
-                    Gestion des capteurs
+                    Gestion
                   </a>
                   <?php
                 }

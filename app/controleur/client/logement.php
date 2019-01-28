@@ -7,7 +7,11 @@ switch ($action) {
     case 'vuePrincipale':
         $vue = "logement";
         $title = "Les logements";
-        $liste_logement = selectionerLogement($bdd);
+        if(isset($_SESSION['id'])) {
+          $liste_logement = selectionerLogement($bdd);
+        } else {
+          header('Location: ?Route=client&Ctrl=logement');
+        }
 
         break;
 

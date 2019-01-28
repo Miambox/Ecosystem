@@ -5,10 +5,12 @@ include("app/model/requete.generique.php"); // On connecte la base de donnée
 * Fonction permettant de sélectionner un employé
 **/
 function selectionnerEmployers($bdd)  {
-  $type= "utilisateur";
-  $query = "SELECT * FROM utilisateur WHERE type != :type";
+  $type_user= "utilisateur";
+  $type_admin="administrateur";
+  $query = "SELECT * FROM utilisateur WHERE type != :type_user AND type != :type_admin";
   $donnees = $bdd->prepare($query);
-  $donnees->bindParam(":type", $type);
+  $donnees->bindParam(":type_user", $type_user);
+  $donnees->bindParam(":type_admin", $type_admin);
   $donnees->execute();
   return $donnees->fetchAll();
 }

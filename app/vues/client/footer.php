@@ -15,12 +15,12 @@
               </a>
             </li>
             <li>
-              <a href="mailto:domisep@example.com" target="_top">
+              <a href="mailto:ecosystem.admin@gmail.com" target="_top">
                 <img src="<?=ROOT_URL?>/static/image/icon/mail-logo-lp.png" width="10%" alt="domisep@exemple.com">
               </a>
             </li>
             <li>
-              <a href="http://maps.google.com/?q=13 rue Martin Bernard, Paris 75013" target="_blank">
+              <a href="http://maps.google.com/?q=10 rue Vanves, Issy Les Moulineaux 92" target="_blank">
                 <img src="<?=ROOT_URL?>/static/image/icon/maps-logo-lp.png" width="10%" alt="16 rue des coquelicots">
               </a>
             </li>
@@ -43,7 +43,7 @@
     <script type="module" src="<?=ROOT_URL?>static/js/utils/modal/modal-big.js"></script>
     <!-- détails capteurs-->
     <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/detailsCapteur.js"></script>
-
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <!-- piece -->
     <script type="module" src="<?=ROOT_URL?>static/js/client/piece/piece.js"></script>
 

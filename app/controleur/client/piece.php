@@ -79,6 +79,8 @@ switch ($action) {
 
         if($request) {
           header('Location: ?Route=client&Ctrl=piece&Vue=vuePrincipale&id_logement='. $id_logement);
+        } else {
+          header('Location: ?Route=client&Ctrl=piece');
         }
       }
     break;
@@ -118,7 +120,7 @@ switch ($action) {
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $title = "Erreur";
-        $vue = "piece";
+        $vue = "erreur404";
 }
 
 include ('app/vues/client/header.php');

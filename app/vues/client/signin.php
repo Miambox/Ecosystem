@@ -103,6 +103,7 @@
         <label for="securityResponse">*</label>
       </div>
 
+      <div class="g-recaptcha" style="margin-left: 17%;"data-sitekey="6LeSY40UAAAAAAdGEK1Ooe_3tVt7zafBrx6MkLWW"></div>
 
       <label for="mentionLegale">Accepter les CGU</label>
       <div class="">

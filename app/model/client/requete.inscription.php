@@ -25,7 +25,6 @@ function inscription($bdd, $value) {
       :reponse_securite,
       :type
     )');
-// bindParam chercher et remplacer
    $stmt->bindParam(':nom', $value['lastname']);
    $stmt->bindParam(':prenom', $value['name']);
    $stmt->bindParam(':date_naissance', $value['date']);

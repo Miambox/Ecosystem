@@ -1,12 +1,11 @@
 <form class="" action="?Route=admin&Ctrl=cgu&Vue=editCGU" method="post">
-	<input type="submit" name="edit" value="Editer" class="editer-cgu">
+	<input type="submit" name="edit" value="Editer" class="editer-mentions">
 </form>
 
 <div class="ecrire-cgu">
 	<div class="container-cgu">
 		<div class="message">
 			<?php
-			var_dump($messageCGU);
 			if(isset($messageCGU) && $edit != 1) {
 				foreach($messageCGU as $key => $cgu)
 				{
@@ -33,12 +32,12 @@
 
 
 								</div>
-								
 
-									<?php 
 
-							} 
-							
+									<?php
+
+							}
+
 
 					?>
 				</textarea>
@@ -51,4 +50,3 @@
 		</form>
 	</div>
 </div>
-
