@@ -1,4 +1,6 @@
 <div class="password-forget">
+  <script type="text/javascript" src="<?=ROOT_URL?>static/js/client/inscription/inscription.js"></script>
+
   <div class="">
     <?php
     if($enterMail == 0) {
@@ -18,14 +20,22 @@
     } else if($enterMail == 2) {
       ?>
       <div class="head-recup">
-        Votre mot de passe est
+        Changez votre mot de passe
       </div>
-      <div class="display-mdp">
-        <p style="font-weight: 600"><?= $mot_de_passe ?></p>
-        <?php header("refresh:10;url=index.php"); ?>
-        <p style="font-size:10px; color:red">Il ne sera afficher que quelques secondes, notez le bien !</p>
-        <img src="<?=ROOT_URL?>/static/image/icon/loading-gif-lp.gif" width="30%" alt="">
-      </div>
+      <form class="" action="?Route=client&Ctrl=signin&Vue=updaterMdp" method="post">
+        <input type="hidden" name="id_user" value="<?= $id_user ?>">
+        <input type="password" name="password" id="mot_de_passe" placeholder="" value="" required>
+        <input type="password" name="password_confirm" id="mot_de_passe_confirm" placeholder="Confirmer mot de passe" value="" onchange="checkSameMdp()" required>
+        <span id="alerte_mdp_confirm"></span>
+        <span>
+          <?php
+          if(isset($alerte_mdp)) {
+            echo $alerte_mdp;
+          }
+          ?>
+        </span>
+        <input type="submit" name="" value="Changer">
+      </form>
       <?php
     } else {
       ?>

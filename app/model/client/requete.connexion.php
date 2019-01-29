@@ -21,7 +21,7 @@ function passwordForget($bdd, $email) {
 }
 
 function selectionnerMdp($bdd, $values) {
-  $query = 'SELECT mot_de_passe FROM utilisateur
+  $query = 'SELECT * FROM utilisateur
             WHERE nom =:nom and
                   prenom=:prenom and
                   question_securite=:question_securite and
@@ -34,5 +34,16 @@ function selectionnerMdp($bdd, $values) {
   $donnees->execute();
   return $donnees->fetchAll();
 }
+
+ function updateMdp($bdd, $id_user, $new_password) {
+   $query = 'UPDATE utilisateur SET
+             mot_de_passe=:password
+             WHERE id=:id_user';
+   $donnees = $bdd->prepare($query);
+   $donnees->bindParam(":password", $new_password );
+   $donnees->bindParam(":id_user", $id_user);
+   return $donnees->execute();
+
+ }
 
 ?>

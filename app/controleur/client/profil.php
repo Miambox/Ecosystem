@@ -52,7 +52,7 @@ switch ($action) {
               'date_naissance'                    => securitePourXSSFail($_POST['date']),
               'tel_portable'               => securitePourXSSFail($_POST['telephone']),
               'mail'                    => securitePourXSSFail($_POST['mail']),
-              'mot_de_passe'                => securitePourXSSFail($_POST['password']),
+              'mot_de_passe'                => securitePourXSSFail(hash('sha265',$_POST['password'])),
             ];
             $request = updaterProfil($bdd, $value);
             if($request) {

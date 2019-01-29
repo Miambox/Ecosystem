@@ -76,6 +76,7 @@ switch ($action) {
         $vue = "detailsCapteur";
 
         if(isset($_POST['id_capteur'])) {
+
           $id_piece = securitePourXSSFail($_POST['id_piece']);
           $idCapteur = securitePourXSSFail($_POST['id_capteur']);
           $donneesCapteur =  infoCapteur($bdd, $idCapteur);
@@ -94,6 +95,7 @@ switch ($action) {
             }
           }
         } else if(isset($_GET['id_capteur'])) {
+          $id_piece = $_GET['id_piece'];
           $idCapteur = securitePourXSSFail($_GET['id_capteur']);
           $donneesCapteur =  infoCapteur($bdd, $idCapteur);
           $etatCapteur = etatCapteur($bdd, $idCapteur);
@@ -118,6 +120,7 @@ switch ($action) {
     case 'activeCapteur':
       if(isset($_POST['id_capteur'])) {
           $id_capteur = securitePourXSSFail($_POST['id_capteur']);
+          $id_piece = $_POST['id_piece'];
           if(isset($_POST['on_capteur'])) {
             $values = [
             'id_capteur'          => securitePourXSSFail($_POST['id_capteur']),
@@ -126,18 +129,20 @@ switch ($action) {
             $request = activeCapteur($bdd, $values);
 
             if($request) {
-              header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur);
+              header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur . "&id_piece=". $id_piece);
             } else {
               header('Location: ?Route=Client&Ctrl=capteur');
             }
           } else {
+            $id_piece = $_POST['id_piece'];
+
           $values = [
           'id_capteur'        => securitePourXSSFail($_POST['id_capteur']),
           'off_capteur'       => securitePourXSSFail($_POST['off_capteur']),
           ];
           $request = desactiveCapteur($bdd, $values);
             if($request) {
-              header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur);
+              header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur . "&id_piece=". $id_piece);
             } else {
             header('Location: ?Route=Client&Ctrl=capteur');
             }

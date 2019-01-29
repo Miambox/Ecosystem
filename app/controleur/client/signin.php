@@ -25,6 +25,7 @@ switch ($action) {
                 isset($_POST['securityResponse']) &&
                 isset($_POST["g-recaptcha-response"]))
                 {
+                  $password = $_POST['password'];
                   $value = [
                     'lastname'                => securitePourXSSFail($_POST['lastname']),
                     'name'                    => securitePourXSSFail($_POST['name']),
@@ -32,7 +33,7 @@ switch ($action) {
                     'telephone'               => securitePourXSSFail($_POST['telephone']),
                     'mail'                    => securitePourXSSFail($_POST['mail']),
                     'mail_confirmation'       => securitePourXSSFail($_POST['mail_confirmation']),
-                    'password'                => securitePourXSSFail($_POST['password']),
+                    'password'                => hash('sha256', $password),
                     'password_confirmation'   => securitePourXSSFail($_POST['password_confirmation']),
                     'securityQuestion'        => securitePourXSSFail($_POST['securityQuestion']),
                     'securityResponse'        => securitePourXSSFail($_POST['securityResponse']),
@@ -47,7 +48,6 @@ switch ($action) {
           }
           else {
             $alerte_mdp = "Votre mot de passe doit contenir au minimum: 1 Majuscule, 1 Miniscule, 1 caractère spécial, des chiffres et 8 caractères";
-            
           }
         }
 
@@ -61,7 +61,7 @@ switch ($action) {
 
       if(isset($_POST['mdp']) && isset($_POST['email'])) {
         // $mdp = hash('sha256', $_POST['mdp']);
-        $mdp = $_POST['mdp'];
+        $mdp = hash('sha256', $_POST['mdp']);
         $user = connexion($_POST['email'], $mdp, $bdd);
 
         foreach ($user as $key => $value) {
@@ -137,15 +137,38 @@ switch ($action) {
              'reponse_securite' => securitePourXSSFail($_POST['reponse_securite'])
            ];
 
-           $searchMdp = selectionnerMdp($bdd, $values);
-           if($searchMdp) {
-             foreach ($searchMdp as $key => $value) {
-               $mot_de_passe = $value['mot_de_passe'];
+           $request = selectionnerMdp($bdd, $values);
+           if($request) {
+             foreach ($request as $key => $value) {
+               $id_user = $value['id'];
                $enterMail = 2;
              }
            } else {
              $alerte = "Personne ne correspond à ces caractéristiques, veuillez rééssayer";
            }
+      }
+    break;
+
+    case 'updaterMdp':
+      $vue="recupMdp";
+      $title= "Récupération de mot de passe";
+      $enterMail =2;
+      if(isset($_POST['password'])) {
+        $password = $_POST['password'];
+        if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $password)) {
+          $id_user = $_POST['id_user'];
+          $password = $_POST['password'];
+          $new_password = hash('sha256', $password);
+          $request = updateMdp($bdd, $id_user, $new_password);
+          if($request) {
+            header('Location: index.php');
+          } else {
+            header('Location: ?Route=client&Ctrl=signin');
+          }
+
+        } else {
+          $alerte_mdp = "Votre mot de passe doit contenir au minimum: 1 Majuscule, 1 Miniscule, 1 caractère spécial, des chiffres et 8 caractères";
+        }
       }
     break;
 

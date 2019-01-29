@@ -45,6 +45,7 @@ if($_SESSION['type'] == "utilisateur") {
           <span class="slider round"></span>
         </label>
         <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
+        <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
       </form>
     </div>
   </div>
