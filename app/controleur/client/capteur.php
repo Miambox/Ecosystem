@@ -159,6 +159,7 @@ switch ($action) {
           isset($_POST['date']) and
           isset($_POST['ambiance'])) {
             $id_capteur = securitePourXSSFail($_POST['id_capteur']);
+            $id_piece = securitePourXSSFail($_POST['id_piece']);
             $values = [
               'heure_debut'       => securitePourXSSFail($_POST['heure_debut']),
               'heure_fin'         => securitePourXSSFail($_POST['heure_fin']),
@@ -168,7 +169,7 @@ switch ($action) {
             $request = insererNouveauProgramme($bdd, $values, $id_capteur);
 
             if($request) {
-              header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. intval($id_capteur));
+              header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. intval($id_capteur) . "&id_piece=" . intval($id_piece));
             } else {
               header('Location: ?Route=client&Ctrl=cpateurs');
             }
@@ -198,7 +199,8 @@ switch ($action) {
 
     // Vue permettant d'activer et desactiver le programme
     case 'activeProgramme':
-        $id_capteur = $_POST['id_capteur'];
+        $id_capteur = securitePourXSSFail($_POST['id_capteur']);
+        $id_piece = securitePourXSSFail($_POST['id_piece']);
         if(isset($_POST['id_programme'])) {
             if(isset($_POST['on_programme'])) {
               $values = [
@@ -208,7 +210,7 @@ switch ($action) {
               $request = activeProgramme($bdd, $values);
 
               if($request) {
-                header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur);
+                header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. intval($id_capteur). "&id_piece=" . intval($id_piece));
               } else {
                 header('Location: ?Route=Client&Ctrl=capteur');
               }
@@ -219,7 +221,7 @@ switch ($action) {
             ];
             $request = desactiveProgramme($bdd, $values);
               if($request) {
-                header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur);
+                header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. intval($id_capteur). "&id_piece=" . intval($id_piece));
               } else {
               header('Location: ?Route=Client&Ctrl=capteur');
               }
@@ -234,6 +236,7 @@ switch ($action) {
     case 'addAmbiance':
       if( isset($_POST['nom']) and isset($_POST['valeur'])) {
             $id_capteur = securitePourXSSFail($_POST['id_capteur']);
+            $id_piece = securitePourXSSFail($_POST['id_piece']);
             $values = [
               'nom'       => securitePourXSSFail($_POST['nom']),
               'valeur'    => securitePourXSSFail($_POST['valeur']),
@@ -241,7 +244,7 @@ switch ($action) {
             $request = insererNouvelleAmbiance($bdd, $values);
 
             if($request) {
-              header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. intval($id_capteur));
+              header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. intval($id_capteur) . "&id_piece=" . intval($id_piece));
             } else {
               header('Location: ?Route=client&Ctrl=capteur');
             }

@@ -178,6 +178,7 @@
     /*Bouton ON OFF*/
     .on_off > form {
       width: 100%;
+      margin-top: 10%;
       display: flex;
       flex-direction: column;
       text-align: center;

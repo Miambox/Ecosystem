@@ -3,10 +3,6 @@
 if($_SESSION['type'] == "utilisateur") {
 ?>
   <div class="container-logo">
-    <form class="" action="?Route=client&Ctrl=capteur&Vue=vuePrincipale"  method="post">
-      <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
-      <input type="submit" name="" value="Retour au capteur" class="btn-retour-piece">
-    </form>
 
     <div class="on_off">
       <form class="" action="?Route=Client&Ctrl=capteur&Vue=activeCapteur" id="formulaireActiveCapteur" method="post">
@@ -76,6 +72,7 @@ if($_SESSION['type'] == "utilisateur") {
                   <span class="slider round"></span>
                 </label>
                 <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
+                <input type="hidden" name="id_piece" value="<?=$id_piece?>">
               </form>
             </div>
 
@@ -209,6 +206,7 @@ if($_SESSION['type'] == "utilisateur") {
           <input type="number" name="valeur" value="" required>%
         </div>
         <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
+        <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
         <input type="submit" name="" value="Ajouter">
       </form>
     </div>
@@ -245,6 +243,7 @@ if($_SESSION['type'] == "utilisateur") {
           </select>
         </div>
         <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
+        <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
         <input type="submit" name="" class="ajouterProgramme" value="Ajouter">
     </div>
   </form>
@@ -286,6 +285,7 @@ if($_SESSION['type'] == "utilisateur") {
                   <span class="slider round"></span>
                 </label>
                 <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
+                <input type="hidden" name="id_piece" value="<?=$id_piece?>">
               </form>
             </td>
             <td>
