@@ -1,22 +1,3 @@
-<?php
-// if($_SESSION['type'] != "utilisateur") {
-//   $nomClient = $_POST['nomClient'];
-//   $id = $_POST['id'];
-//   $idLogement = $_POST['id_logement'];
-//   $idPiece = $_POST['id_piece'];
-?>
-
-<!-- <form action="?Route=admin&Ctrl=client&Vue=piece" method="post">
-    <input type="hidden" name="nomClient" value="<?php echo $nomClient?>">
-    <input type="hidden" name="id" value="<?php echo $id?>">
-    <input type="hidden" name="id_logement" value="<?php echo $idLogement?>">
-    <input type="hidden" name="id_piece" value="<?php echo $idPiece?>">
-    <input type="submit" class="retour" value="Retour aux capteurs">
-</form> -->
-
-<?php
-// }
-?>
 <div class="container-details-capteur">
 <?php
 if($_SESSION['type'] == "utilisateur") {
@@ -26,24 +7,28 @@ if($_SESSION['type'] == "utilisateur") {
       <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
       <input type="submit" name="" value="Retour au capteur" class="btn-retour-piece">
     </form>
-    <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="100%" alt="">
+
     <div class="on_off">
-      <span>Eteindre/Allumer le capteur</span>
       <form class="" action="?Route=Client&Ctrl=capteur&Vue=activeCapteur" id="formulaireActiveCapteur" method="post">
-        <label class="toggle-button">
           <?php
           if($etatCapteur[0]['etat'] == 'on') {
             ?>
-            <input type="checkbox" name="off-capteur" onchange="document.getElementById('formulaireActiveCapteur').submit();" checked>
+            <img class="open-light" src="<?=ROOT_URL?>/static/image/icon/ampoule-open-lp.png" width="100%" alt="">
+            <label class="toggle-button">
+              <input type="checkbox" name="off-capteur" onchange="document.getElementById('formulaireActiveCapteur').submit();" checked>
+              <span class="slider round"></span>
+            </label>
             <?php
           } else {
             ?>
-            <input type="checkbox" name="on_capteur" onchange="document.getElementById('formulaireActiveCapteur').submit();">
+            <img class="close-light" src="<?=ROOT_URL?>/static/image/icon/ampoule-close-lp.png" width="100%" alt="">
+            <label class="toggle-button">
+              <input type="checkbox" name="on_capteur" onchange="document.getElementById('formulaireActiveCapteur').submit();">
+              <span class="slider round"></span>
+            </label>
             <?php
           }
           ?>
-          <span class="slider round"></span>
-        </label>
         <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
         <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
       </form>
@@ -53,15 +38,63 @@ if($_SESSION['type'] == "utilisateur") {
   <div class="container-diagramme">
 
     <div class="programme">
-      <h2>Programmer un horaire</h2>
+      <h2>Programme horaire</h2>
       <button class="button-ajouter" type="button" name="button" onclick="openAjouterHorairePopup(<?=$idCapteur?>)">Ajouter</button>
-      <button class="button-visualiser" type="button" name="button" onclick="openVisualiserHorairePopup(<?=$idCapteur?>)">Visualiser</button>
-    </div>
+      <div class="programme-horaire">
+        <?php
+        foreach ($liste_programme as $key => $value) {
+          ?>
+          <div class="programme-information">
 
-    <div class="diagramme-baton">
-      <h2>Période d'utilisation</h2>
-      <div class="chart_div" id="chart_div">
-        <img src="<?=ROOT_URL?>/static/image/icon/loading-gif-lp.gif" width="40%" alt="">
+            <div class="date-heure">
+              <div>
+                <?= strftime("%d %B",strtotime($value['date']))?>
+              </div>
+              <div>
+                <?= $value['heure_debut'] ?>
+              </div>
+              <div>
+                <?= $value['heure_fin'] ?>
+              </div>
+            </div>
+
+            <div class="active-programme">
+              <form action="?Route=Client&Ctrl=capteur&Vue=activeProgramme" id="formulaireActiveProgramme<?= $value['id']?>" method="post">
+                <input type="hidden" name="id_programme" value="<?php echo $value['id'] ?>">
+                <label class="toggle-button">
+                  <?php
+                  if($value['etat'] == 'on') {
+                    ?>
+                    <input type="checkbox" name="off_programme" onchange="document.getElementById('formulaireActiveProgramme<?= $value['id']?>').submit();" checked>
+                    <?php
+                  } else {
+                    ?>
+                    <input type="checkbox" name="on_programme" onchange="document.getElementById('formulaireActiveProgramme<?= $value['id']?>').submit();">
+                    <?php
+                  }
+                  ?>
+                  <span class="slider round"></span>
+                </label>
+                <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
+              </form>
+            </div>
+
+            <div class="nom-ambiance">
+              <?= $ambiance ?>
+            </div>
+
+            <div class="delete-programme">
+              <form class="" action="?Route=Client&Ctrl=capteur&Vue=supprimerProgramme" method="post">
+                <input type="hidden" name="id_capteur" value="<?=$idCapteur?>">
+                <input type="hidden" name="id_programme" value="<?php echo $value['id'] ?>">
+                <input type="submit" name="" value="&times">
+              </form>
+            </div>
+          </div>
+
+          <?php
+        }
+        ?>
       </div>
     </div>
 
@@ -112,7 +145,7 @@ if($_SESSION['type'] == "utilisateur") {
 ?>
 
 <div class="container-logo">
-    <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" width="100%" alt="">
+    <img src="<?=ROOT_URL?>/static/image/icon/ampoule-close-lp.png" width="100%" alt="">
     <div class="on_off">
       <span>Eteindre/Allumer le capteur</span>
       <form class="" action="?Route=Client&Ctrl=capteur&Vue=activeCapteur" id="formulaireActiveCapteur" method="post">
@@ -135,17 +168,6 @@ if($_SESSION['type'] == "utilisateur") {
     </div>
   </div>
 
-  <div class="container-diagramme">
-
-    <div class="diagramme-baton">
-      <h2>Période d'utilisation</h2>
-      <div class="chart_div" id="chart_div">
-        <img src="<?=ROOT_URL?>/static/image/icon/loading-gif-lp.gif" width="40%" alt="">
-      </div>
-    </div>
-
-  </div>
-
 
   <div class="container-programme">
 
@@ -164,7 +186,6 @@ if($_SESSION['type'] == "utilisateur") {
     </div>
 
   </div>
-
 <?php
 }
 ?>
@@ -229,7 +250,7 @@ if($_SESSION['type'] == "utilisateur") {
   </form>
 </div>
 
-
+<!--POP VISUALISER SES programmes-->
 <div class="container-big-modal" id="container-modal-visualiser-programme<?=$idCapteur?>">
   <div class="modal-big modal-visualiser-programme">
     <div class="modal-big-head">
@@ -291,5 +312,3 @@ if($_SESSION['type'] == "utilisateur") {
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <!-- Diagramme circulaire -->
 <script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/diagrammeCirculaire.js"></script>
-<!-- Diagramme en baton -->
-<script type="module" src="<?=ROOT_URL?>static/js/client/details-capteur/diagrammeBaton.js"></script>

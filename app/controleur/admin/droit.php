@@ -27,7 +27,7 @@ switch ($action) {
               'prenom'    => securitePourXSSFail($_POST['prenom']),
               'type'      => securitePourXSSFail($_POST['type']),
               'mail'      => securitePourXSSFail($_POST['mail']),
-              'password'  => securitePourXSSFail($_POST['password'])
+              'password'  => securitePourXSSFail(hash('sha256',$_POST['password']))
             ];
             $request = inscrireEmployers($bdd, $value);
             if($request) {

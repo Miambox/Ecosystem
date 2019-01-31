@@ -9,7 +9,7 @@
           <li>
             <h5>
               <?php
-                echo ($value['numero'] . " rue " . $value['rue'] . " " . $value['code_postal'] . " " . $value['ville']);
+                echo ($value['numero'] . " ". $value['rue'] . " " . $value['code_postal'] . " " . $value['ville']);
               ?>
             </h5>
           </li>

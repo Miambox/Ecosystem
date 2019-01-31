@@ -7,7 +7,7 @@
 
         <div class="">
           <label for="uname"><b> Identifiant </b></label>
-          <input type="text" placeholder="Téléphone ou mail" name="email" required>
+          <input type="text" placeholder="Email" name="email" required>
         </div>
 
         <div class="">
