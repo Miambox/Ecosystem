@@ -1,99 +1,84 @@
 <div class="container-piece-capteurs">
   <div class="container-resume-piece">
-    <form class="" action="?Route=client&Ctrl=piece&Vue=vuePrincipale" method="post">
-      <input type="hidden" name="id_piece" value="<?php echo $IDPIECE ?>">
-      <input type="submit" name="" value="retour aux pieces">
-    </form>
 
     <div class="resume-piece">
-      <img class="photo-piece" src="<?=ROOT_URL?>/static/image/icon/piece.jpg" alt="">
       <div class="description-piece">
-        <h4><?php echo $donneespiece['nom'] ?></h4>
+        <h3><?php echo $donneespiece['nom'] ?></h3>
         <p>Type: <?php echo $donneespiece['type'] ?></p>
         <p>Surface: <?php echo $donneespiece['surface'] ?>m²</p>
-				<?php
-					if ($donneespiece['etage'] != 9999)
-					echo 'Etage: ' . $donneespiece['etage']
-				 ?>
+        <p>
+          <?php
+          if ($donneespiece['etage'] != 9999)
+            echo 'Etage: ' . $donneespiece['etage']
+            ?>
+        </p>
+        <form class="" action="?Route=client&Ctrl=piece&Vue=vuePrincipale" method="post">
+          <input type="hidden" name="id_piece" value="<?= $donneespiece['id'] ?>">
+          <button class="back" type="submit">Retour</button>
+        </form>
       </div>
     </div>
   </div>
 
   <div class="container-capteurs">
-		<?php
-		while ($donnees = $donneesCapteur->fetch())
-		{
-		?>
-    <div class="card-capteur">
-      <div class="card-head">
-        <ul>
-          <li><h5><?php echo $donnees['nom']; ?></h5></li>
-          <li>
-            <nav id="parametres-capteur">
-              <ul>
-                <li>
-                  <a href="#" onclick="openDeletePopup(<?= $donnees['id']?>)">
-                  Supprimer
-                  </a>
-                </li>
-                <li>
-                  <form class="" action="?Route=client&Ctrl=capteur&Vue=editerCapteur" method="post">
+    <?php
+    while ($donnees = $donneesCapteur->fetch()) {
+      ?>
+      <div class="card-capteur">
+        <div class="card-head">
+          <div class="description-capteur"><?php echo $donnees['nom']; ?></div>
+
+          <!--POP up suppression-->
+          <div class="container-modal" id="container-modal-supprimer<?= $donnees['id'] ?>">
+            <div class="modal modal-supprimer">
+              <div class="modal-head">
+                <button class="close" onclick="closeDeletePopup(<?= $donnees['id'] ?>)">&times;</button>
+                <p>Etes-vous sûr de vouloir supprimer ce capteur?</p>
+              </div>
+              <div class="modal-text">
+                <form class="" action="?Route=client&Ctrl=capteur&Vue=supprimerCapteur" method="post">
+                  <div class="form-group">
+                    <label for="code_postal">Rentrer le nom du capteur<br></label>
+                    <input type="text" name="nom" value="" required>
                     <input type="hidden" name="id_capteur" value="<?= $donnees['id'] ?>">
-                    <input type="hidden" name="id_piece" value="<?php echo $donneespiece['id']  ?>">
-                    <input type="hidden" name="id_logement" value="<?php echo $IDLOGEMENT  ?>">
-                    <input type="submit" name="" value="Modifier">
-                  </form>
-                </li>
-              </ul>
-            </nav>
-            <!--POP up suppression-->
-            <div class="container-modal" id="container-modal-supprimer<?= $donnees['id']?>">
-              <div class="modal modal-supprimer">
-                <div class="modal-head">
-                  <button class="close" onclick="closeDeletePopup(<?= $donnees['id']?>)">&times;</button>
-                  <p>Etes-vous sûr de vouloir supprimer ce capteur?</p>
-                </div>
-                <div class="modal-text">
-                  <form class="" action="?Route=client&Ctrl=capteur&Vue=supprimerCapteur" method="post">
-                    <div class="form-group">
-                      <label for="code_postal">Rentrer le nom du capteur<br></label>
-                      <input type="text" name="nom" value="" required>
-                      <input type="hidden" name="id_capteur" value="<?=$donnees['id'] ?>">
-                      <input type="hidden" name="id_piece" value="<?=$donneespiece['id'] ?>">
-                      <input type="hidden" name="id_logement" value="<?= $IDLOGEMENT ?>">
-                    </div>
-                    <button type="submit" name="button" class="supprimerLogement">Valider</button>
-                  </form>
-                </div>
+                    <input type="hidden" name="id_piece" value="<?= $donneespiece['id'] ?>">
+                    <input type="hidden" name="id_logement" value="<?= $IDLOGEMENT ?>">
+                  </div>
+                  <button type="submit" name="button" class="supprimerLogement">Valider</button>
+                </form>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form class="" action="?Route=client&Ctrl=capteur&Vue=details" method="post">
+            <input type="hidden" name="id_capteur" value="<?php echo $donnees['id'] ?>">
+            <input type="hidden" name="id_piece" value="<?= $IDPIECE ?>">
+            <button type="submit" name="" class='button-config-capteur'>
+              <img src="<?= ROOT_URL ?>/static/image/entreprise/capteur.png" alt="">
+            </button>
+          </form>
+        </div>
+        <div class="card-banniere">
+        </div>
+        <div class="card-footer">
+          <a href="#" onclick="openDeletePopup(<?= $donnees['id'] ?>)">
+            Supprimer
+          </a>
+          <form class="" action="?Route=client&Ctrl=capteur&Vue=editerCapteur" method="post">
+            <input type="hidden" name="id_capteur" value="<?= $donnees['id'] ?>">
+            <input type="hidden" name="id_piece" value="<?php echo $donneespiece['id']  ?>">
+            <input type="hidden" name="id_logement" value="<?php echo $IDLOGEMENT  ?>">
+            <input type="submit" name="" value="Modifier">
+          </form>
+        </div>
+      </div>
 
-          </li>
-        </ul>
-      </div>
-      <div class="card-body">
-        <img src="<?=ROOT_URL?>/static/image/entreprise/eco-light.png" alt="">
-      </div>
-      <div class="card-banniere">
-      </div>
-      <div class="card-footer">
-        <form class="" action="?Route=client&Ctrl=capteur&Vue=details" method="post">
-          <input type="hidden" name="id_capteur" value="<?php echo $donnees['id'] ?>">
-          <input type="hidden" name="id_piece" value="<?=$IDPIECE ?>">
-          <input type="submit" name="" class='button-config-capteur' value="Contrôler">
-        </form>
-      </div>
-    </div>
+    <?php
+  }
+  ?>
 
-		<?php
-		}
-		 ?>
 
-    <form class="" action="?Route=client&Ctrl=capteur&Vue=addCapteur" method="post">
-      <input type="hidden" name="id_piece" value="<?php echo $donneespiece['id']  ?>">
-      <input type="hidden" name="id_logement" value="<?php echo $IDLOGEMENT  ?>">
-      <input type="submit" name="button" value="Ajouter un capteur">
-    </form>
   </div>
 </div>
 
@@ -138,7 +123,7 @@
     });
     window.onclick = function(event) {
       if (event.target == modal) {
-          modal.css("display", "none");
+        modal.css("display", "none");
       }
     };
   }
@@ -148,11 +133,11 @@
   }
 
   function goTo() {
-    document.location.href="<?=ROOT_URL?>?Route=client&Ctrl=capteur&Vue=details";
+    document.location.href = "<?= ROOT_URL ?>?Route=client&Ctrl=capteur&Vue=details";
   }
 
   function ajouterCapteur() {
-    document.location.href="<?=ROOT_URL?>?Route=client&Ctrl=capteur&Vue=addCapteur";
+    document.location.href = "<?= ROOT_URL ?>?Route=client&Ctrl=capteur&Vue=addCapteur";
   }
 
   function supprimer() {

@@ -1,379 +1,62 @@
-@media all and (min-width: 1024px)
-{
-.first{
-  background-image: url('../../../../static/image/icon/lights.jpg');
-  background-size: 1920px 1080px;
-  height: 750px;
-  width: 1920px;
-  display: table;
-}
-
-.scroll-down {
-
-  opacity: 1;
-  -webkit-transition: all .5s ease-in 3s;
-  transition: all .5s ease-in 3s;
-}
-
-.scroll-down {
-
-  position: absolute;
-  bottom: 52%;
-  left: 96%;
-  margin-left: -16px;
-  display: block;
-  width: 50px;
-  height: 50px;
-  background-color: #FE6801;
-  background-size: 14px auto;
-  border-radius: 50%;
-  z-index: 2;
-  -webkit-animation: bounce 2s infinite 2s;
-  animation: bounce 2s infinite 2s;
-  -webkit-transition: all .2s ease-in;
-  transition: all .2s ease-in;
-}
-.scroll-down:hover {
-  box-shadow: 1px 1px 6px 2px rgba(0,0,0,0.6);
-}
-
-.scroll-down:before {
-    position: absolute;
-    top: calc(50% - 8px);
-    left: calc(50% - 6px);
-    transform: rotate(-45deg);
-    display: block;
-    width: 12px;
-    height: 12px;
-    content: "";
-    border: 2px solid white;
-    border-width: 0px 0 2px 2px;
-}
-
-.inside {
-  width: 30%;
-  height:760px;
-  background-color: #FFFFFF;
-
-}
-
-.inside label{
-  text-align: left;
-  font-size: 14px;
-  color: #333333;
-  margin-top: 4%;
-  margin-right: 4%;
-  width: 45%;
-  color: #FFA447;
-}
-
-.inside > form {
-  width: 80%;
-  margin:auto;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.inside > form > div:first-of-type {
-  margin-top: 20%;
-}
-.inside > form > div {
-  display: flex;
-  flex-direction: column;
-  margin-top: 4%;
-}
-
-.inside > form > div > input {
+.container-home {
   width: 100%;
-  padding: 2%;
+  height: 100vh;
+  background-image: url('../../../../static/image/icon/lights.jpg');
+}
+
+.authentification {
+  width: 35%;
+  height: 45%;
+  overflow: auto;
+  padding : 3%;
+  background: white;
   border-radius: 2px;
-  border: solid 1px rgba(0,0,0,0.3);
+  margin: auto;
+  position: relative;
+  top: 20vh;
 }
 
-.inside > form > a {
-  font-size: 12px;
-  margin-top: 2%;
-}
-
-.inside > form > input {
-  width: 20%;
+.authentification > form { display: flex; flex-direction: column; align-items: center}
+.form-control { display: flex; flex-direction: column; width: 90%; margin: 2%;}
+.form-control > input {
   padding: 2%;
+  border-radius: 2%;
+  border: solid 1px rgba(0,0,0,0.3); 
 }
+.form-control > input:hover { background: #FAFAFA;}
+.form-control > label { color: #FF5D00;}
 
-.inside > form > .connexion {
-  margin-top: 5%;
-  margin-left: 38%;
+.forget-pass { font-size: 12px; margin: 1%;}
+
+.connexion {
   background-color: #FFA447;
+  padding: 2%;
+  width: 100px;
   border:none;
   color: white;
+  cursor: pointer;
   font-weight: 600;
 }
 .connexion:hover {
   box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.3);
 }
 
-.inside > form > p {
+.inscription-form > p {
   font-size: 12px;
   margin-top: 6%;
   color: #FFA447;
 }
 
-.inside > form > .inscription {
-  margin-left: 28%;
-  width: 40%;
+.inscription {
   background-color: #FF5D00;
+  padding: 2%;
+  width: 150px;
   border:none;
   color: white;
   font-weight: 600;
 }
 
 .inscription:hover {
+  cursor: pointer;
   box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.3);
-}
-.inside button {
-
-    background-color: grey;
-    color: white;
-    padding: 14px 20px;
-    margin-left: 60px;
-    margin-top: 25px;
-    cursor: pointer;
-    width: 50%;
-
-}
-
-.inside button:hover {
-    opacity: 0.8;
-}
-
-.ok
-{
-  background-image: url('../../../../static/image/icon/lights.jpg');
-  background-color: #EB5101;
-  display: table;
-  background-size: 1920px 1080px;
-  height: 697px;
-  width: 1980px;
-}
-
-.bott {
-
-	padding-bottom: : 2500px;
-	width: 400px;
-	height: 250px;
-	background-color: #FAFAFA;
-	margin-top: 150px;
-	margin-left: 150px;
-	transition-duration: 0.5s;
-	padding: 10px;
-	border: 3px grey;
-	box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
-	border-radius: 20px;
-
-}
-
-.bott:hover
-{
-	width: 600px;
-	height: 350px;
-}
-
-#return-to-top {
-    position: fixed;
-    bottom: 50px;
-    right: 20px;
-    background: rgb(0, 0, 0);
-    background: #FE6801;
-    width: 50px;
-    height: 50px;
-    display: block;
-    text-decoration: none;
-    -webkit-border-radius: 35px;
-    -moz-border-radius: 35px;
-    border-radius: 35px;
-    display: none;
-    -webkit-transition: all 0.2s linear;
-    -moz-transition: all 0.2s ease;
-    -ms-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-}
-#return-to-top i {
-    color: #fff;
-    margin: 0;
-    position: relative;
-    left: 16px;
-    top: 13px;
-    font-size: 19px;
-    -webkit-transition: all 0.0s ease;
-    -moz-transition: all 0.2s ease;
-    -ms-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-}
-#return-to-top:hover {
-    background: #FF4A2C;
-}
-#return-to-top:hover i {
-    color: #fff;
-    top: 5px;
-}
-
-
-}
-
-@media all and (max-width: 649px)
-{
-.first{
-
-  background-image: url('https://wallpapercave.com/wp/wp1910047.jpg');
-  background-size: 1920px 1080px;
-  height: 480px;
-  width: 100%;
-  display: table;
-
-}
-
-*,
-:after,
-:before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.inside {
-  padding-top: 50px;
-  padding-left: 40px;
-  width: 280px;
-  height: 720px;
-  background-color: #FAFAFA;
-
-}
-
-input[type=text], input[type=password] {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-.inside button {
-
-    background-color: grey;
-    color: white;
-    padding: 14px 20px;
-    margin-left: 60px;
-    cursor: pointer;
-    width: 50%;
-
-}
-
-.inside button:hover {
-    opacity: 0.8;
-}
-
-.ok{
-  background-image: url('https://wallpapercave.com/wp/wp1910047.jpg');
-  display: table;
-  background-size: 1920px 1080px;
-  height: 480px;
-  width: 100%;
-}
-
-.bott {
-
-
-  padding-bottom: : 2500px;
-  margin-top: 25px;
-  width: 280px;
-  height: 250px;
-  background-color: #FAFAFA;
-  padding: 10px;
-  border: 3px grey;
-  box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
-  border-radius: 20px;
-
-}
-
-}
-@media all and (max-width: 1024px) and (min-width: 650px)
-{
-.first{
-
-  background-image: url('https://wallpapercave.com/wp/wp1910047.jpg');
-  background-size: 1920px 1080px;
-  height: 480px;
-  width: 100%;
-  display: table;
-
-}
-
-*,
-:after,
-:before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.inside {
-  padding-top: 50px;
-  padding-left: 40px;
-  width: 50%;
-  height: 720px;
-  background-color: #FAFAFA;
-
-}
-
-input[type=text], input[type=password] {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-.inside button {
-
-    background-color: grey;
-    color: white;
-    padding: 14px 20px;
-    margin-left: 60px;
-    cursor: pointer;
-    width: 50%;
-
-}
-
-.inside button:hover {
-    opacity: 0.8;
-}
-
-.ok{
-  background-image: url('https://wallpapercave.com/wp/wp1910047.jpg');
-  display: table;
-  background-size: 1920px 1080px;
-  height: 480px;
-  width: 100%;
-}
-
-.bott {
-
-
-  padding-bottom: : 2500px;
-  margin-top: 25px;
-  width: 50%;
-  height: 250px;
-  background-color: #FAFAFA;
-  padding: 10px;
-  border: 3px grey;
-  box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
-  border-radius: 20px;
-
-}
-
 }

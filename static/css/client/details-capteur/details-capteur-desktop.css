@@ -1,380 +1,371 @@
 /*Page CSS du design des détails du capteur*/
 
-/*Bouton retour*/
-.retour {
-  cursor:pointer;
-  border: solid 1px;
-  margin-top: 2%;
-  padding: 1% 2% 1% 2%;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  font-size: 1em;
-  color: #FFD006;
-  background-color: white;
-}
-
-.retour:hover {
-  color: white;
-  background-color: #FFD006;
-}
-
 /*Container de toute la page*/
 .container-details-capteur {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
+  width: 92%;
+  margin-left: 8%;
+  height: 95vh;
+  overflow: auto;
 }
 
-  /*CARD DE GAUCHE*/
-  .container-diagramme {
-    flex-basis: 30%;
-    padding-right: 2%;
-  }
-    /* Card des boutons ajouter/visualiser les programmes*/
-    .programme {
-      border-color: gray;
-      box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.2);
-      border-radius: 5px;
-      margin-top: 5%;
-      background-color: white;
-      width: 100%;
-      height: 510px;
+/*CARD DE GAUCHE*/
+.container-diagramme {
+  flex-basis: 30%;
+  padding-right: 2%;
+}
+.back-details {
+  padding: 2%;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.5);
+  background: white;
+  border-radius: 2px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+}
+.back-details:hover { cursor: pointer;}
+/* Card des boutons ajouter/visualiser les programmes*/
+.programme {
+  border-color: gray;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-top: 5%;
+  background-color: white;
+  width: 100%;
+  height: 510px;
+}
+.programme > h2 {
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  text-align: -moz-center;
+  position: sticky;
+  padding-top: 2%;
+}
+.programme > .button-ajouter {
+  color: white;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-weight: 800;
+  font-size: 14px;
+  padding: 2%;
+  padding-right: 4%;
+  padding-left: 4%;
+  margin-left: 41%;
+  margin-bottom: 5%;
+}
+.programme > .button-ajouter:hover {
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.3);
+  cursor: grabbing;
+}
 
-    }
-      .programme > h2 {
-        color: rgba(0,0,0,0.6);
-        text-align: center;
-        text-align: -moz-center;
-        position: sticky;
-        padding-top: 2%;
-      }
-      .programme > .button-ajouter {
-        color: white;
-        border: none;
-        background-color: rgba(0, 0, 0, 0.2);
-        font-weight: 800;
-        font-size: 14px;
-        padding: 2%;
-        padding-right: 4%;
-        padding-left: 4%;
-        margin-left: 41%;
-        margin-bottom: 5%;
-      }
-      .programme > .button-ajouter:hover {
-        box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.3);
-        cursor: grabbing;
-      }
+.programme-horaire > .programme-information {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 2%;
+  border-top: solid 0.5px rgba(0, 0, 0, 0.1);
+  border-bottom: solid 0.5px rgba(0, 0, 0, 0.1);
+}
+.programme-horaire > .programme-information:hover {
+  background-color: #fafafa;
+  border-left: solid 4px yellow;
+}
+/*Date et heure du programme*/
+.programme-information > .date-heure {
+  flex-basis: 30%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  text-align: -moz-center;
+  padding: 2%;
+}
+.date-heure > div:first-of-type {
+  font-weight: 600;
+}
+.date-heure > div:nth-of-type(2) {
+  font-size: 12px;
+}
+.date-heure > div:nth-of-type(3) {
+  font-size: 12px;
+}
 
-      .programme-horaire > .programme-information {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 2%;
-        border-top: solid 0.5px rgba(0,0,0,0.1);
-        border-bottom: solid 0.5px rgba(0,0,0,0.1);
-      }
-      .programme-horaire > .programme-information:hover {
-        background-color: #FAFAFA;
-        border-left: solid 4px yellow;
-      }
-        /*Date et heure du programme*/
-        .programme-information > .date-heure {
-          flex-basis: 30%;
-          display: flex;
-          flex-direction: column;
-          text-align: center;
-          text-align: -moz-center;
-          padding: 2%;
-        }
-          .date-heure > div:first-of-type {
-            font-weight: 600;
-          }
-          .date-heure > div:nth-of-type(2) {
-            font-size: 12px;
-          }
-          .date-heure > div:nth-of-type(3) {
-            font-size: 12px;
-          }
+/*activation du programme*/
+.active-programme {
+  padding: 2%;
+  flex-basis: 20%;
+}
+.active-programme > form {
+  margin-top: 20%;
+}
+/*Nom de l'ambiance du programme*/
+.nom-ambiance {
+  align-self: center;
+  flex-basis: 20%;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  text-align: -moz-center;
+}
+/*supprimer programme*/
+.delete-programme {
+  flex-basis: 20%;
+}
+.delete-programme > form {
+  text-align: center;
+  margin-top: 25%;
+}
+.delete-programme > form:hover {
+  margin-top: 15%;
+}
+.delete-programme > form > input {
+  background: none;
+  border: none;
+  font-size: 20px;
+}
+.delete-programme > form:hover > input {
+  cursor: grabbing;
+  font-size: 30px;
+}
 
-        /*activation du programme*/
-        .active-programme {
-          padding: 2%;
-          flex-basis: 20%;
-        }
-          .active-programme > form {
-            margin-top: 20%;
-          }
-        /*Nom de l'ambiance du programme*/
-        .nom-ambiance {
-          align-self: center;
-          flex-basis: 20%;
-          font-size: 14px;
-          font-weight: 400;
-          text-align: center;
-          text-align: -moz-center;
-        }
-        /*supprimer programme*/
-        .delete-programme {
-          flex-basis: 20%;
-        }
-          .delete-programme > form {
-            text-align: center;
-            margin-top: 25%;
-          }
-          .delete-programme > form:hover {
-            margin-top: 15%;
-          }
-          .delete-programme > form > input {
-            background: none;
-            border: none;
-            font-size: 20px;
-          }
-          .delete-programme > form:hover > input {
-            cursor: grabbing;
-            font-size: 30px;
-          }
+/*CARD Logo + bouton allumer/eteindre*/
+.container-logo {
+  flex-basis: 35%;
+  display: flex;
+  flex-direction: column;
+}
+/*Bouton de retour*/
+.container-logo > a {
+  text-decoration: none;
+  border: solid 1px;
+  width: 30%;
+  background-color: #fafafa;
+  padding: 2%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.container-logo > a:hover {
+  background-color: #ffd006;
+  color: white;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.btn-retour-piece {
+  margin-top: 4%;
+  position: sticky;
+  top: 14%;
+  color: white;
+  background-color: #ffd006;
+  border: none;
+  padding: 2%;
+  font-weight: 600;
+}
+.btn-retour-piece:hover {
+  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+/*Logo de pièce*/
+.container-logo > img {
+  width: 30%;
+  margin-left: 35%;
+  margin-top: 20%;
+}
+/*Bouton ON OFF*/
+.on_off > form {
+  width: 100%;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  align-content: center;
+  align-items: center;
+  text-align: -moz-center;
+}
+.on_off > form > .open-light {
+  width: 60%;
+  margin-left: 5%;
+  margin-bottom: 10%;
+}
+.on_off > form > .close-light {
+  width: 38%;
+  margin-left: 5%;
+  margin-bottom: 10%;
+}
+.on_off > form > .toggle-button {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 54px;
+  margin-left: 5%;
+}
+.on_off > form > .toggle-button > input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.on_off > form > .toggle-button > .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.on_off > form > .toggle-button > .slider:before {
+  position: absolute;
+  content: "";
+  height: 46px;
+  width: 46px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.on_off > form > .toggle-button > input:checked + .slider {
+  background-color: #ffd006;
+}
+.on_off > form > .toggle-button > input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+.on_off > form > .toggle-button > input:checked + .slider:before {
+  -webkit-transform: translateX(46px);
+  -ms-transform: translateX(46px);
+  transform: translateX(46px);
+}
+.on_off > form > .toggle-button > .slider.round {
+  border-radius: 34px;
+}
+.on_off > form > .toggle-button > .slider.round:before {
+  border-radius: 50%;
+}
+.on_off > span {
+  flex-basis: 70%;
+  margin-left: 3%;
+  margin-top: 2%;
+  color: #ffd006;
+}
 
-  /*CARD Logo + bouton allumer/eteindre*/
-  .container-logo {
-    flex-basis: 35%;
-    display: flex;
-    flex-direction: column;
-  }
-    /*Bouton de retour*/
-    .container-logo > a {
-      text-decoration: none;
-      border: solid 1px;
-      width: 30%;
-      background-color: #FAFAFA;
-      padding: 2%;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-    }
-    .container-logo > a:hover {
-      background-color: #FFD006;
-      color: white;
-      box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
-    }
-    .btn-retour-piece {
-      margin-top: 4%;
-      position: sticky;
-      top: 14%;
-      color: white;
-      background-color: #FFD006;
-      border: none;
-      padding: 2%;
-      font-weight: 600;
-    }
-    .btn-retour-piece:hover {
-      box-shadow: 1px 2px 2px 1px rgba(0,0,0,0.2);
-    }
-    /*Logo de pièce*/
-    .container-logo > img {
-      width: 30%;
-      margin-left: 35%;
-      margin-top: 20%;
-    }
-    /*Bouton ON OFF*/
-    .on_off > form {
-      width: 100%;
-      margin-top: 10%;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      align-self: center;
-      align-content: center;
-      align-items: center;
-      text-align: -moz-center;
-    }
-      .on_off > form > .open-light {
-        width: 60%;
-        margin-left: 5%;
-        margin-bottom: 10%;
-      }
-      .on_off > form > .close-light {
-        width: 38%;
-        margin-left: 5%;
-        margin-bottom: 10%;
-      }
-    .on_off > form > .toggle-button {
-      position: relative;
-      display: inline-block;
-      width: 100px;
-      height: 54px;
-      margin-left: 5%;
-    }
-      .on_off > form > .toggle-button > input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-      .on_off > form > .toggle-button > .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
-      }
-      .on_off > form > .toggle-button > .slider:before {
-        position: absolute;
-        content: "";
-        height: 46px;
-        width: 46px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-      }
-      .on_off > form > .toggle-button > input:checked + .slider {
-        background-color: #FFD006;
-      }
-      .on_off > form > .toggle-button > input:focus + .slider {
-        box-shadow: 0 0 1px #2196F3;
-      }
-      .on_off > form > .toggle-button > input:checked + .slider:before {
-        -webkit-transform: translateX(46px);
-        -ms-transform: translateX(46px);
-        transform: translateX(46px);
-      }
-      .on_off > form > .toggle-button > .slider.round {
-        border-radius: 34px;
-      }
-      .on_off > form > .toggle-button > .slider.round:before {
-        border-radius: 50%;
-      }
-      .on_off > span {
-        flex-basis: 70%;
-        margin-left: 3%;
-        margin-top: 2%;
-        color: #FFD006;
-      }
+/*PARTIE DE DROITE */
+.container-programme {
+  flex-basis: 30%;
+  margin-right: 2%;
+}
+/*CARD CONTENANT LE GRAPHE CIRCULAIRE*/
+.container-diagramme-circulaire {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  border-radius: 5px;
+  margin-right: 5%;
+  margin-top: 5%;
+  background-color: white;
+}
+.container-diagramme-circulaire > h2 {
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  text-align: -moz-center;
+  padding-top: 2%;
+  margin: 0;
+}
+.diagramme-circulaire {
+  display: flex;
+  flex-direction: row;
+}
+.diagramme-circulaire > #diagrammeCirculaire {
+  flex-basis: 75%;
+  text-align: center;
+  text-align: -moz-center;
+}
+.plus_moins {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 15%;
+  background-color: white;
+}
+.plus_moins > button {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-weight: 1000;
+  font-size: 18px;
+  margin-top: 75%;
+  border: none;
+  background-color: #ffd006;
+  color: white;
+}
+.plus_moins > button:hover {
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+  cursor: grabbing;
+}
 
-  /*PARTIE DE DROITE */
-  .container-programme {
-    flex-basis: 30%;
-    margin-right: 2%;
-  }
-    /*CARD CONTENANT LE GRAPHE CIRCULAIRE*/
-    .container-diagramme-circulaire {
-      display: flex;
-      flex-direction: column;
-      box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
-      width: 100%;
-      border-radius: 5px;
-      margin-right: 5%;
-      margin-top: 5%;
-      background-color: white;
-    }
-      .container-diagramme-circulaire > h2 {
-        color: rgba(0,0,0,0.6);
-        text-align: center;
-        text-align: -moz-center;
-        padding-top: 2%;
-        margin: 0;
-      }
-      .diagramme-circulaire {
-        display: flex;
-        flex-direction: row;
-      }
-      .diagramme-circulaire > #diagrammeCirculaire {
-        flex-basis: 75%;
-        text-align: center;
-        text-align: -moz-center;
-      }
-      .plus_moins {
-        display: flex;
-        flex-direction: column;
-        flex-basis: 15%;
-        background-color: white;
-      }
-        .plus_moins > button {
-          border-radius: 50%;
-          width: 40px;
-          height: 40px;
-          font-weight: 1000;
-          font-size: 18px;
-          margin-top: 75%;
-          border: none;
-          background-color: #FFD006;
-          color: white;
-        }
-        .plus_moins > button:hover {
-          box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
-          cursor: grabbing;
-        }
-
-    /*CARD DES AMBIANCES*/
-    .ambiance {
-      border-color: gray;
-      box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
-      border-radius: 5px;
-      margin-top: 5%;
-      margin-bottom: 5%;
-      margin-right: 5%;
-      width: 100%;
-      height: 230px;
-      background-color: white;
-      text-align: center;
-      text-align: moz-center;
-    }
-      .ambiance > h2 {
-        color: rgba(0,0,0,0.6);
-        text-align: center;
-        text-align: -moz-center;
-        margin-bottom: 2%;
-        padding-top: 2%;
-      }
-        .ambiance > button {
-          width: 150px;
-          height: 50px;
-          font-weight: 800;
-          color: white;
-          background-color:  #FFD006;
-          border-color:  #FFD006;
-        }
-        .ambiance > button:hover {
-          box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.3);
-        }
-        .ambiance > .ambiance-list {
-          padding: 4%;
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          overflow-y:auto ;
-          height: 55px;
-        }
-        .ambiance > .ambiance-list > form {
-          border: solid 1px rgba(0,0,0,0.3);
-          height: 30%;
-          margin-right:2%;
-          margin-top: 1%;
-          border-radius: 5px;
-          padding: 2%;
-          background-color: #FAFAFA;
-        }
-        .ambiance > .ambiance-list > form > input {
-          border: none;
-          background-color: #FAFAFA;
-        }
-        .ambiance > .ambiance-list > form > input:hover {
-          cursor: grab;
-          font-size: 20px;
-
-        }
-
+/*CARD DES AMBIANCES*/
+.ambiance {
+  border-color: gray;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-right: 5%;
+  width: 100%;
+  height: 230px;
+  background-color: white;
+  text-align: center;
+  text-align: moz-center;
+}
+.ambiance > h2 {
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  text-align: -moz-center;
+  margin-bottom: 2%;
+  padding-top: 2%;
+}
+.ambiance > button {
+  width: 150px;
+  height: 50px;
+  font-weight: 800;
+  color: white;
+  background-color: #ffd006;
+  border-color: #ffd006;
+}
+.ambiance > button:hover {
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.ambiance > .ambiance-list {
+  padding: 4%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  height: 55px;
+}
+.ambiance > .ambiance-list > form {
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  height: 30%;
+  margin-right: 2%;
+  margin-top: 1%;
+  border-radius: 5px;
+  padding: 2%;
+  background-color: #fafafa;
+}
+.ambiance > .ambiance-list > form > input {
+  border: none;
+  background-color: #fafafa;
+}
+.ambiance > .ambiance-list > form > input:hover {
+  cursor: grab;
+  font-size: 20px;
+}
 
 /*MODAL PERMETTANT D AJOUTER UNE AMBIANCE*/
 .modal-ambiance > .modal-head > p {
   font-size: 20px;
   text-align: center;
   text-align: -moz-center;
-  color: #FFD006;
+  color: #ffd006;
   font-weight: 600;
 }
 .modal-ambiance > .modal-text > form {
@@ -391,35 +382,34 @@
   margin-top: 2%;
 }
 .modal-ambiance > .modal-text > form > div > input {
-  padding:2%;
-  border: solid 1px rgba(0,0,0,0.2);
+  padding: 2%;
+  border: solid 1px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
 .modal-ambiance > .modal-text > form > div > label {
-  padding:2%;
+  padding: 2%;
   size: 14px;
   font-weight: 600;
   margin-left: 12%;
 }
 .modal-ambiance > .modal-text > form > div > input:hover {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
 }
 
 .modal-ambiance > .modal-text > form > input {
-  border-color: #FFD006;
-  background-color: #FFD006;
+  border-color: #ffd006;
+  background-color: #ffd006;
   color: white;
   font-weight: 800;
   padding: 1%;
   width: 20%;
   margin-top: 4%;
   margin-left: 40%;
-
 }
 
 .modal-ambiance > .modal-text > form > input:hover {
   background-color: white;
-  color: #FFD006;
+  color: #ffd006;
   font-weight: 800;
 }
 
@@ -428,16 +418,16 @@
   font-size: 20px;
   text-align: center;
   text-align: -moz-center;
-  color: #FFD006;
+  color: #ffd006;
   font-weight: 600;
 }
 .modal-text > p > input {
   padding: 2%;
-  border: solid 1px rgba(0,0,0,0.3);
+  border: solid 1px rgba(0, 0, 0, 0.3);
   border-radius: 4px;
 }
 .modal-text > p > input:hover {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .modal-text > div {
   display: flex;
@@ -448,12 +438,12 @@
 }
 .modal-text > div > select {
   padding: 1%;
-  border: solid 1px rgba(0,0,0,0.3);
+  border: solid 1px rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   height: 20%;
   width: 35%;
   margin-left: 5%;
-  margin-top:3%;
+  margin-top: 3%;
 }
 .modal-text {
   text-align: center;
@@ -462,7 +452,7 @@
 }
 .modal-text > input {
   border: none;
-  background-color: #FFD006;
+  background-color: #ffd006;
   color: white;
   font-weight: 600;
   padding: 1%;
@@ -470,7 +460,7 @@
   margin-top: 2%;
 }
 .modal-text > input:hover {
-  box-shadow: 1px 2px 2px 2px rgba(0,0,0,0.3);
+  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 /*BOUTON SLIDE*/
@@ -481,47 +471,47 @@
   height: 22px;
   margin-left: 5%;
 }
-  .toggle-button > input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  .toggle-button > .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  .toggle-button > .slider:before {
-    position: absolute;
-    content: "";
-    height: 15px;
-    width: 15px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  .toggle-button > input:checked + .slider {
-    background-color: #FFD006;
-  }
-  .toggle-button > input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  .toggle-button > input:checked + .slider:before {
-    -webkit-transform: translateX(17px);
-    -ms-transform: translateX(17px);
-    transform: translateX(17px);
-  }
-  .toggle-button > .slider.round {
-    border-radius: 34px;
-  }
-  .toggle-button > .slider.round:before {
-    border-radius: 50%;
-  }
+.toggle-button > input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggle-button > .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.toggle-button > .slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.toggle-button > input:checked + .slider {
+  background-color: #ffd006;
+}
+.toggle-button > input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+.toggle-button > input:checked + .slider:before {
+  -webkit-transform: translateX(17px);
+  -ms-transform: translateX(17px);
+  transform: translateX(17px);
+}
+.toggle-button > .slider.round {
+  border-radius: 34px;
+}
+.toggle-button > .slider.round:before {
+  border-radius: 50%;
+}

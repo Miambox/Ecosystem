@@ -7,7 +7,7 @@ switch ($action) {
     // Vue general de l'administrateur
     case 'general':
         $vue = "general";
-        $title = "Accueil";
+        $title = "EcoSystem";
         if(!isset($_SESSION['id'])) {
           header('Location: ?Route=admin&Ctrl=general');
         }

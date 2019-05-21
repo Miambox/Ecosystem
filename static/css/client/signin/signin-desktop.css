@@ -1,258 +1,121 @@
-/* Résolution d'écran d'ordinateur 100% à 130%*/
-@media only screen and (min-width: 1100px) and (max-width: 1800px) {
-
-
-  .card-signin > form > p {
-    color: red;
-    font-size: 10px;
-    margin: 0;
-    margin-bottom: 2%;
-  }
-  .card-signin > form > span {
-    color: red;
-    font-size: 10px;
-    margin: 0;
-    margin-bottom: 2%;
-  }
-
-  .card-signin {
-    width: 40%;
-    border: solid 1px;
-    border-color: rgba(0,0,0,0.2);
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
-    background-color: #FAFAFA;
-    border-radius: 5px;
-    margin-top: 2%;
-    margin-left: 30%;
-    overflow-y: auto;
-    height: 500px;
-  }
-
-    .card-signin > form {
-      display: flex;
-      width: 80%;
-      margin:auto;
-      flex-direction: column;
-      text-align: center;
-      text-align: -moz-center;
-      grid-area: main;
-    }
-
-      .card-signin > form > div > input {
-        width: 80%;
-        height: 25px;
-        margin-left: 10%;
-        margin-bottom: 4%;
-        padding: 2%;
-        border: solid 1Px;
-        border-color: rgba(0,0,0,0.3);
-        border-radius: 5px;
-      }
-      .card-signin > form > div:nth-of-type(11) > input {
-        width: 10%;
-        margin-left: 45%;
-      }
-
-      .card-signin > form > div > input:hover {
-        background-color: #FAFAFA;
-      }
-      .card-signin > form > div > select {
-        width: 85%;
-        margin-left: 10%;
-        margin-bottom: 4%;
-        padding: 2%;
-        border: solid 1Px;
-        border-color: rgba(0,0,0,0.3);
-        border-radius: 5px;
-      }
-
-      .card-signin > form > div > select:hover {
-        background-color: #FAFAFA;
-      }
-      .card-signin > form > div > label {
-        color: red;
-      }
-
-
-      .card-signin > form > div {
-        display: flex;
-        flex-direction: row;
-      }
-
-        .card-signin > form  > input {
-          width: 30%;
-          border: none;
-          padding: 2%;
-          margin-top: 1%;
-          margin-bottom: 4%;
-          size: 16px;
-          font-weight: 600;
-          margin-left: 35%;
-          color: white;
-          background-color: #FE6801;
-        }
-
-        .card-signin > form > input:hover {
-          box-shadow: 1px 2px 4px 2px rgba(0,0,0,0.3);
-        }
-
-
-        .card-signin > form > div > .inscrire {
-          background-color: rgba(98, 98, 255);
-          color: white;
-          display: block;
-          margin-right: auto;
-          margin-left: auto;
-        }
-
-        .card-signin > form > div > .inscrire:hover {
-          color: rgba(98, 98, 255);
-          background-color: white;
-          display: block;
-          margin-right: auto;
-          margin-left: auto;
-        }
+.container-signin {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../../../static/image/icon/lights.jpg");
 }
 
-/*Résolution d'écran d'ordinateur 130% et au delà*/
-@media only screen and (min-width: 769px) and (max-width: 1100px) {
-  .card-signin {
-    width: 40%;
-    border: solid 1px;
-    border-color: rgba(0,0,0,0.2);
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
-    background-color: #FAFAFA;
-    border-radius: 5px;
-    margin-top: 10%;
-  }
-
-    .card-signin > form {
-      display: flex;
-      width: 80%;
-      padding:10%;
-      flex-direction: column;
-      text-align: center;
-      text-align: -moz-center;
-      grid-area: main;
-    }
-
-      .card-signin > form > input {
-        width: 80%;
-        height: 25px;
-        margin-right: 10%;
-        margin-left: 10%;
-        margin-bottom: 4%;
-        padding: 2%;
-        border: solid 1Px;
-        border-color: rgba(0,0,0,0.3);
-        border-radius: 5px;
-      }
-
-      .card-signin > form > input:hover {
-        background-color: #FAFAFA;
-      }
-
-
-      .card-signin > form > div {
-        width: 80%;
-        display: flex;
-        flex-direction: row;
-        margin-left: 10%;
-      }
-
-        .card-signin > form > div > button {
-          width: 30%;
-          border: solid 1px rgba(0,0,0,0.2);
-          border-radius: 5px;
-          padding: 2%;
-          margin-top: 10%;
-          size: 16px;
-          font-weight: 600;
-          margin-left: 12.5%;
-        }
-
-        .card-signin > form > div > .inscrire {
-          background-color: rgba(98, 98, 255);
-          color: white;
-          font-size: 9px;
-        }
-
-        .card-signin > form > div > .inscrire:hover {
-          color: rgba(98, 98, 255);
-          background-color: white;
-        }
+.input-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
+.card-signin > form > span {
+  color: red;
+  font-size: 10px;
+  margin: 0;
+  margin-bottom: 2%;
+}
 
-/*Résolution d'écran plus petit que 60%*/
-@media only screen and (min-width: 1800px) {
-  .card-signin {
-    width: 40%;
-    border: solid 1px;
-    border-color: rgba(0,0,0,0.2);
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
-    background-color: #FAFAFA;
-    border-radius: 5px;
-    margin-top: 10%;
-    margin-left: 30%;
-    height: 500px;
-  }
+.card-signin > form > h2 { color: #FF5D00}
 
-    .card-signin > form {
-      display: flex;
-      width: 80%;
-      padding:10%;
-      flex-direction: column;
-      text-align: center;
-      text-align: -moz-center;
-      grid-area: main;
-    }
+.card-signin {
+  width: 50%;
+  border: solid 1px;
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  border-radius: 5px;
+  overflow-y: auto;
+  height: 80vh;
+  margin: auto;
+  position: relative;
+  top: 10vh;
+}
 
-      .card-signin > form > input {
-        width: 80%;
-        height: 25px;
-        margin-right: 10%;
-        margin-left: 10%;
-        margin-bottom: 4%;
-        padding: 2%;
-        border: solid 1Px;
-        border-color: rgba(0,0,0,0.3);
-        border-radius: 5px;
-        font-size: 18px;
-      }
+.g-recaptcha {
+  margin: auto;
+}
 
-      .card-signin > form > input:hover {
-        background-color: #FAFAFA;
-      }
+.card-signin > form {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  flex-direction: column;
+  text-align: center;
+  text-align: -moz-center;
+  grid-area: main;
+}
 
+.card-signin > form > div > input {
+  width: 80%;
+  height: 25px;
+  margin-left: 10%;
+  margin-bottom: 4%;
+  padding: 2%;
+  border: solid 1px;
+  border-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+.card-signin > form > div:nth-of-type(11) > input {
+  width: 10%;
+  margin-left: 45%;
+}
 
-      .card-signin > form > div {
-        width: 80%;
-        display: flex;
-        flex-direction: row;
-        margin-left: 10%;
-      }
+.card-signin > form > div > input:hover {
+  background-color: #fafafa;
+}
+.card-signin > form > div > select {
+  width: 85%;
+  margin-left: 10%;
+  margin-bottom: 4%;
+  padding: 2%;
+  border: solid 1px;
+  border-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
 
-        .card-signin > form > div > button {
-          width: 30%;
-          border: solid 1px rgba(0,0,0,0.2);
-          border-radius: 5px;
-          padding: 2%;
-          margin-top: 10%;
-          size: 16px;
-          font-weight: 600;
-          margin-left: 12.5%;
-        }
+.card-signin > form > div > select:hover {
+  background-color: #fafafa;
+}
+.card-signin > form > div > label {
+  color: red;
+}
 
+.card-signin > form > div {
+  display: flex;
+  flex-direction: row;
+}
 
-        .card-signin > form > div > .inscrire {
-          background-color: rgba(98, 98, 255);
-          color: white;
-          font-size: 24px;
-        }
+.card-signin > form > input {
+  width: 30%;
+  border: none;
+  padding: 2%;
+  margin-top: 1%;
+  margin-bottom: 4%;
+  size: 16px;
+  font-weight: 600;
+  margin-left: 35%;
+  color: white;
+  background-color: #fe6801;
+}
 
-        .card-signin > form > div > .inscrire:hover {
-          color: rgba(98, 98, 255);
-          background-color: white;
-        }
+.card-signin > form > input:hover {
+  box-shadow: 1px 2px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+.card-signin > form > div > .inscrire {
+  background-color: rgba(98, 98, 255);
+  color: white;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.card-signin > form > div > .inscrire:hover {
+  color: rgba(98, 98, 255);
+  background-color: white;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }

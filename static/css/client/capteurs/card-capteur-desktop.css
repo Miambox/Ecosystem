@@ -1,253 +1,125 @@
 .container-piece-capteurs {
-  width: 100%;
+  width: 92%;
+  margin-left: 8%;
+  height: 95vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  margin-top: 3%;
 }
 
 .container-resume-piece {
-  flex-basis: 50%;
-}
-  .container-resume-piece > a {
-    position: absolute;
-    top: 16%;
-    text-decoration: none;
-    border: solid 1px #FFD006;
-    background-color: #FAFAfa;
-    padding: 1%;
-    color: #FFD006;
-    background-color: #FAFAFA;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-  .container-resume-piece > a:hover {
-    background-color: #FFD006;
-    color: white;
-    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
-  }
-  .container-resume-piece > .resume-piece {
-    width: 80%;
-    background-color: #FAFAFA;
-    height: 250px;
-    display: flex;
-    flex-direction: row;
-    border: solid 1px rgba(0,0,0,0.2);
-    border-radius: 5px;
-    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
-    position: sticky;
-    margin-top: 10%;
-  }
-    .container-resume-piece > .resume-piece > .photo-piece {
-      margin-top: 5%;
-      margin-left: 5%;
-      margin-right: 4%;
-      height: 200px;
-      width: 200px;
-      border-radius: 50%;
-      background-color: #FFD006;
-    }
-    .container-resume-piece > .resume-piece > .description-piece {
-      margin-left: 2%;
-
-    }
-    .container-resume-piece > form > input {
-        margin-top: 1.5%;
-        position: sticky;
-        top: 40%;
-        text-decoration: none;
-        border: solid 1px #FFD006;
-        padding: 1%;
-        color: white;
-        background-color: #FFD006;
-      }
-      .container-resume-piece > form > input:hover {
-          box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.3);
-        }
-.container-capteurs {
-  flex-basis: 50%;
   width: 100%;
-  height: auto;
+  height: 10vh;
+}
+.container-resume-piece > a {
+  position: absolute;
+  top: 16%;
+  text-decoration: none;
+  background-color: white;
+  padding: 1%;
+  color: #ffd006;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.container-resume-piece > a:hover {
+  background-color: #ffd006;
+  color: white;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.container-resume-piece > .resume-piece {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: auto;
+}
+.container-resume-piece > .resume-piece > .description-piece {
+  display: flex;
+  width: 98%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 2%;
+  align-items: center;
+  color: #ff9100;
+}
+.description-piece > p {
+  margin-left: 2%;
+}
+.container-capteurs {
+  width: 100%;
+  height: 85vh;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  margin-top: 2%;
+  align-items: center;
 }
-  .card-capteur {
-    width: 200px;
-    height: 200px;
-    border-radius: 5px;
-    border: solid 1px rgba(0,0,0,0.2);
-    background-color: white;
-    margin-bottom: 5%;
-    margin-left: 2%;
-  }
+.card-capteur {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  margin: 2%;
+}
 
-     .card-capteur > .card-head {
-       height: 20%;
-       border-bottom: solid 1px rgba(0,0,0,0.1);
-     }
-       .card-capteur > .card-head > ul {
-         display: flex;
-         flex-direction: row;
-         height: 100%;
-         margin: 0;
-         padding: 0;
-       }
-         .card-capteur > .card-head > ul > li {
-           list-style-type: none;
-         }
-         .card-capteur > .card-head > ul > li:first-of-type {
-           flex-basis: 50%;
-           margin-left: 10%;
-         }
-           .card-capteur > .card-head > ul > li:first-of-type > h5 {
-             margin-top: 8%;
-             color: #FFD006;
-           }
-         .card-capteur > .card-head > ul > li:last-of-type {
-           flex-basis: 30%;
-           text-align: center;
-           text-align: -moz-center;
-           margin-left: 10%;
-         }
-           .button-config-capteur {
-             margin-top: 20%;
-             padding: 1%;
-             margin-left: 10%;
-             height: 60%;
-             width: 45%;
-             background: transparent;
-             box-shadow: none;
-             border: none;
-             /*
-             margin-top: 16%;
-             padding: 1%;
-             margin-left: 10%;
-             height: 60%;
-             width: 40%;
-             background: transparent;
-             box-shadow: none;
-             border: none;
-             */
-           }
-           .button-config-capteur:hover {
-             box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.5);
-           }
-             .button-config-capteur > img {
-               width: 100%;
-               margin-top: 5%;
-             }
+.card-capteur > .card-head {
+  height: 20%;
+  background: #FF9100;
+  color: white;
+  text-align: center;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+}
+.card-head > .description-capteur {
+  padding: 5%;
+}
+.card-head > form { width: 5%;}
+.back { 
+  padding: 10%;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  left: 100%;
+  background: white;
+  border-radius: 2px;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+}
+.back:hover {cursor: pointer;}
 
-          .card-capteur > .card-head > ul > li:last-of-type > nav {
-            border: solid 1px rgba(0,0,0,0.1);
-            margin-top: 1%;
-            z-index: 100;
-            position: sticky;
-            background-color: white;
-            /*
-            border: solid 1px rgba(0,0,0,0.1);
-            margin-top: 5%;
-            z-index: 100;
-            position: sticky;
-            background-color: white;
-            */
-          }
-            .card-capteur > .card-head > ul > li:last-of-type > nav > ul {
-              list-style-type: none;
-              padding: 0;
-            }
-              .card-capteur > .card-head > ul > li:last-of-type > nav > ul > li {
-                padding: 5%;
-                font-size: 10px;
-              }
-                .card-capteur > .card-head > ul > li:last-of-type > nav > ul > li  > a {
-                  text-decoration: none;
-                  color: #333333;
-                }
-                .card-capteur > .card-head > ul > li:last-of-type > nav > ul > li > a:hover {
-                  color: #FFB870;
-                }
-            .card-capteur > .card-head > ul > li:last-of-type > nav > ul > li > form {
-              padding: 0;
-            }
-            .card-capteur > .card-head > ul > li:last-of-type > nav > ul > li > form > input {
-              background-color: white;
-              border: none;
-              font-size: 10px;
-              color: #333333;
-            }
-            .card-capteur > .card-head > ul > li:last-of-type > nav > ul > li > form > input:hover {
-              color: #FFB870;
-            }
+.card-capteur > .card-body {
+  width: 100%;
+  height: 66%;
+}
+.card-capteur > .card-body > form {
+  height: 100%;
+  width: 100%;
+}
+.card-body > form > button {
+  background: none;
+  border: none;
+  height: 100%;
+  width: 100%;
+}
+.card-body > form > button:hover { box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2); cursor: pointer;}
+.card-body > form > button > img {
+  height: 100%;
+}
+.card-capteur > .card-footer {
+  height: 10%;
+  text-align: center;
+  text-align: -moz-center;
+  border-top: solid 1px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  text-align: -moz-center;
+}
 
-
-
-     .card-capteur > .card-body {
-       height: 66%;
-     }
-       .card-capteur > .card-body > img {
-         height: auto;
-         max-width: 100%;
-         margin-left: 22%;
-         margin-top: 8%;
-       }
-     .card-capteur > .card-footer {
-       height: 20%;
-       text-align: center;
-       text-align: -moz-center;
-       border-top: solid 1px rgba(0,0,0,0.1);
-       text-align: center;
-       text-align: -moz-center;
-       /*
-       height: 14%;
-       text-align: center;
-       text-align: -moz-center;
-       border-top: solid 1px rgba(0,0,0,0.1);
-       */
-     }
-       .card-capteur > .card-footer > form > input {
-         text-decoration: none;
-         border: solid 1px rgba(0,0,0,0.3);
-         color: white;
-         font-weight: 500;
-         background-color: #FFD006;
-         padding: 1%;
-         margin-top: 1%;
-         margin-left: 0%;
-         /*text-decoration: none;
-         border: solid 1px rgba(0,0,0,0.3);
-         color: white;
-         font-weight: 500;
-         background-color: #FFD006;
-         padding: 1%;
-         border-radius: 5px;
-         margin-top: 1.5%;
-         width: 60%;
-         */
-       }
-       .card-capteur > .card-footer > form > input:hover {
-         box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
-       }
-
-  .container-capteurs > form > input {
-    /*
-    width: 150px;
-    height: 40px;
-    font-size: 14px;
-    color: white;
-    position: absolute;
-    top: 80px;
-    right: 20%;
-    background-color: #FFB870;
-    */
-    width: 150px;
-    height: 40px;
-    font-size: 14px;
-    color: white;
-    position: absolute;
-    top: 80px;
-    right: 20%;
-    background-color: #FFD006;
-
-  }
+.card-footer > a, form > input {
+  text-decoration: none;
+  background: none;
+  margin: auto;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.card-footer > a { margin-top: 3%;}
