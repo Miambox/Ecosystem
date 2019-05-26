@@ -33,6 +33,11 @@ switch ($action) {
       $title="cgu";
     break;
 
+    case 'addTypeSensor':
+        $vue="addTypeSensor";
+        $title="Configuration de capteur";
+    break;
+    
     case 'deleteUser':
         $vue = 'deleteUser';
         $title = 'Supprimer un client';
