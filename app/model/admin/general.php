@@ -143,3 +143,19 @@ function deleteUser($bdd, $id) {
         'id' => $id,
     ));
 }
+
+function insertSensorType($bdd, $values) {
+    $array_values = [];
+
+    foreach ($values as $key => $value) {
+        array_push($array_values, ($value['reference']+ ',' + $value['type']));
+    }
+
+    $string_value = implode(",", $array_values);
+
+    $query = 'INSERT INTO refsensor(reference, type) VALUES :string_value';
+
+    $donnees = $bdd->prepare($query);
+
+    $donnees->bindParam(":string_value", $string_value);
+}

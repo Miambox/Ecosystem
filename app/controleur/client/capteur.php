@@ -1,5 +1,6 @@
 <?php
 include('app/model/client/requete.capteur.php');
+include('app/model/client/requete.throwDataSensor.php');
 
 switch ($action) {
 
@@ -20,7 +21,7 @@ switch ($action) {
 
         $donneesCapteur = selectionerCapteur($bdd, $IDPIECE);
         $donneespiece = infoPiece($bdd, $IDPIECE);
-        break;
+    break;
 
     case 'addCapteur':
         /*@Todo: Ajouter les champs pas obligatoire*/
@@ -28,6 +29,7 @@ switch ($action) {
         $vue = "addCapteur";
         $id_piece = $_POST['id_piece'];
         $id_logement = $_POST['id_logement'];
+        $sensor_type = getSensorType($bdd);
         if( isset($_POST['ref']) and
             isset($_POST['nom']) and
             isset($_POST['id_piece'])) {
@@ -36,7 +38,6 @@ switch ($action) {
             'numero_ref'              => $_POST['ref'],
             'nom'                 => $_POST['nom'],
             'id_piece'      => $_POST['id_piece']
-
           ];
           $request = insererNouveauCapteur($bdd, $values);
 
@@ -80,7 +81,7 @@ switch ($action) {
           $id_piece = securitePourXSSFail($_POST['id_piece']);
           $idCapteur = securitePourXSSFail($_POST['id_capteur']);
           $donneesCapteur =  infoCapteur($bdd, $idCapteur);
-
+          $sensor_type = getSensorTypeById($bdd, $idCapteur);
           $etatCapteur = etatCapteur($bdd, $idCapteur);
 
           // Liste permettant de sélectionner les ambiances d'un capteur
@@ -97,9 +98,11 @@ switch ($action) {
         } else if(isset($_GET['id_capteur'])) {
           $id_piece = $_GET['id_piece'];
           $idCapteur = securitePourXSSFail($_GET['id_capteur']);
+          $sensor_type = getSensorTypeById($bdd, $idCapteur);
           $donneesCapteur =  infoCapteur($bdd, $idCapteur);
+          
+          // Etat du capteur
           $etatCapteur = etatCapteur($bdd, $idCapteur);
-
           // Liste permettant de sélectionner les ambiances d'un capteur
           $liste_ambiance = selectionnerAmbiance($bdd);
           // liste permettant de sélectionner les programmes d'un capteur
@@ -117,57 +120,93 @@ switch ($action) {
 
         break;
 
-    case 'activeCapteur':
+    case 'updateStateSensor':
       if(isset($_POST['id_capteur'])) {
           $id_capteur = securitePourXSSFail($_POST['id_capteur']);
           $id_piece = $_POST['id_piece'];
-          if(isset($_POST['on_capteur'])) {
+          if(isset($_POST['state'])) {
             $values = [
             'id_capteur'          => securitePourXSSFail($_POST['id_capteur']),
-            'on_capteur'       => securitePourXSSFail($_POST['on_capteur']),
+            'state'       => securitePourXSSFail($_POST['state']),
             ];
-            $request = activeCapteur($bdd, $values);
+            var_dump($values);
+            $request = updateStateSensor($bdd, $values);
+
+            $sensor = selectionnerCapteurById($bdd, $id_capteur);
+
+            foreach($sensor as $key => $value) {
+
+              if ($value['nom'] == 'ecotemperature') {
+                $type = '3';
+              } else if ($value['nom'] == 'ecolight') {
+                $type = '5';
+              }
+
+              if ($value['etat'] == 'auto') {
+                $sensor_value_binary = '0002';
+              } else if ($value['etat'] == 'on') {
+                $sensor_value_binary = '0001';
+              } else if ($value['etat'] == 'off') {
+                $sensor_value_binary = '0000';
+              } else {
+                $sensor_value_binary = $value['etat'];
+              }
+
+              $response = sendDataToPasserelle(
+                '001D',
+                $type,
+                '01',
+                $sensor_value_binary,
+                date('Y'),
+                date('m'),
+                date('d'),
+                date('H'),
+                date('i'),
+                date('s')
+              );
+            }
 
             if($request) {
               header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur . "&id_piece=". $id_piece);
             } else {
               header('Location: ?Route=Client&Ctrl=capteur');
             }
-          } else {
-            $id_piece = $_POST['id_piece'];
-
-          $values = [
-          'id_capteur'        => securitePourXSSFail($_POST['id_capteur']),
-          'off_capteur'       => securitePourXSSFail($_POST['off_capteur']),
-          ];
-          $request = desactiveCapteur($bdd, $values);
-            if($request) {
-              header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur . "&id_piece=". $id_piece);
-            } else {
-            header('Location: ?Route=Client&Ctrl=capteur');
-            }
           }
       } else {
         header('Location: ?Route=Client&Ctrl=capteur');
       }
     break;
+    
     // LES PROGRAMMES
     // Vue permettant d'ajouter un programme
     case 'addProgramme':
       if( isset($_POST['heure_debut']) and
           isset($_POST['heure_fin']) and
-          isset($_POST['date']) and
-          isset($_POST['ambiance'])) {
+          isset($_POST['date'])) {
             $id_capteur = securitePourXSSFail($_POST['id_capteur']);
             $id_piece = securitePourXSSFail($_POST['id_piece']);
-            $values = [
-              'heure_debut'       => securitePourXSSFail($_POST['heure_debut']),
-              'heure_fin'         => securitePourXSSFail($_POST['heure_fin']),
-              'date'              => securitePourXSSFail($_POST['date']),
-              'ambiance'          => securitePourXSSFail($_POST['ambiance']),
-            ];
-            $request = insererNouveauProgramme($bdd, $values, $id_capteur);
 
+            // SI on stocke un programme de type temperature alors la variable 'ambiance' est pleine
+            if(isset($_POST['ambiance'])) {
+              $values = [
+                'heure_debut'       => securitePourXSSFail($_POST['heure_debut']),
+                'heure_fin'         => securitePourXSSFail($_POST['heure_fin']),
+                'date'              => securitePourXSSFail($_POST['date']),
+                'ambiance'          => securitePourXSSFail($_POST['ambiance']),
+              ];
+              $request = insererNouveauProgramme($bdd, $values, $id_capteur);  
+            }
+
+            // SI on stocke un programme de type light alors :
+            if (isset($_POST['mode'])) {
+              $values = [
+                'heure_debut'       => securitePourXSSFail($_POST['heure_debut']),
+                'heure_fin'         => securitePourXSSFail($_POST['heure_fin']),
+                'date'              => securitePourXSSFail($_POST['date']),
+                'ambiance'          => securitePourXSSFail($_POST['mode']),
+              ];
+              $request = insererNouveauProgramme($bdd, $values, $id_capteur);
+            }
             if($request) {
               header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. intval($id_capteur) . "&id_piece=" . intval($id_piece));
             } else {
@@ -182,13 +221,14 @@ switch ($action) {
     case 'supprimerProgramme':
         if(isset($_POST['id_programme'])) {
           $id_capteur = securitePourXSSFail($_POST['id_capteur']);
+          $id_piece = securitePourXSSFail($_POST['id_piece']);
           $values = [
             'id_programme'          => securitePourXSSFail($_POST['id_programme']),
           ];
           $request = supprimerProgramme($bdd, $values);
 
           if($request) {
-            header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur);
+            header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur .'&id_piece='. $id_piece);
           } else {
             header('Location: ?Route=Client&Ctrl=capteur');
           }

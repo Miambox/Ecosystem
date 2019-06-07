@@ -8,7 +8,7 @@
   width: 92%;
   margin-left: 8%;
   height: 95vh;
-  overflow: auto;
+  overflow: hidden;
 }
 
 /*CARD DE GAUCHE*/
@@ -30,10 +30,10 @@
   border-color: gray;
   box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  margin-top: 5%;
   background-color: white;
-  width: 100%;
-  height: 510px;
+  flex-basis: 50%;
+  height: 90%;
+  margin: auto;
 }
 .programme > h2 {
   color: rgba(0, 0, 0, 0.6);
@@ -45,6 +45,7 @@
 .programme > .button-ajouter {
   color: white;
   border: none;
+  border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.2);
   font-weight: 800;
   font-size: 14px;
@@ -56,7 +57,7 @@
 }
 .programme > .button-ajouter:hover {
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.3);
-  cursor: grabbing;
+  cursor: pointer;
 }
 
 .programme-horaire > .programme-information {
@@ -158,9 +159,11 @@
   border: none;
   padding: 2%;
   font-weight: 600;
+  height: 6vh;
 }
 .btn-retour-piece:hover {
   box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 /*Logo de pièce*/
 .container-logo > img {
@@ -168,10 +171,16 @@
   margin-left: 35%;
   margin-top: 20%;
 }
+.container-logo > .back-btn {
+  height: 5.5vh;
+}
+.on_off {
+  height: 89vh;
+}
 /*Bouton ON OFF*/
 .on_off > form {
   width: 100%;
-  margin-top: 10%;
+  margin-top: 10% ;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -181,7 +190,7 @@
   text-align: -moz-center;
 }
 .on_off > form > .open-light {
-  width: 60%;
+  width: 59.5%;
   margin-left: 5%;
   margin-bottom: 10%;
 }
@@ -190,6 +199,7 @@
   margin-left: 5%;
   margin-bottom: 10%;
 }
+
 .on_off > form > .toggle-button {
   position: relative;
   display: inline-block;
@@ -418,7 +428,7 @@
   font-size: 20px;
   text-align: center;
   text-align: -moz-center;
-  color: #ffd006;
+  color: black;
   font-weight: 600;
 }
 .modal-text > p > input {
@@ -429,38 +439,52 @@
 .modal-text > p > input:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
-.modal-text > div {
+.modal-text > .description-programme-horaire, .description-programme-date, .description-programme-mode {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
-.modal-text > div > h3 {
-  margin-left: 8%;
+
+.description-programme-horaire > p { margin-right: 2rem; margin-left: 8% }
+.description-programme-date > p { margin-right: 2rem; margin-left: 8%} 
+.description-programme-mode > p { margin-right: 2rem; margin-left: 8%}
+
+.description-programme-horaire > input {
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 1rem;
+  margin: auto
 }
-.modal-text > div > select {
-  padding: 1%;
-  border: solid 1px rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
-  height: 20%;
-  width: 35%;
-  margin-left: 5%;
-  margin-top: 3%;
+.description-programme-date > input { 
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 1rem; 
+  margin: auto
+} 
+.description-programme-mode > select { 
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 1rem;
+  width: 25%;
+  margin: auto
 }
-.modal-text {
-  text-align: center;
-  text-align: -moz-center;
-  margin-top: 2%;
-}
-.modal-text > input {
+
+.btn-add-programme {
+  padding: 1rem;
+  border-radius: 5px;
   border: none;
-  background-color: #ffd006;
   color: white;
-  font-weight: 600;
-  padding: 1%;
-  width: 20%;
-  margin-top: 2%;
+  background: #ff9100;
+  width: 40%;
+  margin-top: 4%;
+  margin-left: 30%;
 }
-.modal-text > input:hover {
-  box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.3);
+.btn-add-programme:hover {
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 /*BOUTON SLIDE*/
@@ -515,3 +539,35 @@
 .toggle-button > .slider.round:before {
   border-radius: 50%;
 }
+
+.toggle-3-way {
+  display: flex;
+  flex-direction: row;
+}
+.toggle-3-way > input {
+  display: none;
+}
+
+.toggle-3-way > label {
+  background: white;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+}
+.toggle-3-way > label:first-of-type {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.toggle-3-way > label:last-of-type {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.toggle-3-way > label:hover {
+  background-color: #ff9100;
+  color: white;
+  cursor: pointer;
+}
+.toggle-3-way > input[type="radio"]:checked+label{ 
+  background-color: #ffd006;
+  color: white; 
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.3);
+} 

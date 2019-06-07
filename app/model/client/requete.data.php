@@ -54,11 +54,16 @@ function updateValeur($bdd, $valeur, $id_capteur) {
 }
 
 function selectProgrammeNow($bdd, $id_capteur, $date, $time) {
-  $query = 'SELECT * FROM mode
-            INNER JOIN programmationhoraire ON mode.id = programmationhoraire.id_mode
-            WHERE programmationhoraire.date=:date_now
-            AND programmationhoraire.heure_debut=:heure_debut
-            AND programmationhoraire.id_objet=:id_capteur';
+  // $query = 'SELECT * FROM mode
+  //           INNER JOIN programmationhoraire ON mode.id = programmationhoraire.id_mode
+  //           WHERE programmationhoraire.date=:date_now
+  //           AND programmationhoraire.heure_debut=:heure_debut
+  //           AND programmationhoraire.id_objet=:id_capteur';
+  $query = 'SELECT * FROM programmationhoraire WHERE 
+    date=:date_now AND 
+    heure_debut=:heure_debut AND
+    id_objet=:id_capteur'; 
+
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":date_now", $date);
   $donnees->bindParam(":heure_debut", $time);
@@ -70,10 +75,12 @@ function selectProgrammeNow($bdd, $id_capteur, $date, $time) {
 
 function selectProgrammeOn($bdd, $id_capteur) {
   $etat = "on";
-  $query = 'SELECT * FROM mode
-            INNER JOIN programmationhoraire ON mode.id = programmationhoraire.id_mode
-            WHERE programmationhoraire.etat_second=:etat
-            AND programmationhoraire.id_objet=:id_capteur';
+  // $query = 'SELECT * FROM mode
+  //           INNER JOIN programmationhoraire ON mode.id = programmationhoraire.id_mode
+  //           WHERE programmationhoraire.etat_second=:etat
+  //           AND programmationhoraire.id_objet=:id_capteur';
+
+  $query = 'SELECT * FROM programmationhoraire WHERE etat_second=:etat AND id_objet=:id_capteur';
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":id_capteur", $id_capteur);
   $donnees->bindParam(":etat", $etat);
@@ -86,6 +93,14 @@ function updateSecondEtat($bdd, $id_programme, $etat) {
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":etat", $etat);
   $donnees->bindParam(":id_programme", $id_programme);
+  return $donnees->execute();
+}
+
+function updateStateSensor($bdd, $id_objet, $mode) {
+  $query = 'UPDATE objet SET etat=:mode WHERE id=:id_objet';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":mode", $mode);
+  $donnees->bindParam(":id_objet", $id_objet);
   return $donnees->execute();
 }
 

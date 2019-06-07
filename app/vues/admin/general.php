@@ -57,13 +57,13 @@
         <?php
         if($_SESSION['type'] == "administrateur") {
           ?>
-          <div class ="cgu">
+          <!-- <div class ="cgu">
             <a href="<?=ROOT_URL?>?Route=admin&amp;Ctrl=general&amp;Vue=addTypeSensor">
               <p>
                 <img class="crayon" src="<?=ROOT_URL?>static/image/icon/crayon.png">
                 Ajouter un capteur
               </p>
-            </div>
+            </div> -->
           <?php
         }
         ?>

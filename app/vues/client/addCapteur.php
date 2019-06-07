@@ -36,8 +36,15 @@
       <div>
         <select name="nom" required>
           <option value="" disabled>--Choisissez un type de capteur--</option>
-          <option value="EcoLight">EcoLight</option>
-          <option value="EcoTemperature">EcoTemperature</option>
+          <?php
+          if (isset($sensor_type) != 0) {
+            foreach ($sensor_type as $key => $type) {
+              ?>
+              <option value="<?php echo $type[0]; ?>"><?php echo $type[0]; ?></option>
+              <?php
+            }
+          }
+          ?>
         </select>
         <label for="nom">*</label>
       </div>

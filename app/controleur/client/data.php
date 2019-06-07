@@ -9,63 +9,67 @@ switch ($action) {
       // Si on a bien un id_capteur envoyé
       if(isset($_GET['id_capteur'])) {
 
-        // Initialisation des variables
         $id_capteur = intval(securitePourXSSFail($_GET['id_capteur']));
         $etat_capteur = selectEtatOfCapteur($bdd, $id_capteur);
-        $date = convertTimeStampInDate(date('c'));
-        $time = explodeTimeInTimestamp(date('c'));
+        $date = convertTimeStampInDate(date('c')); // Date d'aujourd'hui
+        $time = explodeTimeInTimestamp(date('c')); // Temps d'aujourd'hui
         $id_programme = 0;
-        // On regarde s'il y a un programme existant en BDD
+        
+         /**
+         * Le second état représente le check entre l'heure/date du programme comparée à celle de maintenant.
+         * Lorsque celles-ci correspondent dans la méthode 'updateSecondeEtat' alors on passe l'état second
+         * à ON.
+         */
         $programme_now = selectProgrammeNow($bdd, $id_capteur, $date, $time);
         foreach ($programme_now as $key => $value) {
-          // S'il y a un programme on passe son second étât à "on".
+          // S'il y a un programme on passe son second état à "on".
           $id_programme = $value['id'];
           $active_programme = updateSecondEtat($bdd, $id_programme, "on");
         }
+       
+        // Puis on sélectionne tous les programmes avec un état second à ON.
         $programme = selectProgrammeOn($bdd, $id_capteur);
-
-        // S'il y a un programme à ON.
         if(sizeof($programme) != 0) {
+
           foreach ($programme as $key => $value) {
             $programme_on = $value['id'];
             $heure_fin = $value['heure_fin'];
             $value_lum = $value['valeur'];
             $etat = $value['etat'];
+            $time = explodeTimeInTimestamp(date('c')); // Heure de maintenant
 
-            $time = explodeTimeInTimestamp(date('c'));
-
-            // Si l'heure de fin correspond à l'heure de maintenant
-            if($time == $heure_fin) {
-              // On passe l'état second à off
+            /**
+             * Si l'heure de fin correspond à l'heure de maintenant
+             * Si l'état est à off
+             * */ 
+            if ($time == $heure_fin) {
               $desactive_programme = updateSecondEtat($bdd, $programme_on, "off");
             } else if($etat == "" ) {
               $desactive_programme = updateSecondEtat($bdd, $programme_on, "off");
             } else {
 
-              // On regarde l'état du capteur
               foreach ($etat_capteur as $key => $value)
               {
                 // Si l'état est éteint donc nul en bdd.
                 if($value['etat'] == "") {
-                  // On met la valeur à 0
-                  echo initLumValue();
+                  echo initLumValue(); // On met une valeur zéro
                 } else {
-                  echo updateLumValue($value_lum);
+                  echo updateLumValue($value_lum); // On update la valeur de la lumière 
                 }
-              }// Si l'état est à 0
+              }
             }
           }
         } else {
-
+          /**
+           * S'il n'y a aucun programme à ON alors on effectue cela.
+           */
           $liste_value = selectValueOfCapteur($bdd, $id_capteur);
 
           foreach ($etat_capteur as $key => $value) {
             // Si l'état est éteint donc nul en bdd.
 
             if($value['etat'] == "") {
-              // On met la valeur à 0
-              echo initLumValue();
-
+              echo initLumValue(); // On met la valeur à 0
             } else if($value['etat'] == "on") {
               // Sinon on selectionne la valeur en bdd du capteur
               $liste_value = selectValueOfCapteur($bdd, $id_capteur);
@@ -100,6 +104,61 @@ switch ($action) {
     break;
 
     case 'capteurBaton':
+    break;
+
+    case 'refreshLight';
+      if(isset($_GET['id_capteur'])) {
+
+        $id_capteur = intval(securitePourXSSFail($_GET['id_capteur']));
+        $id_piece = intval(securitePourXSSFail($_GET['id_piece']));
+        $etat_capteur = selectEtatOfCapteur($bdd, $id_capteur);
+        $date = convertTimeStampInDate(date('c')); // Date d'aujourd'hui
+        $time = explodeTimeInTimestamp(date('c')); // Temps d'aujourd'hui
+        $id_programme = 0;
+        
+        /**
+         * Le second état représente le check entre l'heure/date du programme comparée à celle de maintenant.
+         * Lorsque celles-ci correspondent dans la méthode 'updateSecondeEtat' et 'selectProgrammeNow' alors on passe l'état second
+         * à ON.
+         */
+        $programme_now = selectProgrammeNow($bdd, $id_capteur, $date, $time);
+        foreach ($programme_now as $key => $value) {
+          // S'il y a un programme on passe son second état à "on".
+          $id_programme = $value['id'];
+          $active_programme = updateSecondEtat($bdd, $id_programme, "on");
+        }
+      
+        // Puis on sélectionne tous les programmes avec un état second à ON.
+        $programme = selectProgrammeOn($bdd, $id_capteur);
+        if(sizeof($programme) != 0) {
+          foreach ($programme as $key => $value) {
+            echo "OK";
+
+            $programme_on = $value['id'];
+            $id_objet = $value['id_objet'];
+            $heure_fin = $value['heure_fin'];
+            $etat = $value['etat'];
+            $mode = $value['id_mode'];
+            $time = explodeTimeInTimestamp(date('c')); // Heure de maintenant
+
+            /**
+             * Si l'heure de fin correspond à l'heure de maintenant
+             * Si l'état est à off
+             * */ 
+            if ($time == $heure_fin) {
+              $desactive_programme = updateSecondEtat($bdd, $programme_on, "off");
+            } else if($etat == "" ) {
+              $desactive_programme = updateSecondEtat($bdd, $programme_on, "off");
+            } else {
+              /**
+               * Cas où le temps n'est pas fini, l'état n'est pas à off et notre programme doit être activé.
+               */
+              $updateStateSensor = updateStateSensor($bdd, $id_objet, $mode);
+            }
+          }
+        }
+      }
+
     break;
 
     default:

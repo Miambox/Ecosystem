@@ -3,9 +3,10 @@ var tabledata = [
 ];
 
 var dataTest = [];
+var table;
 
 //create Tabulator on DOM element with id "example-table"
-var table = new Tabulator("#example-table", {
+table = new Tabulator("#example-table", {
     clipboard:true,
     clipboardPasteAction:"replace",
     selectable: true,
@@ -19,8 +20,6 @@ var table = new Tabulator("#example-table", {
     rowSelectionChanged:function(data, rows){
         //update selected row counter on selection change
         dataTest = data;
-        console.log(data);
-        console.log(rows);
     	$("#select-stats span").text(data.length);
     },
 });
@@ -33,15 +32,14 @@ $("#addRow").click(function(){
     table.addRow({});
 });
 
-//Delete row on "Delete Row" button click
 $("#del-row").click(function(){
     dataTest.forEach((value, key) => {
-        console.log(value);
-        console.log(key);
         table.deleteRow(value.id);
     });
 });
 
 $("#sendToDataBase").click(function(){
-    console.log(table.tabledata);
+    table.rowManager.rows.map(r => {
+        r.data;
+    });
 });
