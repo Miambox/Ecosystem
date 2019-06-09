@@ -1,6 +1,9 @@
 <?php
 
 include('app/model/client/requete.data.php');
+include('app/model/client/requete.capteur.php');
+include('app/model/client/requete.throwDataSensor.php');
+
 
 switch ($action) {
 
@@ -153,8 +156,33 @@ switch ($action) {
               /**
                * Cas où le temps n'est pas fini, l'état n'est pas à off et notre programme doit être activé.
                */
-              $updateStateSensor = updateStateSensor($bdd, $id_objet, $mode);
+              $updateStateSensor = updateStateSensorData($bdd, $id_objet, $mode);
             }
+          }
+        }
+      }
+
+    break;
+
+    case 'refreshAutoMode':
+      if(isset($_GET['id_capteur'])) {
+        $id_capteur = intval(securitePourXSSFail($_GET['id_capteur']));
+        $id_piece = intval(securitePourXSSFail($_GET['id_piece']));
+
+        $data = getDatasWithGroupUrl();
+        sendDataToDatabase($bdd, $data);
+
+        $sensor = selectionnerCapteurById($bdd, $id_capteur);
+        foreach($sensor as $key => $value) {
+          if (strcmp($value['nom'], 'ecolight') == 0) {
+            $sensor_type = '5';
+          }
+          if (strcmp($value['nom'], 'ecotemperature') == 0) {
+            $sensor_type = '3';
+          }
+          $data_recep_passerelle = selectionnerDataOfPasserelle($bdd, $sensor_type);
+          foreach($data_recep_passerelle as $key => $value) {
+            echo $value['value'];
           }
         }
       }

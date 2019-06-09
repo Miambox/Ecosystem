@@ -86,16 +86,18 @@ switch ($action) {
 
           // Liste permettant de sélectionner les ambiances d'un capteur
           $liste_ambiance = selectionnerAmbiance($bdd);
+
           // liste permettant de sélectionner les programmes d'un capteur
           $liste_programme = selectionnerProgramme($bdd, $idCapteur);
-
           foreach ($liste_programme as $key => $value) {
             $response = selectionnerAmbianceParId($bdd,$value['id_mode']);
             foreach ($response as $key => $value) {
               $ambiance = $value['nom'];
             }
           }
+
         } else if(isset($_GET['id_capteur'])) {
+          
           $id_piece = $_GET['id_piece'];
           $idCapteur = securitePourXSSFail($_GET['id_capteur']);
           $sensor_type = getSensorTypeById($bdd, $idCapteur);

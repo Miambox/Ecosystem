@@ -1,6 +1,5 @@
 <?php
 
-include("app/model/requete.generique.php"); // On connecte la base de donnée
 
 function selectValueOfCapteur($bdd, $id_capteur) {
   $objetId = $id_capteur;
@@ -96,7 +95,7 @@ function updateSecondEtat($bdd, $id_programme, $etat) {
   return $donnees->execute();
 }
 
-function updateStateSensor($bdd, $id_objet, $mode) {
+function updateStateSensorData($bdd, $id_objet, $mode) {
   $query = 'UPDATE objet SET etat=:mode WHERE id=:id_objet';
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":mode", $mode);
@@ -134,5 +133,23 @@ function updateLumValue($value) {
       ],
     )
   );
+}
+
+/**
+ * Sélectionner la dernière données reçues
+ */
+function selectionnerDataOfPasserelle($bdd, $sensor_type) {
+  $query = 'SELECT MAX(date_time) FROM trame_recep WHERE sensor_type = :sensor_type';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":sensor_type", $sensor_type);
+  $donnees->execute();
+  $max_date_array = $donnees->fetch();
+  $max_date = $max_date_array[0];
+  $new_query = 'SELECT * FROM trame_recep WHERE sensor_type = :sensor_type AND date_time=:date_time';
+  $new_donnees = $bdd->prepare($new_query);
+  $new_donnees->bindParam(":sensor_type", $sensor_type);
+  $new_donnees->bindParam(":date_time", $max_date);
+  $new_donnees->execute();
+  return $new_donnees->fetchAll();
 }
 ?>

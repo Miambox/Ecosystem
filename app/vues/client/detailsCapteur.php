@@ -19,7 +19,7 @@
             if ($etatCapteur[0]['etat'] == 'on')  {
             ?>
             <img id="img_on_off" class="open-light" src="<?= ROOT_URL ?>/static/image/icon/ampoule-open-lp.png" width="100%" alt="">
-            <div class="toggle-3-way" >
+            <div class="toggle-3-way" id="sensor_state" data-id="<?= $etatCapteur[0]['etat'] ?>" >
               <input type="radio" id="auto" name="state" value="auto" onchange="document.getElementById('formulaireActiveLight').submit();">
               <label for="auto">Auto</label>
               <input type="radio" name="state" id="on" value="on" onchange="document.getElementById('formulaireActiveLight').submit();" checked>
@@ -35,7 +35,7 @@
             if ($etatCapteur[0]['etat'] == 'off') {
             ?>
             <img id="img_on_off" class="close-light" src="<?= ROOT_URL ?>/static/image/icon/ampoule-close-lp.png" alt="">
-            <div class="toggle-3-way" >
+            <div class="toggle-3-way" id="sensor_state" data-id="<?= $etatCapteur[0]['etat'] ?>" >
               <input type="radio" id="auto" name="state" value="auto" onchange="document.getElementById('formulaireActiveLight').submit();">
               <label for="auto">Auto</label>
               <input type="radio" name="state" id="on" value="on" onchange="document.getElementById('formulaireActiveLight').submit();">
@@ -52,6 +52,12 @@
             <div class="auto-light">
               <img id="img_on_off" src="<?= ROOT_URL ?>/static/image/icon/auto_light.gif" alt="">
             </div>
+            <!--Partie définissant la valeur allumé éteint quand le capteur est en auto-->
+            <div id="sensor_state" data-id="<?= $etatCapteur[0]['etat'] ?>">
+              <img class="auto-state" id="auto-state-on" src="<?= ROOT_URL ?>/static/image/icon/auto-light-on.png" alt="">
+              <img class="auto-state" id="auto-state-off" src="<?= ROOT_URL ?>/static/image/icon/auto-light.png" alt="">
+            </div>
+            
             <div class="toggle-3-way" >
               <input checked type="radio" id="auto" name="state" value="auto" onchange="document.getElementById('formulaireActiveLight').submit();">
               <label for="auto">Auto</label>

@@ -292,4 +292,5 @@ function supprimerCapteur($bdd, $capteur) {
     return false;
   }
 }
+
 ?>

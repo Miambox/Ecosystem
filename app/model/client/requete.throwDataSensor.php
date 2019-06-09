@@ -79,7 +79,7 @@
         $minute,
         $second
     ) {
-        $trame = '1'.$team.'1'.$sensor_type.$sensor_number.$value.'0125'.'00'.$year.$month.$day.$hour.$minute.$second;
+        $trame = '1'.$team.'3'.$sensor_type.$sensor_number.$value.'0125'.'00'.$year.$month.$day.$hour.$minute.$second;
         var_dump($trame);
         $url = 'http://projets-tomcat.isep.fr:8080/appService?ACTION=COMMAND&TEAM=001D&TRAME='.$trame; // Url web service
         $ch = curl_init();

@@ -14,11 +14,11 @@ include("app/model/dbconnect.php"); // On connecte la base de donnée
  * @param PDO $bdd
  * @param string $table
  * @return array
- */
-function selectAll(PDO $bdd, string $table): array {
-    $query = 'SELECT * FROM ' . $table;
-    return $bdd->query($query)->fetchAll();
-}
+*/
+// function selectAll(PDO $bdd, string $table): array {
+//     $query = 'SELECT * FROM ' . $table;
+//     return $bdd->query($query)->fetchAll();
+// }
 
 /** Recherche des éléments en fonction des attributs passés en paramètre
  * @param PDO $bdd
