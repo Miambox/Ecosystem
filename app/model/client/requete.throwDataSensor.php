@@ -23,48 +23,40 @@
         $donnees->execute();
         $valeur = $donnees->fetch();
         $max_date_time = $valeur[0];
-        
-        for($i=0, $size=count($data_tab); $i < $size; $i++) {
-            $trame = $data_tab[$i];
 
-            $team = substr($trame, 1, 4);
-            $sensor_type = substr($trame, 6, 1);
-            $sensor_number = substr($trame, 7, 2);
-            $value = substr($trame, 9, 4);
-            $year = substr($trame, 19, 4);
-            $month = substr($trame, 23, 2);
-            $day = substr($trame, 25, 2);
-            $hour = substr($trame, 27, 2);
-            $minute = substr($trame, 29, 2);
-            $second = substr($trame, 31, 2);
+        $size=count($data_tab);
+        $trame=$data_tab[$size-2];
 
-            $dateToString =  $year.'-'.$month.'-'.$day.'T'.$hour.'-'.$minute.'-'.$second;
+        $dateToString =  getDateTimeToString($trame);
 
-            if ($max_date_time < $dateToString) {
-                $query = 'INSERT INTO trame_recep(
-                    team,
-                    sensor_type,
-                    sensor_number,
-                    value,
-                    date_time
-                    ) VALUES (
-                    :team,
-                    :sensor_type,
-                    :sensor_number,
-                    :value,
-                    :date_time
-                )';
-            
-                $donnees = $bdd->prepare($query);
-                $donnees->bindParam(":team", $team);
-                $donnees->bindParam(":sensor_type", $sensor_type);
-                $donnees->bindParam(":sensor_number", $sensor_number);
-                $donnees->bindParam(":value", $value);
-                $donnees->bindParam(":date_time", $dateToString);
-                $request = $donnees->execute();
-                
-            }
-        }
+        // On compare à la date maximale déjà écrite en base.
+        $team = substr($trame, 1, 4);
+        $sensor_type = substr($trame, 6, 1);
+        $sensor_number = substr($trame, 7, 2);
+        $value = substr($trame, 9, 4);
+        $dateToString =  getDateTimeToString($trame);
+
+        $query = 'INSERT INTO trame_recep(
+            team,
+            sensor_type,
+            sensor_number,
+            value,
+            date_time
+            ) VALUES (
+            :team,
+            :sensor_type,
+            :sensor_number,
+            :value,
+            :date_time
+        )';
+    
+        $donnees = $bdd->prepare($query);
+        $donnees->bindParam(":team", $team);
+        $donnees->bindParam(":sensor_type", $sensor_type);
+        $donnees->bindParam(":sensor_number", $sensor_number);
+        $donnees->bindParam(":value", $value);
+        $donnees->bindParam(":date_time", $dateToString);
+        $request = $donnees->execute();
     }
 
     function sendDataToPasserelle(
@@ -80,7 +72,6 @@
         $second
     ) {
         $trame = '1'.$team.'3'.$sensor_type.$sensor_number.$value.'0125'.'00'.$year.$month.$day.$hour.$minute.$second;
-        var_dump($trame);
         $url = 'http://projets-tomcat.isep.fr:8080/appService?ACTION=COMMAND&TEAM=001D&TRAME='.$trame; // Url web service
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url); // Check url
@@ -93,5 +84,17 @@
         $data = curl_exec($ch);
         var_dump($data);
         curl_close($ch);
+    }
+
+    function getDateTimeToString($trame) {
+        $year = substr($trame, 19, 4);
+        $month = substr($trame, 23, 2);
+        $day = substr($trame, 25, 2);
+        $hour = substr($trame, 27, 2);
+        $minute = substr($trame, 29, 2);
+        $second = substr($trame, 31, 2);
+
+        $dateToString =  $year.'-'.$month.'-'.$day.'T'.$hour.'-'.$minute.'-'.$second;
+        return $dateToString;
     }
 ?>

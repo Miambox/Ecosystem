@@ -13,7 +13,7 @@
 
         <!--BOUTON ON OFF AUTO LIGHT-->
         <div class="on_off" id="on_off">
-          <form action="?Route=Client&Ctrl=capteur&Vue=updateStateSensor" id="formulaireActiveLight" method="post">
+          <form action="?Route=Client&Ctrl=capteur&Vue=updateStateSensor" id="formulaireActiveLight" method="post" onsubmit="refreshStateAutoMode()">
             <?php
             // SI BOUTON ON :
             if ($etatCapteur[0]['etat'] == 'on')  {
