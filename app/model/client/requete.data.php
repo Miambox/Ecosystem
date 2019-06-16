@@ -10,26 +10,20 @@ function selectValueOfCapteur($bdd, $id_capteur) {
   return $donnees->fetchAll();
 }
 
-function insererNouvelleValeur($bdd, $value, $id_capteur) {
-    $id_objet = $id_capteur;
-    // Définit le fuseau horaire par défaut à utiliser. Disponible depuis PHP 5.1
-    $date = date('c');
+function insererNouvelleValeur($bdd, $id_capteur, $value) {
 
-    $query = 'INSERT INTO information(
-      date,
+    $query = 'INSERT INTO refresh_temperature(
+      id_objet,
       valeur,
-      id_objet
     ) VALUES (
-      :date,
+      :id_objet,
       :valeur,
-      :id_objet
     )';
 
     $donnees = $bdd->prepare($query);
 
-    $donnees->bindParam(":date", $date);
+    $donnees->bindParam(":id_objet", $id_capteur);
     $donnees->bindParam(":valeur", $value);
-    $donnees->bindParam(":id_objet", $id_objet);
 
     $request = $donnees->execute();
     return $request;
@@ -131,6 +125,17 @@ function updateLumValue($value) {
         ["Utilise", intval($value)],
         ["Non-utilise", 100-$value]
       ],
+    )
+  );
+}
+
+function updateLightValue($value) {
+  return json_encode(
+    array(
+      "dataPourcent"=> [
+        ["Utilise", intval($value)],
+        ["Non-utilise", 100-$value],
+      ]
     )
   );
 }

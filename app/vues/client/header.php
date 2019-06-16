@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="<?= ROOT_URL ?>static/css/client/footer/footer-mobile.css">
   <!-- barre de navigation client -->
   <link rel="stylesheet" href="<?= ROOT_URL ?>static/css/client/barre-de-navigation/navbar-client-desktop.css">
-  <link rel="stylesheet" href="<?= ROOT_URL ?>static/css/client/barre-de-navigation/navbar-client-mobile.css">
   <!-- page logement -->
   <link rel="stylesheet" href="<?= ROOT_URL ?>static/css/client/logements/logement-desktop.css">
   <link rel="stylesheet" href="<?= ROOT_URL ?>static/css/client/logements/logement-mobile.css">
@@ -49,7 +48,6 @@
   <link rel="stylesheet" href="<?= ROOT_URL ?>static/css/client/addPiece/addPiece-desktop.css">
   <!-- page ajout de capteur -->
   <link rel="stylesheet" href="<?= ROOT_URL ?>static/css/client/addCapteur/addCapteur-desktop.css">
-  <link rel="stylesheet" href="<?= ROOT_URL ?>static/css/client/chat.css">
   <link rel="stylesheet" href="<?= ROOT_URL ?>static/css/client/faq.css">
   <link rel="stylesheet" href="<?= ROOT_URL ?>static/css/client/cgu.css">
   <link rel="stylesheet" href="<?= ROOT_URL ?>static/css/client/mentionsLegales.css">

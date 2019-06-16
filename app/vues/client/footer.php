@@ -52,8 +52,6 @@
     <script type="module" src="<?= ROOT_URL ?>static/js/client/details-capteur/detailsCapteur.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <!-- piece -->
-    <script type="module" src="<?= ROOT_URL ?>static/js/client/piece/piece.js"></script>
-
     <script type="module" src="<?= ROOT_URL ?>static/js/client/home/home.js"></script>
     </body>
 

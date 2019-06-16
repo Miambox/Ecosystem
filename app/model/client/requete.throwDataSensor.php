@@ -25,7 +25,11 @@
         $max_date_time = $valeur[0];
 
         $size=count($data_tab);
-        $trame=$data_tab[$size-2];
+        if ($size-2 > -1) {
+            $trame=$data_tab[$size-2];
+        } else {
+            $trame=$data_tab[$size-1];
+        }
 
         $dateToString =  getDateTimeToString($trame);
 

@@ -83,6 +83,10 @@ switch ($action) {
           $donneesCapteur =  infoCapteur($bdd, $idCapteur);
           $sensor_type = getSensorTypeById($bdd, $idCapteur);
           $etatCapteur = etatCapteur($bdd, $idCapteur);
+          if( isset($_GET['ambiant_temperature'])) {
+            $ambiant_temperature = securitePourXSSFail($_GET['ambiant_temperature']);
+
+          }
 
           // Liste permettant de sélectionner les ambiances d'un capteur
           $liste_ambiance = selectionnerAmbiance($bdd);
@@ -102,6 +106,12 @@ switch ($action) {
           $idCapteur = securitePourXSSFail($_GET['id_capteur']);
           $sensor_type = getSensorTypeById($bdd, $idCapteur);
           $donneesCapteur =  infoCapteur($bdd, $idCapteur);
+
+          if( isset($_GET['ambiant_temperature'])) {
+            $ambiant_temperature = securitePourXSSFail($_GET['ambiant_temperature']);
+            var_dump($ambiant_temperature);
+
+          }
           
           // Etat du capteur
           $etatCapteur = etatCapteur($bdd, $idCapteur);
@@ -126,12 +136,12 @@ switch ($action) {
       if(isset($_POST['id_capteur'])) {
           $id_capteur = securitePourXSSFail($_POST['id_capteur']);
           $id_piece = $_POST['id_piece'];
+
           if(isset($_POST['state'])) {
             $values = [
             'id_capteur'          => securitePourXSSFail($_POST['id_capteur']),
             'state'       => securitePourXSSFail($_POST['state']),
             ];
-            var_dump($values);
             $request = updateStateSensor($bdd, $values);
 
             $sensor = selectionnerCapteurById($bdd, $id_capteur);
@@ -140,32 +150,46 @@ switch ($action) {
 
               if ($value['nom'] == 'ecotemperature') {
                 $type = '3';
+                if ($value['etat'] == 'off') {
+                  $sensor_value_binary = '9999';
+                  $response = sendDataToPasserelle(
+                    '001D',
+                    $type,
+                    '01',
+                    $sensor_value_binary,
+                    date('Y'),
+                    date('m'),
+                    date('d'),
+                    date('H'),
+                    date('i'),
+                    date('s')
+                  );
+                }
               } else if ($value['nom'] == 'ecolight') {
                 $type = '5';
-              }
+                if ($value['etat'] == 'auto') {
+                  $sensor_value_binary = '0002';
+                } else if ($value['etat'] == 'on') {
+                  $sensor_value_binary = '0001';
+                } else if ($value['etat'] == 'off') {
+                  $sensor_value_binary = '0000';
+                } else {
+                  $sensor_value_binary = $value['etat'];
+                }
 
-              if ($value['etat'] == 'auto') {
-                $sensor_value_binary = '0002';
-              } else if ($value['etat'] == 'on') {
-                $sensor_value_binary = '0001';
-              } else if ($value['etat'] == 'off') {
-                $sensor_value_binary = '0000';
-              } else {
-                $sensor_value_binary = $value['etat'];
+                $response = sendDataToPasserelle(
+                  '001D',
+                  $type,
+                  '01',
+                  $sensor_value_binary,
+                  date('Y'),
+                  date('m'),
+                  date('d'),
+                  date('H'),
+                  date('i'),
+                  date('s')
+                );
               }
-
-              $response = sendDataToPasserelle(
-                '001D',
-                $type,
-                '01',
-                $sensor_value_binary,
-                date('Y'),
-                date('m'),
-                date('d'),
-                date('H'),
-                date('i'),
-                date('s')
-              );
             }
 
             if($request) {
