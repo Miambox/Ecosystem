@@ -1,5 +1,6 @@
 <?php
 include('app/model/client/requete.capteur.php');
+include('app/model/client/requete.data.php');
 include('app/model/client/requete.throwDataSensor.php');
 
 switch ($action) {
@@ -130,7 +131,7 @@ switch ($action) {
           header('Location: ?Route=client&Ctrl=capteur');
         }
 
-        break;
+    break;
 
     case 'updateStateSensor':
       if(isset($_POST['id_capteur'])) {
@@ -144,53 +145,7 @@ switch ($action) {
             ];
             $request = updateStateSensor($bdd, $values);
 
-            $sensor = selectionnerCapteurById($bdd, $id_capteur);
-
-            foreach($sensor as $key => $value) {
-
-              if ($value['nom'] == 'ecotemperature') {
-                $type = '3';
-                if ($value['etat'] == 'off') {
-                  $sensor_value_binary = '9999';
-                  $response = sendDataToPasserelle(
-                    '001D',
-                    $type,
-                    '01',
-                    $sensor_value_binary,
-                    date('Y'),
-                    date('m'),
-                    date('d'),
-                    date('H'),
-                    date('i'),
-                    date('s')
-                  );
-                }
-              } else if ($value['nom'] == 'ecolight') {
-                $type = '5';
-                if ($value['etat'] == 'auto') {
-                  $sensor_value_binary = '0002';
-                } else if ($value['etat'] == 'on') {
-                  $sensor_value_binary = '0001';
-                } else if ($value['etat'] == 'off') {
-                  $sensor_value_binary = '0000';
-                } else {
-                  $sensor_value_binary = $value['etat'];
-                }
-
-                $response = sendDataToPasserelle(
-                  '001D',
-                  $type,
-                  '01',
-                  $sensor_value_binary,
-                  date('Y'),
-                  date('m'),
-                  date('d'),
-                  date('H'),
-                  date('i'),
-                  date('s')
-                );
-              }
-            }
+            updateSendingOfPasserelle($bdd, $id_capteur);
 
             if($request) {
               header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. $id_capteur . "&id_piece=". $id_piece);
@@ -281,11 +236,11 @@ switch ($action) {
                 header('Location: ?Route=Client&Ctrl=capteur');
               }
             } else {
-            $values = [
-            'id_programme'        => securitePourXSSFail($_POST['id_programme']),
-            'off_programme'       => securitePourXSSFail($_POST['off_programme']),
-            ];
-            $request = desactiveProgramme($bdd, $values);
+              $values = [
+              'id_programme'        => securitePourXSSFail($_POST['id_programme']),
+              'off_programme'       => securitePourXSSFail($_POST['off_programme']),
+              ];
+              $request = desactiveProgramme($bdd, $values);
               if($request) {
                 header('Location: ?Route=Client&Ctrl=capteur&Vue=details&id_capteur='. intval($id_capteur). "&id_piece=" . intval($id_piece));
               } else {

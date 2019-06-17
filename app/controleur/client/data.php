@@ -16,7 +16,7 @@ switch ($action) {
         $etat_capteur = selectEtatOfCapteur($bdd, $id_capteur);
         $date = convertTimeStampInDate(date('c')); // Date d'aujourd'hui
         $time = explodeTimeInTimestamp(date('c')); // Temps d'aujourd'hui
-        $id_programme = 0;
+        $id_programme = intval(securitePourXSSFail($_GET['id_programme']));
         
          /**
          * Le second état représente le check entre l'heure/date du programme comparée à celle de maintenant.
@@ -36,69 +36,37 @@ switch ($action) {
 
           foreach ($programme as $key => $value) {
             $programme_on = $value['id'];
+            $id_objet = $value['id_objet'];
             $heure_fin = $value['heure_fin'];
-            $value_lum = $value['valeur'];
+            $heure_debut = $value['heure_debut'];
             $etat = $value['etat'];
+            $mode = $value['id_mode'];
             $time = explodeTimeInTimestamp(date('c')); // Heure de maintenant
+
 
             /**
              * Si l'heure de fin correspond à l'heure de maintenant
              * Si l'état est à off
              * */ 
-            if ($time == $heure_fin) {
+            if ($time >= $heure_fin) {
               $desactive_programme = updateSecondEtat($bdd, $programme_on, "off");
+              echo "disable";
+
             } else if($etat == "" ) {
               $desactive_programme = updateSecondEtat($bdd, $programme_on, "off");
-            } else {
-
-              foreach ($etat_capteur as $key => $value)
-              {
-                // Si l'état est éteint donc nul en bdd.
-                if($value['etat'] == "") {
-                  echo initLumValue(); // On met une valeur zéro
-                } else {
-                  echo updateLumValue($value_lum); // On update la valeur de la lumière 
-                }
-              }
+              echo "disable";
+            } else if($time >= $heure_debut) {
+              /**
+               * Cas où le temps n'est pas fini, l'état n'est pas à off et notre programme doit être activé.
+               */
+              $updateStateSensor = updateStateSensorData($bdd, $id_objet, $mode);
+              $response = updateSendingOfPasserelle($bdd, $id_capteur);
+              echo "enable";
             }
           }
         } else {
-          /**
-           * S'il n'y a aucun programme à ON alors on effectue cela.
-           */
-          $liste_value = selectValueOfCapteur($bdd, $id_capteur);
-
-          foreach ($etat_capteur as $key => $value) {
-            // Si l'état est éteint donc nul en bdd.
-
-            if($value['etat'] == "off") {
-              echo initLumValue(); // On met la valeur à 0
-            } else if($value['etat'] == "auto") {
-              // Sinon on selectionne la valeur en bdd du capteur
-              $liste_value = selectValueOfCapteur($bdd, $id_capteur);
-              // Si la taille de la liste vaut 0, cela signifie que c'est un nouveau capteur
-              if(sizeof($liste_value) == 0) {
-                // Alors on en créé un, initialiser avec la valeur 0
-                $request = insererNouvelleValeur($bdd, $id_capteur, 0);
-                if($request) {
-                    header('Location: ?Route=client&Ctrl=capteur&Vue=details');
-                } else {
-                  header('Location: ?Route=client&Ctrl=capteur');
-                }
-              } else {
-                // Sinon on regarde ses valeurs
-
-                // foreach ($liste_value as $key => $value) {
-                //   
-                // }
-
-                foreach ($liste_value as $key => $value) {
-                  
-                  echo updateLightValue($value['valeur']);
-                }
-              }
-            }
-          }
+          $request = updateFirstState($bdd, $id_programme, "off");
+          echo "disable";
         }
       }
     break;
@@ -141,11 +109,10 @@ switch ($action) {
         $programme = selectProgrammeOn($bdd, $id_capteur);
         if(sizeof($programme) != 0) {
           foreach ($programme as $key => $value) {
-            echo "OK";
-
             $programme_on = $value['id'];
             $id_objet = $value['id_objet'];
             $heure_fin = $value['heure_fin'];
+            $heure_debut = $value['heure_debut'];
             $etat = $value['etat'];
             $mode = $value['id_mode'];
             $time = explodeTimeInTimestamp(date('c')); // Heure de maintenant
@@ -154,11 +121,11 @@ switch ($action) {
              * Si l'heure de fin correspond à l'heure de maintenant
              * Si l'état est à off
              * */ 
-            if ($time == $heure_fin) {
+            if ($time >= $heure_fin) {
               $desactive_programme = updateSecondEtat($bdd, $programme_on, "off");
             } else if($etat == "" ) {
               $desactive_programme = updateSecondEtat($bdd, $programme_on, "off");
-            } else {
+            } else if($time >= $heure_debut) {
               /**
                * Cas où le temps n'est pas fini, l'état n'est pas à off et notre programme doit être activé.
                */

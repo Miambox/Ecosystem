@@ -73,10 +73,11 @@
         </form>
       </div>
     </div>
+
     <div class="programme">
       <h2>Programme horaire</h2>
       <button class="button-ajouter" type="button" name="button" onclick="openAjouterHorairePopup(<?= $idCapteur ?>)">Ajouter</button>
-      <div class="programme-horaire">
+      <div class="programme-horaire" id="container-programme">
         <?php
         foreach ($liste_programme as $key => $value) {
           ?>
@@ -94,10 +95,9 @@
               </div>
             </div>
 
-            <div class="active-programme">
+            <div class="active-programme" id="checkProgramme" data-id="<?=$value['etat']?>" >
               <form action="?Route=Client&Ctrl=capteur&Vue=activeProgramme" id="formulaireActiveProgramme<?= $value['id'] ?>" method="post">
-                <input type="hidden" name="id_programme" value="<?php echo $value['id'] ?>">
-                <label class="toggle-button">
+                <label class="toggle-button" id="programme" data-id="<?=$value['id']?>">
                   <?php
                   if ($value['etat'] == 'on') {
                     ?>
@@ -113,6 +113,7 @@
                 </label>
                 <input type="hidden" name="id_capteur" value="<?= $idCapteur ?>">
                 <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
+                <input type="hidden" name="id_programme" value="<?php echo $value['id'] ?>">
               </form>
             </div>
 
@@ -151,7 +152,7 @@
         </form>
 
         <!--BOUTON AUTO OFF-->
-        <div class="on_off">
+        <div class="on_off" id="on_off">
           <form class="" action="?Route=Client&Ctrl=capteur&Vue=updateStateSensor" id="formulaireActiveCapteur" method="post">
             <?php
             // SI BOUTON OFF :
@@ -195,7 +196,7 @@
         <div class="programme">
         <h2>Programme horaire</h2>
         <button class="button-ajouter" type="button" name="button" onclick="openAjouterHorairePopup(<?= $idCapteur ?>)">Ajouter</button>
-        <div class="programme-horaire">
+        <div class="programme-horaire"  id="container-programme">
           <?php
           foreach ($liste_programme as $key => $value) {
             ?>
@@ -213,10 +214,10 @@
                 </div>
               </div>
 
-              <div class="active-programme">
+              <div class="active-programme" id="checkProgrammeTemp" data-id="<?=$value['etat']?>">
                 <form action="?Route=Client&Ctrl=capteur&Vue=activeProgramme" id="formulaireActiveProgramme<?= $value['id'] ?>" method="post">
                   <input type="hidden" name="id_programme" value="<?php echo $value['id'] ?>">
-                  <label class="toggle-button">
+                  <label class="toggle-button"id="programmeTemp" data-id="<?=$value['id']?>">
                     <?php
                     if ($value['etat'] == 'on') {
                       ?>

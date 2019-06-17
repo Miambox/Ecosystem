@@ -7,32 +7,31 @@ if (capteur) {
     var id_capteur = capteur.dataset.id;
     var id_piece = piece.dataset.id;
 
+    var state_programme = document.getElementById('checkProgramme');
+    var programme = state_programme.dataset.id;
+    var programmeId = document.getElementById('programme');
+    var id_programme = programmeId.dataset.id;
+
+    console.log(programme);
+
+
+    if (programme == 'on') {
+        console.log(programme);
+        // Si le programme est 'on' on rafraichit la vérif de programme
+        setInterval(()=> {
+            $.get("?Route=client&Ctrl=data&Vue=capteur&id_capteur="+id_capteur+"&id_programme="+id_programme, data => {
+                if(data == "disable") {
+                    $('#container-programme').load(location.href + ' #container-programme');
+                }
+
+                if( data == "enable") {
+                    $('#on_off').load(location.href + ' #on_off');
+                }
+            });
+        }, 1000);
+    }
+
     refreshStateAutoModeBy(state, id_capteur, id_piece, 5000);
-
-    setInterval(() => {
-        refreshLightAfterProgramme(id_capteur, id_piece);
-    }, 5000)
-
-
-    function refreshLightAfterProgramme(id_capteur, id_piece) {
-        getDataLight(id_capteur, id_piece);
-    }
-
-    function getDataLight(id_capteur, id_piece) {
-        $.get("?Route=client&Ctrl=data&Vue=refreshLight&id_capteur="+id_capteur+"&id_piece="+id_piece, function( data ) {
-            if (data == 'OK') {
-                $.ajax({
-                    url: '?Route=client&Ctrl=capteur&Vue=details',
-                    type: 'post',
-                    data: {id_capteur: id_capteur, id_piece: id_piece},
-                    success: function(data) {
-                        $('#on_off').load(location.href + ' #on_off');
-                    }
-                });
-            }
-        });
-    }
-
 
     function refreshStateAutoModeBy(state, id_capteur, id_piece, $time_second) {
         if (state == 'auto') {
@@ -47,7 +46,6 @@ if (capteur) {
     function getStateOfAuto(id_capteur, id_piece) {
         $.get("?Route=client&Ctrl=data&Vue=refreshAutoMode&id_capteur="+id_capteur+"&id_piece="+id_piece, ( data ) => {
             var auto_mode_state_binary = data;
-            console.log(data);
 
             if (auto_mode_state_binary == '0000') {
                 // La lumière est éteinte
@@ -62,5 +60,4 @@ if (capteur) {
             }
         });    
     }
-
 }

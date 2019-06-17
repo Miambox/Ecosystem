@@ -1,17 +1,30 @@
-var capteur = document.getElementById('capteur');
-var id_capteur = capteur.dataset.id;
-
-var piece = document.getElementById('sensor_piece');
-var id_piece = piece.dataset.id;
-
 var state = document.getElementById('state-sensor-temp');
-var state_sensor = state.dataset.id;
 
-if (state_sensor == 'off') {
-  $('#loading-temp-choice').hide();
-  $('#plus_moins').hide();
-  state.className = state.className.replace("container-circulaire", "container-circulaire-disabled");
-} else {
+if (state) {
+  refreshGauge();
+}
+
+function refreshGauge() {
+  console.log("blabla");
+  var state = document.getElementById('state-sensor-temp');
+  var capteur = document.getElementById('capteur');
+  var id_capteur = capteur.dataset.id;
+
+  var piece = document.getElementById('sensor_piece');
+  var id_piece = piece.dataset.id;
+  var state_sensor = state.dataset.id;
+  if (state_sensor == 'off') {
+    $('#loading-temp-choice').hide();
+    $('#plus_moins').hide();
+    // $('#diagrammeCirculaire').hide();
+    var state = document.getElementById('diagrammeCirculaire');
+    state.innerHTML = "<div>Paramètrage de la climatisation : Eteinte</div>";
+  } else {
+    loadGauge(id_capteur, id_piece);
+  }
+}
+
+function loadGauge(id_capteur, id_piece) {
   google.charts.load('current', {packages: ['gauge']});
   google.charts.setOnLoadCallback(drawChart);
   var arrayData = [
@@ -59,18 +72,12 @@ if (state_sensor == 'off') {
       });
   
       loadingMethod(data);
-    
-        
-      $.get("?Route=client&Ctrl=data&Vue=capteur&id_capteur="+id_capteur, data => {
-        
-      });
   
       //Puis on affiche notre diagramme en fonction de ses données
       
       
       $("#ajouterLum").click((e) => {
         if(arrayData[0][1] >=0 && arrayData[0][1] <=99) {
-          updateDataValue(arrayData[0][1]+1, id_capteur);
           arrayData[0][1] = arrayData[0][1]+1;
         }
       });
@@ -78,7 +85,6 @@ if (state_sensor == 'off') {
   
       $("#diminuerLum").click((e) => {
         if (arrayData[0][1] >=1) {
-          updateDataValue(arrayData[0][1]-1, id_capteur);
           arrayData[0][1] = arrayData[0][1]-1;
         }
       });
@@ -88,6 +94,10 @@ if (state_sensor == 'off') {
           chart.draw(data, options);
           loadingMethod(data);
       }, 1000);
+
+      setInterval(()=> {
+        updateDataValue(arrayData[0][1], id_capteur);
+      }, 3000);
   
   }
   

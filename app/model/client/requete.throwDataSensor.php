@@ -86,7 +86,6 @@
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($ch, CURLOPT_VERBOSE, 1);
         $data = curl_exec($ch);
-        var_dump($data);
         curl_close($ch);
     }
 

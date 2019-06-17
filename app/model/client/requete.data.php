@@ -53,8 +53,8 @@ function selectProgrammeNow($bdd, $id_capteur, $date, $time) {
   //           AND programmationhoraire.heure_debut=:heure_debut
   //           AND programmationhoraire.id_objet=:id_capteur';
   $query = 'SELECT * FROM programmationhoraire WHERE 
-    date=:date_now AND 
-    heure_debut=:heure_debut AND
+    date>=:date_now AND 
+    heure_debut>=:heure_debut AND
     id_objet=:id_capteur'; 
 
   $donnees = $bdd->prepare($query);
@@ -63,8 +63,9 @@ function selectProgrammeNow($bdd, $id_capteur, $date, $time) {
   $donnees->bindParam(":id_capteur", $id_capteur);
   $donnees->execute();
   return $donnees->fetchAll();
-
 }
+
+
 
 function selectProgrammeOn($bdd, $id_capteur) {
   $etat = "on";
@@ -83,6 +84,14 @@ function selectProgrammeOn($bdd, $id_capteur) {
 
 function updateSecondEtat($bdd, $id_programme, $etat) {
   $query = 'UPDATE programmationhoraire SET etat_second=:etat WHERE id=:id_programme';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":etat", $etat);
+  $donnees->bindParam(":id_programme", $id_programme);
+  return $donnees->execute();
+}
+
+function updateFirstState($bdd, $id_programme, $etat) {
+  $query = 'UPDATE programmationhoraire SET etat=:etat WHERE id=:id_programme';
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":etat", $etat);
   $donnees->bindParam(":id_programme", $id_programme);
@@ -156,5 +165,55 @@ function selectionnerDataOfPasserelle($bdd, $sensor_type) {
   $new_donnees->bindParam(":date_time", $max_date);
   $new_donnees->execute();
   return $new_donnees->fetchAll();
+}
+
+function updateSendingOfPasserelle($bdd, $id_capteur) {
+  $sensor = selectionnerCapteurById($bdd, $id_capteur);
+
+  foreach($sensor as $key => $value) {
+
+    if ($value['nom'] == 'ecotemperature') {
+      $type = '3';
+      if ($value['etat'] == 'off') {
+        $sensor_value_binary = '9999';
+        $response = sendDataToPasserelle(
+          '001D',
+          $type,
+          '01',
+          $sensor_value_binary,
+          date('Y'),
+          date('m'),
+          date('d'),
+          date('H'),
+          date('i'),
+          date('s')
+        );
+      }
+    } else if ($value['nom'] == 'ecolight') {
+      $type = '5';
+      if ($value['etat'] == 'auto') {
+        $sensor_value_binary = '0002';
+      } else if ($value['etat'] == 'on') {
+        $sensor_value_binary = '0001';
+      } else if ($value['etat'] == 'off') {
+        $sensor_value_binary = '0000';
+      } else {
+        $sensor_value_binary = $value['etat'];
+      }
+
+      $response = sendDataToPasserelle(
+        '001D',
+        $type,
+        '01',
+        $sensor_value_binary,
+        date('Y'),
+        date('m'),
+        date('d'),
+        date('H'),
+        date('i'),
+        date('s')
+      );
+    }
+  }
 }
 ?>
