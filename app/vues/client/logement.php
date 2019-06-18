@@ -86,3 +86,20 @@
 }
 ?>
 </div>
+
+<div class="container-logement-mobile">
+  
+  <div class="card-mobile">
+    <div class="card-header-mobile">
+
+    </div>
+    <div class="card-body-mobile">
+      <form action="" class="sensor">
+        <button class="go-sensor">
+          <img src="<?= ROOT_URL ?>/static/image/entreprise/capteur.png" alt="">
+        </button>
+      </form>
+    </div>
+  </div>
+
+</div>

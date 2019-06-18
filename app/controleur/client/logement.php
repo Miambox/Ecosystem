@@ -9,6 +9,12 @@ switch ($action) {
         $title = "Les logements";
         if(isset($_SESSION['id'])) {
           $liste_logement = selectionerLogement($bdd);
+
+          $liste_sensor = selectionnerSensor($bdd);
+
+
+
+
         } else {
           header('Location: ?Route=client&Ctrl=logement');
         }

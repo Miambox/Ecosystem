@@ -159,4 +159,25 @@ function insererNouveauPartageLogement($bdd, $user_partage) {
 
 }
 
+// function selectionnerSensor($bdd) {
+//   $utilisateurId = $_SESSION['id'];
+
+//   $query = 'SELECT * FROM logement WHERE id_utilisateur =:utilisateurId';
+//   $donnees = $bdd->prepare($query);
+//   $donnees->bindParam(":utilisateurId", $utilisateurId);
+//   $donnees->execute();
+//   $liste_logement = $donnees->fetchAll();
+
+
+//   foreach($liste_logement as $key => $logem) {
+
+//     $query = 'SELECT * FROM piece WHERE id_piece =:id_piece';
+//     $donnees = $bdd->prepare($query);
+//     $donnees->bindParam(":id_piece", $logem['id_piece']);
+//     $donnees->execute();
+//     $liste_logement = $donnees->fetchAll();
+
+//   }
+// }
+
 ?>

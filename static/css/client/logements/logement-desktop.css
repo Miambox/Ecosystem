@@ -153,3 +153,56 @@ font-weight: 600;
   margin-top: 2%;
   font-weight: 600;
 }
+
+
+@media screen and (max-width: 990px)  {
+  .container-logements {
+    display: none;
+  }
+  header {
+    visibility: hidden;
+    overflow: auto;
+  }
+  footer {
+    visibility: hidden;
+  }
+  .container-logement-mobile {
+    width: 100%;
+    height: 100vh;
+  }
+  .card-mobile {
+    width: 80%;
+    height: 40%;
+    background: white;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 10px;
+  }
+
+  .sensor {
+    width: 100%;
+    height: 100%;
+  }
+
+  .go-sensor {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border: solid 1px rgba(0,0,0,0.2);
+  }
+  .go-sensor:hover {
+    cursor: pointer;
+  }
+  .go-sensor > img {
+    height: 100%;
+  }
+
+  .card-header-mobile {
+    border: solid 1px rgba(0,0,0,0.1);
+    height: 20%;
+  }
+  .card-body-mobile {
+    width: 100%;
+    height: 80%;
+  }
+}
