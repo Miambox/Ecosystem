@@ -52,24 +52,13 @@ function etatCapteur($bdd, $id_capteur) {
 }
 
 /**
-* Fonction permettant d'activer un capteur
+* Fonction permettant d'updater l'état d'un capteur
 **/
-function activeCapteur($bdd, $value) {
+function updateStateSensor($bdd, $value) {
   $query = 'UPDATE objet SET etat=:check_capteur WHERE id= :id_capteur';
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":id_capteur", $value['id_capteur']);
-  $donnees->bindParam(":check_capteur", $value['on_capteur']);
-  return $donnees->execute();
-}
-
-/**
-* Fonction permettant de désactiver un capteur
-**/
-function desactiveCapteur($bdd, $value) {
-  $query = 'UPDATE objet SET etat=:check_capteur WHERE id= :id_capteur';
-  $donnees = $bdd->prepare($query);
-  $donnees->bindParam(":id_capteur", $value['id_capteur']);
-  $donnees->bindParam(":check_capteur", $value['off_capteur']);
+  $donnees->bindParam(":check_capteur", $value['state']);
   return $donnees->execute();
 }
 
@@ -133,6 +122,7 @@ function selectionnerAmbianceParId($bdd, $ambianceId) {
       nom
     FROM mode
     WHERE id = :ambianceId';
+
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":ambianceId", $ambianceId);
   $donnees->execute();
@@ -257,6 +247,29 @@ function desactiveProgramme($bdd, $value) {
   return $donnees->execute();
 }
 
+/**
+ * Fonction permettant d'envoyer tout les types existants
+ */
+function getSensorType($bdd) {
+  $queryVerif = 'SELECT type FROM sensor_type';
+  $donneesVerif = $bdd->prepare($queryVerif);
+  $donneesVerif->execute();
+  $response = $donneesVerif->fetchAll();
+  return $response;
+}
+
+function getSensorTypeById($bdd, $id_sensor) {
+  $queryVerif = 'SELECT nom FROM objet WHERE id=:sensor_id';
+  $donneesVerif = $bdd->prepare($queryVerif);
+  $donneesVerif->bindParam(":sensor_id", $id_sensor);
+  $donneesVerif->execute();
+  $response = $donneesVerif->fetch();
+  return $response;
+}
+
+/**
+ * Fonction permettant de supprimer le capteur
+ */
 function supprimerCapteur($bdd, $capteur) {
   $queryVerif = 'SELECT nom FROM objet WHERE objet.id = :id_capteur';
   $donneesVerif = $bdd->prepare($queryVerif);
@@ -279,4 +292,5 @@ function supprimerCapteur($bdd, $capteur) {
     return false;
   }
 }
+
 ?>

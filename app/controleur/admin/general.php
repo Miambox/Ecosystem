@@ -7,7 +7,7 @@ switch ($action) {
     // Vue general de l'administrateur
     case 'general':
         $vue = "general";
-        $title = "Accueil";
+        $title = "EcoSystem";
         if(!isset($_SESSION['id'])) {
           header('Location: ?Route=admin&Ctrl=general');
         }
@@ -33,6 +33,11 @@ switch ($action) {
       $title="cgu";
     break;
 
+    case 'addTypeSensor':
+        $vue="addTypeSensor";
+        $title="Configuration de capteur";
+    break;
+    
     case 'deleteUser':
         $vue = 'deleteUser';
         $title = 'Supprimer un client';

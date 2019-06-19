@@ -2,6 +2,7 @@
 
 include('app/model/client/requete.connexion.php');
 include('app/model/client/requete.inscription.php');
+include('app/model/client/requete.throwDataSensor.php');
 
 switch ($action) {
 
@@ -60,7 +61,6 @@ switch ($action) {
 
 
       if(isset($_POST['mdp']) && isset($_POST['email'])) {
-        // $mdp = hash('sha256', $_POST['mdp']);
         $mdp = hash('sha256', $_POST['mdp']);
         $user = connexion($_POST['email'], $mdp, $bdd);
 
@@ -79,6 +79,8 @@ switch ($action) {
           if($_SESSION['type'] != "utilisateur") {
             header('Location: ?Route=admin&Ctrl=general&Vue=general');
           } else {
+            $data = getDatasWithGroupUrl();
+            sendDataToDatabase($bdd, $data);
             header('Location: ?Route=client&Ctrl=logement&Vue=vuePrincipale');
           }
         } else {

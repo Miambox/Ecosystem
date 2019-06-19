@@ -1,83 +1,127 @@
+var state = document.getElementById('state-sensor-temp');
 
-google.charts.load('current', {packages: ['corechart', 'bar']});
-google.charts.setOnLoadCallback(drawChart)
+if (state) {
+  refreshGauge();
+}
 
-function drawChart() {
+function refreshGauge() {
+  console.log("blabla");
+  var state = document.getElementById('state-sensor-temp');
+  var capteur = document.getElementById('capteur');
+  var id_capteur = capteur.dataset.id;
 
-  setInterval(function (data) {
-      var capteur = document.getElementById('capteur');
-      var id_capteur = capteur.dataset.id;
-      $.get("?Route=client&Ctrl=data&Vue=capteur&id_capteur="+id_capteur, function( data ) {
-        var arrayData = JSON.parse(data).dataPourcent;
+  var piece = document.getElementById('sensor_piece');
+  var id_piece = piece.dataset.id;
+  var state_sensor = state.dataset.id;
+  if (state_sensor == 'off') {
+    $('#loading-temp-choice').hide();
+    $('#plus_moins').hide();
+    // $('#diagrammeCirculaire').hide();
+    var state = document.getElementById('diagrammeCirculaire');
+    state.innerHTML = "<div>Paramètrage de la climatisation : Eteinte</div>";
+  } else {
+    loadGauge(id_capteur, id_piece);
+  }
+}
 
-        $("#ajouterLum").click(function(e) {
-          if(arrayData[0][1] >=0 && arrayData[0][1] <=95) {
-            $.ajax({
-              url: '?Route=client&Ctrl=data&Vue=augmenterValeur',
-              type: 'post',
-              data: {value: arrayData[0][1]+5, id_capteur: id_capteur},
-              success: function(data) {
-                // Permet d'afficher les messages envoyés
-              }
-              });
-          }
-        });
+function loadGauge(id_capteur, id_piece) {
+  google.charts.load('current', {packages: ['gauge']});
+  google.charts.setOnLoadCallback(drawChart);
+  var arrayData = [
+    ['Utilise', 0],
+    ['Non-utilise', 100],
+  ];
+  
+  function updateDataValue(valeur, id_capteur) {
+    $.ajax({
+      url: '?Route=client&Ctrl=data&Vue=augmenterValeur',
+      type: 'post',
+      data: {value: valeur, id_capteur: id_capteur},
+      success: function(data) {
+        // Permet d'afficher les messages envoyés
+      }
+    });
+  }
+  
+  
+  function drawChart() {
+  
+      var data = google.visualization.arrayToDataTable([
+        ['Label', 'Value'],
+        ['Degré (°C)', 0],
+      ]);
+  
+      var options = {
+        'width':'100%',
+        'height':220,
+        'legend':'none',
+        'colors': ['#FFD006', '#FAFAFA'],
+        'pieHole': 0.5
+      };
+  
+      // Instantiate and draw the chart.
+      var chart = new google.visualization.Gauge(document.getElementById('diagrammeCirculaire'));
+      chart.draw(data, options);
+  
+      $.get("?Route=client&Ctrl=data&Vue=refreshAutoMode&id_capteur="+id_capteur+"&id_piece="+id_piece, value => {
+        if (value) {
+            value = value.slice(0,4);
+            var ambiant_temperature = value.replace(/\b0+/g, '');
+            arrayData[0][1] = parseInt(ambiant_temperature);
+        }
+      });
+  
+      loadingMethod(data);
+  
+      //Puis on affiche notre diagramme en fonction de ses données
+      
+      
+      $("#ajouterLum").click((e) => {
+        if(arrayData[0][1] >=0 && arrayData[0][1] <=99) {
+          arrayData[0][1] = arrayData[0][1]+1;
+        }
+      });
+  
+  
+      $("#diminuerLum").click((e) => {
+        if (arrayData[0][1] >=1) {
+          arrayData[0][1] = arrayData[0][1]-1;
+        }
+      });
+  
+      setInterval(()=> {
+          data.setValue(0,1, arrayData[0][1]);
+          chart.draw(data, options);
+          loadingMethod(data);
+      }, 1000);
 
-
-        $("#diminuerLum").click(function(e) {
-          if (arrayData[0][1] >=5) {
-            $.ajax({
-              url: '?Route=client&Ctrl=data&Vue=augmenterValeur',
-              type: 'post',
-              data: {value: arrayData[0][1]-5, id_capteur: id_capteur},
-              success: function(data) {
-                // Permet d'afficher les messages envoyés
-              }
-            });
-          }
-
-
-        });
-
-
-
-        //Puis on affiche notre diagramme en fonction de ses données
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Element');
-        data.addColumn('number', 'Percentage');
-        data.addRows(arrayData); // On ajoute nos données aux lignes
-
-        var options = {
-          'width':'100%',
-          'height':220,
-          'legend':'none',
-          'colors': ['#FFD006', '#FAFAFA'],
-          'pieHole': 0.5
-        };
-
-        // Instantiate and draw the chart.
-        var chart;
-        chart = new google.visualization.PieChart(document.getElementById('diagrammeCirculaire'));
-        chart.draw(data, options);
-
-
-      })
-    }, 500);
-
-    // Diagramme de la pop-up
-    // var data_modal = new google.visualization.DataTable();
-    // data_modal.addColumn('string', 'Element');
-    // data_modal.addColumn('number', 'Percentage');
-    // data_modal.addRows(arrayData); // On ajoute nos données aux lignes
-    //
-    // var options_modal = {
-    //   'width':'60%',
-    //   'height':160,
-    //   'legend':'none',
-    //   'colors': ['#FFD006', '#FAFAFA'],
-    //   'pieHole': 0.5
-    // };
-    //
-    // var chart_modal = new google.visualization.PieChart(document.getElementById('diagrammeCirculaireModal'));
-    // chart_modal.draw(data_modal, options_modal);
+      setInterval(()=> {
+        updateDataValue(arrayData[0][1], id_capteur);
+      }, 3000);
+  
+  }
+  
+  function loadingMethod(data) {
+    if (data.getValue(0,1) == 0) {
+        $('#loading-temp-choice').show();
+    } else {
+        $('#loading-temp-choice').hide();
+    }
+  }
+  
+  setInterval( ()=> {
+    refreshDataSensorTemperature();
+  }, 5000);
+  
+  function refreshDataSensorTemperature() {
+    var capteur = document.getElementById('capteur');
+    var id_capteur = capteur.dataset.id;
+    $.ajax({
+      url: '?Route=client&Ctrl=data&Vue=sendDataTemperature',
+      type: 'post',
+      data: {id_capteur: id_capteur},
+      success: function(data) {
+      }
+    });
+  }
 }

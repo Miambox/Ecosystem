@@ -1,6 +1,5 @@
 <?php
 
-include("app/model/requete.generique.php"); // On connecte la base de donnée
 
 function selectValueOfCapteur($bdd, $id_capteur) {
   $objetId = $id_capteur;
@@ -11,26 +10,20 @@ function selectValueOfCapteur($bdd, $id_capteur) {
   return $donnees->fetchAll();
 }
 
-function insererNouvelleValeur($bdd, $value, $id_capteur) {
-    $id_objet = $id_capteur;
-    // Définit le fuseau horaire par défaut à utiliser. Disponible depuis PHP 5.1
-    $date = date('c');
+function insererNouvelleValeur($bdd, $id_capteur, $value) {
 
-    $query = 'INSERT INTO information(
-      date,
+    $query = 'INSERT INTO refresh_temperature(
+      id_objet,
       valeur,
-      id_objet
     ) VALUES (
-      :date,
+      :id_objet,
       :valeur,
-      :id_objet
     )';
 
     $donnees = $bdd->prepare($query);
 
-    $donnees->bindParam(":date", $date);
+    $donnees->bindParam(":id_objet", $id_capteur);
     $donnees->bindParam(":valeur", $value);
-    $donnees->bindParam(":id_objet", $id_objet);
 
     $request = $donnees->execute();
     return $request;
@@ -54,26 +47,34 @@ function updateValeur($bdd, $valeur, $id_capteur) {
 }
 
 function selectProgrammeNow($bdd, $id_capteur, $date, $time) {
-  $query = 'SELECT * FROM mode
-            INNER JOIN programmationhoraire ON mode.id = programmationhoraire.id_mode
-            WHERE programmationhoraire.date=:date_now
-            AND programmationhoraire.heure_debut=:heure_debut
-            AND programmationhoraire.id_objet=:id_capteur';
+  // $query = 'SELECT * FROM mode
+  //           INNER JOIN programmationhoraire ON mode.id = programmationhoraire.id_mode
+  //           WHERE programmationhoraire.date=:date_now
+  //           AND programmationhoraire.heure_debut=:heure_debut
+  //           AND programmationhoraire.id_objet=:id_capteur';
+  $query = 'SELECT * FROM programmationhoraire WHERE 
+    date>=:date_now AND 
+    heure_debut>=:heure_debut AND
+    id_objet=:id_capteur'; 
+
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":date_now", $date);
   $donnees->bindParam(":heure_debut", $time);
   $donnees->bindParam(":id_capteur", $id_capteur);
   $donnees->execute();
   return $donnees->fetchAll();
-
 }
+
+
 
 function selectProgrammeOn($bdd, $id_capteur) {
   $etat = "on";
-  $query = 'SELECT * FROM mode
-            INNER JOIN programmationhoraire ON mode.id = programmationhoraire.id_mode
-            WHERE programmationhoraire.etat_second=:etat
-            AND programmationhoraire.id_objet=:id_capteur';
+  // $query = 'SELECT * FROM mode
+  //           INNER JOIN programmationhoraire ON mode.id = programmationhoraire.id_mode
+  //           WHERE programmationhoraire.etat_second=:etat
+  //           AND programmationhoraire.id_objet=:id_capteur';
+
+  $query = 'SELECT * FROM programmationhoraire WHERE etat_second=:etat AND id_objet=:id_capteur';
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":id_capteur", $id_capteur);
   $donnees->bindParam(":etat", $etat);
@@ -86,6 +87,22 @@ function updateSecondEtat($bdd, $id_programme, $etat) {
   $donnees = $bdd->prepare($query);
   $donnees->bindParam(":etat", $etat);
   $donnees->bindParam(":id_programme", $id_programme);
+  return $donnees->execute();
+}
+
+function updateFirstState($bdd, $id_programme, $etat) {
+  $query = 'UPDATE programmationhoraire SET etat=:etat WHERE id=:id_programme';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":etat", $etat);
+  $donnees->bindParam(":id_programme", $id_programme);
+  return $donnees->execute();
+}
+
+function updateStateSensorData($bdd, $id_objet, $mode) {
+  $query = 'UPDATE objet SET etat=:mode WHERE id=:id_objet';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":mode", $mode);
+  $donnees->bindParam(":id_objet", $id_objet);
   return $donnees->execute();
 }
 
@@ -119,5 +136,84 @@ function updateLumValue($value) {
       ],
     )
   );
+}
+
+function updateLightValue($value) {
+  return json_encode(
+    array(
+      "dataPourcent"=> [
+        ["Utilise", intval($value)],
+        ["Non-utilise", 100-$value],
+      ]
+    )
+  );
+}
+
+/**
+ * Sélectionner la dernière données reçues
+ */
+function selectionnerDataOfPasserelle($bdd, $sensor_type) {
+  $query = 'SELECT MAX(date_time) FROM trame_recep WHERE sensor_type = :sensor_type';
+  $donnees = $bdd->prepare($query);
+  $donnees->bindParam(":sensor_type", $sensor_type);
+  $donnees->execute();
+  $max_date_array = $donnees->fetch();
+  $max_date = $max_date_array[0];
+  $new_query = 'SELECT * FROM trame_recep WHERE sensor_type = :sensor_type AND date_time=:date_time';
+  $new_donnees = $bdd->prepare($new_query);
+  $new_donnees->bindParam(":sensor_type", $sensor_type);
+  $new_donnees->bindParam(":date_time", $max_date);
+  $new_donnees->execute();
+  return $new_donnees->fetchAll();
+}
+
+function updateSendingOfPasserelle($bdd, $id_capteur) {
+  $sensor = selectionnerCapteurById($bdd, $id_capteur);
+
+  foreach($sensor as $key => $value) {
+
+    if ($value['nom'] == 'ecotemperature') {
+      $type = '3';
+      if ($value['etat'] == 'off') {
+        $sensor_value_binary = '9999';
+        $response = sendDataToPasserelle(
+          '001D',
+          $type,
+          '01',
+          $sensor_value_binary,
+          date('Y'),
+          date('m'),
+          date('d'),
+          date('H'),
+          date('i'),
+          date('s')
+        );
+      }
+    } else if ($value['nom'] == 'ecolight') {
+      $type = '5';
+      if ($value['etat'] == 'auto') {
+        $sensor_value_binary = '0002';
+      } else if ($value['etat'] == 'on') {
+        $sensor_value_binary = '0001';
+      } else if ($value['etat'] == 'off') {
+        $sensor_value_binary = '0000';
+      } else {
+        $sensor_value_binary = $value['etat'];
+      }
+
+      $response = sendDataToPasserelle(
+        '001D',
+        $type,
+        '01',
+        $sensor_value_binary,
+        date('Y'),
+        date('m'),
+        date('d'),
+        date('H'),
+        date('i'),
+        date('s')
+      );
+    }
+  }
 }
 ?>

@@ -1,8 +1,6 @@
 <div class="general">
   <h1> Eco'Admin <h1>
-
     <h2> Comment gérer votre site ? <h2><br>
-
       <div class="container">
 
         <?php
@@ -53,6 +51,19 @@
                 Éditez votre CGU
               </p>
             </div>
+          <?php
+        }
+        ?>
+        <?php
+        if($_SESSION['type'] == "administrateur") {
+          ?>
+          <!-- <div class ="cgu">
+            <a href="<?=ROOT_URL?>?Route=admin&amp;Ctrl=general&amp;Vue=addTypeSensor">
+              <p>
+                <img class="crayon" src="<?=ROOT_URL?>static/image/icon/crayon.png">
+                Ajouter un capteur
+              </p>
+            </div> -->
           <?php
         }
         ?>

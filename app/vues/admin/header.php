@@ -31,7 +31,7 @@
     <!-- page détails du capteur -->
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/details-capteur/details-capteur-desktop.css">
     <link rel="stylesheet" href="<?=ROOT_URL?>static/css/client/details-capteur/details-capteur-mobile.css">
-
+    <link href="https://unpkg.com/tabulator-tables@4.2.7/dist/css/tabulator.min.css" rel="stylesheet">
     <title>Eco'system - admin</title>
   </head>
   <body id="body">
