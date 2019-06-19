@@ -9,7 +9,38 @@ switch ($action) {
         $title = "Les logements";
         if(isset($_SESSION['id'])) {
           $liste_logement = selectionerLogement($bdd);
-          // $liste_sensor = selectionnerSensor($bdd);
+          $information_sensor = selectionnerSensor($bdd);
+
+          $numero = $information_sensor[0]['numero']; 
+          $rue = $information_sensor[0]['rue'];
+          $ville = $information_sensor[0]['ville'];
+          $code_postal = $information_sensor[0]['code_postal'];
+
+          $piece = $information_sensor[0]['type'];
+          $id_piece = $information_sensor[0]['id_piece'];
+
+          $id_sensor_temp = $information_sensor[0][17];
+          $nom_temp =  $information_sensor[0]['nom'];
+          $id_sensor_light = $information_sensor[1][17];
+          $nom_light =  $information_sensor[1]['nom'];
+
+        } else if(isset($_POST['id_sensor_temp'])) {
+          $liste_logement = selectionerLogement($bdd);
+          $information_sensor = selectionnerSensor($bdd);
+
+          $numero = $information_sensor[0]['numero']; 
+          $rue = $information_sensor[0]['rue'];
+          $ville = $information_sensor[0]['ville'];
+          $code_postal = $information_sensor[0]['code_postal'];
+
+          $piece = $information_sensor[0]['type'];
+          $id_piece = $_POST['id_piece'];
+
+          $id_sensor_temp = $_POST['id_sensor_temp'];
+          $id_sensor_light = $_POST['id_sensor_light'];
+          $nom_temp =  $information_sensor[0]['nom'];
+          $nom_light =  $information_sensor[1]['nom'];
+          
         } else {
           header('Location: ?Route=client&Ctrl=logement');
         }

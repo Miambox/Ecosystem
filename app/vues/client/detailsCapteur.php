@@ -10,6 +10,12 @@
         <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
         <button class="back-details" type="submit">Retour</button>
       </form>
+      <form class="back-btn-mobile" action="?Route=client&Ctrl=logement&Vue=vuePrincipale" method="post">
+          <input type="hidden" name="id_sensor_temp" value="<?= $id_sensor_temp ?>">
+          <input type="hidden" name="id_sensor_light" value="<?= $id_sensor_light ?>">
+          <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
+          <button class="back-details" type="submit">Retour</button>
+        </form>
 
       <!--BOUTON ON OFF AUTO LIGHT-->
       <div class="on_off" id="on_off">
@@ -145,8 +151,14 @@
     <div class="container-temperature">
       <div class="first-part">
         <!--BOUTON DE RETOUR-->
-        <form class="" action="?Route=client&Ctrl=capteur&Vue=vuePrincipale" method="post">
+        <form class="back-btn" action="?Route=client&Ctrl=capteur&Vue=vuePrincipale" method="post">
           <input type="hidden" name="id_capteur" value="<?= $idCapteur ?>">
+          <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
+          <button class="back-details" type="submit">Retour</button>
+        </form>
+        <form class="back-btn-mobile" action="?Route=client&Ctrl=logement&Vue=vuePrincipale" method="post">
+          <input type="hidden" name="id_sensor_temp" value="<?= $id_sensor_temp ?>">
+          <input type="hidden" name="id_sensor_light" value="<?= $id_sensor_light ?>">
           <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
           <button class="back-details" type="submit">Retour</button>
         </form>

@@ -91,11 +91,43 @@
   
   <div class="card-mobile">
     <div class="card-header-mobile">
-
+      <div class="logement-mobile-info">
+        <?php echo($numero.' '.$rue.' '.$ville.' '.$code_postal)?>
+      </div>
+      <div class="piece-mobile-info">
+        <?php echo($piece) ?>
+      </div>
+      <div class="sensor-mobile-info">
+        <?php echo($nom_light) ?>
+      </div>
     </div>
     <div class="card-body-mobile">
-      <form action="" class="sensor">
-        <button class="go-sensor">
+      <form class="sensor" action="?Route=client&Ctrl=capteur&Vue=details" method="post">
+        <input type="hidden" name="id_capteur" value="<?= $id_sensor_light ?>">
+        <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
+        <button class="go-sensor" type="submit">
+          <img src="<?= ROOT_URL ?>/static/image/entreprise/capteur.png" alt="">
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="card-mobile">
+    <div class="card-header-mobile">
+    <div class="logement-mobile-info">
+        <?php echo($numero.' '.$rue.' '.$ville.' '.$code_postal)?>
+      </div>
+      <div class="piece-mobile-info">
+        <?php echo($piece) ?>
+      </div>
+      <div class="sensor-mobile-info">
+        <?php echo($nom_temp) ?>
+      </div>
+    </div>
+    <div class="card-body-mobile">
+      <form class="sensor" action="?Route=client&Ctrl=capteur&Vue=details" method="post">
+        <input type="hidden" name="id_capteur" value="<?= $id_sensor_temp ?>">
+        <input type="hidden" name="id_piece" value="<?= $id_piece ?>">
+        <button class="go-sensor" type="submit">
           <img src="<?= ROOT_URL ?>/static/image/entreprise/capteur.png" alt="">
         </button>
       </form>

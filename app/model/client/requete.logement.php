@@ -162,36 +162,18 @@ function insererNouveauPartageLogement($bdd, $user_partage) {
 function selectionnerSensor($bdd) {
   $utilisateurId = $_SESSION['id'];
 
-  $query = 'SELECT * FROM logement WHERE id_utilisateur =:utilisateurId';
+  $query = 'SELECT * 
+    FROM logement
+    INNER JOIN  piece
+    ON logement.id = piece.id_logement AND logement.id_utilisateur =:id_utilisateur
+    INNER JOIN objet
+    ON piece.id = objet.id_piece';
   $donnees = $bdd->prepare($query);
-  $donnees->bindParam(":utilisateurId", $utilisateurId);
+  $donnees->bindParam(":id_utilisateur", intval($utilisateurId));
   $donnees->execute();
-  $liste_logement = $donnees->fetchAll();
+  $all = $donnees->fetchAll();
 
-
-  foreach($liste_logement as $key => $logem) {
-
-    $query = 'SELECT * FROM piece WHERE id_logement =:id_logement';
-    $donnees = $bdd->prepare($query);
-    $donnees->bindParam(":id_logement", $logem['id']);
-    $donnees->execute();
-    $liste_piece = $donnees->fetchAll();
-
-    foreach($liste_piece as $key => $piec) {
-      $query = 'SELECT * FROM objet WHERE ic_piece =:id_piece';
-      $donnees = $bdd->prepare($query);
-      $donnees->bindParam(":id_piece", $piec['id']);
-      $donnees->execute();
-      $liste_sensor = $donnees->fetchAll();
-
-      return [
-        'id_logement'              => securitePourXSSFail($logem['id']),
-        'id_piece'                 => securitePourXSSFail($_piec['id']),
-        'id_capteur'               => securitePourXSSFail($_sens['id']),
-      ];
-    }
-
-  }
+  return $all;
 }
 
 ?>
